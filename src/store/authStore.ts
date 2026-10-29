@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import type { UserProfile, AuthState } from '@/features/auth/types'
 import { setAppLanguage } from '@/i18n'
 import { APP_CONFIG, type SupportedLocale } from '@/config/app.config'
+import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
 
 export interface AuthStoreState extends AuthState {
   readonly setAuthenticatedUser: (user: UserProfile) => void
@@ -30,7 +31,7 @@ const getInitialDevSession = (): {
   isAuthenticated: boolean
   authMode: 'development' | 'real'
 } => {
-  if (import.meta.env.DEV && typeof window !== 'undefined') {
+  if (isDevAuthEnabled() && typeof window !== 'undefined') {
     try {
       const raw = window.sessionStorage.getItem(DEV_SESSION_KEY)
       if (raw) {
@@ -76,7 +77,7 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
 
   setAuthenticatedUser: (user: UserProfile) => {
     applyUserPreferredLanguage(user?.preferredLanguage)
-    if (import.meta.env.DEV && typeof window !== 'undefined') {
+    if (isDevAuthEnabled() && typeof window !== 'undefined') {
       try {
         window.sessionStorage.removeItem(DEV_SESSION_KEY)
       } catch {
@@ -92,7 +93,7 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   },
 
   setDevAuthenticatedUser: (user: UserProfile) => {
-    if (!import.meta.env.DEV) {
+    if (!isDevAuthEnabled()) {
       return
     }
     applyUserPreferredLanguage(user?.preferredLanguage)
@@ -112,7 +113,7 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   },
 
   setUnauthenticated: () => {
-    if (import.meta.env.DEV && typeof window !== 'undefined') {
+    if (isDevAuthEnabled() && typeof window !== 'undefined') {
       try {
         window.sessionStorage.removeItem(DEV_SESSION_KEY)
       } catch {

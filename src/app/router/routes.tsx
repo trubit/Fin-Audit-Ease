@@ -6,6 +6,7 @@ import { AppLayout } from '@/layouts/AppLayout'
 import { ProtectedRoute } from './ProtectedRoute'
 import { LoadingSkeleton } from '@/components/feedback/LoadingSkeleton/LoadingSkeleton'
 import { PageContainer } from '@/components/layout/PageContainer/PageContainer'
+import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
 
 // Route Loading Fallback
 const RouteSuspenseFallback = () => (
@@ -42,12 +43,10 @@ const TermsAndConditionsPage = lazy(() =>
   import('@/pages/public/TermsAndConditionsPage').then((m) => ({ default: m.TermsAndConditionsPage }))
 )
 
-// Development Preview Login Page (Development Only)
-const DevLoginPage = import.meta.env.DEV
-  ? lazy(() =>
-      import('@/features/dev-auth/pages/DevLoginPage').then((m) => ({ default: m.DevLoginPage }))
-    )
-  : null
+// Development Preview Login Page
+const DevLoginPage = lazy(() =>
+  import('@/features/dev-auth/pages/DevLoginPage').then((m) => ({ default: m.DevLoginPage }))
+)
 
 // Application Pages (Lazy Loaded)
 const DashboardPage = lazy(() =>
@@ -160,7 +159,7 @@ export const appRoutes: RouteObject[] = [
       // Authentication & Onboarding Route Group (Self-Contained AuthLayout with Brand Badge & Security Footer)
       {
         children: [
-          ...(import.meta.env.DEV && DevLoginPage
+          ...(isDevAuthEnabled()
             ? [
                 {
                   path: '/dev-login',

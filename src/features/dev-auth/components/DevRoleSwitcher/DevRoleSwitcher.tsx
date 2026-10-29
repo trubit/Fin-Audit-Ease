@@ -4,6 +4,7 @@ import { Terminal, RefreshCw, LogOut } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { devAuthService } from '../../services/devAuthService'
+import { isDevAuthEnabled } from '../../utils/isDevAuthEnabled'
 import './DevRoleSwitcher.css'
 
 export const DevRoleSwitcher: React.FC = () => {
@@ -11,8 +12,8 @@ export const DevRoleSwitcher: React.FC = () => {
   const navigate = useNavigate()
   const { user, authMode } = useAuth()
 
-  // Guard: Absolutely disabled in production builds or non-dev sessions
-  if (!import.meta.env.DEV || authMode !== 'development' || !user) {
+  // Guard: Disabled when dev auth is disabled or for non-dev sessions
+  if (!isDevAuthEnabled() || authMode !== 'development' || !user) {
     return null
   }
 

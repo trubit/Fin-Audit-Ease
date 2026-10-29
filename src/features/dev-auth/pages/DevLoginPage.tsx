@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { AuthLayout } from '@/features/auth/components/AuthLayout/AuthLayout'
 import { AuthAlert } from '@/features/auth/components/AuthAlert/AuthAlert'
 import { devAuthService } from '../services/devAuthService'
+import { isDevAuthEnabled } from '../utils/isDevAuthEnabled'
 import type { DevRole } from '../types'
 import './DevLoginPage.css'
 
@@ -13,8 +14,8 @@ export const DevLoginPage: React.FC = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
-  // Guard: Absolutely disabled in production builds
-  if (!import.meta.env.DEV) {
+  // Guard: Disabled when dev auth is explicitly set to false
+  if (!isDevAuthEnabled()) {
     return <Navigate to="/login" replace />
   }
 

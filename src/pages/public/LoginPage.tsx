@@ -13,6 +13,7 @@ import { authService } from '@/features/auth/services/authService'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { useSessionStore } from '@/store/sessionStore'
 import { AppApiError } from '@/services/api/apiErrors'
+import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
 
 export const LoginPage: React.FC = () => {
   const { t } = useTranslation()
@@ -119,7 +120,7 @@ export const LoginPage: React.FC = () => {
             <span>{t('authentication.noAccount')} </span>
             <Link to="/signup">{t('authentication.signUpLink')}</Link>
           </div>
-          {import.meta.env.DEV && (
+          {isDevAuthEnabled() && (
             <div style={{ marginTop: 'var(--spacing-2)', paddingTop: 'var(--spacing-2)', borderTop: '1px dashed var(--color-slate-200)' }}>
               <Link
                 to="/dev-login"

@@ -4,6 +4,7 @@ import { envConfig } from '@/config/env.config'
 import { useSessionStore } from '@/store/sessionStore'
 import { useAuthStore } from '@/store/authStore'
 import { queryClient } from '@/lib/queryClient'
+import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
 
 /**
  * 30-Minute Inactivity Session Hook.
@@ -41,7 +42,7 @@ export const useSessionTimeout = (isAuthenticated = false) => {
         queryClient.clear()
         useAuthStore.getState().setUnauthenticated()
         triggerSessionExpired()
-        if (import.meta.env.DEV && currentAuthMode === 'development') {
+        if (isDevAuthEnabled() && currentAuthMode === 'development') {
           navigate('/dev-login?session_expired=true', { replace: true })
         } else {
           navigate('/login?session_expired=true', { replace: true })
