@@ -1,0 +1,119 @@
+.lifecycle-timeline-root {
+  width: 100%;
+  padding: var(--spacing-4) var(--spacing-5);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.lifecycle-timeline-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 480px;
+}
+
+.lifecycle-timeline-item {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.lifecycle-timeline-item:last-child {
+  flex: 0 0 auto;
+}
+
+.lifecycle-timeline-connector {
+  position: absolute;
+  top: 1rem;
+  right: 50%;
+  left: -50%;
+  height: 2px;
+  background-color: var(--border-subtle);
+  z-index: 1;
+}
+
+.lifecycle-timeline-item.state-completed .lifecycle-timeline-connector {
+  background-color: var(--color-primary-800);
+}
+
+.lifecycle-timeline-item.state-rejected .lifecycle-timeline-connector {
+  background-color: var(--color-danger-500);
+}
+
+.lifecycle-timeline-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.lifecycle-timeline-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-400);
+  border: 2px solid var(--bg-surface);
+  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-2);
+}
+
+.lifecycle-timeline-item.state-completed .lifecycle-timeline-icon {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+}
+
+.lifecycle-timeline-item.state-active .lifecycle-timeline-icon {
+  background-color: #ffffff;
+  color: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+  box-shadow: 0 0 0 3px rgba(26, 107, 74, 0.2);
+}
+
+.lifecycle-timeline-item.state-rejected .lifecycle-timeline-icon {
+  background-color: #fee2e2;
+  color: var(--color-danger-600);
+  border-color: var(--color-danger-600);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.lifecycle-timeline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.lifecycle-timeline-label {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-slate-700);
+}
+
+.lifecycle-timeline-item.state-active .lifecycle-timeline-label,
+.lifecycle-timeline-item.state-completed .lifecycle-timeline-label {
+  color: var(--color-slate-900);
+}
+
+.lifecycle-timeline-item.state-rejected .lifecycle-timeline-label {
+  color: var(--color-danger-700);
+}
+
+.lifecycle-timeline-detail {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  max-width: 9rem;
+}

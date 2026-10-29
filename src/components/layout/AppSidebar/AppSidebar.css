@@ -1,0 +1,405 @@
+.app-sidebar {
+  width: 16.5rem;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width var(--transition-base, 200ms cubic-bezier(0.4, 0, 0.2, 1)),
+              transform var(--transition-base, 200ms cubic-bezier(0.4, 0, 0.2, 1));
+  height: 100%;
+  position: relative;
+  user-select: none;
+}
+
+/* Collapsed Desktop Rail Mode */
+.app-sidebar.is-collapsed {
+  width: 4.75rem;
+}
+
+.app-sidebar-content {
+  padding: var(--spacing-4) var(--spacing-3);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1;
+}
+
+/* Custom Clean Scrollbar for Sidebar */
+.app-sidebar-content::-webkit-scrollbar {
+  width: 4px;
+}
+.app-sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.app-sidebar-content::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+/* Role Orientation Card (Sabi Africa Emerald Elevation) */
+.app-sidebar-role-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: 0.625rem 0.75rem;
+  background: linear-gradient(135deg, rgba(26, 107, 74, 0.05) 0%, rgba(45, 155, 104, 0.09) 100%);
+  border: 1px solid rgba(45, 155, 104, 0.22);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(26, 107, 74, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.app-sidebar.is-collapsed .app-sidebar-role-card {
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.app-sidebar-role-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  background-color: var(--green-light, #e8f5ee);
+  color: var(--green-deep, #1a6b4a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(45, 155, 104, 0.2);
+}
+
+.app-sidebar-role-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.app-sidebar.is-collapsed .app-sidebar-role-meta {
+  display: none;
+}
+
+.app-sidebar-role-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--green-deep, #1a6b4a);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-sidebar-org-name {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-slate-800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Nav Groups */
+.app-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.app-sidebar-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.app-sidebar-group-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: 0 var(--spacing-2);
+  margin-bottom: var(--spacing-1);
+}
+
+.app-sidebar-group-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-slate-600);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.group-title--finance {
+  color: var(--green-deep, #1a6b4a);
+}
+
+.group-title--audit {
+  color: var(--color-slate-800);
+}
+
+.app-sidebar-module-badge {
+  font-size: 0.5625rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.375rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.module-badge--finance {
+  background-color: var(--green-light, #e8f5ee);
+  color: var(--green-deep, #1a6b4a);
+  border: 1px solid rgba(45, 155, 104, 0.3);
+}
+
+.module-badge--audit {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-800);
+  border: 1px solid var(--border-subtle);
+}
+
+.app-sidebar.is-collapsed .app-sidebar-group-title,
+.app-sidebar.is-collapsed .app-sidebar-module-badge {
+  display: none;
+}
+
+.app-sidebar-group-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-subtle);
+  opacity: 0.7;
+}
+
+.app-sidebar.is-collapsed .app-sidebar-group-header {
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.app-sidebar-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Nav Links */
+.app-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: 0.5625rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-slate-700);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  min-height: 2.375rem;
+  position: relative;
+}
+
+.app-sidebar.is-collapsed .app-sidebar-link {
+  justify-content: center;
+  padding: 0.5625rem 0;
+}
+
+.app-sidebar-link:hover {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+}
+
+.app-sidebar-link.is-active {
+  background-color: var(--green-light, #e8f5ee);
+  color: var(--green-deep, #1a6b4a);
+  font-weight: 700;
+  border-left: 3px solid var(--green-deep, #1a6b4a);
+  box-shadow: 0 1px 2px rgba(26, 107, 74, 0.06);
+}
+
+.app-sidebar.is-collapsed .app-sidebar-link.is-active {
+  border-left: none;
+  background-color: var(--green-light, #e8f5ee);
+}
+
+.app-sidebar.is-collapsed .app-sidebar-link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--green-deep, #1a6b4a);
+  border-radius: 0 2px 2px 0;
+}
+
+.app-sidebar-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.app-sidebar-icon {
+  color: var(--color-slate-600);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.app-sidebar-link:hover .app-sidebar-icon {
+  color: var(--color-slate-900);
+}
+
+.app-sidebar-link.is-active .app-sidebar-icon {
+  color: var(--green-deep, #1a6b4a);
+}
+
+.app-sidebar-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.app-sidebar.is-collapsed .app-sidebar-text {
+  display: none;
+}
+
+/* Badge (With Pulse in Expanded Mode, Dot in Collapsed Mode) */
+.app-sidebar-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.375rem;
+  border-radius: var(--radius-full);
+  background-color: var(--green-deep, #1a6b4a);
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.app-sidebar.is-collapsed .app-sidebar-badge {
+  position: absolute;
+  top: 0.375rem;
+  right: 0.75rem;
+  min-width: 0.625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  padding: 0;
+  font-size: 0;
+  border: 1.5px solid var(--bg-surface);
+}
+
+/* Desktop Sidebar Footer Collapse Toggle */
+.app-sidebar-footer {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+}
+
+.app-sidebar.is-collapsed .app-sidebar-footer {
+  padding: var(--spacing-2);
+}
+
+.app-sidebar-collapse-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing-2);
+  padding: 0.5rem var(--spacing-2);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--color-slate-600);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.app-sidebar.is-collapsed .app-sidebar-collapse-btn {
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.app-sidebar-collapse-btn:hover {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+}
+
+.app-sidebar-collapse-btn:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 1px;
+}
+
+.app-sidebar-collapse-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-sidebar-collapse-label {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-sidebar-shortcut {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.375rem;
+  background-color: var(--color-slate-100);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--color-slate-500);
+  font-family: inherit;
+}
+
+.app-sidebar-backdrop {
+  display: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app-sidebar {
+    position: fixed;
+    top: 4.5rem;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-sidebar);
+    transform: translateX(-100%);
+    width: 16.5rem !important;
+  }
+
+  .app-sidebar.is-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .app-sidebar-footer {
+    display: none;
+  }
+
+  .app-sidebar.is-collapsed .app-sidebar-role-meta,
+  .app-sidebar.is-collapsed .app-sidebar-text,
+  .app-sidebar.is-collapsed .app-sidebar-group-title {
+    display: initial;
+  }
+
+  .app-sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 4.5rem 0 0 0;
+    z-index: calc(var(--z-sidebar) - 1);
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+  }
+}

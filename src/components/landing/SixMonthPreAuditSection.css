@@ -1,0 +1,110 @@
+.landing-runway-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+}
+
+.landing-runway-container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.landing-runway-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: var(--brand-gray-light, #f8fafc);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 16px;
+  padding: 2.25rem 1.25rem;
+  overflow-x: auto;
+}
+
+.landing-runway-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 110px;
+  flex: 1;
+}
+
+.runway-node-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-green-800, #0f5938);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.runway-node-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid var(--brand-border, #e2e8e4);
+  color: var(--brand-green-800, #0f5938);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.625rem;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.landing-runway-node:hover .runway-node-icon {
+  border-color: var(--brand-green-400, #2ea869);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 89, 56, 0.15);
+}
+
+.node-start .runway-node-icon {
+  background-color: var(--green-deep, #1a6b4a);
+  color: #ffffff;
+  border-color: var(--green-deep, #1a6b4a);
+}
+
+.node-end .runway-node-icon {
+  background-color: var(--green-light, #e8f5ee);
+  color: var(--green-deep, #1a6b4a);
+  border-color: var(--green-accent, #3dbe80);
+}
+
+.runway-node-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--charcoal, #1c1c1c);
+  line-height: 1.35;
+}
+
+.landing-runway-arrow {
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .landing-runway-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .landing-runway-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .landing-runway-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .landing-runway-track {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

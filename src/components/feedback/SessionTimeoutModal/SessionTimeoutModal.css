@@ -1,0 +1,66 @@
+.session-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4);
+  animation: session-modal-fade 0.2s ease-out;
+}
+
+.session-modal-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  max-width: 28rem;
+  width: 100%;
+  padding: var(--spacing-8);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  border: 1px solid var(--border-subtle);
+}
+
+.session-modal-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-warning-50);
+  color: var(--color-warning-600);
+  margin-bottom: var(--spacing-4);
+}
+
+.session-modal-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-slate-900);
+  margin-bottom: var(--spacing-2);
+}
+
+.session-modal-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-6);
+}
+
+.session-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+@keyframes session-modal-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

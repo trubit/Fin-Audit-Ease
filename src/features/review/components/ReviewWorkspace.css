@@ -1,0 +1,520 @@
+/* Auditor Review Workspace Styles */
+
+.review-workspace-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.review-section-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition-fast);
+}
+
+.review-section-card:hover {
+  border-color: var(--border-normal);
+}
+
+.review-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.review-section-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0;
+}
+
+.review-section-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  line-height: var(--line-height-normal);
+  margin: -0.5rem 0 var(--spacing-4) 0;
+}
+
+.review-ref-code {
+  font-family: var(--font-mono, monospace);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-primary-700);
+  background-color: var(--color-primary-50);
+  border: 1px solid var(--color-primary-200);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.review-badge-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-700);
+}
+
+.review-metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  background-color: var(--color-slate-50);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-slate-200);
+}
+
+.review-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-meta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.review-meta-value {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-slate-900);
+}
+
+.review-meta-overdue {
+  color: var(--color-rose-600);
+}
+
+/* Document Review Area */
+
+.review-empty-docs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8);
+  border: 2px dashed var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-slate-50);
+}
+
+.review-file-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.review-file-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.review-file-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--color-slate-700);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.review-file-tab:hover {
+  background-color: var(--color-slate-50);
+  border-color: var(--border-normal);
+}
+
+.review-file-tab.active {
+  background-color: var(--color-primary-50);
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-800);
+  font-weight: 600;
+}
+
+.review-file-tab-name {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.review-active-doc-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  background-color: var(--color-slate-50);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-slate-200);
+}
+
+.review-doc-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex: 1;
+  min-width: 240px;
+}
+
+.review-doc-icon-wrapper {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-doc-ext-pill {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.review-doc-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-slate-900);
+  margin: 0;
+  word-break: break-all;
+}
+
+.review-version-pill {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-emerald-100, #d1fae5);
+  color: var(--color-emerald-800, #065f46);
+}
+
+.review-doc-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.review-doc-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+/* Private Auditor Notes Card */
+
+.review-notes-card {
+  border-left: 4px solid var(--color-primary-600);
+}
+
+.review-confidential-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-700);
+  border: 1px solid var(--color-slate-300);
+}
+
+.review-empty-notes {
+  padding: var(--spacing-4);
+  text-align: center;
+  background-color: var(--color-slate-50);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-4);
+}
+
+.review-notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
+.review-note-entry {
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+}
+
+.review-note-entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.review-note-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-slate-900);
+}
+
+.review-note-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.review-note-comment {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-800);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.review-note-form {
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.review-note-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-slate-800);
+  margin: 0;
+}
+
+.review-note-textarea {
+  width: 100%;
+  padding: var(--spacing-3);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--color-slate-900);
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+.review-note-textarea:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 1px;
+}
+
+/* Auditor Decision Controls Card */
+
+.review-decision-card {
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--border-subtle);
+}
+
+.review-decision-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-slate-200);
+}
+
+.review-decision-status-hint {
+  display: flex;
+  align-items: center;
+}
+
+.review-decision-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.review-btn-reject {
+  color: var(--color-rose-700);
+  border-color: var(--color-rose-300);
+  background-color: var(--bg-surface);
+}
+
+.review-btn-reject:hover:not(:disabled) {
+  background-color: var(--color-rose-50);
+  border-color: var(--color-rose-400);
+}
+
+.review-btn-approve {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.review-locked-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--color-slate-100);
+  border: 1px solid var(--color-slate-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-700);
+  font-weight: 500;
+}
+
+/* Rejection Notice for Accounting Team */
+
+.review-rejection-notice-card {
+  background-color: var(--color-rose-50, #fff1f2);
+  border: 1px solid var(--color-rose-200, #fecdd3);
+  border-left: 4px solid var(--color-rose-600);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-xs);
+}
+
+.review-rejection-icon-wrapper {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.review-rejection-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-rose-900);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.review-rejection-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-rose-800);
+  line-height: var(--line-height-normal);
+  margin: 0 0 var(--spacing-3) 0;
+}
+
+.review-rejection-reason-box {
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: #ffffff;
+  border: 1px solid var(--color-rose-200);
+  border-radius: var(--radius-md);
+}
+
+.review-rejection-reason-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-rose-900);
+  margin-bottom: 4px;
+}
+
+.review-rejection-reason-text {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-800);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* Common Banners */
+
+.review-success-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-emerald-50, #ecfdf5);
+  border: 1px solid var(--color-emerald-200, #a7f3d0);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-emerald-800, #065f46);
+}
+
+.review-error-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-rose-50, #fff1f2);
+  border: 1px solid var(--color-rose-200, #fecdd3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-rose-800, #9f1239);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .review-active-doc-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .review-doc-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .review-decision-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .review-decision-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .review-decision-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

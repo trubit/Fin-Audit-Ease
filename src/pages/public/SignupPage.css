@@ -1,0 +1,351 @@
+/* FinAuditEase — Unified Premium Signup Card Styles */
+
+.signup-unified-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Segmented Selector / Tabs Control (Section 3 & 4) */
+.signup-unified-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 820px) {
+  .signup-unified-selector {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+}
+
+.signup-tab-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1rem 1.125rem;
+  background-color: var(--brand-white, #ffffff);
+  border: 1.5px solid var(--brand-border, #e2e8e4);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease-in-out);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 4.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  user-select: none;
+}
+
+.signup-tab-btn:hover:not(.active) {
+  background-color: var(--color-slate-50, #f8fafc);
+  border-color: var(--color-primary-300, #a3d9bc);
+  box-shadow: 0 4px 12px rgba(10, 71, 38, 0.04);
+}
+
+.signup-tab-btn:focus-visible {
+  outline: 2px solid var(--brand-green-600, #1a7a4c);
+  outline-offset: 2px;
+}
+
+/* Active State (Section 4) */
+.signup-tab-btn.active {
+  background-color: var(--brand-green-50, #f0fdf4);
+  border-color: var(--brand-green-600, #1a7a4c);
+  box-shadow: 0 4px 16px -2px rgba(20, 108, 67, 0.12);
+}
+
+.signup-tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.signup-tab-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.signup-tab-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 8px;
+  background-color: var(--color-slate-100, #f1f5f9);
+  color: var(--color-slate-600, #475569);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.signup-tab-btn.active .signup-tab-icon-wrap {
+  background-color: var(--brand-green-700, #146c43);
+  color: #ffffff;
+}
+
+.signup-tab-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.signup-tab-title {
+  font-family: var(--font-display, inherit);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-slate-900, #0f172a);
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.signup-tab-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--brand-green-700, #146c43);
+}
+
+.signup-tab-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brand-border, #cbd5e1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  background-color: #ffffff;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.signup-tab-btn.active .signup-tab-indicator {
+  border-color: var(--brand-green-600, #1a7a4c);
+  background-color: var(--brand-green-600, #1a7a4c);
+  color: #ffffff;
+}
+
+.signup-tab-desc {
+  font-size: 0.75rem;
+  color: var(--color-slate-600, #475569);
+  line-height: 1.4;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.signup-tab-btn.active .signup-tab-desc {
+  color: var(--color-slate-800, #1e293b);
+}
+
+/* Subtle Divider (Section 2) */
+.signup-unified-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--brand-border, #e2e8e4);
+  margin: 1.25rem 0 1.5rem 0;
+}
+
+/* Active Form Panel with fast, smooth transition (Section 11) */
+.signup-tab-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+  width: 100%;
+  animation: signupPanelFadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes signupPanelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signup-tab-panel {
+    animation: none;
+  }
+}
+
+.signup-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-subtle, #f1f5f9);
+}
+
+.signup-panel-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-slate-700, #334155);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* Two-column grid on desktop, single on mobile */
+.signup-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4, 1rem);
+}
+
+@media (max-width: 640px) {
+  .signup-form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3, 0.75rem);
+  }
+}
+
+/* Invitation Scope Box inside unified card */
+.signup-invitation-scope-card {
+  padding: 1rem 1.125rem;
+  background-color: var(--color-slate-50, #f8fafc);
+  border: 1px solid var(--color-slate-200, #e2e8e4);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+
+.signup-invitation-scope-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signup-invitation-scope-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-slate-700, #334155);
+}
+
+.signup-invitation-scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 640px) {
+  .signup-invitation-scope-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.signup-invitation-scope-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-slate-800, #1e293b);
+}
+
+/* Success screens */
+.signup-prep-success-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+.signup-prep-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: var(--color-slate-50, #f8fafc);
+  border: 1px solid var(--color-slate-200, #e2e8e4);
+  border-radius: 12px;
+  padding: 1.125rem;
+}
+
+.signup-prep-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.prep-step-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 6px;
+  background-color: var(--brand-green-100, #dcfce7);
+  color: var(--brand-green-800, #146c43);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.prep-step-content h4 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-slate-900, #0f172a);
+  margin: 0 0 2px 0;
+}
+
+.prep-step-content p {
+  font-size: 0.75rem;
+  color: var(--color-slate-600, #475569);
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .signup-tab-btn {
+    padding: 0.875rem 0.75rem;
+    min-height: auto;
+  }
+
+  .signup-tab-header {
+    margin-bottom: 0.35rem;
+  }
+
+  .signup-tab-icon-wrap {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  .signup-tab-title {
+    font-size: 0.8125rem;
+  }
+
+  .signup-tab-desc {
+    font-size: 0.7rem;
+  }
+
+  .signup-invitation-scope-card {
+    padding: 0.875rem 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .signup-prep-steps {
+    padding: 0.875rem 0.75rem;
+  }
+}

@@ -1,0 +1,26 @@
+.landing-solution-section {
+  padding: 5rem 1.5rem 5.5rem 1.5rem;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(61, 190, 128, 0.08), transparent 70%), var(--warm-white, #fafaf7);
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-solution-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.landing-solution-slider-wrapper {
+  margin-top: 1rem;
+}
+
+.landing-solution-slider-wrapper .hero-slider {
+  margin: 1.5rem auto 0;
+}
+
+@media (max-width: 768px) {
+  .landing-solution-section {
+    padding: 3.5rem 1rem 4rem 1rem;
+  }
+}

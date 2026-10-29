@@ -1,0 +1,76 @@
+/* Responsive Styles for Audit Requests List */
+.audit-requests-table-desktop {
+  display: block;
+}
+
+.audit-requests-cards-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .audit-requests-table-desktop {
+    display: none;
+  }
+
+  .audit-requests-cards-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+
+  .audit-request-mobile-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .audit-request-mobile-card:hover {
+    border-color: var(--color-primary-300);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .audit-request-mobile-header {
+    display: flex;
+    justifyContent: space-between;
+    align-items: center;
+    gap: var(--spacing-2);
+    flex-wrap: wrap;
+  }
+
+  .audit-request-mobile-badges {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    flex-wrap: wrap;
+  }
+
+  .audit-request-mobile-title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-slate-900);
+    margin: 0;
+  }
+
+  .audit-request-mobile-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    padding: var(--spacing-2) 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .audit-request-mobile-actions {
+    display: flex;
+    justifyContent: flex-end;
+    align-items: center;
+    margin-top: var(--spacing-1);
+  }
+}

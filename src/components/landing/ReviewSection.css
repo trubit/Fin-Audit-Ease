@@ -1,0 +1,223 @@
+.landing-review-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+}
+
+.landing-review-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.landing-review-console-card {
+  background-color: var(--brand-gray-light, #f8fafc);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 4px 20px -4px rgba(10, 71, 38, 0.05);
+}
+
+.console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+}
+
+.console-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--brand-black, #111827);
+}
+
+.console-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-green-800, #0f5938);
+  background-color: var(--brand-green-50, #f0fdf4);
+  border: 1px solid var(--brand-green-200, #a7f3d0);
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.pulse-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--brand-green-500, #22995e);
+}
+
+.console-decision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.console-decision-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.box-approved {
+  border: 1px solid var(--brand-green-200, #a7f3d0);
+}
+
+.box-rejected {
+  border: 1px solid #fecaca;
+}
+
+.decision-box-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.decision-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-approved {
+  background-color: var(--brand-green-50, #f0fdf4);
+  color: var(--green-deep, #1a6b4a);
+  border: 1px solid var(--brand-green-200, #a7f3d0);
+}
+
+.icon-rejected {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.decision-box-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand-black, #111827);
+  margin: 0;
+}
+
+.decision-box-desc {
+  font-size: 0.875rem;
+  color: var(--brand-charcoal, #1f2937);
+  line-height: 1.55;
+  margin: 0 0 1.25rem 0;
+}
+
+.decision-box-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.tag-approved {
+  background-color: var(--brand-green-50, #f0fdf4);
+  color: var(--brand-green-800, #0f5938);
+}
+
+.tag-rejected {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.console-pathway-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  flex-wrap: wrap;
+}
+
+.pathway-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brand-black, #111827);
+}
+
+.pathway-arrow {
+  color: #cbd5e1;
+}
+
+.step-split {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.split-badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.split-approved {
+  background-color: var(--brand-green-50, #f0fdf4);
+  color: var(--brand-green-800, #0f5938);
+}
+
+.split-rejected {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.split-divider {
+  color: #94a3b8;
+}
+
+.step-return {
+  color: var(--brand-green-800, #0f5938);
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .console-decision-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .landing-review-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .console-pathway-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .pathway-arrow {
+    display: none;
+  }
+}

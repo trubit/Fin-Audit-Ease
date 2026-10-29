@@ -1,0 +1,94 @@
+/* PageContainer — Premium Enterprise Layout Foundation */
+
+.page-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-6, 1.5rem) var(--spacing-4, 1rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container-sm { max-width: 32rem; }
+.page-container-md { max-width: 48rem; }
+.page-container-lg { max-width: 64rem; }
+.page-container-xl { max-width: 80rem; }
+.page-container-full { max-width: 100%; }
+
+/* Page Header Block with Integrated Action Slot */
+.page-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-6, 1.5rem);
+  flex-wrap: wrap;
+  gap: var(--spacing-4, 1rem);
+  width: 100%;
+}
+
+.page-container-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+  min-width: 0;
+  flex: 1 1 18rem;
+}
+
+.page-container-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: 800;
+  color: var(--color-slate-900, #0f172a);
+  line-height: var(--line-height-tight, 1.2);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.page-container-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--text-muted, #64748b);
+  line-height: var(--line-height-normal, 1.5);
+  margin: 0;
+  max-width: 50rem;
+}
+
+.page-container-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.page-container-actions > * {
+  flex-shrink: 0;
+}
+
+/* Mobile Responsiveness: Keep actions visible right near the title */
+@media (max-width: 640px) {
+  .page-container {
+    padding: var(--spacing-4, 1rem) var(--spacing-3, 0.75rem);
+  }
+
+  .page-container-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-3, 0.75rem);
+    margin-bottom: var(--spacing-4, 1rem);
+  }
+
+  .page-container-title {
+    font-size: var(--font-size-xl, 1.25rem);
+  }
+
+  .page-container-actions {
+    width: 100%;
+    justify-content: stretch;
+    gap: var(--spacing-2, 0.5rem);
+  }
+
+  .page-container-actions > * {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}

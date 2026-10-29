@@ -1,0 +1,198 @@
+.audit-engagement-select-card {
+  background-color: var(--color-white, #ffffff);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  margin-bottom: var(--spacing-6);
+}
+
+.audit-select-prompt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.audit-select-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-emerald-50, #ecfdf5);
+  color: var(--color-emerald-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.audit-select-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.audit-select-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Engagement Context Header Card */
+.audit-engagement-header-card {
+  background-color: var(--color-white, #ffffff);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  margin-bottom: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.audit-header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.audit-header-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.audit-header-badges {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.audit-fiscal-pill {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-slate-700);
+  background-color: var(--color-slate-100);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.audit-engagement-name {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0;
+}
+
+.audit-header-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.audit-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.audit-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.audit-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  border-color: var(--color-slate-300);
+}
+
+.audit-export-btn:hover:not(:disabled) {
+  border-color: var(--color-emerald-600);
+  color: var(--color-emerald-700);
+  background-color: var(--color-emerald-50);
+}
+
+/* Locked Notice */
+.audit-locked-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+  color: var(--color-slate-700);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+/* Integrity Strip */
+.audit-integrity-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--color-slate-100);
+}
+
+.audit-integrity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-700);
+}
+
+.audit-shield-icon {
+  color: var(--color-emerald-600);
+}
+
+.audit-integrity-text {
+  font-weight: 500;
+}
+
+.audit-records-count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-slate-600);
+  background-color: var(--color-slate-100);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Error Alert */
+.audit-error-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  background-color: var(--color-rose-50, #fff1f2);
+  border: 1px solid var(--color-rose-200, #fecdd3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-6);
+}
+
+.audit-error-heading {
+  margin: 0 0 4px 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-rose-900);
+}
+
+.audit-error-text {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-rose-700);
+}

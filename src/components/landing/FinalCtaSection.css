@@ -1,0 +1,208 @@
+.landing-final-cta-section {
+  padding: 6.5rem 1.5rem;
+  background-color: var(--brand-white);
+  border-top: 1px solid var(--brand-border);
+}
+
+.landing-final-cta-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Climax Statement */
+.final-climax-statement-wrapper {
+  text-align: center;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.climax-phrase {
+  font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.climax-phrase.phrase-1 {
+  color: #64748b;
+}
+
+.climax-phrase.phrase-2 {
+  color: #334155;
+}
+
+.climax-phrase.phrase-3 {
+  color: var(--green-deep, #1a6b4a);
+  font-weight: 600;
+}
+
+/* Final Action Card */
+.final-cta-card {
+  position: relative;
+  background: var(--green-deep, #1a6b4a);
+  border-radius: 24px;
+  padding: 4.5rem 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 24px 50px -10px rgba(26, 107, 74, 0.38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.final-cta-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(600px, 100%);
+  max-width: 100%;
+  height: 400px;
+  background: radial-gradient(circle at center, rgba(61, 190, 128, 0.30) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.final-cta-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--green-light, #e8f5ee);
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.final-cta-title {
+  font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  max-width: 720px;
+  margin: 0 0 1.25rem 0;
+}
+
+.final-cta-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--green-light, #e8f5ee);
+  max-width: 640px;
+  margin: 0 0 2.5rem 0;
+}
+
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.final-cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #ffffff;
+  color: var(--green-deep, #1a6b4a);
+  padding: 0.875rem 2.25rem;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: all var(--transition-fast);
+}
+
+.final-cta-btn-primary:hover {
+  background-color: var(--green-light, #e8f5ee);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.final-cta-btn-primary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.final-cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  padding: 0.875rem 2rem;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.final-cta-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.final-cta-btn-secondary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.final-cta-attribution {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+  .landing-final-cta-section {
+    padding: 4rem 1rem;
+  }
+
+  .final-cta-card {
+    padding: 3rem 1.5rem;
+  }
+
+  .final-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .final-cta-btn-primary,
+  .final-cta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .final-cta-card {
+    padding: 2.25rem 1rem;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

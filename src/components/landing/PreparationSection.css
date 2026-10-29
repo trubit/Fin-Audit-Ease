@@ -1,0 +1,147 @@
+.landing-prep-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--warm-white, #fafaf7);
+  border-bottom: 1px solid var(--border, #e2e8e4);
+}
+
+.landing-prep-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.landing-prep-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.landing-prep-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border, #e2e8e4);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px -4px rgba(26, 107, 74, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.landing-prep-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--green-mid, #2d9b68);
+  box-shadow: 0 12px 32px -4px rgba(26, 107, 74, 0.12);
+}
+
+.prep-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--brand-border-light, #eef2ef);
+}
+
+.prep-card-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--green-light, #e8f5ee);
+  color: var(--green-deep, #1a6b4a);
+  border: 1px solid rgba(26, 107, 74, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prep-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--charcoal, #1c1c1c);
+  margin: 0 0 0.25rem 0;
+}
+
+.prep-card-desc {
+  font-size: 0.875rem;
+  color: var(--slate, #4a4a4a);
+  margin: 0;
+}
+
+.prep-card-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prep-flow-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  background-color: var(--warm-white, #fafaf7);
+  border: 1px solid var(--border, #e2e8e4);
+  border-radius: 10px;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.prep-flow-item:hover {
+  background-color: #ffffff;
+  border-color: var(--green-mid, #2d9b68);
+}
+
+.prep-flow-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid var(--border, #e2e8e4);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--green-deep, #1a6b4a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prep-flow-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--charcoal, #1c1c1c);
+  flex: 1;
+  margin-left: 0.75rem;
+}
+
+.prep-status-done {
+  color: var(--green-deep, #1a6b4a);
+}
+
+.prep-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--green-accent, #3dbe80);
+}
+
+.prep-status-dot-file {
+  color: var(--green-deep, #1a6b4a);
+}
+
+.prep-flow-connector {
+  display: flex;
+  justify-content: center;
+  color: var(--green-mid, #2d9b68);
+  padding: 0.125rem 0;
+}
+
+@media (max-width: 800px) {
+  .landing-prep-dual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .landing-prep-section {
+    padding: 3.5rem 1rem;
+  }
+}

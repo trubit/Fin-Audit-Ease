@@ -1,0 +1,113 @@
+.pwa-install-banner {
+  position: fixed;
+  bottom: var(--spacing-4, 16px);
+  right: var(--spacing-4, 16px);
+  z-index: 9999;
+  max-width: 420px;
+  width: calc(100% - 32px);
+  animation: pwaSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pwaSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pwa-install-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3, 12px);
+  padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+  background-color: var(--color-slate-900, #0f172a);
+  color: var(--color-slate-50, #f8fafc);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pwa-install-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md, 8px);
+  background: linear-gradient(135deg, var(--color-primary-600, #0F5938), var(--color-primary-800, #093722));
+  color: #fff;
+}
+
+.pwa-install-sparkle {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: #fbbf24;
+}
+
+.pwa-install-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.pwa-install-title {
+  margin: 0;
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.pwa-install-desc {
+  margin: 2px 0 0 0;
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-slate-300, #cbd5e1);
+  line-height: 1.4;
+}
+
+.pwa-install-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  flex-shrink: 0;
+}
+
+.pwa-install-btn {
+  white-space: nowrap;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pwa-dismiss-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: var(--color-slate-400, #94a3b8);
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.pwa-dismiss-btn:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+  .pwa-install-banner {
+    left: var(--spacing-3, 12px);
+    right: var(--spacing-3, 12px);
+    bottom: var(--spacing-3, 12px);
+    width: auto;
+  }
+}

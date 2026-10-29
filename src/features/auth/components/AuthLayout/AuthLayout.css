@@ -1,0 +1,337 @@
+/* FinAuditEase AuthLayout — Elevated Sabi Africa Brand Experience */
+
+.auth-page-wrapper {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f4fbf6 0%, #fafaf7 40%, #f9fbf9 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Radial Glow in background */
+.auth-page-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 100vw);
+  max-width: 100%;
+  height: 500px;
+  background: radial-gradient(circle, rgba(34, 153, 94, 0.07) 0%, rgba(240, 253, 244, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top Navigation Bar */
+.auth-page-header {
+  position: sticky;
+  top: 0;
+  height: 4.5rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+  z-index: var(--z-header, 10);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.auth-header-container {
+  max-width: var(--container-xl, 1280px);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 var(--spacing-6, 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left Brand Lockup */
+.auth-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.auth-header-brand:hover {
+  opacity: 0.92;
+}
+
+.auth-header-sabi-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm, 6px);
+}
+
+.auth-header-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-header-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: 700;
+  color: var(--brand-green-900, #0a4726);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.auth-header-subtitle {
+  font-size: 0.6875rem;
+  color: var(--brand-green-700, #146c43);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Right: Clean Language Selector Container */
+.auth-header-nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.auth-header-lang-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Main Content Area */
+.auth-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem var(--spacing-4, 1rem) 2.5rem var(--spacing-4, 1rem);
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Prominent Sabi Africa Innovations Limited Brand Lockup */
+.auth-brand-prominent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-brand-prominent-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  transition: transform var(--transition-fast, 150ms ease), opacity var(--transition-fast, 150ms ease);
+}
+
+.auth-brand-prominent-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.auth-brand-prominent-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 0.625rem;
+  background-color: #ffffff;
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: 0 4px 14px rgba(10, 71, 38, 0.08);
+}
+
+.auth-brand-prominent-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm, 6px);
+}
+
+.auth-brand-prominent-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.auth-brand-prominent-company {
+  font-family: var(--font-display, inherit);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--brand-green-900, #0a4726);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.auth-brand-prominent-product {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brand-green-700, #146c43);
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 640px) {
+  .auth-brand-prominent-logo {
+    height: 44px;
+  }
+  .auth-brand-prominent-company {
+    font-size: 1rem;
+  }
+  .auth-brand-prominent-product {
+    font-size: 0.75rem;
+  }
+  .auth-brand-prominent {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Card Container */
+.auth-card-container {
+  width: 100%;
+  background-color: var(--brand-white, #ffffff);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px -8px rgba(10, 71, 38, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  padding: 2.25rem;
+  transition: max-width 0.2s ease-in-out;
+}
+
+.auth-card-container.auth-card-sm {
+  max-width: 30rem;
+}
+
+.auth-card-container.auth-card-md {
+  max-width: 44rem;
+}
+
+.auth-card-container.auth-card-lg {
+  max-width: 54rem;
+}
+
+/* Eyebrow Pill */
+.auth-card-eyebrow-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.15rem;
+}
+
+.auth-card-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  background-color: var(--brand-green-50, #f0fdf4);
+  border: 1px solid rgba(20, 108, 67, 0.2);
+  color: var(--brand-green-900, #0a4726);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.auth-card-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--brand-green-500, #22995e);
+}
+
+.auth-card-header {
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.auth-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 1.95rem);
+  font-weight: 700;
+  color: var(--brand-black, #111827);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.auth-card-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  color: var(--color-slate-600, #475569);
+  line-height: 1.6;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.auth-card-body {
+  width: 100%;
+}
+
+.auth-card-footer {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--brand-border-light, #eef2ef);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-slate-600, #475569);
+}
+
+.auth-card-footer a {
+  color: var(--brand-green-700, #146c43);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.auth-card-footer a:hover {
+  color: var(--brand-green-900, #0a4726);
+}
+
+@media (max-width: 640px) {
+  .auth-page-wrapper::before {
+    width: 100%;
+    height: 320px;
+  }
+
+  .auth-header-subtitle {
+    display: none;
+  }
+
+  .auth-card-container {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .auth-main-content {
+    padding: 1.25rem 0.875rem 2rem 0.875rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 420px) {
+  .auth-card-container {
+    padding: 1.25rem 0.75rem;
+    border-radius: 14px;
+  }
+
+  .auth-main-content {
+    padding: 1rem 0.5rem 1.5rem 0.5rem;
+  }
+
+  .auth-card-title {
+    font-size: 1.45rem;
+  }
+}

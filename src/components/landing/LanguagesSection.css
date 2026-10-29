@@ -1,0 +1,122 @@
+.landing-lang-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+}
+
+.landing-lang-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.landing-lang-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.landing-lang-card {
+  background-color: #ffffff;
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.landing-lang-card:hover {
+  border-color: var(--green-mid, #2d9b68);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px -2px rgba(26, 107, 74, 0.1);
+}
+
+.landing-lang-card.active-lang {
+  border-color: var(--green-deep, #1a6b4a);
+  background-color: var(--green-light, #e8f5ee);
+  box-shadow: 0 0 0 1px var(--green-deep, #1a6b4a);
+}
+
+.lang-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.lang-flag {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.lang-check-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--brand-green-800, #0f5938);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.lang-full-name {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--brand-black, #111827);
+  margin-bottom: 0.2rem;
+}
+
+.lang-native-title {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--brand-green-800, #0f5938);
+  margin-bottom: 0.5rem;
+}
+
+.lang-glyph-note {
+  font-size: 0.6875rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.landing-lang-prompt-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--brand-gray-light, #f8fafc);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: var(--brand-charcoal, #1f2937);
+  text-align: center;
+}
+
+.lang-globe-icon {
+  color: var(--green-deep, #1a6b4a);
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .landing-lang-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-lang-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+.inline-error-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--color-danger-600);
+  font-size: var(--font-size-xs);
+  margin-top: var(--spacing-1);
+}
+
+.inline-error-icon {
+  flex-shrink: 0;
+}
+
+.inline-error-text {
+  line-height: var(--line-height-tight);
+}

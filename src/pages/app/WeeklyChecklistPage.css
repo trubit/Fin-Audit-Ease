@@ -1,0 +1,89 @@
+.weekly-page-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.weekly-context-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4) var(--spacing-5);
+}
+
+.weekly-period-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.weekly-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.weekly-metric-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  box-shadow: var(--shadow-xs);
+}
+
+.weekly-metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.weekly-metric-icon.icon-emerald {
+  background-color: var(--color-emerald-50, #ecfdf5);
+  color: var(--color-emerald-700, #047857);
+}
+
+.weekly-metric-icon.icon-amber {
+  background-color: var(--color-amber-50, #fffbeb);
+  color: var(--color-amber-700, #b45309);
+}
+
+.weekly-metric-icon.icon-rose {
+  background-color: var(--color-rose-50, #fff1f2);
+  color: var(--color-rose-700, #be123c);
+}
+
+.weekly-metric-icon.icon-slate {
+  background-color: var(--color-slate-100, #f1f5f9);
+  color: var(--color-slate-700, #334155);
+}
+
+.weekly-metric-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.weekly-metric-label {
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+
+.weekly-metric-number {
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 2px 0 0;
+}

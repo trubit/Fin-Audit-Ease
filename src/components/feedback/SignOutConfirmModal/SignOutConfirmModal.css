@@ -1,0 +1,183 @@
+/* FinAuditEase — SignOutConfirmModal Styles */
+
+.sign-out-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal, 1000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4, 1rem);
+  animation: fadeInModal 0.2s ease-out forwards;
+}
+
+.sign-out-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 24, 17, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sign-out-modal-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 29rem;
+  background: var(--brand-white, #ffffff);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 20px;
+  box-shadow: 0 24px 48px -12px rgba(10, 35, 20, 0.25), 0 8px 16px rgba(0, 0, 0, 0.06);
+  padding: 2.25rem 2rem;
+  text-align: center;
+  transform: translateY(0);
+  animation: scaleInCard 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sign-out-modal-close {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  background: transparent;
+  border: none;
+  color: var(--color-slate-400, #94a3b8);
+  padding: 0.35rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.sign-out-modal-close:hover {
+  background-color: var(--color-slate-100, #f1f5f9);
+  color: var(--color-slate-700, #334155);
+}
+
+.sign-out-modal-close:focus-visible {
+  outline: 2px solid var(--brand-green-600, #168a53);
+  outline-offset: 2px;
+}
+
+.sign-out-modal-icon-badge {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+}
+
+.sign-out-modal-icon-inner {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.12);
+}
+
+.sign-out-icon-shield {
+  color: #dc2626;
+}
+
+.sign-out-modal-title {
+  font-family: var(--font-display, inherit);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-slate-900, #0f172a);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+
+.sign-out-modal-description {
+  font-size: 0.9rem;
+  color: var(--color-slate-600, #475569);
+  line-height: 1.55;
+  margin: 0 0 1.25rem 0;
+}
+
+.sign-out-modal-security-list {
+  background-color: #f8fafc;
+  border: 1px solid var(--color-slate-200, #e2e8f0);
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sign-out-security-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-slate-700, #334155);
+  font-weight: 500;
+}
+
+.sign-out-check-bullet {
+  color: var(--brand-green-700, #146c43);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.sign-out-modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.sign-out-btn-cancel {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+}
+
+.sign-out-btn-confirm {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sign-out-btn-confirm:hover:not(:disabled) {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleInCard {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-out-modal-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .sign-out-modal-actions {
+    grid-template-columns: 1fr;
+  }
+}

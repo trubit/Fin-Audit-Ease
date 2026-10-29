@@ -1,0 +1,124 @@
+.comm-top-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.comm-main-nav {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--spacing-2);
+  overflow-x: auto;
+}
+
+.comm-main-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.comm-main-nav-btn:hover {
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-main);
+}
+
+.comm-main-nav-btn.is-active {
+  background-color: var(--bg-surface);
+  color: var(--color-brand-600);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.comm-workspace-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  height: calc(100vh - 14rem);
+  min-height: 540px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.comm-loading-container {
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.comm-split-view {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.comm-split-left {
+  height: 100%;
+  overflow: hidden;
+}
+
+.comm-split-right {
+  height: 100%;
+  overflow: hidden;
+}
+
+.comm-full-pane {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .comm-split-view {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .comm-workspace-card {
+    height: calc(100vh - 12rem);
+    min-height: 480px;
+  }
+
+  .comm-split-view {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comm-split-view.show-list .comm-split-left {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .comm-split-view.show-list .comm-split-right {
+    display: none;
+  }
+
+  .comm-split-view.show-chat .comm-split-left {
+    display: none;
+  }
+
+  .comm-split-view.show-chat .comm-split-right {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}

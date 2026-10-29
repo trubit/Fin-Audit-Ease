@@ -1,0 +1,101 @@
+.dev-role-switcher-banner {
+  background-color: var(--color-amber-50, #fffbeb);
+  border-bottom: 1px solid var(--color-amber-300, #fcd34d);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-amber-900, #78350f);
+  position: relative;
+  z-index: 40;
+}
+
+.dev-role-switcher-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.dev-role-switcher-badge-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.dev-role-switcher-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  background-color: var(--color-amber-200, #fde68a);
+  color: var(--color-amber-950, #451a03);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.dev-role-switcher-text {
+  color: var(--color-slate-700);
+}
+
+.dev-role-switcher-role-val {
+  font-weight: 600;
+  color: var(--color-slate-900);
+}
+
+.dev-role-switcher-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+.dev-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.dev-switcher-btn-switch {
+  background-color: var(--color-white, #ffffff);
+  border-color: var(--color-amber-300, #fcd34d);
+  color: var(--color-amber-900, #78350f);
+}
+
+.dev-switcher-btn-switch:hover {
+  background-color: var(--color-amber-100, #fef3c7);
+  border-color: var(--color-amber-400, #fbbf24);
+}
+
+.dev-switcher-btn-switch:focus-visible {
+  outline: 2px solid var(--color-amber-500);
+  outline-offset: 1px;
+}
+
+.dev-switcher-btn-exit {
+  background-color: transparent;
+  color: var(--color-slate-600);
+  border-color: var(--color-slate-300);
+}
+
+.dev-switcher-btn-exit:hover {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+}
+
+.dev-switcher-btn-exit:focus-visible {
+  outline: 2px solid var(--color-slate-500);
+  outline-offset: 1px;
+}

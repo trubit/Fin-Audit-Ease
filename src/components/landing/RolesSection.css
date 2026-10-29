@@ -1,0 +1,122 @@
+.landing-roles-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--brand-border, #e2e8e4);
+}
+
+.landing-roles-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.landing-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.landing-role-card {
+  background-color: #ffffff;
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px -4px rgba(10, 71, 38, 0.05);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.landing-role-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-green-300, #6ee7b7);
+  box-shadow: 0 8px 24px -4px rgba(10, 71, 38, 0.08);
+}
+
+.role-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.role-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--green-light, #e8f5ee);
+  border: 1px solid rgba(26, 107, 74, 0.2);
+  color: var(--green-deep, #1a6b4a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.role-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--charcoal, #1c1c1c);
+  margin: 0;
+}
+
+.role-card-desc {
+  font-size: 0.88rem;
+  font-weight: 450;
+  color: var(--slate, #4a4a4a);
+  line-height: 1.65;
+  margin: 0 0 1.5rem 0;
+  flex: 1;
+}
+
+.role-capabilities-list {
+  border-top: 1px solid var(--brand-border-light, #eef2ef);
+  padding-top: 1.25rem;
+}
+
+.capabilities-heading {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-green-800, #0f5938);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.capabilities-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.capability-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--brand-charcoal, #1f2937);
+  line-height: 1.45;
+}
+
+.capability-check {
+  color: var(--brand-green-600, #1a7a4c);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 960px) {
+  .landing-roles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .landing-roles-section {
+    padding: 3.5rem 1rem;
+  }
+}

@@ -1,0 +1,79 @@
+/* Review Page Responsive Styles */
+
+.review-table-desktop {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.review-cards-mobile {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+@media (max-width: 768px) {
+  .review-table-desktop {
+    display: none;
+  }
+
+  .review-cards-mobile {
+    display: flex;
+  }
+}
+
+.review-mobile-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition-fast);
+}
+
+.review-mobile-card:hover {
+  border-color: var(--color-primary-300);
+}
+
+.review-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.review-mobile-badges {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+.review-mobile-title {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0;
+  line-height: var(--line-height-snug);
+}
+
+.review-mobile-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-2);
+  font-size: var(--font-size-xs);
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.review-mobile-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--border-subtle);
+}
