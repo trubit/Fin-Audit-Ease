@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a6b4a"/>
+      <stop offset="100%" stop-color="#134e35"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a6b4a"/>
+      <stop offset="100%" stop-color="#2d9b68"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4" stroke-width="1"/>
+  <!-- Brand Logo -->
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff" opacity="0.9"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- Header Right Utilities -->
+  <rect x="1350" y="18" width="80" height="30" rx="6" fill="#f5f0e8" stroke="#e2e8e4"/>
+  <text x="1390" y="38" font-size="12" fill="#4a4a4a" text-anchor="middle">🌐 EN (UK)</text>
+  <circle cx="1455" cy="33" r="14" fill="#e8f5ee"/>
+  <text x="1455" y="37" font-size="12" fill="#1a6b4a" text-anchor="middle">🔔</text>
+  <circle cx="1463" cy="24" r="5" fill="#ef4444"/>
+  <rect x="1485" y="14" width="95" height="36" rx="6" fill="#ffffff" stroke="#e2e8e4"/>
+  <circle cx="1505" cy="32" r="12" fill="#1a6b4a"/>
+  <text x="1505" y="36" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">SA</text>
+  <text x="1538" y="36" font-size="12" font-weight="600" fill="#1c1c1c">Admin</text>
+
+  <!-- SIDEBAR (DESKTOP) -->
+  <rect x="0" y="64" width="240" height="1036" fill="#ffffff" stroke="#e2e8e4" stroke-width="1"/>
+  <!-- Admin Role Card in Sidebar -->
+  <rect x="16" y="80" width="208" height="52" rx="8" fill="#e8f5ee" stroke="#2d9b68" stroke-width="0.5"/>
+  <text x="32" y="102" font-size="12" font-weight="700" fill="#1a6b4a">SYSTEM ADMINISTRATOR</text>
+  <text x="32" y="120" font-size="11" fill="#4a4a4a">Sabi Africa Innovations Ltd</text>
+
+  <!-- Nav Items -->
+  <rect x="16" y="145" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="168" font-size="13" font-weight="600" fill="#ffffff">📊 Admin Dashboard</text>
+  
+  <text x="24" y="210" font-size="10" font-weight="700" fill="#8a8a8a" letter-spacing="1">DIRECTORY &amp; ACCESS</text>
+  <text x="32" y="236" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="270" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="304" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  
+  <text x="24" y="346" font-size="10" font-weight="700" fill="#8a8a8a" letter-spacing="1">OPERATIONAL OVERSIGHT</text>
+  <text x="32" y="372" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="406" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  
+  <text x="24" y="448" font-size="10" font-weight="700" fill="#8a8a8a" letter-spacing="1">GOVERNANCE &amp; SECURITY</text>
+  <text x="32" y="474" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="508" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="542" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  
+  <text x="24" y="584" font-size="10" font-weight="700" fill="#8a8a8a" letter-spacing="1">SYSTEM</text>
+  <text x="32" y="610" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <!-- Breadcrumb & Header -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Dashboard</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Administrator Command Dashboard</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Platform oversight, tenant engagements, user activities, and governance health.</text>
+
+  <!-- STAT METRICS ROW -->
+  <!-- Card 1: Users -->
+  <rect x="270" y="175" width="230" height="110" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <rect x="270" y="175" width="6" height="110" rx="3" fill="#1a6b4a"/>
+  <text x="290" y="202" font-size="12" font-weight="600" fill="#8a8a8a">REGISTERED USERS</text>
+  <text x="290" y="240" font-size="32" font-weight="800" fill="#1c1c1c">184</text>
+  <text x="290" y="265" font-size="11" fill="#2d9b68">✓ 62 Auditors • 114 Finance • 8 Admins</text>
+
+  <!-- Card 2: Organisations -->
+  <rect x="520" y="175" width="230" height="110" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <rect x="520" y="175" width="6" height="110" rx="3" fill="#2d9b68"/>
+  <text x="540" y="202" font-size="12" font-weight="600" fill="#8a8a8a">ORGANISATIONS</text>
+  <text x="540" y="240" font-size="32" font-weight="800" fill="#1c1c1c">28</text>
+  <text x="540" y="265" font-size="11" fill="#4a4a4a">12 Audit Practices • 16 Clients</text>
+
+  <!-- Card 3: Engagements -->
+  <rect x="770" y="175" width="230" height="110" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <rect x="770" y="175" width="6" height="110" rx="3" fill="#3dbe80"/>
+  <text x="790" y="202" font-size="12" font-weight="600" fill="#8a8a8a">ACTIVE ENGAGEMENTS</text>
+  <text x="790" y="240" font-size="32" font-weight="800" fill="#1c1c1c">34</text>
+  <text x="790" y="265" font-size="11" fill="#2d9b68">21 In-Progress • 9 In-Review • 4 Overdue</text>
+
+  <!-- Card 4: Security Alerts -->
+  <rect x="1020" y="175" width="230" height="110" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <rect x="1020" y="175" width="6" height="110" rx="3" fill="#f59e0b"/>
+  <text x="1040" y="202" font-size="12" font-weight="600" fill="#8a8a8a">SECURITY &amp; SYSTEM HEALTH</text>
+  <text x="1040" y="240" font-size="32" font-weight="800" fill="#1c1c1c">99.98%</text>
+  <text x="1040" y="265" font-size="11" fill="#2d9b68">● All Systems Operational • 2FA Enforced</text>
+
+  <!-- WIDGET 1: ENGAGEMENT OVERSIGHT PROGRESS (DESKTOP) -->
+  <rect x="270" y="310" width="580" height="340" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <text x="295" y="342" font-size="16" font-weight="700" fill="#1c1c1c">Tenant Engagement Oversight</text>
+  <text x="295" y="360" font-size="12" fill="#8a8a8a">Active statutory audits and document request readiness</text>
+
+  <!-- Row 1 -->
+  <rect x="295" y="380" width="530" height="60" rx="8" fill="#fafaf7" stroke="#e2e8e4"/>
+  <text x="310" y="405" font-size="13" font-weight="700" fill="#1c1c1c">Zenith Energy &amp; Infrastructure Plc — FY2025 Audit</text>
+  <text x="310" y="423" font-size="11" fill="#4a4a4a">Lead: Dr. Ibrahim Babatunde (Apex Assurance) • Target: 15 Dec 2026</text>
+  <rect x="680" y="398" width="60" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="710" y="413" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <rect x="310" y="430" width="400" height="4" rx="2" fill="#e2e8e4"/>
+  <rect x="310" y="430" width="310" height="4" rx="2" fill="#1a6b4a"/>
+  <text x="720" y="434" font-size="10" fill="#1a6b4a" font-weight="bold">78%</text>
+
+  <!-- Row 2 -->
+  <rect x="295" y="455" width="530" height="60" rx="8" fill="#fafaf7" stroke="#e2e8e4"/>
+  <text x="310" y="480" font-size="13" font-weight="700" fill="#1c1c1c">Nigerian Bottling &amp; Beverages Ltd — Interim Audit</text>
+  <text x="310" y="498" font-size="11" fill="#4a4a4a">Lead: Victoria Okonkwo (Deloitte &amp; Touche NG) • Target: 28 Nov 2026</text>
+  <rect x="680" y="473" width="70" height="22" rx="4" fill="#fef3c7"/>
+  <text x="715" y="488" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">IN REVIEW</text>
+  <rect x="310" y="505" width="400" height="4" rx="2" fill="#e2e8e4"/>
+  <rect x="310" y="505" width="370" height="4" rx="2" fill="#2d9b68"/>
+  <text x="720" y="509" font-size="10" fill="#2d9b68" font-weight="bold">92%</text>
+
+  <!-- Row 3 -->
+  <rect x="295" y="530" width="530" height="60" rx="8" fill="#fafaf7" stroke="#e2e8e4"/>
+  <text x="310" y="555" font-size="13" font-weight="700" fill="#1c1c1c">Afrinvest West Africa Capital — Statutory Year-End</text>
+  <text x="310" y="573" font-size="11" fill="#4a4a4a">Lead: Aliyu Mohammed (PwC Nigeria) • Overdue: 3 days</text>
+  <rect x="680" y="548" width="70" height="22" rx="4" fill="#fee2e2"/>
+  <text x="715" y="563" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">OVERDUE</text>
+  <rect x="310" y="580" width="400" height="4" rx="2" fill="#e2e8e4"/>
+  <rect x="310" y="580" width="180" height="4" rx="2" fill="#b91c1c"/>
+  <text x="720" y="584" font-size="10" fill="#b91c1c" font-weight="bold">45%</text>
+
+  <text x="560" y="630" font-size="12" font-weight="700" fill="#1a6b4a" text-anchor="middle">View All 34 Engagements →</text>
+
+  <!-- WIDGET 2: RECENT AUDIT TRAIL ACTIVITIES (DESKTOP) -->
+  <rect x="870" y="310" width="380" height="340" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <text x="895" y="342" font-size="16" font-weight="700" fill="#1c1c1c">Recent Administrative Actions</text>
+  <text x="895" y="360" font-size="12" fill="#8a8a8a">Immutable compliance ledger events</text>
+
+  <!-- Activity 1 -->
+  <circle cx="910" cy="395" r="5" fill="#1a6b4a"/>
+  <text x="925" y="392" font-size="12" font-weight="700" fill="#1c1c1c">User Role Updated</text>
+  <text x="925" y="408" font-size="11" fill="#4a4a4a">Dr. Babatunde granted AUDIT_MANAGER</text>
+  <text x="925" y="422" font-size="10" fill="#8a8a8a">12 mins ago • IP: 102.89.44.12 • SHA-256 ✓</text>
+
+  <!-- Activity 2 -->
+  <circle cx="910" cy="455" r="5" fill="#2d9b68"/>
+  <text x="925" y="452" font-size="12" font-weight="700" fill="#1c1c1c">New Organisation Registered</text>
+  <text x="925" y="468" font-size="11" fill="#4a4a4a">Prime Advisory &amp; Assurance Firm</text>
+  <text x="925" y="482" font-size="10" fill="#8a8a8a">1 hour ago • Self-service onboarding</text>
+
+  <!-- Activity 3 -->
+  <circle cx="910" cy="515" r="5" fill="#f59e0b"/>
+  <text x="925" y="512" font-size="12" font-weight="700" fill="#1c1c1c">Security Policy Modified</text>
+  <text x="925" y="528" font-size="11" fill="#4a4a4a">Session Inactivity Timeout set to 15m</text>
+  <text x="925" y="542" font-size="10" fill="#8a8a8a">3 hours ago • Admin SA • Hash: 8f4a...e1</text>
+
+  <!-- Activity 4 -->
+  <circle cx="910" cy="575" r="5" fill="#3b82f6"/>
+  <text x="925" y="572" font-size="12" font-weight="700" fill="#1c1c1c">Audit Trail Batch Exported</text>
+  <text x="925" y="588" font-size="11" fill="#4a4a4a">FY2025 Zenith Energy Audit Logs (PDF)</text>
+  <text x="925" y="602" font-size="10" fill="#8a8a8a">5 hours ago • Regulatory Archive</text>
+
+  <!-- TABLET VIEW SECTION (PREVIEW BOX) -->
+  <rect x="1270" y="175" width="310" height="475" rx="10" fill="#f5f0e8" stroke="#e2e8e4"/>
+  <rect x="1285" y="190" width="280" height="28" rx="4" fill="#1a6b4a"/>
+  <text x="1425" y="209" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">TABLET BREAKPOINT (768px - 1024px)</text>
+  <text x="1285" y="235" font-size="11" fill="#4a4a4a">● Sidebar folds to 68px Icon Dock</text>
+  <text x="1285" y="255" font-size="11" fill="#4a4a4a">● 2x2 Grid for Top KPI Metric Cards</text>
+  <text x="1285" y="275" font-size="11" fill="#4a4a4a">● Horizontal scrolling data tables</text>
+  <text x="1285" y="295" font-size="11" fill="#4a4a4a">● Tap target optimization (min 44px)</text>
+  
+  <!-- Mini Tablet Mockup -->
+  <rect x="1300" y="320" width="250" height="180" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <!-- Mini Header -->
+  <rect x="1300" y="320" width="250" height="18" fill="#1a6b4a"/>
+  <!-- Mini Mini Sidebar Dock -->
+  <rect x="1300" y="338" width="26" height="162" fill="#e8f5ee"/>
+  <circle cx="1313" cy="350" r="4" fill="#1a6b4a"/>
+  <circle cx="1313" cy="365" r="4" fill="#2d9b68"/>
+  <circle cx="1313" cy="380" r="4" fill="#2d9b68"/>
+  <!-- Mini Mini 2x2 KPI Cards -->
+  <rect x="1335" y="345" width="95" height="35" rx="3" fill="#fafaf7" stroke="#e2e8e4"/>
+  <rect x="1440" y="345" width="95" height="35" rx="3" fill="#fafaf7" stroke="#e2e8e4"/>
+  <rect x="1335" y="390" width="95" height="35" rx="3" fill="#fafaf7" stroke="#e2e8e4"/>
+  <rect x="1440" y="390" width="95" height="35" rx="3" fill="#fafaf7" stroke="#e2e8e4"/>
+  <!-- Mini Table -->
+  <rect x="1335" y="435" width="200" height="55" rx="3" fill="#ffffff" stroke="#e2e8e4"/>
+  <line x1="1335" y1="450" x2="1535" y2="450" stroke="#e2e8e4"/>
+
+  <!-- MOBILE VIEW SECTION (PREVIEW BOX) -->
+  <rect x="1270" y="670" width="310" height="410" rx="10" fill="#f5f0e8" stroke="#e2e8e4"/>
+  <rect x="1285" y="685" width="280" height="28" rx="4" fill="#1c1c1c"/>
+  <text x="1425" y="704" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">MOBILE BREAKPOINT (&lt; 768px)</text>
+  <text x="1285" y="730" font-size="11" fill="#4a4a4a">● Full drawer menu with hamburger trigger</text>
+  <text x="1285" y="750" font-size="11" fill="#4a4a4a">● Stacked single-column card flows</text>
+  <text x="1285" y="770" font-size="11" fill="#4a4a4a">● Bottom sheet drawers for quick filters</text>
+  
+  <!-- Mini Phone Mockup -->
+  <rect x="1350" y="790" width="150" height="270" rx="16" fill="#ffffff" stroke="#1c1c1c" stroke-width="2"/>
+  <rect x="1395" y="796" width="60" height="4" rx="2" fill="#cbd5e1"/>
+  <rect x="1350" y="805" width="150" height="24" fill="#1a6b4a"/>
+  <text x="1360" y="821" font-size="9" fill="#ffffff">☰ FinAuditEase</text>
+  <rect x="1358" y="836" width="134" height="45" rx="4" fill="#e8f5ee"/>
+  <text x="1365" y="852" font-size="9" font-weight="bold" fill="#1a6b4a">184 Users</text>
+  <rect x="1358" y="888" width="134" height="45" rx="4" fill="#fafaf7" stroke="#e2e8e4"/>
+  <text x="1365" y="904" font-size="9" font-weight="bold" fill="#1c1c1c">34 Engagements</text>
+  <rect x="1358" y="940" width="134" height="90" rx="4" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="1365" y="955" font-size="8" font-weight="bold" fill="#1c1c1c">Zenith Energy FY25</text>
+  <rect x="1365" y="962" width="100" height="3" fill="#1a6b4a"/>
+
+  <!-- BOTTOM PLATFORM CALLOUT -->
+  <rect x="270" y="670" width="980" height="150" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#cardShadow)"/>
+  <text x="295" y="700" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase Platform Infrastructure &amp; Backend Contract Status</text>
+  <text x="295" y="722" font-size="12" fill="#4a4a4a">Enterprise assurance infrastructure deployed across Nigeria &amp; West Africa compliance jurisdictions.</text>
+  <rect x="295" y="740" width="220" height="60" rx="6" fill="#e8f5ee"/>
+  <text x="310" y="760" font-size="12" font-weight="700" fill="#1a6b4a">Multi-Tenant Isolation</text>
+  <text x="310" y="780" font-size="11" fill="#4a4a4a">Strict tenant-bound data boundaries</text>
+
+  <rect x="535" y="740" width="220" height="60" rx="6" fill="#e8f5ee"/>
+  <text x="550" y="760" font-size="12" font-weight="700" fill="#1a6b4a">Cryptographic Ledger</text>
+  <text x="550" y="780" font-size="11" fill="#4a4a4a">WORM tamper-evident logs</text>
+
+  <rect x="775" y="740" width="220" height="60" rx="6" fill="#e8f5ee"/>
+  <text x="790" y="760" font-size="12" font-weight="700" fill="#1a6b4a">Regulatory Retention</text>
+  <text x="790" y="780" font-size="11" fill="#4a4a4a">7-year statutory audit archiving</text>
+
+  <rect x="1015" y="740" width="215" height="60" rx="6" fill="#e8f5ee"/>
+  <text x="1030" y="760" font-size="12" font-weight="700" fill="#1a6b4a">5-Language Engine</text>
+  <text x="1030" y="780" font-size="11" fill="#4a4a4a">EN, YO, IG, HA, PCM active</text>
+</svg>

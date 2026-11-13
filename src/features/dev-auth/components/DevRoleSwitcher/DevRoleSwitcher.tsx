@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { Terminal, RefreshCw, LogOut } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/features/auth/hooks/useAuth'
+import { formatUserRole } from '@/features/auth/utils/roleUtils'
 import { devAuthService } from '../../services/devAuthService'
 import { isDevAuthEnabled } from '../../utils/isDevAuthEnabled'
+import type { DevRole } from '../../types'
 import './DevRoleSwitcher.css'
 
 export const DevRoleSwitcher: React.FC = () => {
@@ -17,13 +19,25 @@ export const DevRoleSwitcher: React.FC = () => {
     return null
   }
 
-  const isAuditor = user.role === 'AUDITOR'
+  const roleTitle = formatUserRole(user.role, t)
 
-  const handleSwitchRole = () => {
-    const nextRole = isAuditor ? 'FINANCE_USER' : 'AUDITOR'
+  const handleSwitchRole = (targetRole?: DevRole) => {
+    let nextRole: DevRole
+    if (targetRole) {
+      nextRole = targetRole
+    } else if (user.role === 'AUDITOR') {
+      nextRole = 'FINANCE_USER'
+    } else if (user.role === 'FINANCE_USER') {
+      nextRole = 'ADMIN'
+    } else {
+      nextRole = 'AUDITOR'
+    }
     devAuthService.switchDevRole(nextRole)
-    // Direct back to dashboard so that the appropriate role dashboard re-evaluates
-    navigate('/dashboard')
+    if (nextRole === 'ADMIN') {
+      navigate('/admin/dashboard')
+    } else {
+      navigate('/dashboard')
+    }
   }
 
   const handleExit = () => {
@@ -46,7 +60,7 @@ export const DevRoleSwitcher: React.FC = () => {
           <span className="dev-role-switcher-text">
             {t('devAuth.currentRole')}{' '}
             <span className="dev-role-switcher-role-val">
-              {isAuditor ? t('devAuth.auditorRole') : t('devAuth.financeRole')}
+              {roleTitle}
             </span>
           </span>
         </div>
@@ -55,11 +69,11 @@ export const DevRoleSwitcher: React.FC = () => {
           <button
             type="button"
             className="dev-switcher-btn dev-switcher-btn-switch"
-            onClick={handleSwitchRole}
-            aria-label={isAuditor ? t('devAuth.switchToFinance') : t('devAuth.switchToAuditor')}
+            onClick={() => handleSwitchRole()}
+            aria-label="Cycle Dev Role"
           >
             <RefreshCw size={13} aria-hidden="true" />
-            <span>{isAuditor ? t('devAuth.switchToFinance') : t('devAuth.switchToAuditor')}</span>
+            <span>Switch Role ({user.role === 'AUDITOR' ? 'Finance' : user.role === 'FINANCE_USER' ? 'Admin' : 'Auditor'})</span>
           </button>
 
           <button

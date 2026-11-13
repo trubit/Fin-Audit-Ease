@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="248" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="288" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <text x="32" y="328" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="368" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <text x="32" y="408" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <rect x="16" y="435" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="458" font-size="13" font-weight="600" fill="#ffffff">🛡️ Security Centre</text>
+  <text x="32" y="500" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="540" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Governance  /  Security Centre</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Platform Security &amp; Access Defence Centre</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Monitor login telemetry, two-factor authentication compliance, session activities, and threat mitigations.</text>
+
+  <!-- SECURITY KPI CARDS -->
+  <rect x="270" y="180" width="300" height="100" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="290" y="205" font-size="11" font-weight="700" fill="#8a8a8a">2FA ADOPTION &amp; ENFORCEMENT</text>
+  <text x="290" y="240" font-size="28" font-weight="800" fill="#1a6b4a">100%</text>
+  <text x="290" y="260" font-size="11" fill="#2d9b68">✓ Enforced across all privileged roles</text>
+
+  <rect x="590" y="180" width="300" height="100" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="610" y="205" font-size="11" font-weight="700" fill="#8a8a8a">ACTIVE CONCURRENT SESSIONS</text>
+  <text x="610" y="240" font-size="28" font-weight="800" fill="#1c1c1c">47</text>
+  <text x="610" y="260" font-size="11" fill="#4a4a4a">Session Inactivity Timeout: 15 mins</text>
+
+  <rect x="910" y="180" width="300" height="100" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="930" y="205" font-size="11" font-weight="700" fill="#8a8a8a">FAILED LOGIN ATTEMPTS (24H)</text>
+  <text x="930" y="240" font-size="28" font-weight="800" fill="#1c1c1c">0</text>
+  <text x="930" y="260" font-size="11" fill="#2d9b68">● Zero suspicious brute-force activity</text>
+
+  <rect x="1230" y="180" width="320" height="100" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="1250" y="205" font-size="11" font-weight="700" fill="#8a8a8a">ACCOUNT LOCKOUT STATUS</text>
+  <text x="1250" y="240" font-size="28" font-weight="800" fill="#1c1c1c">0</text>
+  <text x="1250" y="260" font-size="11" fill="#2d9b68">All accounts in good standing</text>
+
+  <!-- RECENT LOGIN ACTIVITIES TABLE -->
+  <rect x="270" y="305" width="1280" height="420" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="270" y="305" width="1280" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="332" font-size="11" font-weight="700" fill="#4a4a4a">USER ACCOUNT</text>
+  <text x="590" y="332" font-size="11" font-weight="700" fill="#4a4a4a">AUTHENTICATION METHOD</text>
+  <text x="840" y="332" font-size="11" font-weight="700" fill="#4a4a4a">IP ADDRESS &amp; GEO-LOCATION</text>
+  <text x="1140" y="332" font-size="11" font-weight="700" fill="#4a4a4a">USER AGENT / DEVICE</text>
+  <text x="1390" y="332" font-size="11" font-weight="700" fill="#4a4a4a">TIMESTAMP</text>
+  <line x1="270" y1="349" x2="1550" y2="349" stroke="#e2e8e4"/>
+
+  <!-- Row 1 -->
+  <text x="295" y="378" font-size="13" font-weight="700" fill="#1c1c1c">Dr. Ibrahim Babatunde, FCA</text>
+  <text x="295" y="394" font-size="11" fill="#8a8a8a">audit.lead@finauditease.ng</text>
+  <rect x="590" y="370" width="140" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="660" y="385" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">Password + 2FA (SMS)</text>
+  <text x="840" y="385" font-size="12" fill="#1c1c1c">102.89.44.12 • Lagos, Nigeria</text>
+  <text x="1140" y="385" font-size="12" fill="#4a4a4a">Chrome 131 / Windows 11</text>
+  <text x="1390" y="385" font-size="12" fill="#1c1c1c">Today 14:02:18</text>
+  <line x1="270" y1="410" x2="1550" y2="410" stroke="#f1f5f9"/>
+
+  <!-- Row 2 -->
+  <text x="295" y="438" font-size="13" font-weight="700" fill="#1c1c1c">Amina Chioma Adeleke</text>
+  <text x="295" y="454" font-size="11" fill="#8a8a8a">financial.reporting@zenithenergy.ng</text>
+  <rect x="590" y="430" width="140" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="660" y="445" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">Password + 2FA (Email)</text>
+  <text x="840" y="445" font-size="12" fill="#1c1c1c">197.210.64.91 • Port Harcourt, NG</text>
+  <text x="1140" y="445" font-size="12" fill="#4a4a4a">Safari 18 / macOS Sonoma</text>
+  <text x="1390" y="445" font-size="12" fill="#1c1c1c">Today 13:45:00</text>
+</svg>

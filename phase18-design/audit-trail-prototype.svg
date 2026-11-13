@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="248" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="288" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <text x="32" y="328" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="368" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <rect x="16" y="395" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="418" font-size="13" font-weight="600" fill="#ffffff">📜 Audit Trail</text>
+  <text x="32" y="460" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="500" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="540" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Governance  /  Audit Trail</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Administrative Audit Trail &amp; Compliance History</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Immutable WORM evidentiary log of administrative, operational, and user actions across FinAuditEase.</text>
+
+  <!-- IMMUTABILITY NOTICE -->
+  <rect x="270" y="175" width="1280" height="48" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="290" y="204" font-size="12" font-weight="bold" fill="#0f172a">🔒 Statutory Immutability Enforced:</text>
+  <text x="530" y="204" font-size="12" fill="#475569">Audit records cannot be edited or permanently deleted by administrators or database users. Every record is cryptographically signed with SHA-256 root hashing.</text>
+
+  <!-- AUDIT LOGS TABLE -->
+  <rect x="270" y="240" width="1280" height="480" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="270" y="240" width="1280" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="267" font-size="11" font-weight="700" fill="#4a4a4a">TIMESTAMP (UTC+1)</text>
+  <text x="490" y="267" font-size="11" font-weight="700" fill="#4a4a4a">ACTOR &amp; ROLE</text>
+  <text x="740" y="267" font-size="11" font-weight="700" fill="#4a4a4a">ACTION TYPE</text>
+  <text x="960" y="267" font-size="11" font-weight="700" fill="#4a4a4a">AFFECTED RESOURCE / DETAILS</text>
+  <text x="1270" y="267" font-size="11" font-weight="700" fill="#4a4a4a">IP &amp; INTEGRITY HASH</text>
+  <line x1="270" y1="284" x2="1550" y2="284" stroke="#e2e8e4"/>
+
+  <!-- Event 1 -->
+  <text x="295" y="315" font-size="12" fill="#1c1c1c">2026-11-13 14:48:22</text>
+  <text x="490" y="315" font-size="12" font-weight="bold" fill="#1c1c1c">Sabi Africa Lead Admin</text>
+  <text x="490" y="331" font-size="11" fill="#8a8a8a">ADMIN (admin@finauditease.ng)</text>
+  <rect x="740" y="302" width="170" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="825" y="317" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">USER_STATUS_UPDATED</text>
+  <text x="960" y="315" font-size="12" fill="#1c1c1c">User ID usr-89410 status verified to ACTIVE</text>
+  <text x="1270" y="315" font-size="11" fill="#4a4a4a">102.89.44.12 • <tspan fill="#1a6b4a" font-weight="bold">#4fa9...8c2 (✓ Verified)</tspan></text>
+  <line x1="270" y1="345" x2="1550" y2="345" stroke="#f1f5f9"/>
+
+  <!-- Event 2 -->
+  <text x="295" y="375" font-size="12" fill="#1c1c1c">2026-11-13 13:12:05</text>
+  <text x="490" y="375" font-size="12" font-weight="bold" fill="#1c1c1c">Dr. Ibrahim Babatunde</text>
+  <text x="490" y="391" font-size="11" fill="#8a8a8a">AUDITOR (lead@finauditease.ng)</text>
+  <rect x="740" y="362" width="170" height="22" rx="4" fill="#eff6ff"/>
+  <text x="825" y="377" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">ENGAGEMENT_COMPLETED</text>
+  <text x="960" y="375" font-size="12" fill="#1c1c1c">Zenith Energy FY2025 Audit sign-off completed</text>
+  <text x="1270" y="375" font-size="11" fill="#4a4a4a">197.210.64.91 • <tspan fill="#1a6b4a" font-weight="bold">#d812...0fa (✓ Verified)</tspan></text>
+</svg>

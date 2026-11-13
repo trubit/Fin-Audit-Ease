@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="248" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="288" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <text x="32" y="328" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="368" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <text x="32" y="408" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="448" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="488" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <rect x="16" y="515" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="538" font-size="13" font-weight="600" fill="#ffffff">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  System  /  Platform Settings</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Platform Governance &amp; Configuration Settings</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Manage platform parameters, role permissions matrix, security policies, multi-lingual settings, and notification channels.</text>
+
+  <!-- TABS BAR -->
+  <rect x="270" y="175" width="1280" height="42" rx="6" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="275" y="178" width="160" height="36" rx="4" fill="#1a6b4a"/>
+  <text x="355" y="201" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">General &amp; Branding</text>
+  <text x="500" y="201" font-size="12" fill="#4a4a4a">Roles &amp; Permissions</text>
+  <text x="660" y="201" font-size="12" fill="#4a4a4a">Security Policies</text>
+  <text x="820" y="201" font-size="12" fill="#4a4a4a">Language &amp; Locales</text>
+  <text x="980" y="201" font-size="12" fill="#4a4a4a">Notifications</text>
+
+  <!-- SETTINGS CONTENT CARD -->
+  <rect x="270" y="235" width="1280" height="500" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  
+  <text x="300" y="270" font-size="16" font-weight="700" fill="#1c1c1c">General Platform Identity &amp; Statutory Compliance</text>
+  <text x="300" y="290" font-size="12" fill="#8a8a8a">Official branding and enterprise governance details</text>
+
+  <!-- Form Fields -->
+  <text x="300" y="325" font-size="12" font-weight="600" fill="#4a4a4a">Platform Application Name</text>
+  <rect x="300" y="335" width="480" height="38" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="315" y="359" font-size="13" fill="#1c1c1c">FinAuditEase</text>
+
+  <text x="820" y="325" font-size="12" font-weight="600" fill="#4a4a4a">Operating Holding Entity</text>
+  <rect x="820" y="335" width="480" height="38" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="835" y="359" font-size="13" fill="#1c1c1c">Sabi Africa Innovations Limited</text>
+
+  <text x="300" y="405" font-size="12" font-weight="600" fill="#4a4a4a">Default Session Inactivity Timeout</text>
+  <rect x="300" y="415" width="480" height="38" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="315" y="439" font-size="13" fill="#1c1c1c">15 Minutes (Enterprise Compliance Default)</text>
+
+  <text x="820" y="405" font-size="12" font-weight="600" fill="#4a4a4a">Primary Default Language</text>
+  <rect x="820" y="415" width="480" height="38" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="835" y="439" font-size="13" fill="#1c1c1c">English (en) — Fallback with yo, ig, ha, pcm available</text>
+
+  <text x="300" y="485" font-size="12" font-weight="600" fill="#4a4a4a">Evidence Retention Period (Statutory)</text>
+  <rect x="300" y="495" width="480" height="38" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="315" y="519" font-size="13" fill="#1c1c1c">7 Years (Mandatory under statutory audit regulations)</text>
+
+  <text x="820" y="485" font-size="12" font-weight="600" fill="#4a4a4a">Cryptographic Hashing Algorithm</text>
+  <rect x="820" y="495" width="480" height="38" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="835" y="519" font-size="13" fill="#1c1c1c">SHA-256 (Tamper-evident WORM ledger)</text>
+
+  <rect x="300" y="565" width="160" height="40" rx="6" fill="#1a6b4a"/>
+  <text x="380" y="590" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Save Platform Settings</text>
+</svg>

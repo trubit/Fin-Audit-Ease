@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="248" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <rect x="16" y="275" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="298" font-size="13" font-weight="600" fill="#ffffff">🔍 Auditor Directory</text>
+  <text x="32" y="340" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="380" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <text x="32" y="420" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="460" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="500" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="540" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Directory  /  Auditors</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Auditor Directory &amp; Assurance Workload Oversight</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Manage practicing chartered auditors (ICAN, ACCA, ICAEW), practice certificates, workload, and performance.</text>
+
+  <!-- STAT METRICS -->
+  <rect x="270" y="180" width="300" height="90" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="290" y="205" font-size="11" font-weight="700" fill="#8a8a8a">REGISTERED CHARTERED AUDITORS</text>
+  <text x="290" y="240" font-size="28" font-weight="800" fill="#1c1c1c">62</text>
+  <text x="290" y="258" font-size="11" fill="#2d9b68">✓ 44 ICAN • 14 ACCA • 4 ICAEW</text>
+
+  <rect x="590" y="180" width="300" height="90" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="610" y="205" font-size="11" font-weight="700" fill="#8a8a8a">ACTIVE ENGAGEMENT LEADS</text>
+  <text x="610" y="240" font-size="28" font-weight="800" fill="#1c1c1c">34</text>
+  <text x="610" y="258" font-size="11" fill="#1a6b4a">Average 1.8 engagements / lead</text>
+
+  <rect x="910" y="180" width="300" height="90" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="930" y="205" font-size="11" font-weight="700" fill="#8a8a8a">AVERAGE TURNAROUND TIME</text>
+  <text x="930" y="240" font-size="28" font-weight="800" fill="#1c1c1c">2.4 Days</text>
+  <text x="930" y="258" font-size="11" fill="#2d9b68">Document review to sign-off</text>
+
+  <!-- AUDITOR TABLE -->
+  <rect x="270" y="295" width="1280" height="420" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="270" y="295" width="1280" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="322" font-size="11" font-weight="700" fill="#4a4a4a">AUDITOR NAME &amp; FIRM</text>
+  <text x="610" y="322" font-size="11" font-weight="700" fill="#4a4a4a">PROFESSIONAL BODY</text>
+  <text x="790" y="322" font-size="11" font-weight="700" fill="#4a4a4a">MEMBERSHIP #</text>
+  <text x="940" y="322" font-size="11" font-weight="700" fill="#4a4a4a">ACTIVE AUDITS</text>
+  <text x="1100" y="322" font-size="11" font-weight="700" fill="#4a4a4a">COMPLETION RATE</text>
+  <text x="1270" y="322" font-size="11" font-weight="700" fill="#4a4a4a">STATUS</text>
+  <text x="1390" y="322" font-size="11" font-weight="700" fill="#4a4a4a">ACTIONS</text>
+  <line x1="270" y1="339" x2="1550" y2="339" stroke="#e2e8e4"/>
+
+  <!-- Row 1 -->
+  <text x="295" y="368" font-size="13" font-weight="700" fill="#1c1c1c">Dr. Ibrahim Babatunde, FCA</text>
+  <text x="295" y="384" font-size="11" fill="#8a8a8a">Apex Assurance &amp; Advisory Partners</text>
+  <rect x="610" y="360" width="60" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="640" y="375" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ICAN</text>
+  <text x="790" y="375" font-size="12" fill="#1c1c1c">MBR-2009-4821</text>
+  <text x="940" y="375" font-size="12" font-weight="bold" fill="#1c1c1c">7 Engagements</text>
+  <text x="1100" y="375" font-size="12" font-weight="bold" fill="#2d9b68">94% on-schedule</text>
+  <rect x="1270" y="360" width="70" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1305" y="375" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">VERIFIED</text>
+  <text x="1390" y="375" font-size="12" font-weight="700" fill="#1a6b4a">Manage</text>
+  <line x1="270" y1="400" x2="1550" y2="400" stroke="#f1f5f9"/>
+
+  <!-- Row 2 -->
+  <text x="295" y="428" font-size="13" font-weight="700" fill="#1c1c1c">Victoria Okonkwo, ACA</text>
+  <text x="295" y="444" font-size="11" fill="#8a8a8a">Deloitte &amp; Touche Nigeria</text>
+  <rect x="610" y="420" width="60" height="22" rx="4" fill="#eff6ff"/>
+  <text x="640" y="435" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">ACCA</text>
+  <text x="790" y="435" font-size="12" fill="#1c1c1c">ACCA-8849102</text>
+  <text x="940" y="435" font-size="12" font-weight="bold" fill="#1c1c1c">5 Engagements</text>
+  <text x="1100" y="435" font-size="12" font-weight="bold" fill="#2d9b68">91% on-schedule</text>
+  <rect x="1270" y="420" width="70" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1305" y="435" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">VERIFIED</text>
+  <text x="1390" y="435" font-size="12" font-weight="700" fill="#1a6b4a">Manage</text>
+</svg>

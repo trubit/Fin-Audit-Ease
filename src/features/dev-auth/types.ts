@@ -3,7 +3,7 @@
  * Strictly for local UI inspection in development mode (import.meta.env.DEV).
  */
 
-export type DevRole = 'AUDITOR' | 'FINANCE_USER'
+export type DevRole = 'AUDITOR' | 'FINANCE_USER' | 'ADMIN' | 'AUDIT_MANAGER'
 
 export interface DevUserConfig {
   readonly id: string

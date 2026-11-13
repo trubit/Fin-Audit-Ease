@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="248" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="288" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <rect x="16" y="315" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="338" font-size="13" font-weight="600" fill="#ffffff">📁 Engagement Oversight</text>
+  <text x="32" y="380" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <text x="32" y="420" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="460" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="500" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="540" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Oversight  /  Engagements</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Client Audit Engagement Oversight</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Monitor engagement progress, document submission completion, lead auditors, and milestone delivery across all corporate entities.</text>
+
+  <!-- CONFIDENTIALITY POLICY SHIELD -->
+  <rect x="270" y="175" width="1280" height="48" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="290" y="204" font-size="12" font-weight="bold" fill="#0f172a">🛡️ Professional Confidentiality Shield:</text>
+  <text x="540" y="204" font-size="12" fill="#475569">Administrative oversight provides governance and progress telemetry without granting raw file download access to private financial workpapers.</text>
+
+  <!-- ENGAGEMENTS TABLE -->
+  <rect x="270" y="240" width="1280" height="480" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="270" y="240" width="1280" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="267" font-size="11" font-weight="700" fill="#4a4a4a">ENGAGEMENT TITLE</text>
+  <text x="590" y="267" font-size="11" font-weight="700" fill="#4a4a4a">CLIENT ORGANISATION</text>
+  <text x="820" y="267" font-size="11" font-weight="700" fill="#4a4a4a">LEAD AUDITOR</text>
+  <text x="1030" y="267" font-size="11" font-weight="700" fill="#4a4a4a">PROGRESS / REQUESTS</text>
+  <text x="1240" y="267" font-size="11" font-weight="700" fill="#4a4a4a">STATUS</text>
+  <text x="1380" y="267" font-size="11" font-weight="700" fill="#4a4a4a">OVERSIGHT</text>
+  <line x1="270" y1="284" x2="1550" y2="284" stroke="#e2e8e4"/>
+
+  <!-- Row 1 -->
+  <text x="295" y="313" font-size="13" font-weight="700" fill="#1c1c1c">FY2025 Statutory Financial Audit</text>
+  <text x="295" y="329" font-size="11" fill="#8a8a8a">Fiscal Year 2025 • Due 15 Dec 2026</text>
+  <text x="590" y="320" font-size="12" fill="#1c1c1c">Zenith Energy &amp; Infrastructure Plc</text>
+  <text x="820" y="320" font-size="12" fill="#1c1c1c">Dr. Ibrahim Babatunde (Apex)</text>
+  <text x="1030" y="315" font-size="12" font-weight="bold" fill="#1a6b4a">38 / 45 Requests (84%)</text>
+  <rect x="1030" y="322" width="140" height="4" rx="2" fill="#e2e8e4"/>
+  <rect x="1030" y="322" width="118" height="4" rx="2" fill="#1a6b4a"/>
+  <rect x="1240" y="306" width="60" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1270" y="321" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1380" y="321" font-size="12" font-weight="700" fill="#1a6b4a">Monitor</text>
+  <line x1="270" y1="345" x2="1550" y2="345" stroke="#f1f5f9"/>
+
+  <!-- Row 2 -->
+  <text x="295" y="373" font-size="13" font-weight="700" fill="#1c1c1c">H1 2026 Interim Financial Review</text>
+  <text x="295" y="389" font-size="11" fill="#8a8a8a">Half-Year 2026 • Due 28 Nov 2026</text>
+  <text x="590" y="380" font-size="12" fill="#1c1c1c">Nigerian Bottling &amp; Beverages Ltd</text>
+  <text x="820" y="380" font-size="12" fill="#1c1c1c">Victoria Okonkwo (Deloitte)</text>
+  <text x="1030" y="375" font-size="12" font-weight="bold" fill="#2d9b68">23 / 25 Requests (92%)</text>
+  <rect x="1030" y="382" width="140" height="4" rx="2" fill="#e2e8e4"/>
+  <rect x="1030" y="382" width="129" height="4" rx="2" fill="#2d9b68"/>
+  <rect x="1240" y="366" width="70" height="22" rx="4" fill="#fef3c7"/>
+  <text x="1275" y="381" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">IN REVIEW</text>
+  <text x="1380" y="381" font-size="12" font-weight="700" fill="#1a6b4a">Monitor</text>
+  <line x1="270" y1="405" x2="1550" y2="405" stroke="#f1f5f9"/>
+
+  <!-- Row 3 -->
+  <text x="295" y="433" font-size="13" font-weight="700" fill="#1c1c1c">FY2025 Comprehensive Group Audit</text>
+  <text x="295" y="449" font-size="11" fill="#8a8a8a">Fiscal Year 2025 • Overdue 3 days</text>
+  <text x="590" y="440" font-size="12" fill="#1c1c1c">Afrinvest West Africa Capital</text>
+  <text x="820" y="440" font-size="12" fill="#1c1c1c">Aliyu Mohammed (PwC NG)</text>
+  <text x="1030" y="435" font-size="12" font-weight="bold" fill="#b91c1c">14 / 31 Requests (45%)</text>
+  <rect x="1030" y="442" width="140" height="4" rx="2" fill="#e2e8e4"/>
+  <rect x="1030" y="442" width="63" height="4" rx="2" fill="#b91c1c"/>
+  <rect x="1240" y="426" width="70" height="22" rx="4" fill="#fee2e2"/>
+  <text x="1275" y="441" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">OVERDUE</text>
+  <text x="1380" y="441" font-size="12" font-weight="700" fill="#1a6b4a">Monitor</text>
+</svg>

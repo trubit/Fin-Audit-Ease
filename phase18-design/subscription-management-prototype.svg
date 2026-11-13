@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <text x="32" y="248" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="288" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <text x="32" y="328" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <rect x="16" y="355" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="378" font-size="13" font-weight="600" fill="#ffffff">💳 Subscriptions</text>
+  <text x="32" y="420" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="460" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="500" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="540" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Commercial  /  Subscriptions</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Subscription Plans &amp; Organisation Licensing</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Manage enterprise tiers, client licensing renewals, active subscriptions, and billing gateway integrations.</text>
+
+  <!-- TIER SUMMARY CARDS -->
+  <rect x="270" y="180" width="300" height="110" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="290" y="205" font-size="11" font-weight="700" fill="#8a8a8a">AUDIT FIRM ENTERPRISE</text>
+  <text x="290" y="240" font-size="28" font-weight="800" fill="#1a6b4a">12 Firms</text>
+  <text x="290" y="265" font-size="11" fill="#4a4a4a">Unlimited engagements • 2FA • WORM Storage</text>
+
+  <rect x="590" y="180" width="300" height="110" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="610" y="205" font-size="11" font-weight="700" fill="#8a8a8a">CORPORATE CLIENT ANNUAL</text>
+  <text x="610" y="240" font-size="28" font-weight="800" fill="#1c1c1c">16 Entities</text>
+  <text x="610" y="265" font-size="11" fill="#2d9b68">✓ 100% active standing • 0 lapsed renewals</text>
+
+  <rect x="910" y="180" width="300" height="110" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <text x="930" y="205" font-size="11" font-weight="700" fill="#8a8a8a">GATEWAY COMPLIANCE</text>
+  <text x="930" y="240" font-size="24" font-weight="800" fill="#1c1c1c">PCI-DSS L1</text>
+  <text x="930" y="265" font-size="11" fill="#2d9b68">● Zero raw cardholder data stored on frontend</text>
+
+  <!-- SUBSCRIPTION ROSTER TABLE -->
+  <rect x="270" y="315" width="1280" height="420" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="270" y="315" width="1280" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="342" font-size="11" font-weight="700" fill="#4a4a4a">ORGANISATION ENTITY</text>
+  <text x="610" y="342" font-size="11" font-weight="700" fill="#4a4a4a">ACTIVE PLAN</text>
+  <text x="810" y="342" font-size="11" font-weight="700" fill="#4a4a4a">BILLING CADENCE</text>
+  <text x="1000" y="342" font-size="11" font-weight="700" fill="#4a4a4a">RENEWAL DATE</text>
+  <text x="1200" y="342" font-size="11" font-weight="700" fill="#4a4a4a">PAYMENT STATUS</text>
+  <text x="1380" y="342" font-size="11" font-weight="700" fill="#4a4a4a">ACTION</text>
+  <line x1="270" y1="359" x2="1550" y2="359" stroke="#e2e8e4"/>
+
+  <!-- Row 1 -->
+  <text x="295" y="388" font-size="13" font-weight="700" fill="#1c1c1c">Apex Assurance &amp; Advisory Partners</text>
+  <text x="295" y="404" font-size="11" fill="#8a8a8a">ID: org-apex-assurance-ng</text>
+  <text x="610" y="395" font-size="12" font-weight="bold" fill="#1a6b4a">Practice Enterprise</text>
+  <text x="810" y="395" font-size="12" fill="#1c1c1c">Annual (Enterprise SLA)</text>
+  <text x="1000" y="395" font-size="12" fill="#1c1c1c">15 Jan 2027</text>
+  <rect x="1200" y="380" width="70" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1235" y="395" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1380" y="395" font-size="12" font-weight="700" fill="#1a6b4a">Manage Plan</text>
+  <line x1="270" y1="420" x2="1550" y2="420" stroke="#f1f5f9"/>
+
+  <!-- Row 2 -->
+  <text x="295" y="448" font-size="13" font-weight="700" fill="#1c1c1c">Zenith Energy &amp; Infrastructure Plc</text>
+  <text x="295" y="464" font-size="11" fill="#8a8a8a">ID: org-zenith-energy-plc</text>
+  <text x="610" y="455" font-size="12" font-weight="bold" fill="#1d4ed8">Corporate Tier</text>
+  <text x="810" y="455" font-size="12" fill="#1c1c1c">Annual Direct</text>
+  <text x="1000" y="455" font-size="12" fill="#1c1c1c">28 Feb 2027</text>
+  <rect x="1200" y="440" width="70" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1235" y="455" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1380" y="455" font-size="12" font-weight="700" fill="#1a6b4a">Manage Plan</text>
+</svg>

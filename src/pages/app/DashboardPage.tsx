@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import {
   Briefcase,
   Clock,
@@ -226,6 +226,11 @@ export const DashboardPage: React.FC = () => {
     const startIndex = (accountingRequestsPage - 1) * ACCOUNTING_REQUESTS_PAGE_SIZE
     return auditRequests.slice(startIndex, startIndex + ACCOUNTING_REQUESTS_PAGE_SIZE)
   }, [auditRequests, accountingRequestsPage])
+
+  // Redirect Administrators to the dedicated Admin Platform
+  if (user?.role === 'ADMIN') {
+    return <Navigate to="/admin/dashboard" replace />
+  }
 
   return (
     <PageContainer

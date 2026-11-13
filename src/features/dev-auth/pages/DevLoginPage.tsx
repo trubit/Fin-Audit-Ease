@@ -23,7 +23,11 @@ export const DevLoginPage: React.FC = () => {
 
   const handleSelectRole = (role: DevRole) => {
     devAuthService.loginAsDev(role)
-    navigate('/dashboard', { replace: true })
+    if (role === 'ADMIN') {
+      navigate('/admin/dashboard', { replace: true })
+    } else {
+      navigate('/dashboard', { replace: true })
+    }
   }
 
   return (
@@ -101,6 +105,30 @@ export const DevLoginPage: React.FC = () => {
               onClick={() => handleSelectRole('FINANCE_USER')}
             >
               <span>{t('devAuth.enterFinance')}</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </button>
+          </div>
+
+          {/* Platform Administrator Card */}
+          <div className="dev-role-card">
+            <div>
+              <div className="dev-role-header">
+                <div className="dev-role-icon-box dev-role-icon-box-auditor" style={{ backgroundColor: 'var(--brand-green-50)', color: 'var(--brand-green-800)' }} aria-hidden="true">
+                  <ShieldAlert size={22} />
+                </div>
+                <h2 className="dev-role-title">Platform Administrator</h2>
+              </div>
+              <p className="dev-role-desc" style={{ marginTop: 'var(--spacing-3)' }}>
+                System-wide administrative governance, user oversight, tenant management, security alerts, and platform settings.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              className="btn btn-primary dev-role-btn"
+              onClick={() => handleSelectRole('ADMIN')}
+            >
+              <span>Enter Admin Platform</span>
               <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>

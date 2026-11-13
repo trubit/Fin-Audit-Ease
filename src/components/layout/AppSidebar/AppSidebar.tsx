@@ -87,6 +87,15 @@ export const AppSidebar: React.FC = () => {
           title: t('navigation.groupWorkspace', 'Workspace'),
           moduleType: 'general',
           items: [
+            ...(user?.role === 'ADMIN'
+              ? [
+                  {
+                    to: '/admin/dashboard',
+                    label: t('admin.nav.dashboard', 'Admin Platform'),
+                    icon: ShieldCheck,
+                  },
+                ]
+              : []),
             { to: '/dashboard', label: t('navigation.dashboard', 'Dashboard'), icon: LayoutDashboard },
           ],
         },

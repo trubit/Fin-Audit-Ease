@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <text x="32" y="208" font-size="13" fill="#4a4a4a">👥 User Management</text>
+  <rect x="16" y="235" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="258" font-size="13" font-weight="600" fill="#ffffff">🏢 Organisations</text>
+  <text x="32" y="300" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <text x="32" y="340" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="380" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <text x="32" y="420" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="460" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="500" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="540" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Directory  /  Organisations</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Organisation Management &amp; Multi-Tenant Directory</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Inspect participating audit firms, enterprise client entities, subscription status, and tenant isolation.</text>
+
+  <!-- MULTI-TENANT ISOLATION BANNER -->
+  <rect x="270" y="175" width="1280" height="48" rx="8" fill="#e8f5ee" stroke="#2d9b68" stroke-width="0.7"/>
+  <text x="290" y="204" font-size="12" font-weight="bold" fill="#1a6b4a">🔒 Multi-Tenant Privacy Guarantee:</text>
+  <text x="500" y="204" font-size="12" fill="#134e35">Administrative interfaces display aggregated tenant metadata without exposing confidential financial working papers or client documents across organizational boundaries.</text>
+
+  <!-- SEARCH & FILTER -->
+  <rect x="270" y="240" width="1280" height="56" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="285" y="250" width="360" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="315" y="273" font-size="12" fill="#8a8a8a">🔍 Search by organisation name, RC number, or jurisdiction...</text>
+
+  <rect x="660" y="250" width="180" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="675" y="273" font-size="12" fill="#1c1c1c">Type: All Categories ▼</text>
+
+  <rect x="855" y="250" width="180" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="870" y="273" font-size="12" fill="#1c1c1c">Plan: All Tiers ▼</text>
+
+  <!-- ORGANISATIONS TABLE -->
+  <rect x="270" y="315" width="1280" height="420" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="270" y="315" width="1280" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="342" font-size="11" font-weight="700" fill="#4a4a4a">ORGANISATION LEGAL NAME</text>
+  <text x="610" y="342" font-size="11" font-weight="700" fill="#4a4a4a">CATEGORY</text>
+  <text x="770" y="342" font-size="11" font-weight="700" fill="#4a4a4a">ACTIVE AUDITS</text>
+  <text x="920" y="342" font-size="11" font-weight="700" fill="#4a4a4a">MEMBERS</text>
+  <text x="1060" y="342" font-size="11" font-weight="700" fill="#4a4a4a">SUBSCRIPTION</text>
+  <text x="1220" y="342" font-size="11" font-weight="700" fill="#4a4a4a">STATUS</text>
+  <text x="1360" y="342" font-size="11" font-weight="700" fill="#4a4a4a">ACTIONS</text>
+  <line x1="270" y1="359" x2="1550" y2="359" stroke="#e2e8e4"/>
+
+  <!-- Row 1: Audit Practice -->
+  <text x="295" y="388" font-size="13" font-weight="700" fill="#1c1c1c">Apex Assurance &amp; Advisory Partners</text>
+  <text x="295" y="404" font-size="11" fill="#8a8a8a">RC-1482901 • Lagos, Nigeria</text>
+  <rect x="610" y="380" width="110" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="665" y="395" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">Audit Practice</text>
+  <text x="770" y="395" font-size="12" font-weight="bold" fill="#1c1c1c">8 Engagements</text>
+  <text x="920" y="395" font-size="12" fill="#4a4a4a">14 Auditors</text>
+  <text x="1060" y="395" font-size="12" font-weight="600" fill="#1a6b4a">Enterprise Firm</text>
+  <rect x="1220" y="380" width="60" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1250" y="395" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1360" y="395" font-size="12" font-weight="700" fill="#1a6b4a">View Profile</text>
+  <line x1="270" y1="420" x2="1550" y2="420" stroke="#f1f5f9"/>
+
+  <!-- Row 2: Corporate Client -->
+  <text x="295" y="448" font-size="13" font-weight="700" fill="#1c1c1c">Zenith Energy &amp; Infrastructure Plc</text>
+  <text x="295" y="464" font-size="11" fill="#8a8a8a">RC-983102 • Port Harcourt, Nigeria</text>
+  <rect x="610" y="440" width="115" height="22" rx="4" fill="#eff6ff"/>
+  <text x="667" y="455" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">Corporate Client</text>
+  <text x="770" y="455" font-size="12" font-weight="bold" fill="#1c1c1c">2 Engagements</text>
+  <text x="920" y="455" font-size="12" fill="#4a4a4a">22 Finance Users</text>
+  <text x="1060" y="455" font-size="12" font-weight="600" fill="#1d4ed8">Corporate Annual</text>
+  <rect x="1220" y="440" width="60" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1250" y="455" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1360" y="455" font-size="12" font-weight="700" fill="#1a6b4a">View Profile</text>
+  <line x1="270" y1="480" x2="1550" y2="480" stroke="#f1f5f9"/>
+
+  <!-- Row 3: Corporate Client -->
+  <text x="295" y="508" font-size="13" font-weight="700" fill="#1c1c1c">Nigerian Bottling &amp; Beverages Ltd</text>
+  <text x="295" y="524" font-size="11" fill="#8a8a8a">RC-451299 • Ibadan, Nigeria</text>
+  <rect x="610" y="500" width="115" height="22" rx="4" fill="#eff6ff"/>
+  <text x="667" y="515" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">Corporate Client</text>
+  <text x="770" y="515" font-size="12" font-weight="bold" fill="#1c1c1c">1 Engagement</text>
+  <text x="920" y="515" font-size="12" fill="#4a4a4a">9 Finance Users</text>
+  <text x="1060" y="515" font-size="12" font-weight="600" fill="#1d4ed8">Corporate Annual</text>
+  <rect x="1220" y="500" width="60" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1250" y="515" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1360" y="515" font-size="12" font-weight="700" fill="#1a6b4a">View Profile</text>
+</svg>

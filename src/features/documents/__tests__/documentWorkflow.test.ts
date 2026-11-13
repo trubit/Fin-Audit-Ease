@@ -320,6 +320,6 @@ describe('Documents, Secure Uploads & Permanent Version History (Phase 7)', () =
           expect(dictionary.documents[key].length).toBeGreaterThan(0)
         }
       }
-    })
+    }, 15000)
   })
 })

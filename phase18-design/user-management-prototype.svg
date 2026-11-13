@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%" style="background:#fafaf7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- TOP HEADER -->
+  <rect x="0" y="0" width="1600" height="64" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="24" y="14" width="36" height="36" rx="8" fill="#1a6b4a"/>
+  <circle cx="42" cy="32" r="8" fill="#ffffff"/>
+  <text x="70" y="34" font-size="16" font-weight="700" fill="#1c1c1c">FinAuditEase</text>
+  <text x="70" y="48" font-size="11" fill="#8a8a8a">Powered by Sabi Africa Innovations Limited</text>
+  <rect x="180" y="24" width="90" height="20" rx="10" fill="#e8f5ee"/>
+  <text x="225" y="38" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ADMIN PLATFORM</text>
+
+  <!-- SIDEBAR (COLLAPSED DESKTOP/NAV) -->
+  <rect x="0" y="64" width="240" height="936" fill="#ffffff" stroke="#e2e8e4"/>
+  <rect x="16" y="80" width="208" height="52" rx="8" fill="#e8f5ee"/>
+  <text x="32" y="102" font-size="12" font-weight="700" fill="#1a6b4a">SYSTEM ADMINISTRATOR</text>
+  <text x="32" y="120" font-size="11" fill="#4a4a4a">Sabi Africa Innovations Ltd</text>
+
+  <text x="32" y="168" font-size="13" fill="#4a4a4a">📊 Admin Dashboard</text>
+  <rect x="16" y="195" width="208" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="32" y="218" font-size="13" font-weight="600" fill="#ffffff">👥 User Management</text>
+  <text x="32" y="260" font-size="13" fill="#4a4a4a">🏢 Organisations</text>
+  <text x="32" y="295" font-size="13" fill="#4a4a4a">🔍 Auditor Directory</text>
+  <text x="32" y="335" font-size="13" fill="#4a4a4a">📁 Engagement Oversight</text>
+  <text x="32" y="375" font-size="13" fill="#4a4a4a">💳 Subscriptions</text>
+  <text x="32" y="415" font-size="13" fill="#4a4a4a">📜 Audit Trail</text>
+  <text x="32" y="455" font-size="13" fill="#4a4a4a">🛡️ Security Centre</text>
+  <text x="32" y="495" font-size="13" fill="#4a4a4a">📈 Reports &amp; Analytics</text>
+  <text x="32" y="535" font-size="13" fill="#4a4a4a">⚙️ Platform Settings</text>
+
+  <!-- MAIN CANVAS -->
+  <text x="270" y="98" font-size="12" fill="#8a8a8a">FinAuditEase  /  Administrator  /  Directory &amp; Access  /  Users</text>
+  <text x="270" y="132" font-size="24" font-weight="800" fill="#1c1c1c">Enterprise User Management</text>
+  <text x="270" y="152" font-size="13" fill="#4a4a4a">Manage registered auditors, corporate accounting team members, audit managers, and administrators.</text>
+
+  <!-- SEARCH & FILTER BAR -->
+  <rect x="270" y="175" width="960" height="60" rx="8" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  <rect x="285" y="187" width="340" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="315" y="210" font-size="12" fill="#8a8a8a">🔍 Search users by name, email, or firm...</text>
+
+  <!-- Role Filter Select -->
+  <rect x="640" y="187" width="160" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="655" y="210" font-size="12" fill="#1c1c1c">Role: All Roles ▼</text>
+
+  <!-- Status Filter Select -->
+  <rect x="815" y="187" width="160" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="830" y="210" font-size="12" fill="#1c1c1c">Status: Active Only ▼</text>
+
+  <!-- Export Button -->
+  <rect x="1090" y="187" width="125" height="36" rx="6" fill="#1a6b4a"/>
+  <text x="1152" y="210" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">📥 Export List</text>
+
+  <!-- USERS DATA TABLE -->
+  <rect x="270" y="255" width="960" height="480" rx="10" fill="#ffffff" stroke="#e2e8e4" filter="url(#shadow)"/>
+  
+  <!-- Table Header -->
+  <rect x="270" y="255" width="960" height="44" rx="10" fill="#f8fafc"/>
+  <text x="295" y="282" font-size="11" font-weight="700" fill="#4a4a4a">USER / EMAIL</text>
+  <text x="540" y="282" font-size="11" font-weight="700" fill="#4a4a4a">ORGANISATION</text>
+  <text x="750" y="282" font-size="11" font-weight="700" fill="#4a4a4a">SYSTEM ROLE</text>
+  <text x="910" y="282" font-size="11" font-weight="700" fill="#4a4a4a">2FA / SECURITY</text>
+  <text x="1060" y="282" font-size="11" font-weight="700" fill="#4a4a4a">STATUS</text>
+  <text x="1160" y="282" font-size="11" font-weight="700" fill="#4a4a4a">ACTION</text>
+  <line x1="270" y1="299" x2="1230" y2="299" stroke="#e2e8e4"/>
+
+  <!-- Row 1: Auditor -->
+  <circle cx="310" cy="330" r="16" fill="#1a6b4a"/>
+  <text x="310" y="335" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">IB</text>
+  <text x="335" y="326" font-size="13" font-weight="700" fill="#1c1c1c">Dr. Ibrahim Babatunde, FCA</text>
+  <text x="335" y="342" font-size="11" fill="#8a8a8a">audit.lead@finauditease.ng</text>
+  <text x="540" y="334" font-size="12" fill="#1c1c1c">Apex Assurance &amp; Advisory</text>
+  <rect x="745" y="320" width="85" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="787" y="335" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">AUDITOR</text>
+  <text x="910" y="334" font-size="12" fill="#2d9b68">✓ Enforced (SMS/App)</text>
+  <rect x="1055" y="320" width="55" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1082" y="335" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1175" y="335" font-size="12" font-weight="700" fill="#1a6b4a">Manage</text>
+  <line x1="270" y1="360" x2="1230" y2="360" stroke="#f1f5f9"/>
+
+  <!-- Row 2: Finance User -->
+  <circle cx="310" cy="390" r="16" fill="#2d9b68"/>
+  <text x="310" y="395" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">AC</text>
+  <text x="335" y="386" font-size="13" font-weight="700" fill="#1c1c1c">Amina Chioma Adeleke</text>
+  <text x="335" y="402" font-size="11" fill="#8a8a8a">financial.reporting@zenithenergy.ng</text>
+  <text x="540" y="394" font-size="12" fill="#1c1c1c">Zenith Energy &amp; Infrastructure</text>
+  <rect x="745" y="380" width="105" height="22" rx="4" fill="#f0fdf4"/>
+  <text x="797" y="395" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">FINANCE_USER</text>
+  <text x="910" y="394" font-size="12" fill="#2d9b68">✓ Enforced (Email)</text>
+  <rect x="1055" y="380" width="55" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1082" y="395" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1175" y="395" font-size="12" font-weight="700" fill="#1a6b4a">Manage</text>
+  <line x1="270" y1="420" x2="1230" y2="420" stroke="#f1f5f9"/>
+
+  <!-- Row 3: Audit Manager -->
+  <circle cx="310" cy="450" r="16" fill="#3b82f6"/>
+  <text x="310" y="455" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">VO</text>
+  <text x="335" y="446" font-size="13" font-weight="700" fill="#1c1c1c">Victoria Okonkwo, ACA</text>
+  <text x="335" y="462" font-size="11" fill="#8a8a8a">victoria.o@deloitte.com.ng</text>
+  <text x="540" y="454" font-size="12" fill="#1c1c1c">Deloitte &amp; Touche Nigeria</text>
+  <rect x="745" y="440" width="115" height="22" rx="4" fill="#eff6ff"/>
+  <text x="802" y="455" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">AUDIT_MANAGER</text>
+  <text x="910" y="454" font-size="12" fill="#2d9b68">✓ Enforced (App)</text>
+  <rect x="1055" y="440" width="55" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1082" y="455" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1175" y="455" font-size="12" font-weight="700" fill="#1a6b4a">Manage</text>
+  <line x1="270" y1="480" x2="1230" y2="480" stroke="#f1f5f9"/>
+
+  <!-- Row 4: Administrator -->
+  <circle cx="310" cy="510" r="16" fill="#1c1c1c"/>
+  <text x="310" y="515" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">SA</text>
+  <text x="335" y="506" font-size="13" font-weight="700" fill="#1c1c1c">Sabi Africa Lead Admin</text>
+  <text x="335" y="522" font-size="11" fill="#8a8a8a">admin.platform@finauditease.ng</text>
+  <text x="540" y="514" font-size="12" fill="#1c1c1c">Sabi Africa Innovations Ltd</text>
+  <rect x="745" y="500" width="70" height="22" rx="4" fill="#f1f5f9"/>
+  <text x="780" y="515" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">ADMIN</text>
+  <text x="910" y="514" font-size="12" fill="#2d9b68">✓ Enforced (FIDO2)</text>
+  <rect x="1055" y="500" width="55" height="22" rx="4" fill="#e8f5ee"/>
+  <text x="1082" y="515" font-size="11" font-weight="700" fill="#1a6b4a" text-anchor="middle">ACTIVE</text>
+  <text x="1175" y="515" font-size="12" font-weight="700" fill="#1a6b4a">Manage</text>
+  <line x1="270" y1="540" x2="1230" y2="540" stroke="#f1f5f9"/>
+
+  <!-- Pagination -->
+  <rect x="270" y="680" width="960" height="50" rx="0" fill="#f8fafc"/>
+  <text x="295" y="710" font-size="12" fill="#64748b">Showing 1 to 4 of 184 registered accounts</text>
+  <rect x="1070" y="692" width="70" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="1105" y="710" font-size="11" fill="#1c1c1c" text-anchor="middle">Previous</text>
+  <rect x="1150" y="692" width="60" height="28" rx="4" fill="#1a6b4a"/>
+  <text x="1180" y="710" font-size="11" fill="#ffffff" text-anchor="middle">Next</text>
+
+  <!-- USER DETAIL PROFILE MODAL (OVERLAY ON RIGHT) -->
+  <rect x="1255" y="175" width="320" height="560" rx="10" fill="#ffffff" stroke="#1a6b4a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1255" y="175" width="320" height="40" rx="10" fill="#1a6b4a"/>
+  <text x="1275" y="200" font-size="13" font-weight="700" fill="#ffffff">User Profile &amp; Governance Details</text>
+
+  <circle cx="1415" cy="255" r="30" fill="#e8f5ee" stroke="#1a6b4a" stroke-width="2"/>
+  <text x="1415" y="262" font-size="20" font-weight="bold" fill="#1a6b4a" text-anchor="middle">IB</text>
+  <text x="1415" y="302" font-size="14" font-weight="800" fill="#1c1c1c" text-anchor="middle">Dr. Ibrahim Babatunde, FCA</text>
+  <text x="1415" y="320" font-size="11" fill="#8a8a8a" text-anchor="middle">audit.lead@finauditease.ng</text>
+
+  <rect x="1275" y="335" width="280" height="1" fill="#e2e8e4"/>
+  
+  <text x="1275" y="358" font-size="11" font-weight="700" fill="#8a8a8a">ORGANISATION AFFILIATION</text>
+  <text x="1275" y="376" font-size="12" font-weight="600" fill="#1c1c1c">Apex Assurance &amp; Advisory Partners</text>
+
+  <text x="1275" y="406" font-size="11" font-weight="700" fill="#8a8a8a">PROFESSIONAL QUALIFICATION</text>
+  <text x="1275" y="424" font-size="12" font-weight="600" fill="#1c1c1c">ICAN Fellow (MBR-2009-4821)</text>
+
+  <text x="1275" y="454" font-size="11" font-weight="700" fill="#8a8a8a">AUTHENTICATION SECURITY</text>
+  <text x="1275" y="472" font-size="12" font-weight="600" fill="#2d9b68">● 2FA Active (TOTP Authenticator)</text>
+
+  <text x="1275" y="502" font-size="11" font-weight="700" fill="#8a8a8a">ASSIGNED ENGAGEMENTS</text>
+  <text x="1275" y="520" font-size="12" font-weight="600" fill="#1c1c1c">7 Active Client Engagements</text>
+
+  <rect x="1275" y="540" width="280" height="36" rx="6" fill="#e8f5ee" stroke="#1a6b4a"/>
+  <text x="1415" y="563" font-size="12" font-weight="700" fill="#1a6b4a" text-anchor="middle">Review User Audit Trail History</text>
+
+  <rect x="1275" y="585" width="280" height="36" rx="6" fill="#fafaf7" stroke="#cbd5e1"/>
+  <text x="1415" y="608" font-size="12" font-weight="600" fill="#4a4a4a" text-anchor="middle">Manage Roles &amp; Status</text>
+</svg>
