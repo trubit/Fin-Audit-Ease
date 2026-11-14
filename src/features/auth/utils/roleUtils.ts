@@ -6,30 +6,56 @@ import type { UserRole } from '../types'
  * professional titles localized according to the active language.
  *
  * Prevents raw database enums from being exposed directly to end users.
+ * Guaranteed never to throw, even with malformed or non-string inputs.
  */
 export const formatUserRole = (
-  role: UserRole | string | undefined | null,
-  t: TFunction
+  role: UserRole | string | undefined | null | unknown,
+  t?: TFunction
 ): string => {
-  if (!role) {
-    return t('roles.unassigned', { defaultValue: 'Authorized User' })
+  const translate = (key: string, defaultValue: string): string => {
+    if (typeof t === 'function') {
+      try {
+        return t(key, { defaultValue })
+      } catch {
+        return defaultValue
+      }
+    }
+    return defaultValue
   }
 
-  const normalized = role.toUpperCase()
+  if (!role) {
+    return translate('roles.unassigned', 'Authorized User')
+  }
+
+  let roleStr = ''
+  if (typeof role === 'string') {
+    roleStr = role
+  } else if (typeof role === 'object' && role !== null && 'name' in role && typeof (role as { name: unknown }).name === 'string') {
+    roleStr = (role as { name: string }).name
+  } else {
+    try {
+      roleStr = String(role)
+    } catch {
+      return translate('roles.unassigned', 'Authorized User')
+    }
+  }
+
+  const normalized = roleStr.trim().toUpperCase()
 
   switch (normalized) {
     case 'AUDITOR':
-      return t('roles.auditor', { defaultValue: 'Chartered Lead Auditor' })
+      return translate('roles.auditor', 'Chartered Lead Auditor')
     case 'AUDIT_MANAGER':
-      return t('roles.auditManager', { defaultValue: 'Audit Engagement Manager' })
+      return translate('roles.auditManager', 'Audit Engagement Manager')
     case 'FINANCE_USER':
     case 'ACCOUNTING_MEMBER':
-      return t('roles.accountingMember', { defaultValue: 'Corporate Accounting Team Member' })
+      return translate('roles.accountingMember', 'Corporate Accounting Team Member')
     case 'ACCOUNTING_TEAM_LEAD':
-      return t('roles.accountingLead', { defaultValue: 'Accounting Team Lead' })
+      return translate('roles.accountingLead', 'Accounting Team Lead')
     case 'ADMIN':
-      return t('roles.admin', { defaultValue: 'System Administrator' })
+      return translate('roles.admin', 'System Administrator')
     default:
-      return t('roles.default', { defaultValue: role })
+      return translate('roles.default', roleStr)
   }
 }
+

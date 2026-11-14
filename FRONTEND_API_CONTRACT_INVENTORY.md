@@ -1,4 +1,4 @@
-# FinAuditEase — Frontend/Backend API Contract Inventory & Integration Matrix (Phase 15)
+# FinAuditEase — Frontend/Backend API Contract Inventory & Integration Matrix (Phase 18 — Admin Platform)
 
 ## Overview & Integration Architecture
 
@@ -381,7 +381,167 @@ Authoritative Backend (Express / PostgreSQL)
 
 ---
 
-## 11. Integration Matrix Summary
+## 11. Administrator Platform APIs (Phase 18)
+
+All endpoints in this section are protected by Cookie-based session authentication and strictly restricted to users with the `ADMIN` role. Any non-admin request must receive `403 Forbidden`.
+
+### 11.1 Dashboard KPIs & Platform Overview
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/dashboard/kpis` | `GET` | Cookie | Admin | None | `AdminDashboardKPIs` | `['admin', 'dashboard', 'kpis']` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/dashboard/activities` | `GET` | Cookie | Admin | `limit` (default: 10) | `AdminActivityRecord[]` | `['admin', 'dashboard', 'activities']` | N/A | `PENDING_BACKEND` |
+
+- **Response Shape (`AdminDashboardKPIs`)**:
+  ```json
+  {
+    "success": true,
+    "data": {
+      "totalUsers": 128,
+      "totalAuditors": 34,
+      "totalAccountingMembers": 78,
+      "totalOrganisations": 42,
+      "totalAuditManagers": 12,
+      "activeEngagements": 18,
+      "completedEngagements": 56,
+      "pendingEngagements": 7,
+      "overdueRequests": 5,
+      "activeSubscriptions": 38,
+      "securityAlertsCount": 2,
+      "unreadNotificationsCount": 4
+    }
+  }
+  ```
+
+---
+
+### 11.2 User Administration & Credential Governance
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/users` | `GET` | Cookie | Admin | `role`, `status`, `organizationId`, `search`, `page`, `limit` | `AdminUserListResponse` | `['admin', 'users', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/users` | `POST` | Cookie | Admin | `CreateAdminUserPayload` | `AdminUserProfile` | N/A (Mutation) | `['admin', 'users']`, `['admin', 'dashboard', 'kpis']` | `PENDING_BACKEND` |
+| `/api/v1/admin/users/:id` | `GET` | Cookie | Admin | URL `:id` | `AdminUserProfile` | `['admin', 'user', id]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/users/:id` | `PATCH` | Cookie | Admin | `UpdateAdminUserPayload` | `AdminUserProfile` | N/A (Mutation) | `['admin', 'user', id]`, `['admin', 'users']` | `PENDING_BACKEND` |
+| `/api/v1/admin/users/:id/reset-password` | `POST` | Cookie | Admin | URL `:id` | `{ message: string }` | N/A (Mutation) | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/users/:id/toggle-status` | `POST` | Cookie | Admin | `{ status: 'ACTIVE' \| 'SUSPENDED', reason: string }` | `AdminUserProfile` | N/A (Mutation) | `['admin', 'user', id]`, `['admin', 'users']` | `PENDING_BACKEND` |
+| `/api/v1/admin/users/:id/mfa-reset` | `POST` | Cookie | Admin | URL `:id`, `{ adminConfirmation: string }` | `{ message: string }` | N/A (Mutation) | `['admin', 'user', id]` | `PENDING_BACKEND` |
+
+---
+
+### 11.3 Organisation Lifecycle & Multi-Tenancy
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/organisations` | `GET` | Cookie | Admin | `type`, `status`, `search`, `page`, `limit` | `AdminOrganisationListResponse` | `['admin', 'organisations', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/organisations` | `POST` | Cookie | Admin | `CreateOrganisationPayload` | `AdminOrganisationProfile` | N/A (Mutation) | `['admin', 'organisations']`, `['admin', 'dashboard', 'kpis']` | `PENDING_BACKEND` |
+| `/api/v1/admin/organisations/:id` | `GET` | Cookie | Admin | URL `:id` | `AdminOrganisationProfile` | `['admin', 'organisation', id]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/organisations/:id` | `PATCH` | Cookie | Admin | `UpdateOrganisationPayload` | `AdminOrganisationProfile` | N/A (Mutation) | `['admin', 'organisation', id]`, `['admin', 'organisations']` | `PENDING_BACKEND` |
+| `/api/v1/admin/organisations/:id/members` | `GET` | Cookie | Admin | URL `:id`, `page`, `limit` | `AdminUserListResponse` | `['admin', 'organisation', id, 'members']` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/organisations/:id/status` | `POST` | Cookie | Admin | `{ status: string, reason: string }` | `AdminOrganisationProfile` | N/A (Mutation) | `['admin', 'organisation', id]`, `['admin', 'organisations']` | `PENDING_BACKEND` |
+
+---
+
+### 11.4 Auditor Directory & Professional Body Verification
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/auditors` | `GET` | Cookie | Admin | `status`, `professionalBody`, `search`, `page`, `limit` | `AdminAuditorListResponse` | `['admin', 'auditors', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/auditors/:id` | `GET` | Cookie | Admin | URL `:id` | `AdminAuditorProfile` | `['admin', 'auditor', id]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/auditors/:id/verify-credentials` | `POST` | Cookie | Admin | `{ status: 'VERIFIED' \| 'REJECTED', notes: string }` | `AdminAuditorProfile` | N/A (Mutation) | `['admin', 'auditor', id]`, `['admin', 'auditors']` | `PENDING_BACKEND` |
+
+---
+
+### 11.5 Global Engagement Oversight
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/engagements` | `GET` | Cookie | Admin | `status`, `stage`, `organizationId`, `search`, `page`, `limit` | `AdminEngagementListResponse` | `['admin', 'engagements', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/engagements/:id` | `GET` | Cookie | Admin | URL `:id` | `AdminEngagementDetail` | `['admin', 'engagement', id]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/engagements/kpis` | `GET` | Cookie | Admin | None | `AdminEngagementKPIs` | `['admin', 'engagements', 'kpis']` | N/A | `PENDING_BACKEND` |
+
+---
+
+### 11.6 Subscriptions, Licensing & Invoicing
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/subscriptions` | `GET` | Cookie | Admin | `plan`, `status`, `search`, `page`, `limit` | `AdminSubscriptionListResponse` | `['admin', 'subscriptions', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/subscriptions/:id` | `GET` | Cookie | Admin | URL `:id` | `AdminSubscriptionDetail` | `['admin', 'subscription', id]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/subscriptions/:id/renew` | `POST` | Cookie | Admin | `{ extensionMonths: number, paymentRef?: string }` | `AdminSubscriptionDetail` | N/A (Mutation) | `['admin', 'subscription', id]`, `['admin', 'subscriptions']` | `PENDING_BACKEND` |
+| `/api/v1/admin/subscriptions/:id/cancel` | `POST` | Cookie | Admin | `{ immediate: boolean, reason: string }` | `AdminSubscriptionDetail` | N/A (Mutation) | `['admin', 'subscription', id]`, `['admin', 'subscriptions']` | `PENDING_BACKEND` |
+| `/api/v1/admin/subscriptions/invoices` | `GET` | Cookie | Admin | `subscriptionId`, `status`, `page`, `limit` | `AdminInvoiceListResponse` | `['admin', 'invoices', params]` | N/A | `PENDING_BACKEND` |
+
+---
+
+### 11.7 Administrative Audit Trail & Compliance Export
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/audit-trail` | `GET` | Cookie | Admin | `action`, `adminId`, `targetEntity`, `startDate`, `endDate`, `search`, `page`, `limit` | `AdminAuditLogListResponse` | `['admin', 'auditTrail', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/audit-trail/export` | `GET` | Cookie | Admin | `format` (`pdf` \| `csv`), `startDate`, `endDate` | Binary Blob (`application/pdf` or `text/csv`) | N/A (Mutation) | N/A | `PENDING_BACKEND` |
+
+---
+
+### 11.8 Security Centre & Active Threat Mitigation
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/security/metrics` | `GET` | Cookie | Admin | None | `AdminSecurityMetrics` | `['admin', 'security', 'metrics']` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/security/sessions` | `GET` | Cookie | Admin | `page`, `limit`, `search` | `AdminActiveSessionListResponse` | `['admin', 'security', 'sessions', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/security/sessions/:id/revoke` | `POST` | Cookie | Admin | URL `:id`, `{ reason: string }` | `{ message: string }` | N/A (Mutation) | `['admin', 'security', 'sessions']`, `['admin', 'security', 'metrics']` | `PENDING_BACKEND` |
+| `/api/v1/admin/security/sessions/revoke-all-for-user` | `POST` | Cookie | Admin | `{ userId: string, reason: string }` | `{ message: string, revokedCount: number }` | N/A (Mutation) | `['admin', 'security', 'sessions']` | `PENDING_BACKEND` |
+| `/api/v1/admin/security/ip-whitelist` | `GET` | Cookie | Admin | None | `IPWhitelistRule[]` | `['admin', 'security', 'ipWhitelist']` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/security/ip-whitelist` | `POST` | Cookie | Admin | `{ cidr: string, description: string }` | `IPWhitelistRule` | N/A (Mutation) | `['admin', 'security', 'ipWhitelist']` | `PENDING_BACKEND` |
+
+---
+
+### 11.9 Global Compliance Reports & Turnaround Analytics
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/reports/summary` | `GET` | Cookie | Admin | `startDate`, `endDate` | `AdminReportsSummary` | `['admin', 'reports', 'summary', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/reports/turnaround-times` | `GET` | Cookie | Admin | `groupBy` (`firm` \| `organization`), `year` | `AdminTurnaroundDataPoint[]` | `['admin', 'reports', 'turnaround', params]` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/reports/export` | `GET` | Cookie | Admin | `format` (`pdf` \| `xlsx`), `startDate`, `endDate` | Binary Blob | N/A (Mutation) | N/A | `PENDING_BACKEND` |
+
+---
+
+### 11.10 System Platform Settings
+
+| Endpoint | Method | Auth | Role | Query / Body | Response Data | TanStack Query Key | Invalidation Trigger | Status |
+|---|---|---|---|---|---|---|---|---|
+| `/api/v1/admin/settings` | `GET` | Cookie | Admin | None | `AdminPlatformSettings` | `['admin', 'settings']` | N/A | `PENDING_BACKEND` |
+| `/api/v1/admin/settings` | `PUT` | Cookie | Admin | `UpdatePlatformSettingsPayload` | `AdminPlatformSettings` | N/A (Mutation) | `['admin', 'settings']` | `PENDING_BACKEND` |
+
+- **Payload & Response Shape (`AdminPlatformSettings`)**:
+  ```json
+  {
+    "success": true,
+    "data": {
+      "maintenanceMode": false,
+      "sessionTimeoutMinutes": 30,
+      "adminSessionTimeoutMinutes": 15,
+      "maxUploadSizeBytes": 26214400,
+      "enforce2FAForAllUsers": true,
+      "allowedMimeTypes": [
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.ms-excel",
+        "text/csv",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/msword",
+        "image/jpeg",
+        "image/png"
+      ],
+      "updatedAt": "2026-11-14T00:00:00Z",
+      "updatedBy": "admin@finauditease.ng"
+    }
+  }
+  ```
+
+---
+
+## 12. Integration Matrix Summary
 
 | Area | Endpoints | Confirmed | Needs Confirmation | Integration Readiness |
 |---|---|---|---|---|
@@ -395,6 +555,8 @@ Authoritative Backend (Express / PostgreSQL)
 | **Audit Trail & Export** | 2 | 2 | 0 | **100% Ready** |
 | **Asset Verification (Finance)** | 5 | 0 | 5 | **Awaiting Backend Deployment** |
 | **Communication & Meetings** | 13 | 0 | 13 | **Frontend Complete; Backend & Video Infra Pending** |
-| **Total** | **61** | **43** | **18** | **Frontend Complete; 18 Backend Endpoints & Video Infra Pending** |
+| **Administrator Platform (Phase 18)** | 31 | 0 | 31 | **Frontend Complete; Backend Micro-services Pending** |
+| **Total** | **92** | **43** | **49** | **Frontend Complete across All 18 Phases; 49 Backend Endpoints Pending** |
+
 
 

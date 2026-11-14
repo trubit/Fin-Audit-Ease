@@ -83,7 +83,7 @@ export const AdminUsersPage: React.FC = () => {
         isTwoFactorEnabled: currentUser.isTwoFactorEnabled,
         status: 'ACTIVE',
         createdAt: currentUser.createdAt || '2026-01-01T00:00:00Z',
-        lastActiveAt: new Date().toISOString(),
+        lastActiveAt: currentUser.createdAt || '2026-01-01T00:00:00Z',
         jobTitle: currentUser.jobTitle,
         membershipNumber: currentUser.membershipNumber,
       })

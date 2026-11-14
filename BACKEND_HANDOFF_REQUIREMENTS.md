@@ -1,4 +1,4 @@
-# FinAuditEase — Backend Engineering Handoff & Security Obligations (Phase 17)
+# FinAuditEase — Backend Engineering Handoff & Security Obligations (Phase 18 — Admin Platform)
 
 ## Executive Overview
 
@@ -212,5 +212,155 @@ Per the architectural boundaries of FinAuditEase:
 - Locking a period permanently disables editing controls and prevents backdated ledger postings.
 - Corrections after locking require an authorized, audited correction flow.
 - Unresolved items carried forward into subsequent periods must preserve their origin period, carry-over reason, and audit lineage.
+
+---
+
+## 10. Phase 18 — Admin Platform Architecture, Micro-Services & Security Governance
+
+### 10.1 System Administrator Role (`ADMIN`) Boundaries & Invariants
+- **Role Definition**:
+  - The `ADMIN` role represents the platform operator (Sabi Africa Innovations Limited platform administrators).
+  - Admins possess system-wide operational visibility across registered organizations, users, auditor firms, subscriptions, and security postures.
+- **Critical Security Boundaries & Data Isolation**:
+  - **Zero Access to Private Client Ledgers**: Admins manage platform access, organizations, and user accounts, but **MUST NOT** tamper with or unilaterally alter financial audit workpapers, evidentiary files, or client GL entries.
+  - **No Tampering with Audit Trails**: The `ADMIN` role has **READ-ONLY** access to the historical audit trail. Admins CANNOT delete (`DELETE`), truncate (`TRUNCATE`), or update (`UPDATE`) records in the audit trail database tables (`audit_trail_events`, `admin_audit_logs`).
+  - **Mandatory Multi-Factor Authentication (MFA)**:
+    - All accounts assigned the `ADMIN` role MUST have two-factor authentication strictly enforced.
+    - The backend must reject admin session initialization if MFA is bypassed or unconfigured.
+  - **Elevated Session Security**:
+    - Admin sessions must enforce an aggressive inactivity timeout of 15 minutes (versus 30 minutes for regular users).
+    - Session cookies for administrators must be bound to client IP address and user-agent fingerprints to prevent session hijacking.
+
+### 10.2 Super-Admin Audit Log Specification (`admin_audit_logs`)
+- Every administrative operation performed by an `ADMIN` must be recorded synchronously into a dedicated, append-only `admin_audit_logs` table before the transaction commits:
+  ```sql
+  CREATE TABLE admin_audit_logs (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    admin_id UUID NOT NULL REFERENCES users(id),
+    admin_email VARCHAR(255) NOT NULL,
+    action VARCHAR(100) NOT NULL,
+    target_entity VARCHAR(100) NOT NULL,
+    target_id VARCHAR(255) NOT NULL,
+    previous_state JSONB,
+    new_state JSONB,
+    ip_address INET NOT NULL,
+    user_agent TEXT NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'SUCCESS',
+    failure_reason TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  );
+  ```
+- **Audited Administrative Actions**:
+  - `USER_STATUS_CHANGE` (Active, Suspended, Deactivated)
+  - `USER_PASSWORD_RESET_TRIGGERED`
+  - `USER_MFA_RESET`
+  - `ORGANISATION_STATUS_CHANGE`
+  - `AUDITOR_CREDENTIAL_VERIFIED` (ICAN/ANAN verification)
+  - `ENGAGEMENT_FORCE_ARCHIVED` / `REOPENED`
+  - `SUBSCRIPTION_TIER_CHANGED` / `RENEWED` / `CANCELED`
+  - `SECURITY_SESSION_REVOKED`
+  - `SECURITY_IP_WHITELIST_MODIFIED`
+  - `PLATFORM_SETTING_UPDATED` (Maintenance mode, session timeouts, max upload limits)
+
+### 10.3 Admin Functional Micro-Services & Backend Specifications
+
+#### 1. Global Dashboard & Metrics Aggregator (`/api/v1/admin/dashboard/*`)
+- **Server-Side Computation Only**: The backend must calculate authoritative platform-wide totals across the PostgreSQL database. The frontend will not fetch all rows and reduce them in memory.
+- **KPI Metrics Required**:
+  - `totalUsers`: Total registered users across all roles
+  - `totalAuditors`: Users with role `AUDITOR` or `AUDIT_MANAGER`
+  - `totalAccountingMembers`: Users with role `FINANCE_USER` or `ACCOUNTING_MEMBER`
+  - `totalOrganisations`: Registered client companies and audit firms
+  - `totalAuditManagers`: Users with role `AUDIT_MANAGER`
+  - `activeEngagements`: Engagements with status `ACTIVE` or `IN_REVIEW`
+  - `completedEngagements`: Engagements with status `COMPLETED`
+  - `pendingEngagements`: Engagements with status `DRAFT` or `PENDING_ACCEPTANCE`
+  - `overdueRequests`: Total audit requests past their statutory/engagement deadline where status is not `APPROVED`
+  - `activeSubscriptions`: Subscriptions with status `ACTIVE` or `TRIAL`
+  - `securityAlertsCount`: Active unacknowledged security warnings (e.g. failed login spikes, multiple active sessions)
+
+#### 2. User Administration Service (`/api/v1/admin/users/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/users`: Paginated list supporting `role`, `status`, `search`, `organizationId`.
+  - `POST /api/v1/admin/users`: Direct administrative provisioning of authorized users.
+  - `GET /api/v1/admin/users/:id`: Full profile including assigned organization, activity logs, and 2FA status.
+  - `PATCH /api/v1/admin/users/:id`: Update user role, organization assignment, or contact details.
+  - `POST /api/v1/admin/users/:id/toggle-status`: Suspend or reinstate user access with mandatory reason.
+  - `POST /api/v1/admin/users/:id/reset-password`: Dispatch a secure, short-lived password reset link to user's registered email.
+  - `POST /api/v1/admin/users/:id/mfa-reset`: Secure MFA token revocation requiring admin second-factor confirmation.
+- **Invariants**:
+  - Admins cannot modify their own role or deactivate their own account via this endpoint.
+  - Status changes take effect immediately by revoking all active sessions for the target user in Redis.
+
+#### 3. Organisation Lifecycle Management (`/api/v1/admin/organisations/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/organisations`: Paginated list filterable by `type` (`CLIENT_COMPANY` | `AUDIT_FIRM`), `status`, `search`.
+  - `POST /api/v1/admin/organisations`: Administrative onboarding of client entities or audit practices.
+  - `GET /api/v1/admin/organisations/:id`: Detailed profile including CAC registration number, tax identification number (TIN), member counts, and active engagements.
+  - `PATCH /api/v1/admin/organisations/:id`: Update organizational profile and contact data.
+  - `POST /api/v1/admin/organisations/:id/status`: Transition organization status (`ACTIVE`, `SUSPENDED`, `PROBATION`, `ARCHIVED`).
+- **Invariants**:
+  - Suspending an organization immediately blocks all associated members from logging in and terminates ongoing sessions, returning `403 Forbidden` (`ORGANIZATION_SUSPENDED`).
+  - Historical audit trails and financial evidence remain intact and cannot be deleted when an organization is archived.
+
+#### 4. Auditor Firm Onboarding & Professional Body Verification (`/api/v1/admin/auditors/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/auditors`: Directory of lead auditors and audit managers with ICAN/ANAN credential status.
+  - `GET /api/v1/admin/auditors/:id`: Complete credential dossier (firm name, membership number, certificate upload, verification state).
+  - `POST /api/v1/admin/auditors/:id/verify-credentials`: Record verification approval or rejection against professional registry records.
+- **Invariants**:
+  - Unverified auditors may not create or sign off on legally binding audit engagements until verified by an administrator.
+
+#### 5. Engagement Global Oversight (`/api/v1/admin/engagements/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/engagements`: Global cross-tenant view of all engagements across the platform.
+  - `GET /api/v1/admin/engagements/:id`: Engagement metadata, completion percentages, assigned lead auditor, and client team.
+  - `GET /api/v1/admin/engagements/kpis`: Real-time cross-tenant engagement health statistics (overdue request bottlenecks, average completion times).
+
+#### 6. Subscriptions & Licensing Management (`/api/v1/admin/subscriptions/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/subscriptions`: List all active, trial, past-due, and expired licenses.
+  - `GET /api/v1/admin/subscriptions/:id`: Detailed subscription terms, seat allowances, storage consumption, and billing history.
+  - `POST /api/v1/admin/subscriptions/:id/renew`: Record manual or automated subscription renewal.
+  - `POST /api/v1/admin/subscriptions/:id/cancel`: Cancel subscription with effective end-of-period date.
+  - `GET /api/v1/admin/subscriptions/invoices`: Retrieve billing invoices and payment verification receipts.
+- **Invariants**:
+  - License quota enforcement: If an organization exceeds its purchased seat limit or document storage quota, the backend must return `402 Payment Required` or `403 Quota Exceeded` on new user invites or file uploads.
+
+#### 7. Administrative Audit Trail & Evidence Export (`/api/v1/admin/audit-trail/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/audit-trail`: System-wide audit log combining application audit events and administrative actions.
+  - `GET /api/v1/admin/audit-trail/export`: Stream tamper-evident compliance audit trail export (`application/pdf` or `text/csv`).
+- **Invariants**:
+  - Append-only enforcement: Table triggers must raise an exception on `UPDATE` or `DELETE`.
+
+#### 8. Security Centre & Session Revocation (`/api/v1/admin/security/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/security/metrics`: Active sessions count, failed login rates in the last 24h, active 2FA adoption rate, and suspicious IP alerts.
+  - `GET /api/v1/admin/security/sessions`: Live list of active sessions with user ID, email, role, IP address, user-agent, last activity timestamp.
+  - `POST /api/v1/admin/security/sessions/:id/revoke`: Immediate invalidation of a specific session in Redis/session store.
+  - `POST /api/v1/admin/security/sessions/revoke-all-for-user`: Terminate all active sessions for a compromised user account.
+  - `GET /api/v1/admin/security/ip-whitelist`: Retrieve configured administrative IP whitelists.
+  - `POST /api/v1/admin/security/ip-whitelist`: Update CIDR blocks allowed to access `/admin/*` routes.
+
+#### 9. Global Reports & Analytics (`/api/v1/admin/reports/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/reports/summary`: Aggregated compliance turnaround metrics, monthly engagement throughput, checklist completion rates.
+  - `GET /api/v1/admin/reports/turnaround-times`: Average days from audit request issuance to approved document submission.
+  - `GET /api/v1/admin/reports/export`: PDF/Excel export of high-level management compliance summaries.
+
+#### 10. Platform System Settings (`/api/v1/admin/settings/*`)
+- **Endpoints**:
+  - `GET /api/v1/admin/settings`: Retrieve active platform settings.
+  - `PUT /api/v1/admin/settings`: Update configurable platform parameters.
+- **Configurable Platform Parameters**:
+  - `maintenanceMode` (boolean): When true, public and non-admin routes return `503 Service Unavailable` with maintenance message.
+  - `sessionTimeoutMinutes` (integer): Global session inactivity timeout (default: 30 minutes).
+  - `adminSessionTimeoutMinutes` (integer): Administrator inactivity timeout (default: 15 minutes).
+  - `maxUploadSizeBytes` (integer): Maximum evidentiary file upload size (default: 26,214,400 bytes / 25MB).
+  - `enforce2FAForAllUsers` (boolean): Platform-wide mandate for two-factor authentication.
+  - `allowedMimeTypes` (array of strings): Authorized document MIME types.
+- **Invariants**:
+  - Any update to platform settings must be committed to `admin_audit_logs` and broadcasted to active application servers or cached in Redis with a TTL of no more than 60 seconds.
 
 

@@ -93,7 +93,7 @@ export const AdminReportsPage: React.FC = () => {
       }
     })
     return Array.from(orgMap.values())
-  }, [currentUser?.organizationName, engagements])
+  }, [currentUser, engagements])
 
   // CSV Export for current tab
   const handleExportCSV = () => {

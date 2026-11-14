@@ -4,12 +4,17 @@ import { AppHeader } from '@/components/layout/AppHeader/AppHeader'
 import { AdminSidebar } from '@/components/layout/AdminSidebar/AdminSidebar'
 import { DevRoleSwitcher } from '@/features/dev-auth/components/DevRoleSwitcher/DevRoleSwitcher'
 import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
+import { ErrorBoundary } from '@/components/feedback/ErrorBoundary/ErrorBoundary'
 
 export const AdminLayout: React.FC = () => {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <AppHeader isAppView={true} />
-      {isDevAuthEnabled() && <DevRoleSwitcher />}
+      {isDevAuthEnabled() && (
+        <ErrorBoundary fallback={null}>
+          <DevRoleSwitcher />
+        </ErrorBoundary>
+      )}
       <div style={{ display: 'flex', flex: 1, minHeight: 'calc(100vh - 4rem)' }}>
         <AdminSidebar />
         <main

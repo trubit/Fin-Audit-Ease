@@ -19,7 +19,12 @@ export const DevRoleSwitcher: React.FC = () => {
     return null
   }
 
-  const roleTitle = formatUserRole(user.role, t)
+  let roleTitle = 'Authorized User'
+  try {
+    roleTitle = formatUserRole(user.role, t)
+  } catch (err) {
+    console.warn('[DevRoleSwitcher] Failed to format user role:', err)
+  }
 
   const handleSwitchRole = (targetRole?: DevRole) => {
     let nextRole: DevRole
