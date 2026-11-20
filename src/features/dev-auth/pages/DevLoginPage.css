@@ -86,6 +86,25 @@
   color: var(--color-emerald-700, #047857);
 }
 
+.dev-role-icon-box-manager {
+  background-color: #f0fdfa;
+  color: #0f766e;
+}
+
+.dev-role-icon-box-admin {
+  background-color: var(--brand-green-50, #e8f5ee);
+  color: var(--brand-green-800, #15573b);
+}
+
+.dev-role-card-admin {
+  border-color: var(--brand-green-300, #86efac);
+  background: linear-gradient(180deg, #ffffff 0%, #f7fdf9 100%);
+}
+
+.dev-role-card-admin:hover {
+  border-color: var(--brand-green-600, #16a34a);
+}
+
 .dev-role-title {
   font-family: var(--font-display);
   font-size: var(--font-size-base);

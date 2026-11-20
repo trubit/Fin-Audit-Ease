@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Terminal, RefreshCw, LogOut } from 'lucide-react'
+import { Terminal, RefreshCw, LogOut, ShieldCheck } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { formatUserRole } from '@/features/auth/utils/roleUtils'
@@ -34,6 +34,8 @@ export const DevRoleSwitcher: React.FC = () => {
       nextRole = 'FINANCE_USER'
     } else if (user.role === 'FINANCE_USER') {
       nextRole = 'ADMIN'
+    } else if (user.role === 'ADMIN') {
+      nextRole = 'AUDIT_MANAGER'
     } else {
       nextRole = 'AUDITOR'
     }
@@ -71,6 +73,18 @@ export const DevRoleSwitcher: React.FC = () => {
         </div>
 
         <div className="dev-role-switcher-actions">
+          {user.role !== 'ADMIN' && (
+            <button
+              type="button"
+              className="dev-switcher-btn dev-switcher-btn-admin"
+              onClick={() => handleSwitchRole('ADMIN')}
+              aria-label="Switch directly to Admin Platform"
+            >
+              <ShieldCheck size={13} aria-hidden="true" />
+              <span>Admin Platform</span>
+            </button>
+          )}
+
           <button
             type="button"
             className="dev-switcher-btn dev-switcher-btn-switch"
@@ -78,7 +92,9 @@ export const DevRoleSwitcher: React.FC = () => {
             aria-label="Cycle Dev Role"
           >
             <RefreshCw size={13} aria-hidden="true" />
-            <span>Switch Role ({user.role === 'AUDITOR' ? 'Finance' : user.role === 'FINANCE_USER' ? 'Admin' : 'Auditor'})</span>
+            <span>
+              Switch Role ({user.role === 'AUDITOR' ? 'Finance' : user.role === 'FINANCE_USER' ? 'Admin' : user.role === 'ADMIN' ? 'Auditor' : 'Auditor'})
+            </span>
           </button>
 
           <button

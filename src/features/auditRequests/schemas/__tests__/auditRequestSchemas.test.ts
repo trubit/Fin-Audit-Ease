@@ -2,13 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { createAuditRequestSchema } from '../auditRequestSchemas'
 
 describe('Audit Request Creation Schema', () => {
+  const futureDueDate = new Date(Date.now() + 86400000 * 30).toISOString().split('T')[0]
+
   it('validates a compliant audit request payload', () => {
     const validData = {
       engagementId: 'eng_123',
       title: 'Q3 Bank Reconciliation Statements and Certificates',
       category: 'Cash & Equivalents',
       priority: 'HIGH' as const,
-      dueDate: '2026-11-15',
+      dueDate: futureDueDate,
       description: 'Please upload the stamped bank reconciliation schedules for all operational accounts.',
     }
 
@@ -81,7 +83,7 @@ describe('Audit Request Creation Schema', () => {
       title: 'Q3 Bank Reconciliation Statements and Certificates',
       category: 'Cash & Equivalents',
       priority: 'HIGH' as const,
-      dueDate: '2026-11-15',
+      dueDate: futureDueDate,
       description: 'Please upload the stamped bank reconciliation schedules for all operational accounts.',
       assigneeId: 'usr_accounting_99',
     }

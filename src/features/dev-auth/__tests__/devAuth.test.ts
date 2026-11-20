@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { useAuthStore } from '@/store/authStore'
+import { useAdminAuthStore } from '@/store/adminAuthStore'
 import { queryClient } from '@/lib/queryClient'
 import { devAuthService } from '../services/devAuthService'
 import { DEV_USERS } from '../constants'
@@ -7,6 +8,7 @@ import { DEV_USERS } from '../constants'
 describe('Temporary Development Authentication Service', () => {
   beforeEach(() => {
     useAuthStore.getState().setUnauthenticated()
+    useAdminAuthStore.getState().setUnauthenticatedAdmin()
     vi.clearAllMocks()
   })
 
@@ -77,5 +79,18 @@ describe('Temporary Development Authentication Service', () => {
     expect(state.authMode).toBe('real')
     expect(state.user).toBeNull()
     expect(clearSpy).toHaveBeenCalled()
+  })
+
+  it('authenticates development user as Admin and synchronizes admin session store', () => {
+    devAuthService.loginAsDev('ADMIN')
+
+    const clientState = useAuthStore.getState()
+    expect(clientState.isAuthenticated).toBe(true)
+    expect(clientState.user?.role).toBe('ADMIN')
+
+    const adminState = useAdminAuthStore.getState()
+    expect(adminState.isAuthenticated).toBe(true)
+    expect(adminState.adminUser?.role).toBe('ADMIN')
+    expect(adminState.adminUser?.email).toBe('admin.platform@finauditease.ng')
   })
 })

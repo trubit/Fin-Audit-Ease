@@ -109,17 +109,41 @@ export const DevLoginPage: React.FC = () => {
             </button>
           </div>
 
-          {/* Platform Administrator Card */}
+          {/* Audit Manager Card */}
           <div className="dev-role-card">
             <div>
               <div className="dev-role-header">
-                <div className="dev-role-icon-box dev-role-icon-box-auditor" style={{ backgroundColor: 'var(--brand-green-50)', color: 'var(--brand-green-800)' }} aria-hidden="true">
-                  <ShieldAlert size={22} />
+                <div className="dev-role-icon-box dev-role-icon-box-manager" aria-hidden="true">
+                  <UserCheck size={22} />
                 </div>
-                <h2 className="dev-role-title">Platform Administrator</h2>
+                <h2 className="dev-role-title">{t('devAuth.auditManagerRole')}</h2>
               </div>
               <p className="dev-role-desc" style={{ marginTop: 'var(--spacing-3)' }}>
-                System-wide administrative governance, user oversight, tenant management, security alerts, and platform settings.
+                {t('devAuth.auditManagerDescription')}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              className="btn btn-outline dev-role-btn"
+              onClick={() => handleSelectRole('AUDIT_MANAGER')}
+            >
+              <span>{t('devAuth.enterAuditManager')}</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </button>
+          </div>
+
+          {/* Platform Administrator Card */}
+          <div className="dev-role-card dev-role-card-admin">
+            <div>
+              <div className="dev-role-header">
+                <div className="dev-role-icon-box dev-role-icon-box-admin" aria-hidden="true">
+                  <ShieldAlert size={22} />
+                </div>
+                <h2 className="dev-role-title">{t('devAuth.adminRole')}</h2>
+              </div>
+              <p className="dev-role-desc" style={{ marginTop: 'var(--spacing-3)' }}>
+                {t('devAuth.adminDescription')}
               </p>
             </div>
 
@@ -128,7 +152,7 @@ export const DevLoginPage: React.FC = () => {
               className="btn btn-primary dev-role-btn"
               onClick={() => handleSelectRole('ADMIN')}
             >
-              <span>Enter Admin Platform</span>
+              <span>{t('devAuth.enterAdmin')}</span>
               <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>

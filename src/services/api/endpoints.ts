@@ -113,4 +113,91 @@ export const API_ENDPOINTS = {
     RECORDING_STREAM: (id: string) => `/api/v1/communication/recordings/${id}/stream`,
     PROVIDER_STATUS: '/api/v1/communication/meeting-provider',
   },
+
+  // Administration Platform
+  ADMIN: {
+    AUTH: {
+      LOGIN: '/api/v1/admin/auth/login',
+      VERIFY_2FA: '/api/v1/admin/auth/2fa/verify',
+      LOGOUT: '/api/v1/admin/auth/logout',
+      ME: '/api/v1/admin/auth/me',
+    },
+    DASHBOARD: {
+      KPIS: '/api/v1/admin/dashboard/kpis',
+      ACTIVITIES: '/api/v1/admin/dashboard/activities',
+    },
+    USERS: {
+      LIST: '/api/v1/admin/users',
+      CREATE: '/api/v1/admin/users',
+      DETAIL: (id: string) => `/api/v1/admin/users/${id}`,
+      UPDATE: (id: string) => `/api/v1/admin/users/${id}`,
+      RESET_PASSWORD: (id: string) => `/api/v1/admin/users/${id}/reset-password`,
+      TOGGLE_STATUS: (id: string) => `/api/v1/admin/users/${id}/toggle-status`,
+      RESET_MFA: (id: string) => `/api/v1/admin/users/${id}/mfa-reset`,
+    },
+    ORGANISATIONS: {
+      LIST: '/api/v1/admin/organisations',
+      CREATE: '/api/v1/admin/organisations',
+      DETAIL: (id: string) => `/api/v1/admin/organisations/${id}`,
+      UPDATE: (id: string) => `/api/v1/admin/organisations/${id}`,
+      MEMBERS: (id: string) => `/api/v1/admin/organisations/${id}/members`,
+      STATUS: (id: string) => `/api/v1/admin/organisations/${id}/status`,
+    },
+    AUDITORS: {
+      LIST: '/api/v1/admin/auditors',
+      DETAIL: (id: string) => `/api/v1/admin/auditors/${id}`,
+      VERIFY_CREDENTIALS: (id: string) => `/api/v1/admin/auditors/${id}/verify-credentials`,
+    },
+    AUDIT_MANAGERS: {
+      LIST: '/api/v1/admin/audit-managers',
+      DETAIL: (id: string) => `/api/v1/admin/audit-managers/${id}`,
+      PORTFOLIO: (id: string) => `/api/v1/admin/audit-managers/${id}/portfolio`,
+    },
+    ENGAGEMENTS: {
+      LIST: '/api/v1/admin/engagements',
+      DETAIL: (id: string) => `/api/v1/admin/engagements/${id}`,
+      KPIS: '/api/v1/admin/engagements/kpis',
+    },
+    SUBSCRIPTIONS: {
+      LIST: '/api/v1/admin/subscriptions',
+      DETAIL: (id: string) => `/api/v1/admin/subscriptions/${id}`,
+      RENEW: (id: string) => `/api/v1/admin/subscriptions/${id}/renew`,
+      CANCEL: (id: string) => `/api/v1/admin/subscriptions/${id}/cancel`,
+      INVOICES: '/api/v1/admin/subscriptions/invoices',
+    },
+    COMMUNICATION: {
+      OVERVIEW: '/api/v1/admin/communication/overview',
+      ROOMS: '/api/v1/admin/communication/rooms',
+      CONSENT_LEDGER: '/api/v1/admin/communication/consent-ledger',
+    },
+    AUDIT_TRAIL: {
+      LIST: '/api/v1/admin/audit-trail',
+      EXPORT: '/api/v1/admin/audit-trail/export',
+    },
+    REPORTS: {
+      SUMMARY: '/api/v1/admin/reports/summary',
+      TURNAROUND: '/api/v1/admin/reports/turnaround-times',
+      EXPORT: '/api/v1/admin/reports/export',
+    },
+    NOTIFICATIONS: {
+      BROADCASTS: '/api/v1/admin/notifications/broadcasts',
+      COMPOSE: '/api/v1/admin/notifications/broadcasts',
+      METRICS: '/api/v1/admin/notifications/metrics',
+    },
+    SECURITY: {
+      METRICS: '/api/v1/admin/security/metrics',
+      SESSIONS: '/api/v1/admin/security/sessions',
+      REVOKE_SESSION: (id: string) => `/api/v1/admin/security/sessions/${id}/revoke`,
+      REVOKE_USER_SESSIONS: '/api/v1/admin/security/sessions/revoke-all-for-user',
+      IP_WHITELIST: '/api/v1/admin/security/ip-whitelist',
+    },
+    SETTINGS: {
+      GET: '/api/v1/admin/settings',
+      UPDATE: '/api/v1/admin/settings',
+    },
+    ROLES_PERMISSIONS: {
+      MATRIX: '/api/v1/admin/roles-permissions/matrix',
+      UPDATE: '/api/v1/admin/roles-permissions',
+    },
+  },
 } as const

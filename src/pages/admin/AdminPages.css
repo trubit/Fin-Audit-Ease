@@ -1,13 +1,50 @@
 /**
  * FinAuditEase Admin Platform Pages Shared Stylesheet
+ * Strict App Typography Enforcement (Plus Jakarta Sans & Instrument Serif)
  * Brand colors: Sabi Africa Emerald (#1a6b4a, #2d9b68, #e8f5ee), Charcoal (#1c1c1c), Slate (#4a4a4a)
  */
+
+.admin-layout-shell,
+.admin-layout-shell *,
+.admin-page-header,
+.admin-page-title,
+.admin-title,
+.admin-page-description,
+.admin-subtitle,
+.admin-metrics-grid,
+.admin-metric-card,
+.admin-kpi-grid,
+.admin-kpi-card,
+.admin-filter-bar,
+.admin-table-card,
+.admin-table,
+.admin-table th,
+.admin-table td,
+.admin-search-input,
+.admin-select,
+.admin-filter-select,
+.admin-modal-card {
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+}
+
+.admin-layout-shell h1,
+.admin-layout-shell h2,
+.admin-layout-shell h3,
+.admin-layout-shell h4,
+.admin-page-title,
+.admin-title,
+.admin-modal-title,
+.admin-metric-value,
+.admin-kpi-value {
+  font-family: var(--font-display, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+}
 
 .admin-page-header {
   margin-bottom: var(--spacing-6, 24px);
 }
 
-.admin-page-header-row {
+.admin-page-header-row,
+.admin-header-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -15,15 +52,24 @@
   flex-wrap: wrap;
 }
 
-.admin-page-title {
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3, 12px);
+}
+
+.admin-page-title,
+.admin-title {
   font-size: var(--font-size-2xl, 24px);
   font-weight: 800;
   color: var(--brand-charcoal, #1c1c1c);
   letter-spacing: -0.02em;
   margin: var(--spacing-2, 8px) 0 4px 0;
+  line-height: 1.25;
 }
 
-.admin-page-description {
+.admin-page-description,
+.admin-subtitle {
   font-size: var(--font-size-sm, 14px);
   color: var(--slate, #4a4a4a);
   line-height: 1.5;
@@ -32,7 +78,8 @@
 }
 
 /* KPI / Metric Cards Grid */
-.admin-metrics-grid {
+.admin-metrics-grid,
+.admin-kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-4, 16px);
@@ -40,15 +87,69 @@
 }
 
 @media (max-width: 1200px) {
-  .admin-metrics-grid {
+  .admin-metrics-grid,
+  .admin-kpi-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .admin-metrics-grid {
+  .admin-metrics-grid,
+  .admin-kpi-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.admin-kpi-card {
+  background-color: var(--brand-white, #ffffff);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  border-radius: var(--radius-lg, 12px);
+  padding: var(--spacing-4, 16px) var(--spacing-5, 20px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-fast, 150ms ease), box-shadow var(--transition-fast, 150ms ease);
+}
+
+.admin-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 107, 74, 0.08);
+}
+
+.admin-kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-2, 8px);
+}
+
+.admin-kpi-label {
+  font-size: var(--font-size-xs, 12px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #8a8a8a);
+}
+
+.admin-kpi-icon {
+  color: var(--brand-green-800, #1a6b4a);
+}
+
+.admin-kpi-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-charcoal, #1c1c1c);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-2, 8px);
+  font-feature-settings: 'tnum';
+}
+
+.admin-kpi-subtext {
+  font-size: var(--font-size-xs, 12px);
+  color: var(--slate, #4a4a4a);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .admin-metric-card {
@@ -480,5 +581,93 @@
   font-size: var(--font-size-sm, 14px);
   font-weight: 500;
   color: var(--brand-charcoal, #1c1c1c);
+}
+
+/* Administrative Filter & Search Bar */
+.admin-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4, 16px);
+  margin-bottom: var(--spacing-4, 16px);
+  flex-wrap: wrap;
+}
+
+.admin-search-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.admin-filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+}
+
+.admin-select {
+  height: 38px;
+  padding: 0 var(--spacing-3, 12px);
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--brand-border, #e2e8e4);
+  background-color: var(--brand-gray-light, #fafaf7);
+  font-size: var(--font-size-sm, 13px);
+  font-weight: 500;
+  color: var(--brand-charcoal, #1c1c1c);
+  cursor: pointer;
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+}
+
+.admin-select:focus {
+  outline: none;
+  border-color: var(--brand-green-500, #2d9b68);
+  box-shadow: 0 0 0 3px rgba(45, 155, 104, 0.15);
+}
+
+/* User & Practice Avatar List Cells */
+.admin-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.admin-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-user-name {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.admin-user-email {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.admin-membership-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #334155;
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
 }
 

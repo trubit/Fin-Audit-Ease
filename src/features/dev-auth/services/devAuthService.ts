@@ -1,9 +1,11 @@
 import { useAuthStore } from '@/store/authStore'
+import { useAdminAuthStore } from '@/store/adminAuthStore'
 import { useSessionStore } from '@/store/sessionStore'
 import { queryClient } from '@/lib/queryClient'
 import { DEV_USERS } from '../constants'
 import { isDevAuthEnabled } from '../utils/isDevAuthEnabled'
 import type { DevRole } from '../types'
+import type { AdminProfile } from '@/features/admin-auth/types'
 
 /**
  * Temporary Development Authentication Service.
@@ -32,6 +34,23 @@ class DevAuthService {
 
     // 3. Reset session inactivity timer
     useSessionStore.getState().recordUserActivity()
+
+    // 4. Synchronize administration platform session store for ADMIN role
+    if (role === 'ADMIN') {
+      const adminProfile: AdminProfile = {
+        id: userPreset.id,
+        email: userPreset.email,
+        fullName: userPreset.fullName,
+        role: 'ADMIN',
+        department: 'Sabi Africa Platform Operations',
+        isTwoFactorEnabled: true,
+        createdAt: userPreset.createdAt,
+        lastLoginAt: new Date().toISOString(),
+      }
+      useAdminAuthStore.getState().setAuthenticatedAdmin(adminProfile)
+    } else {
+      useAdminAuthStore.getState().setUnauthenticatedAdmin()
+    }
   }
 
   /**
@@ -51,6 +70,23 @@ class DevAuthService {
 
     // 3. Reset session activity timestamp
     useSessionStore.getState().recordUserActivity()
+
+    // 4. Synchronize administration platform session store for ADMIN role
+    if (role === 'ADMIN') {
+      const adminProfile: AdminProfile = {
+        id: userPreset.id,
+        email: userPreset.email,
+        fullName: userPreset.fullName,
+        role: 'ADMIN',
+        department: 'Sabi Africa Platform Operations',
+        isTwoFactorEnabled: true,
+        createdAt: userPreset.createdAt,
+        lastLoginAt: new Date().toISOString(),
+      }
+      useAdminAuthStore.getState().setAuthenticatedAdmin(adminProfile)
+    } else {
+      useAdminAuthStore.getState().setUnauthenticatedAdmin()
+    }
   }
 
   /**
@@ -59,6 +95,7 @@ class DevAuthService {
   logoutDev(): void {
     queryClient.clear()
     useAuthStore.getState().setUnauthenticated()
+    useAdminAuthStore.getState().setUnauthenticatedAdmin()
     useSessionStore.getState().resetSessionState()
   }
 }

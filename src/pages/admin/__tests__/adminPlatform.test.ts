@@ -54,16 +54,21 @@ describe('Phase 18 — FinAuditEase Admin Platform Verification', () => {
 
     const expectedAdminSubsections = [
       'nav',
+      'auth',
       'dashboard',
       'users',
       'organisations',
       'auditors',
+      'auditManagers',
       'engagements',
       'subscriptions',
+      'communication',
       'auditTrail',
       'security',
       'reports',
+      'notifications',
       'settings',
+      'rolesPermissions',
     ]
 
     locales.forEach(({ code, dict, name }) => {
@@ -84,12 +89,16 @@ describe('Phase 18 — FinAuditEase Admin Platform Verification', () => {
         expect(nav.users).toBeTruthy()
         expect(nav.organisations).toBeTruthy()
         expect(nav.auditors).toBeTruthy()
+        expect(nav.auditManagers).toBeTruthy()
         expect(nav.engagements).toBeTruthy()
         expect(nav.subscriptions).toBeTruthy()
+        expect(nav.communication).toBeTruthy()
         expect(nav.auditTrail).toBeTruthy()
         expect(nav.securityCentre).toBeTruthy()
         expect(nav.reportsAndAnalytics).toBeTruthy()
+        expect(nav.notifications).toBeTruthy()
         expect(nav.settings).toBeTruthy()
+        expect(nav.rolesPermissions).toBeTruthy()
       })
     })
 
@@ -130,6 +139,28 @@ describe('Phase 18 — FinAuditEase Admin Platform Verification', () => {
       expect(jsonString).not.toContain('SECRET_KEY')
       expect(jsonString).not.toContain('PASSWORD_HASH')
       expect(jsonString).not.toContain('ACCESS_TOKEN_SECRET')
+    })
+  })
+
+  describe('5. Admin Login Portal Design & Security Verification', () => {
+    it('should contain official administrative portal translation keys in all 5 locales', () => {
+      const locales = [en, yo, ig, ha, pcm]
+      locales.forEach((dict) => {
+        const auth = (dict as any).admin.auth
+        expect(auth).toBeDefined()
+        expect(auth.portalBadge).toBeTruthy()
+        expect(auth.portalTitle).toBeTruthy()
+        expect(auth.workEmailLabel).toBeTruthy()
+        expect(auth.passwordLabel).toBeTruthy()
+        expect(auth.loginButton).toBeTruthy()
+        expect(auth.returnToMain).toBeTruthy()
+      })
+    })
+
+    it('should maintain isolated session storage key for administration platform', () => {
+      const adminSessionKey = 'fae_admin_session'
+      const clientSessionKey = 'fae_auth_session'
+      expect(adminSessionKey).not.toBe(clientSessionKey)
     })
   })
 })

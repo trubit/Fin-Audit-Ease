@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinAuditEase — Complete Frontend-to-Backend Connection Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --green: #10b981;
+      --green-dark: #047857;
+      --amber: #f59e0b;
+      --blue: #38bdf8;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --code-bg: #0f172a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 28px auto;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #10b981, #047857);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .brand-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #34d399;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-frontend {
+      background: #064e3b;
+      color: #6ee7b7;
+      border: 1px solid #059669;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .badge-backend {
+      background: #78350f;
+      color: #fde68a;
+      border: 1px solid #d97706;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* 12-Step Lifecycle Pipeline */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .pipeline-step {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pipeline-step.active {
+      border-color: var(--green);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--border);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .pipeline-step.frontend .step-num {
+      background: #059669;
+    }
+
+    .pipeline-step.backend .step-num {
+      background: #d97706;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .step-file {
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--blue);
+      background: var(--code-bg);
+      padding: 4px 6px;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+
+    /* Code Comparison Split */
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .code-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      background: #1e293b;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .code-path {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    pre {
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #cbd5e1;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    .keyword { color: #f43f5e; font-weight: 600; }
+    .func { color: #38bdf8; font-weight: 600; }
+    .str { color: #34d399; }
+    .comment { color: #64748b; font-style: italic; }
+    .type { color: #fbbf24; }
+
+    /* Interactive Live Simulation Controller */
+    .sim-bar {
+      background: #1e293b;
+      border: 1px solid var(--green);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sim-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sim-status {
+      font-size: 15px;
+      font-weight: 700;
+      color: #34d399;
+    }
+
+    .sim-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      margin-right: 8px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 900px) {
+      .pipeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo">F</div>
+      <div>
+        <div class="brand-title">FinAuditEase — Frontend-to-Backend Connection Architecture</div>
+        <div class="brand-sub">Sabi Africa Innovations Limited • Technical Integration Specification</div>
+      </div>
+    </div>
+    <div class="pill-badge">
+      <span class="pulse-dot"></span>
+      <span>Live Architecture Connection Map</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Simulation Status Bar -->
+    <div class="sim-bar">
+      <div class="sim-info">
+        <div class="sim-status">Demonstrating: End-to-End PBC Audit Request Flow</div>
+        <div class="sim-sub">Following user trigger from Lead Auditor form through Zod validation, HTTP Client, JWT Auth Guard, to Database.</div>
+      </div>
+      <div>
+        <span class="badge-frontend">FRONTEND: IMPLEMENTED</span>
+        <span style="margin: 0 6px; color: var(--muted);">➔</span>
+        <span class="badge-backend">BACKEND: TO BE IMPLEMENTED</span>
+      </div>
+    </div>
+
+    <!-- 12-Step Lifecycle Pipeline -->
+    <div>
+      <div class="section-title">
+        <span>The 12-Step Frontend-to-Backend Request-Response Pipeline</span>
+      </div>
+      <div class="pipeline-grid">
+
+        <!-- Step 1 -->
+        <div class="pipeline-step frontend active" id="step-1">
+          <div class="step-num">1</div>
+          <div class="step-title">User Form Submit</div>
+          <div class="step-desc">Auditor enters PBC request details (Title, Category, Due Date) in React Form.</div>
+          <div class="step-file">CreateAuditRequestPage.tsx</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="pipeline-step frontend active" id="step-2">
+          <div class="step-num">2</div>
+          <div class="step-title">Zod Schema Parsing</div>
+          <div class="step-desc">Runtime validation ensures due date is in future, title is &ge; 5 chars, category valid.</div>
+          <div class="step-file">auditRequestSchemas.ts</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="pipeline-step frontend active" id="step-3">
+          <div class="step-num">3</div>
+          <div class="step-title">TanStack Mutation Hook</div>
+          <div class="step-desc">useCreateAuditRequest executes mutation, manages loading state, and prepares cache invalidation.</div>
+          <div class="step-file">useAuditRequests.ts</div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="pipeline-step frontend active" id="step-4">
+          <div class="step-num">4</div>
+          <div class="step-title">Service Function Call</div>
+          <div class="step-desc">auditRequestService.createAuditRequest(payload) prepares typed API invocation.</div>
+          <div class="step-file">auditRequestService.ts</div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="pipeline-step frontend active" id="step-5">
+          <div class="step-num">5</div>
+          <div class="step-title">Axios / Fetch Dispatcher</div>
+          <div class="step-desc">apiClient resolves baseUrl, deduplicates /api/v1 prefix, attaches credentials: 'include'.</div>
+          <div class="step-file">src/services/api/apiClient.ts</div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="pipeline-step frontend active" id="step-6">
+          <div class="step-num">6</div>
+          <div class="step-title">Bearer Token Interceptor</div>
+          <div class="step-desc">Injects Authorization: Bearer &lt;JWT&gt; from session store into HTTP headers.</div>
+          <div class="step-file">apiClient.ts (Headers)</div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="pipeline-step backend" id="step-7">
+          <div class="step-num">7</div>
+          <div class="step-title">Network HTTPS Boundary</div>
+          <div class="step-desc">POST /api/v1/audit-requests transmitted over TLS 1.3 with application/json body.</div>
+          <div class="step-file">Endpoint: /api/v1/audit-requests</div>
+        </div>
+
+        <!-- Step 8 -->
+        <div class="pipeline-step backend" id="step-8">
+          <div class="step-num">8</div>
+          <div class="step-title">Backend Auth & JWT Guard</div>
+          <div class="step-desc">Backend verifies JWT signature, expiration, and extracts user_id, role, and org_id.</div>
+          <div class="step-file">Backend: AuthMiddleware</div>
+        </div>
+
+        <!-- Step 9 -->
+        <div class="pipeline-step backend" id="step-9">
+          <div class="step-num">9</div>
+          <div class="step-title">Tenant & RBAC Isolation</div>
+          <div class="step-desc">Backend validates Auditor organization matches engagement tenant; rejects cross-tenant leaks.</div>
+          <div class="step-file">Backend: TenantGuard</div>
+        </div>
+
+        <!-- Step 10 -->
+        <div class="pipeline-step backend" id="step-10">
+          <div class="step-num">10</div>
+          <div class="step-title">Database Transaction</div>
+          <div class="step-desc">INSERT into audit_requests table and log action in immutable audit_trail table.</div>
+          <div class="step-file">Backend: PostgreSQL DB</div>
+        </div>
+
+        <!-- Step 11 -->
+        <div class="pipeline-step backend" id="step-11">
+          <div class="step-num">11</div>
+          <div class="step-title">JSON Response Envelope</div>
+          <div class="step-desc">Backend returns HTTP 201 Created with standard { success: true, data: { ... } } body.</div>
+          <div class="step-file">ApiResponse&lt;AuditRequest&gt;</div>
+        </div>
+
+        <!-- Step 12 -->
+        <div class="pipeline-step frontend active" id="step-12">
+          <div class="step-num">12</div>
+          <div class="step-title">State Sync & UI Update</div>
+          <div class="step-desc">TanStack Query invalidates ['auditRequests'] cache; UI re-renders and displays success toast.</div>
+          <div class="step-file">queryClient.invalidateQueries()</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Side-by-Side Actual Code Snippets -->
+    <div>
+      <div class="section-title">
+        <span>Actual Source Code: Frontend Calling Layer vs Expected Backend Controller</span>
+      </div>
+
+      <div class="split-grid">
+        <!-- Left: Frontend Service -->
+        <div class="code-box">
+          <div class="code-header">
+            <span class="code-path">src/features/auditRequests/services/auditRequestService.ts</span>
+            <span class="badge-frontend">FRONTEND CLIENT</span>
+          </div>
+          <pre><code><span class="keyword">import</span> { apiClient } <span class="keyword">from</span> <span class="str">'@/services/api/apiClient'</span>
+<span class="keyword">import</span> { API_ENDPOINTS } <span class="keyword">from</span> <span class="str">'@/services/api/endpoints'</span>
+<span class="keyword">import type</span> { <span class="type">ApiResponse</span> } <span class="keyword">from</span> <span class="str">'@/types/api.types'</span>
+<span class="keyword">import type</span> { <span class="type">AuditRequest</span>, <span class="type">CreateAuditRequestPayload</span> } <span class="keyword">from</span> <span class="str">'../types'</span>
+
+<span class="keyword">export const</span> auditRequestService = {
+  <span class="comment">/**
+   * Create a new auditor Provided by Client (PBC) request.
+   * Transmits POST /api/v1/audit-requests
+   */</span>
+  <span class="keyword">async</span> <span class="func">createAuditRequest</span>(payload: <span class="type">CreateAuditRequestPayload</span>): <span class="type">Promise</span>&lt;<span class="type">ApiResponse</span>&lt;<span class="type">AuditRequest</span>&gt;&gt; {
+    <span class="keyword">return</span> apiClient.<span class="func">post</span>&lt;<span class="type">AuditRequest</span>&gt;(
+      API_ENDPOINTS.AUDIT_REQUESTS.CREATE, 
+      payload
+    )
+  },
+}</code></pre>
+        </div>
+
+        <!-- Right: Expected Backend Controller -->
+        <div class="code-box">
+          <div class="code-header">
+            <span class="code-path">controllers/auditRequest.controller.ts (To Implement)</span>
+            <span class="badge-backend">BACKEND CONTROLLER</span>
+          </div>
+          <pre><code><span class="keyword">export async function</span> <span class="func">createAuditRequest</span>(req: <span class="type">Request</span>, res: <span class="type">Response</span>) {
+  <span class="comment">// 1. Authenticate user from JWT context</span>
+  <span class="keyword">const</span> { userId, role, organizationId } = req.user;
+  <span class="keyword">if</span> (role !== <span class="str">'AUDITOR'</span> && role !== <span class="str">'AUDIT_MANAGER'</span>) {
+    <span class="keyword">return</span> res.<span class="func">status</span>(<span class="str">403</span>).<span class="func">json</span>({ success: <span class="keyword">false</span>, error: { code: <span class="str">'FORBIDDEN'</span> } });
+  }
+
+  <span class="comment">// 2. Enforce Tenant Isolation</span>
+  <span class="keyword">const</span> engagement = <span class="keyword">await</span> db.<span class="func">findEngagement</span>(req.body.engagementId);
+  <span class="keyword">if</span> (engagement.auditorOrgId !== organizationId) {
+    <span class="keyword">return</span> res.<span class="func">status</span>(<span class="str">403</span>).<span class="func">json</span>({ success: <span class="keyword">false</span>, error: { code: <span class="str">'TENANT_VIOLATION'</span> } });
+  }
+
+  <span class="comment">// 3. Insert Database Record & Return Standard Envelope</span>
+  <span class="keyword">const</span> newRequest = <span class="keyword">await</span> db.<span class="func">insertAuditRequest</span>(req.body, userId);
+  <span class="keyword">return</span> res.<span class="func">status</span>(<span class="str">201</span>).<span class="func">json</span>({
+    success: <span class="keyword">true</span>,
+    data: newRequest
+  });
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dedicated Separate Admin Platform Connection Box -->
+    <div class="code-box" id="admin-separation-box">
+      <div class="code-header">
+        <span class="code-path">Separate Administration Platform Security Gateway Connection</span>
+        <span class="badge-frontend">ADMIN SEPARATION GUARANTEE</span>
+      </div>
+      <div style="padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 14px;">Main Client Application (app.finauditease.com)</h4>
+          <p style="font-size: 12px; color: var(--muted); margin-bottom: 8px;">
+            • Base Route: <code>/login</code>, <code>/signup</code><br>
+            • Roles Allowed: <code>AUDITOR</code>, <code>FINANCE_USER</code>, <code>AUDIT_MANAGER</code><br>
+            • State Storage: <code>fae_dev_auth_session</code> (Zustand <code>useAuthStore</code>)<br>
+            • JWT Audience: <code>aud: "main-app"</code><br>
+            • Guard: <code>ProtectedRoute.tsx</code>
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #34d399; margin-bottom: 8px; font-size: 14px;">Separate Admin Platform (admin.finauditease.com)</h4>
+          <p style="font-size: 12px; color: var(--muted); margin-bottom: 8px;">
+            • Base Route: <code>/admin/login</code> (NO public signup)<br>
+            • Roles Allowed: Strictly <code>ADMIN</code><br>
+            • State Storage: <code>fae_admin_session</code> (Zustand <code>useAdminAuthStore</code>)<br>
+            • JWT Audience: <code>aud: "admin-platform"</code> (Separate Token Pipeline)<br>
+            • Guard: <code>AdminProtectedRoute.tsx</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi-Tenant Database & Security Isolation -->
+    <div class="code-box" id="database-isolation-section">
+      <div class="code-header">
+        <span class="code-path">Multi-Tenant Database Isolation &amp; Security Layer</span>
+        <span class="badge-backend">BACKEND RESPONSIBILITY</span>
+      </div>
+      <div style="padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <h4 style="color: #f59e0b; margin-bottom: 8px; font-size: 14px;">Relational PostgreSQL Schema with Tenant Foreign Keys</h4>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.6;">
+            • <code>users</code>: <code>id, email, password_hash, role, organization_id, is_active</code><br>
+            • <code>organizations</code>: <code>id, name, type (AUDIT_FIRM|CORPORATE), subscription_tier</code><br>
+            • <code>engagements</code>: <code>id, title, auditor_org_id, client_org_id, status, risk_score</code><br>
+            • <code>audit_requests</code>: <code>id, engagement_id, title, category, status, due_date</code><br>
+            • <code>documents</code>: <code>id, request_id, file_name, s3_key, sha256_hash, file_size</code><br>
+            • <code>audit_trail</code>: <code>id, actor_id, org_id, action, resource, timestamp, ip_address</code>
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #f59e0b; margin-bottom: 8px; font-size: 14px;">Mandatory Security Guardrails</h4>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.6;">
+            • <strong>Row-Level Security (RLS):</strong> Enforce <code>WHERE org_id = current_setting('app.current_org_id')</code><br>
+            • <strong>Encryption at Rest:</strong> AES-256 for database tables and S3/GCS buckets<br>
+            • <strong>Audit Immutability:</strong> Append-only log for all compliance actions<br>
+            • <strong>Rate Limiting:</strong> Enforce 100 req/min for standard APIs and 5 req/min for auth endpoints
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Missing & Required Backend Integrations -->
+    <div class="code-box" id="missing-integrations-section">
+      <div class="code-header">
+        <span class="code-path">Pending Backend Integrations &amp; Missing Services</span>
+        <span class="badge-backend">ACTION REQUIRED</span>
+      </div>
+      <div style="padding: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div style="background: #0f172a; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+            <div style="font-weight: 700; font-size: 13px; color: #f59e0b; margin-bottom: 4px;">1. Real-Time WebSockets</div>
+            <div style="font-size: 11px; color: var(--muted);">Notification &amp; collaborative review live streams at <code>/api/v1/notifications/stream</code>.</div>
+          </div>
+          <div style="background: #0f172a; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+            <div style="font-weight: 700; font-size: 13px; color: #f59e0b; margin-bottom: 4px;">2. S3 Presigned Uploads</div>
+            <div style="font-size: 11px; color: var(--muted);">Direct-to-cloud signed upload URLs with SHA-256 checksum verification.</div>
+          </div>
+          <div style="background: #0f172a; padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+            <div style="font-weight: 700; font-size: 13px; color: #f59e0b; margin-bottom: 4px;">3. Payment Gateways</div>
+            <div style="font-size: 11px; color: var(--muted);">Paystack &amp; Flutterwave webhook handling for SaaS subscription tiers.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Backend Developer Implementation Checklist -->
+    <div class="code-box" id="checklist-section" style="border-color: var(--green);">
+      <div class="code-header" style="background: #064e3b;">
+        <span class="code-path" style="color: #6ee7b7;">Backend Developer 7-Step Implementation Checklist</span>
+        <span class="badge-frontend">READY FOR HANDOVER</span>
+      </div>
+      <div style="padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <ul style="list-style: none; font-size: 12px; line-height: 1.8; color: #e2e8f0;">
+          <li><span style="color: #10b981; font-weight: 800;">✓ 1.</span> Implement JWT Auth &amp; Refresh Endpoints (<code>/api/v1/auth/*</code>)</li>
+          <li><span style="color: #10b981; font-weight: 800;">✓ 2.</span> Create Multi-Tenant PostgreSQL Schema with Organization RLS</li>
+          <li><span style="color: #10b981; font-weight: 800;">✓ 3.</span> Implement RBAC Middleware (Auditor, SME, Manager, Admin)</li>
+          <li><span style="color: #10b981; font-weight: 800;">✓ 4.</span> Build Engagement &amp; PBC Audit Request CRUD Endpoints</li>
+        </ul>
+        <ul style="list-style: none; font-size: 12px; line-height: 1.8; color: #e2e8f0;">
+          <li><span style="color: #10b981; font-weight: 800;">✓ 5.</span> Configure Encrypted S3 Document Storage &amp; Presigned URLs</li>
+          <li><span style="color: #10b981; font-weight: 800;">✓ 6.</span> Setup Transactional Email &amp; Notification Event Queues</li>
+          <li><span style="color: #10b981; font-weight: 800;">✓ 7.</span> Implement Isolated Admin Gateway with Immutable Audit Logging</li>
+        </ul>
+      </div>
+      <div style="background: #022c22; padding: 12px 20px; text-align: center; font-size: 12px; color: #34d399; font-weight: 600; border-top: 1px solid #059669;">
+        FinAuditEase • Sabi Africa Innovations Limited — Complete Technical Handover
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+

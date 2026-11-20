@@ -5,12 +5,16 @@ import {
   Users,
   Building,
   UserCheck,
+  UserCog,
   Briefcase,
   CreditCard,
+  Video,
   History,
   ShieldAlert,
   BarChart3,
+  Bell,
   Settings,
+  KeyRound,
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
@@ -19,6 +23,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { useUIStore } from '@/store/uiStore'
 import { useAuth } from '@/features/auth/hooks/useAuth'
+import { useAdminAuth } from '@/features/admin-auth/hooks/useAdminAuth'
 import { formatUserRole } from '@/features/auth/utils/roleUtils'
 import './AdminSidebar.css'
 
@@ -40,6 +45,15 @@ export const AdminSidebar: React.FC = () => {
   const { t } = useTranslation()
   const { mobileNavOpen, closeAllDrawers, sidebarOpen, toggleSidebar } = useUIStore()
   const { user } = useAuth()
+  const { adminUser } = useAdminAuth()
+
+  const activeUser = user || (adminUser ? {
+    id: adminUser.id,
+    email: adminUser.email,
+    fullName: adminUser.fullName,
+    role: adminUser.role,
+    organizationName: 'Sabi Africa Innovations Limited',
+  } : null)
 
   // Handle Escape key to close mobile drawer
   useEffect(() => {
@@ -99,6 +113,11 @@ export const AdminSidebar: React.FC = () => {
           label: t('admin.nav.auditors', 'Auditor Directory'),
           icon: UserCheck,
         },
+        {
+          to: '/admin/audit-managers',
+          label: t('admin.nav.auditManagers', 'Audit Managers'),
+          icon: UserCog,
+        },
       ],
     },
     {
@@ -115,6 +134,11 @@ export const AdminSidebar: React.FC = () => {
           label: t('admin.nav.subscriptions', 'Subscriptions'),
           icon: CreditCard,
         },
+        {
+          to: '/admin/communication',
+          label: t('admin.nav.communication', 'Chat & Meeting Oversight'),
+          icon: Video,
+        },
       ],
     },
     {
@@ -127,14 +151,19 @@ export const AdminSidebar: React.FC = () => {
           icon: History,
         },
         {
-          to: '/admin/security',
-          label: t('admin.nav.securityCentre', 'Security Centre'),
-          icon: ShieldAlert,
-        },
-        {
           to: '/admin/reports',
           label: t('admin.nav.reportsAndAnalytics', 'Reports & Analytics'),
           icon: BarChart3,
+        },
+        {
+          to: '/admin/notifications',
+          label: t('admin.nav.notifications', 'Platform Notifications'),
+          icon: Bell,
+        },
+        {
+          to: '/admin/security',
+          label: t('admin.nav.securityCentre', 'Security Centre'),
+          icon: ShieldAlert,
         },
       ],
     },
@@ -146,6 +175,11 @@ export const AdminSidebar: React.FC = () => {
           to: '/admin/settings',
           label: t('admin.nav.settings', 'Platform Settings'),
           icon: Settings,
+        },
+        {
+          to: '/admin/roles-permissions',
+          label: t('admin.nav.rolesPermissions', 'Roles & Permissions'),
+          icon: KeyRound,
         },
         {
           to: '/dashboard',
@@ -176,23 +210,23 @@ export const AdminSidebar: React.FC = () => {
       >
         <div className="admin-sidebar-content">
           {/* Admin Role Orientation Card */}
-          {user && (
+          {activeUser && (
             <div
               className="admin-sidebar-role-card"
-              title={`${formatUserRole(user.role, t)} — ${user.organizationName || user.fullName}`}
+              title={`${formatUserRole(activeUser.role, t)} — ${activeUser.organizationName || activeUser.fullName}`}
             >
               <div className="admin-sidebar-role-icon" aria-hidden="true">
                 <ShieldCheck size={18} />
               </div>
               <div className="admin-sidebar-role-meta">
                 <span className="admin-sidebar-role-label">
-                  {formatUserRole(user.role, t)}
+                  {formatUserRole(activeUser.role, t)}
                 </span>
                 <span
                   className="admin-sidebar-role-org"
-                  title={user.organizationName || 'Sabi Africa Innovations Limited'}
+                  title={activeUser.organizationName || 'Sabi Africa Innovations Limited'}
                 >
-                  {user.organizationName || 'Sabi Africa Innovations Limited'}
+                  {activeUser.organizationName || 'Sabi Africa Innovations Limited'}
                 </span>
               </div>
             </div>

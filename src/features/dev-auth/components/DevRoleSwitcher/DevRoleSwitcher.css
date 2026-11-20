@@ -84,6 +84,21 @@
   outline-offset: 1px;
 }
 
+.dev-switcher-btn-admin {
+  background-color: var(--brand-green-700, #15803d);
+  color: #ffffff;
+  border-color: var(--brand-green-800, #166534);
+}
+
+.dev-switcher-btn-admin:hover {
+  background-color: var(--brand-green-800, #166534);
+}
+
+.dev-switcher-btn-admin:focus-visible {
+  outline: 2px solid var(--brand-green-500);
+  outline-offset: 1px;
+}
+
 .dev-switcher-btn-exit {
   background-color: transparent;
   color: var(--color-slate-600);

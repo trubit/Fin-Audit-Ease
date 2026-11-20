@@ -5,6 +5,7 @@ import { PublicLayout } from '@/layouts/PublicLayout'
 import { AppLayout } from '@/layouts/AppLayout'
 import { AdminLayout } from '@/layouts/AdminLayout'
 import { ProtectedRoute } from './ProtectedRoute'
+import { AdminProtectedRoute } from './AdminProtectedRoute'
 import { LoadingSkeleton } from '@/components/feedback/LoadingSkeleton/LoadingSkeleton'
 import { PageContainer } from '@/components/layout/PageContainer/PageContainer'
 import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
@@ -144,6 +145,21 @@ const AdminReportsPage = lazy(() =>
 )
 const AdminSettingsPage = lazy(() =>
   import('@/pages/admin/AdminSettingsPage').then((m) => ({ default: m.AdminSettingsPage }))
+)
+const AdminLoginPage = lazy(() =>
+  import('@/pages/admin/AdminLoginPage').then((m) => ({ default: m.AdminLoginPage }))
+)
+const AdminAuditManagersPage = lazy(() =>
+  import('@/pages/admin/AdminAuditManagersPage').then((m) => ({ default: m.AdminAuditManagersPage }))
+)
+const AdminCommunicationPage = lazy(() =>
+  import('@/pages/admin/AdminCommunicationPage').then((m) => ({ default: m.AdminCommunicationPage }))
+)
+const AdminNotificationsPage = lazy(() =>
+  import('@/pages/admin/AdminNotificationsPage').then((m) => ({ default: m.AdminNotificationsPage }))
+)
+const AdminRolesPermissionsPage = lazy(() =>
+  import('@/pages/admin/AdminRolesPermissionsPage').then((m) => ({ default: m.AdminRolesPermissionsPage }))
 )
 
 export const appRoutes: RouteObject[] = [
@@ -473,9 +489,19 @@ export const appRoutes: RouteObject[] = [
         ],
       },
 
-      // Enterprise Administrator Platform Route Group (Guarded strictly for ADMIN)
+      // Dedicated Enterprise Administration Platform Authentication Gateway
       {
-        element: <ProtectedRoute allowedRoles={['ADMIN']} />,
+        path: '/admin/login',
+        element: (
+          <Suspense fallback={<RouteSuspenseFallback />}>
+            <AdminLoginPage />
+          </Suspense>
+        ),
+      },
+
+      // Enterprise Administrator Platform Route Group (Guarded strictly for ADMIN via AdminProtectedRoute)
+      {
+        element: <AdminProtectedRoute />,
         children: [
           {
             element: <AdminLayout />,
@@ -525,6 +551,14 @@ export const appRoutes: RouteObject[] = [
                 ),
               },
               {
+                path: '/admin/audit-managers',
+                element: (
+                  <Suspense fallback={<RouteSuspenseFallback />}>
+                    <AdminAuditManagersPage />
+                  </Suspense>
+                ),
+              },
+              {
                 path: '/admin/engagements',
                 element: (
                   <Suspense fallback={<RouteSuspenseFallback />}>
@@ -541,18 +575,18 @@ export const appRoutes: RouteObject[] = [
                 ),
               },
               {
-                path: '/admin/audit-trail',
+                path: '/admin/communication',
                 element: (
                   <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminAuditTrailPage />
+                    <AdminCommunicationPage />
                   </Suspense>
                 ),
               },
               {
-                path: '/admin/security',
+                path: '/admin/audit-trail',
                 element: (
                   <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminSecurityPage />
+                    <AdminAuditTrailPage />
                   </Suspense>
                 ),
               },
@@ -565,10 +599,34 @@ export const appRoutes: RouteObject[] = [
                 ),
               },
               {
+                path: '/admin/notifications',
+                element: (
+                  <Suspense fallback={<RouteSuspenseFallback />}>
+                    <AdminNotificationsPage />
+                  </Suspense>
+                ),
+              },
+              {
+                path: '/admin/security',
+                element: (
+                  <Suspense fallback={<RouteSuspenseFallback />}>
+                    <AdminSecurityPage />
+                  </Suspense>
+                ),
+              },
+              {
                 path: '/admin/settings',
                 element: (
                   <Suspense fallback={<RouteSuspenseFallback />}>
                     <AdminSettingsPage />
+                  </Suspense>
+                ),
+              },
+              {
+                path: '/admin/roles-permissions',
+                element: (
+                  <Suspense fallback={<RouteSuspenseFallback />}>
+                    <AdminRolesPermissionsPage />
                   </Suspense>
                 ),
               },

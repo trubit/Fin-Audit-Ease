@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { AppHeader } from '@/components/layout/AppHeader/AppHeader'
+import { AdminHeader } from '@/components/layout/AdminHeader/AdminHeader'
 import { AdminSidebar } from '@/components/layout/AdminSidebar/AdminSidebar'
 import { DevRoleSwitcher } from '@/features/dev-auth/components/DevRoleSwitcher/DevRoleSwitcher'
 import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
@@ -8,14 +8,22 @@ import { ErrorBoundary } from '@/components/feedback/ErrorBoundary/ErrorBoundary
 
 export const AdminLayout: React.FC = () => {
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <AppHeader isAppView={true} />
+    <div
+      className="admin-layout-shell"
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        fontFamily: 'var(--font-body, "Plus Jakarta Sans", sans-serif)',
+      }}
+    >
+      <AdminHeader />
       {isDevAuthEnabled() && (
         <ErrorBoundary fallback={null}>
           <DevRoleSwitcher />
         </ErrorBoundary>
       )}
-      <div style={{ display: 'flex', flex: 1, minHeight: 'calc(100vh - 4rem)' }}>
+      <div style={{ display: 'flex', flex: 1, minHeight: 'calc(100vh - 4.25rem)' }}>
         <AdminSidebar />
         <main
           id="main-content"
@@ -26,6 +34,7 @@ export const AdminLayout: React.FC = () => {
             overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
+            fontFamily: 'var(--font-body, "Plus Jakarta Sans", sans-serif)',
           }}
         >
           <div style={{ flex: 1, paddingBottom: 'var(--spacing-12, 48px)' }}>
