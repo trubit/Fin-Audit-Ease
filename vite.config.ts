@@ -1,14 +1,15 @@
+import fs from 'node:fs'
 import path from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin, type ViteDevServer, type PreviewServer } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 /**
- * Multi-SPA History Fallback Plugin for Development & Preview
+ * Dedicated Admin Platform Fallback Plugin
  *
- * Ensures that direct browser requests or page refreshes on administrative
- * routes (e.g. /admin/notifications, /admin/dashboard) are securely routed to
- * admin.html instead of falling back to the user app's index.html.
+ * Ensures that all HTML navigation document requests (including the root /)
+ * route directly to admin.html for the FinAuditEase Administration Platform.
+ * Also synchronizes dist/admin.html to dist/index.html on build completion.
  */
 function adminDevHistoryFallbackPlugin(): Plugin {
   const handleAdminFallback = (server: ViteDevServer | PreviewServer) => {
@@ -21,9 +22,8 @@ function adminDevHistoryFallbackPlugin(): Plugin {
       const pathname = rawUrl.split('?')[0]
       const accept = req.headers.accept || ''
 
-      // Strictly target HTML navigation document requests for administrative routes
+      // Strictly target HTML navigation document requests
       const isHtmlNav = typeof accept === 'string' && accept.includes('text/html')
-      const isAdminRoute = pathname === '/admin' || pathname.startsWith('/admin/')
       const isStaticOrInternal =
         pathname.includes('.') ||
         pathname.startsWith('/api/') ||
@@ -31,7 +31,7 @@ function adminDevHistoryFallbackPlugin(): Plugin {
         pathname.startsWith('/@') ||
         pathname.startsWith('/node_modules/')
 
-      if (isHtmlNav && isAdminRoute && !isStaticOrInternal) {
+      if (isHtmlNav && !isStaticOrInternal) {
         req.url = '/admin.html'
       }
 
@@ -46,6 +46,17 @@ function adminDevHistoryFallbackPlugin(): Plugin {
     },
     configurePreviewServer(server) {
       handleAdminFallback(server)
+    },
+    closeBundle() {
+      const distAdmin = path.resolve(import.meta.dirname, 'dist', 'admin.html')
+      const distIndex = path.resolve(import.meta.dirname, 'dist', 'index.html')
+      try {
+        if (fs.existsSync(distAdmin)) {
+          fs.copyFileSync(distAdmin, distIndex)
+        }
+      } catch (err) {
+        console.warn('Could not copy dist/admin.html to dist/index.html:', err)
+      }
     },
   }
 }
@@ -110,9 +121,9 @@ export default defineConfig({
         ]
       },
       workbox: {
-        // SECURITY: Never cache authenticated API calls, private audit documents, or independent admin platform
-        navigateFallback: '/index.html',
-        navigateFallbackDenylist: [/^\/api/, /^\/admin/],
+        // SECURITY: Never cache authenticated API calls or private documents
+        navigateFallback: '/admin.html',
+        navigateFallbackDenylist: [/^\/api/],
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         cleanupOutdatedCaches: true
       }
