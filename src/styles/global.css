@@ -2,6 +2,23 @@
 @import './reset.css';
 @import './typography.css';
 
+/* FinAuditEase Official Font: Times New Roman Enforced Globally */
+*, *::before, *::after {
+  font-family: inherit;
+}
+
+html,
+body,
+#root,
+#admin-root,
+input,
+button,
+select,
+textarea,
+optgroup {
+  font-family: var(--font-body, "Times New Roman", Times, serif);
+}
+
 /* Smooth in-page scrolling with sticky header clearance */
 html {
   scroll-behavior: smooth;

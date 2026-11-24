@@ -72,7 +72,7 @@
 }
 
 .landing-hero-title {
-  font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+  font-family: var(--font-serif, "Times New Roman", Times, serif);
   font-size: clamp(2.4rem, 5.5vw, 4.5rem);
   font-weight: 400;
   color: var(--charcoal, #1c1c1c);

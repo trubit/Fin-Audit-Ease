@@ -184,9 +184,9 @@ describe('Notification Service & Safe Navigation (Phase 10)', () => {
   })
 
   describe('formatRelativeTime', () => {
-    it('returns "—" for missing timestamp', () => {
-      expect(formatRelativeTime(undefined)).toBe('—')
-      expect(formatRelativeTime('')).toBe('—')
+    it('returns "-" for missing timestamp', () => {
+      expect(formatRelativeTime(undefined)).toBe('-')
+      expect(formatRelativeTime('')).toBe('-')
     })
 
     it('formats times under 60 seconds as "Just now"', () => {

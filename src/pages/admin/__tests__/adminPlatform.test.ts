@@ -6,6 +6,8 @@ import ha from '@/i18n/locales/ha.json'
 import pcm from '@/i18n/locales/pcm.json'
 import { formatUserRole } from '@/features/auth/utils/roleUtils'
 import type { UserRole } from '@/features/auth/types'
+import { appRoutes } from '@/app/router/routes'
+import { adminRoutes } from '@/admin/router/adminRoutes'
 
 describe('Phase 18 — FinAuditEase Admin Platform Verification', () => {
   describe('1. Role Hierarchy & Formatter Verification', () => {
@@ -27,9 +29,9 @@ describe('Phase 18 — FinAuditEase Admin Platform Verification', () => {
       expect(formatted).toBe('System Administrator')
     })
 
-    it('should format AUDITOR role as Chartered Lead Auditor', () => {
+    it('should format AUDITOR role as Lead Auditor', () => {
       const formatted = formatUserRole('AUDITOR', mockT)
-      expect(formatted).toBe('Chartered Lead Auditor')
+      expect(formatted).toBe('Lead Auditor')
     })
 
     it('should format AUDIT_MANAGER role as Audit Engagement Manager', () => {
@@ -161,6 +163,52 @@ describe('Phase 18 — FinAuditEase Admin Platform Verification', () => {
       const adminSessionKey = 'fae_admin_session'
       const clientSessionKey = 'fae_auth_session'
       expect(adminSessionKey).not.toBe(clientSessionKey)
+    })
+  })
+
+  describe('6. Application A (User App) & Application B (Admin App) Strict Architectural Decoupling', () => {
+    const extractPaths = (routes: readonly any[]): string[] => {
+      const paths: string[] = []
+      const traverse = (node: any) => {
+        if (!node) return
+        if (node.path) paths.push(node.path)
+        if (node.children && Array.isArray(node.children)) {
+          node.children.forEach(traverse)
+        }
+      }
+      routes.forEach(traverse)
+      return paths
+    }
+
+    it('should NOT contain any /admin routes in the User Application routes', () => {
+      const userPaths = extractPaths(appRoutes)
+      const adminPaths = userPaths.filter((p) => p.startsWith('/admin'))
+      expect(adminPaths).toHaveLength(0)
+    })
+
+    it('should NOT contain /admin/dashboard or /admin/login in the User Application routes', () => {
+      const userPaths = extractPaths(appRoutes)
+      expect(userPaths).not.toContain('/admin/dashboard')
+      expect(userPaths).not.toContain('/admin/login')
+      expect(userPaths).not.toContain('/admin')
+    })
+
+    it('should contain all required administrative modules in the dedicated Admin Platform routes', () => {
+      const adminPaths = extractPaths(adminRoutes)
+      expect(adminPaths).toContain('/dashboard')
+      expect(adminPaths).toContain('/users')
+      expect(adminPaths).toContain('/organisations')
+      expect(adminPaths).toContain('/auditors')
+      expect(adminPaths).toContain('/audit-managers')
+      expect(adminPaths).toContain('/engagements')
+      expect(adminPaths).toContain('/subscriptions')
+      expect(adminPaths).toContain('/communication')
+      expect(adminPaths).toContain('/audit-trail')
+      expect(adminPaths).toContain('/reports')
+      expect(adminPaths).toContain('/notifications')
+      expect(adminPaths).toContain('/security')
+      expect(adminPaths).toContain('/settings')
+      expect(adminPaths).toContain('/roles-permissions')
     })
   })
 })

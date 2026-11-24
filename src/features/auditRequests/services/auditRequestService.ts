@@ -50,6 +50,26 @@ export const auditRequestService = {
   },
 
   /**
+   * Assign or reassign an audit request to an internal SME / corporate accounting team member.
+   */
+  async assignAuditRequest(
+    id: string,
+    payload: { readonly assigneeId: string; readonly assigneeName?: string }
+  ): Promise<ApiResponse<AuditRequest>> {
+    return apiClient.patch<AuditRequest>(API_ENDPOINTS.AUDIT_REQUESTS.UPDATE(id), payload)
+  },
+
+  /**
+   * Update arbitrary audit request fields (title, priority, due date, description).
+   */
+  async updateAuditRequest(
+    id: string,
+    payload: Partial<CreateAuditRequestPayload>
+  ): Promise<ApiResponse<AuditRequest>> {
+    return apiClient.patch<AuditRequest>(API_ENDPOINTS.AUDIT_REQUESTS.UPDATE(id), payload)
+  },
+
+  /**
    * Add a comment to an audit request.
    */
   async addComment(id: string, content: string): Promise<ApiResponse<AuditRequestComment>> {

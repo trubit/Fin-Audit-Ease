@@ -130,7 +130,7 @@ export const AuditTrailTimeline: React.FC<AuditTrailTimelineProps> = ({ records 
       return t('roles.auditManager', 'Audit Engagement Manager')
     }
     if (upper.includes('AUDITOR')) {
-      return t('roles.auditor', 'Chartered Auditor')
+      return t('roles.auditor', 'Lead Auditor')
     }
     if (upper.includes('ADMIN')) {
       return t('roles.admin', 'System Administrator')

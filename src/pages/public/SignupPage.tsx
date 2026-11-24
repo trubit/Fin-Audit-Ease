@@ -464,7 +464,7 @@ export const SignupPage: React.FC = () => {
                     type="text"
                     autoComplete="name"
                     className={`input ${auditorForm.formState.errors.fullName ? 'input-error' : ''}`}
-                    placeholder={t('authentication.fullNamePlaceholderAuditor', 'e.g. Olawale Adeleke')}
+                    placeholder={t('authentication.fullNamePlaceholderAuditor', 'e.g. Full Legal Name')}
                     disabled={isSubmitting}
                     {...auditorForm.register('fullName')}
                   />
@@ -501,7 +501,7 @@ export const SignupPage: React.FC = () => {
                     id="auditor-firm"
                     type="text"
                     className={`input ${auditorForm.formState.errors.firmName ? 'input-error' : ''}`}
-                    placeholder={t('authentication.firmNamePlaceholder', 'e.g. Apex Assurance Partners')}
+                    placeholder={t('authentication.firmNamePlaceholder', 'e.g. Audit & Assurance Firm')}
                     disabled={isSubmitting}
                     {...auditorForm.register('firmName')}
                   />
@@ -520,9 +520,10 @@ export const SignupPage: React.FC = () => {
                     disabled={isSubmitting}
                     {...auditorForm.register('professionalBody')}
                   >
-                    <option value="ICAN">ICAN (Institute of Chartered Accountants of Nigeria)</option>
-                    <option value="ACCA">ACCA (Association of Chartered Certified Accountants)</option>
-                    <option value="ICAEW">ICAEW (Institute of Chartered Accountants in England and Wales)</option>
+                    <option value="ICAN">ICAN (Institute of Accountants of Nigeria)</option>
+                    <option value="ANAN">ANAN (Association of National Accountants of Nigeria)</option>
+                    <option value="ACCA">ACCA (Association of Certified Accountants)</option>
+                    <option value="ICAEW">ICAEW</option>
                   </select>
                 </FormField>
               </div>
@@ -705,7 +706,7 @@ export const SignupPage: React.FC = () => {
                     type="text"
                     autoComplete="name"
                     className={`input ${accountingForm.formState.errors.fullName ? 'input-error' : ''}`}
-                    placeholder={t('authentication.fullNamePlaceholderAccounting', 'e.g. Ngozi Chidiebere')}
+                    placeholder={t('authentication.fullNamePlaceholderAccounting', 'e.g. Full Legal Name')}
                     disabled={isSubmitting}
                     {...accountingForm.register('fullName')}
                   />
@@ -742,7 +743,7 @@ export const SignupPage: React.FC = () => {
                     id="accounting-company"
                     type="text"
                     className={`input ${accountingForm.formState.errors.companyName ? 'input-error' : ''}`}
-                    placeholder={t('authentication.companyNamePlaceholder', 'e.g. Savannah Logistics Ltd')}
+                    placeholder={t('authentication.companyNamePlaceholder', 'e.g. Corporate Client Entity')}
                     disabled={isSubmitting}
                     {...accountingForm.register('companyName')}
                   />
@@ -1032,7 +1033,7 @@ export const SignupPage: React.FC = () => {
                       textDecoration: 'underline',
                     }}
                   >
-                    {t('authentication.accountingCardTitle', 'Accounting Team — Self Registration')}
+                    {t('authentication.accountingCardTitle', 'Accounting Team: Self Registration')}
                   </button>
                   .
                 </div>
@@ -1111,7 +1112,7 @@ export const SignupPage: React.FC = () => {
                         type="text"
                         autoComplete="name"
                         className={`input ${invitationForm.formState.errors.fullName ? 'input-error' : ''}`}
-                        placeholder={t('authentication.fullNamePlaceholderInvitation', 'e.g. Adebayo Ogunlesi')}
+                        placeholder={t('authentication.fullNamePlaceholderInvitation', 'e.g. Full Legal Name')}
                         disabled={isSubmitting}
                         {...invitationForm.register('fullName')}
                       />

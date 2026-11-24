@@ -83,7 +83,7 @@ export const ReviewActionModal: React.FC<ReviewActionModalProps> = ({
               <XCircle size={20} style={{ color: 'var(--color-rose-600)' }} aria-hidden="true" />
             )}
             <h2 id="review-modal-title" className="review-modal-title">
-              {isApprove ? t('review.approvedTitle', 'Audit Checklist and Supporting Documents — Approved') : t('review.notApprovedTitle', 'Audit Checklist and Supporting Documents — Not Approved')}
+              {isApprove ? t('review.approvedTitle', 'Audit Checklist and Supporting Documents (Approved)') : t('review.notApprovedTitle', 'Audit Checklist and Supporting Documents (Not Approved)')}
             </h2>
           </div>
           <button

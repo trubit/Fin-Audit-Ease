@@ -240,7 +240,7 @@ export const AuditTrailPage: React.FC = () => {
       title={t('auditTrail.title', 'Permanent Audit Trail')}
       subtitle={
         engagement
-          ? `${engagement.title} — ${t(
+          ? `${engagement.title} • ${t(
               'auditTrail.provenanceSubtitle',
               'Permanent, immutable historical record of all actions, uploads, and review determinations.'
             )}`
@@ -291,7 +291,7 @@ export const AuditTrailPage: React.FC = () => {
                 </option>
                 {allEngagements.map((eng) => (
                   <option key={eng.id} value={eng.id}>
-                    {eng.title} (FY{eng.fiscalYear}) — {eng.clientOrganizationName}
+                    {eng.title} (FY{eng.fiscalYear}) • {eng.clientOrganizationName}
                   </option>
                 ))}
               </select>

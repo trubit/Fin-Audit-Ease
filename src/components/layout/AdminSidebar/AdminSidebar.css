@@ -14,7 +14,7 @@
   transition: width var(--transition-normal, 200ms ease), min-width var(--transition-normal, 200ms ease);
   z-index: 40;
   user-select: none;
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 
 .admin-sidebar.is-collapsed {
@@ -221,7 +221,7 @@
 @media (max-width: 1023px) {
   .admin-sidebar {
     position: fixed;
-    top: 64px;
+    top: 4.25rem;
     bottom: 0;
     left: 0;
     transform: translateX(-100%);
@@ -237,7 +237,7 @@
   .admin-sidebar-backdrop {
     display: block;
     position: fixed;
-    top: 64px;
+    top: 4.25rem;
     bottom: 0;
     left: 0;
     right: 0;

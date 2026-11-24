@@ -4,8 +4,9 @@ import { formatUserRole } from '../roleUtils'
 describe('formatUserRole', () => {
   const mockT = ((key: string, options?: { defaultValue?: string }) => {
     const translations: Record<string, string> = {
-      'roles.auditor': 'Chartered Lead Auditor',
+      'roles.auditor': 'Lead Auditor',
       'roles.auditManager': 'Audit Engagement Manager',
+      'roles.accountingManager': 'Accounting Engagement Manager',
       'roles.accountingMember': 'Corporate Accounting Team Member',
       'roles.accountingLead': 'Accounting Team Lead',
       'roles.admin': 'System Administrator',
@@ -15,11 +16,15 @@ describe('formatUserRole', () => {
   }) as any
 
   it('formats AUDITOR role professionally', () => {
-    expect(formatUserRole('AUDITOR', mockT)).toBe('Chartered Lead Auditor')
+    expect(formatUserRole('AUDITOR', mockT)).toBe('Lead Auditor')
   })
 
   it('formats AUDIT_MANAGER role professionally', () => {
     expect(formatUserRole('AUDIT_MANAGER', mockT)).toBe('Audit Engagement Manager')
+  })
+
+  it('formats ACCOUNTING_MANAGER role professionally', () => {
+    expect(formatUserRole('ACCOUNTING_MANAGER', mockT)).toBe('Accounting Engagement Manager')
   })
 
   it('formats technical FINANCE_USER enum to Corporate Accounting Team Member', () => {

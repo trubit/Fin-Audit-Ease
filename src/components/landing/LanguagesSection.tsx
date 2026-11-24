@@ -85,7 +85,13 @@ export const LanguagesSection: React.FC = () => {
                 <div className="lang-card-body">
                   <span className="lang-full-name">{detail.fullName}</span>
                   <span className="lang-native-title">{detail.nativeTitle}</span>
-                  <span className="lang-glyph-note">{detail.glyphFeatures}</span>
+                  <span className="lang-glyph-note">
+                    {opt.code === 'en'
+                      ? t('landing.multilingual.enFeatures', detail.glyphFeatures)
+                      : opt.code === 'pcm'
+                      ? t('landing.multilingual.pcmFeatures', detail.glyphFeatures)
+                      : detail.glyphFeatures}
+                  </span>
                 </div>
               </button>
             )

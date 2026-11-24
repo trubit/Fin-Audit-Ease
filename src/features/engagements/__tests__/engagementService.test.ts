@@ -8,6 +8,7 @@ vi.mock('@/services/api/apiClient', () => ({
   apiClient: {
     get: vi.fn(),
     post: vi.fn(),
+    patch: vi.fn(),
   },
 }))
 
@@ -155,6 +156,34 @@ describe('Engagement Service (Phase 4 Auditor Experience)', () => {
         payload
       )
       expect(result.data.invitationToken).toBe('inv_token_987654321')
+    })
+  })
+
+  describe('updateEngagement & assignAuditor (Phase 18 Manager Experience)', () => {
+    it('calls patch on canonical update endpoint with partial payload', async () => {
+      const mockUpdated = { id: 'eng_001', title: 'Updated Title' } as Engagement
+      vi.mocked(apiClient.patch).mockResolvedValueOnce({ success: true, data: mockUpdated })
+
+      const result = await engagementService.updateEngagement('eng_001', { title: 'Updated Title' })
+      expect(apiClient.patch).toHaveBeenCalledWith(API_ENDPOINTS.ENGAGEMENTS.UPDATE('eng_001'), {
+        title: 'Updated Title',
+      })
+      expect(result.data.title).toBe('Updated Title')
+    })
+
+    it('assignAuditor dispatches lead auditor assignment', async () => {
+      const mockUpdated = { id: 'eng_001', leadAuditorId: 'aud_123', leadAuditorName: 'Tunde ICAN' } as Engagement
+      vi.mocked(apiClient.patch).mockResolvedValueOnce({ success: true, data: mockUpdated })
+
+      const result = await engagementService.assignAuditor('eng_001', {
+        auditorId: 'aud_123',
+        auditorName: 'Tunde ICAN',
+      })
+      expect(apiClient.patch).toHaveBeenCalledWith(API_ENDPOINTS.ENGAGEMENTS.UPDATE('eng_001'), {
+        leadAuditorId: 'aud_123',
+        leadAuditorName: 'Tunde ICAN',
+      })
+      expect(result.data.leadAuditorName).toBe('Tunde ICAN')
     })
   })
 })

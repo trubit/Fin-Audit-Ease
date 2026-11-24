@@ -33,7 +33,7 @@ export const AppFooter: React.FC = () => {
         <div className="app-footer-grid">
           {/* Brand & Company Relationship Column */}
           <div className="app-footer-brand-col">
-            <Link to="/" className="app-footer-brand" aria-label="FinAuditEase — Powered by Sabi Africa Innovations Limited">
+            <Link to="/" className="app-footer-brand" aria-label="FinAuditEase | Powered by Sabi Africa Innovations Limited">
               <img
                 src="/images/sabi-africa-logo.jpg"
                 alt="Sabi Africa Innovations Limited Logo"
@@ -141,10 +141,10 @@ export const AppFooter: React.FC = () => {
             <div className="app-footer-security-note">
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)', marginBottom: 'var(--spacing-1)', color: 'var(--color-primary-300)' }}>
                 <Lock size={14} aria-hidden="true" />
-                <span style={{ fontWeight: 600 }}>Privacy by Design</span>
+                <span style={{ fontWeight: 600 }}>{t('landing.privacyByDesign', 'Privacy by Design')}</span>
               </div>
               <p style={{ margin: 0 }}>
-                Zero unencrypted credential storage in browser local storage. Inactivity protection active.
+                {t('landing.footer.privacyNotice', 'Zero unencrypted credential storage in browser local storage. Inactivity protection active.')}
               </p>
             </div>
             <div style={{ marginTop: 'var(--spacing-3)' }}>
@@ -156,7 +156,7 @@ export const AppFooter: React.FC = () => {
         {/* Footer Bottom Bar */}
         <div className="app-footer-bottom">
           <p className="app-footer-copyright">
-            © {CURRENT_YEAR} Sabi Africa Innovations Limited. FinAuditEase — Powered by Sabi Africa Innovations Limited. {t('landing.footer.rights')}
+            © {CURRENT_YEAR} Sabi Africa Innovations Limited. FinAuditEase, powered by Sabi Africa Innovations Limited. {t('landing.footer.rights')}
           </p>
           <div className="app-footer-legal-links" style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
             <Link to="/terms-and-conditions" className="app-footer-link" style={{ fontSize: 'var(--font-size-xs)' }}>

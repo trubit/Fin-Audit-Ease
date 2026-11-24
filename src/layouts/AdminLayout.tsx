@@ -14,7 +14,7 @@ export const AdminLayout: React.FC = () => {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: 'var(--font-body, "Plus Jakarta Sans", sans-serif)',
+        fontFamily: 'var(--font-body, "Times New Roman", Times, serif)',
       }}
     >
       <AdminHeader />
@@ -34,7 +34,7 @@ export const AdminLayout: React.FC = () => {
             overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
-            fontFamily: 'var(--font-body, "Plus Jakarta Sans", sans-serif)',
+            fontFamily: 'var(--font-body, "Times New Roman", Times, serif)',
           }}
         >
           <div style={{ flex: 1, paddingBottom: 'var(--spacing-12, 48px)' }}>

@@ -133,7 +133,7 @@ export const AdminSecurityPage: React.FC = () => {
           </div>
           <div className="admin-metric-value" style={{ color: 'var(--brand-green-800)' }}>100%</div>
           <div className="admin-metric-subtext">
-            <span>✓ Active across all auditor &amp; admin accounts</span>
+            <span>{t('admin.security.activeAcrossAll', '✓ Active across all auditor & admin accounts')}</span>
           </div>
         </div>
 
@@ -146,7 +146,7 @@ export const AdminSecurityPage: React.FC = () => {
           </div>
           <div className="admin-metric-value">15 min</div>
           <div className="admin-metric-subtext">
-            <span>Enforced by client &amp; server token revocation</span>
+            <span>{t('admin.security.enforcedByRevocation', 'Enforced by client & server token revocation')}</span>
           </div>
         </div>
 
@@ -159,7 +159,7 @@ export const AdminSecurityPage: React.FC = () => {
           </div>
           <div className="admin-metric-value">0</div>
           <div className="admin-metric-subtext">
-            <span style={{ color: 'var(--brand-green-800)', fontWeight: 600 }}>● Normal activity, 0 anomalies</span>
+            <span style={{ color: 'var(--brand-green-800)', fontWeight: 600 }}>{t('admin.security.normalActivityZeroAnomalies', '● Normal activity, 0 anomalies')}</span>
           </div>
         </div>
 

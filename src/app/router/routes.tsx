@@ -1,11 +1,9 @@
 import { lazy, Suspense } from 'react'
-import { Navigate, type RouteObject } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
 import { RootLayout } from '@/layouts/RootLayout'
 import { PublicLayout } from '@/layouts/PublicLayout'
 import { AppLayout } from '@/layouts/AppLayout'
-import { AdminLayout } from '@/layouts/AdminLayout'
 import { ProtectedRoute } from './ProtectedRoute'
-import { AdminProtectedRoute } from './AdminProtectedRoute'
 import { LoadingSkeleton } from '@/components/feedback/LoadingSkeleton/LoadingSkeleton'
 import { PageContainer } from '@/components/layout/PageContainer/PageContainer'
 import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
@@ -113,53 +111,6 @@ const UnauthorizedPage = lazy(() =>
 )
 const NotFoundPage = lazy(() =>
   import('@/pages/feedback/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
-)
-
-// Admin Platform Pages (Lazy Loaded)
-const AdminDashboardPage = lazy(() =>
-  import('@/pages/admin/AdminDashboardPage').then((m) => ({ default: m.AdminDashboardPage }))
-)
-const AdminUsersPage = lazy(() =>
-  import('@/pages/admin/AdminUsersPage').then((m) => ({ default: m.AdminUsersPage }))
-)
-const AdminOrganisationsPage = lazy(() =>
-  import('@/pages/admin/AdminOrganisationsPage').then((m) => ({ default: m.AdminOrganisationsPage }))
-)
-const AdminAuditorsPage = lazy(() =>
-  import('@/pages/admin/AdminAuditorsPage').then((m) => ({ default: m.AdminAuditorsPage }))
-)
-const AdminEngagementsPage = lazy(() =>
-  import('@/pages/admin/AdminEngagementsPage').then((m) => ({ default: m.AdminEngagementsPage }))
-)
-const AdminSubscriptionsPage = lazy(() =>
-  import('@/pages/admin/AdminSubscriptionsPage').then((m) => ({ default: m.AdminSubscriptionsPage }))
-)
-const AdminAuditTrailPage = lazy(() =>
-  import('@/pages/admin/AdminAuditTrailPage').then((m) => ({ default: m.AdminAuditTrailPage }))
-)
-const AdminSecurityPage = lazy(() =>
-  import('@/pages/admin/AdminSecurityPage').then((m) => ({ default: m.AdminSecurityPage }))
-)
-const AdminReportsPage = lazy(() =>
-  import('@/pages/admin/AdminReportsPage').then((m) => ({ default: m.AdminReportsPage }))
-)
-const AdminSettingsPage = lazy(() =>
-  import('@/pages/admin/AdminSettingsPage').then((m) => ({ default: m.AdminSettingsPage }))
-)
-const AdminLoginPage = lazy(() =>
-  import('@/pages/admin/AdminLoginPage').then((m) => ({ default: m.AdminLoginPage }))
-)
-const AdminAuditManagersPage = lazy(() =>
-  import('@/pages/admin/AdminAuditManagersPage').then((m) => ({ default: m.AdminAuditManagersPage }))
-)
-const AdminCommunicationPage = lazy(() =>
-  import('@/pages/admin/AdminCommunicationPage').then((m) => ({ default: m.AdminCommunicationPage }))
-)
-const AdminNotificationsPage = lazy(() =>
-  import('@/pages/admin/AdminNotificationsPage').then((m) => ({ default: m.AdminNotificationsPage }))
-)
-const AdminRolesPermissionsPage = lazy(() =>
-  import('@/pages/admin/AdminRolesPermissionsPage').then((m) => ({ default: m.AdminRolesPermissionsPage }))
 )
 
 export const appRoutes: RouteObject[] = [
@@ -483,152 +434,6 @@ export const appRoutes: RouteObject[] = [
                     ),
                   },
                 ],
-              },
-            ],
-          },
-        ],
-      },
-
-      // Dedicated Enterprise Administration Platform Authentication Gateway
-      {
-        path: '/admin/login',
-        element: (
-          <Suspense fallback={<RouteSuspenseFallback />}>
-            <AdminLoginPage />
-          </Suspense>
-        ),
-      },
-
-      // Enterprise Administrator Platform Route Group (Guarded strictly for ADMIN via AdminProtectedRoute)
-      {
-        element: <AdminProtectedRoute />,
-        children: [
-          {
-            element: <AdminLayout />,
-            children: [
-              {
-                path: '/admin',
-                element: <Navigate to="/admin/dashboard" replace />,
-              },
-              {
-                path: '/admin/dashboard',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminDashboardPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/users',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminUsersPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/organisations',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminOrganisationsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/organizations',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminOrganisationsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/auditors',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminAuditorsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/audit-managers',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminAuditManagersPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/engagements',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminEngagementsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/subscriptions',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminSubscriptionsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/communication',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminCommunicationPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/audit-trail',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminAuditTrailPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/reports',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminReportsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/notifications',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminNotificationsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/security',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminSecurityPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/settings',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminSettingsPage />
-                  </Suspense>
-                ),
-              },
-              {
-                path: '/admin/roles-permissions',
-                element: (
-                  <Suspense fallback={<RouteSuspenseFallback />}>
-                    <AdminRolesPermissionsPage />
-                  </Suspense>
-                ),
               },
             ],
           },

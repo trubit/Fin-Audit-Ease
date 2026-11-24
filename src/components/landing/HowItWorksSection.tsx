@@ -24,56 +24,56 @@ export const HowItWorksSection: React.FC = () => {
       title: t('landing.howItWorks.step1Title'),
       desc: t('landing.howItWorks.step1Desc'),
       icon: Briefcase,
-      actor: 'Auditor',
-      output: 'Engagement Scope & Terms Established',
+      actor: t('landing.howItWorks.actorAuditor', 'Auditor'),
+      output: t('landing.howItWorks.step1Output', 'Engagement Scope & Terms Established'),
     },
     {
       num: '02',
       title: t('landing.howItWorks.step2Title'),
       desc: t('landing.howItWorks.step2Desc'),
       icon: FileQuestion,
-      actor: 'Auditor',
-      output: 'Structured Requests with Priorities & Due Dates',
+      actor: t('landing.howItWorks.actorAuditor', 'Auditor'),
+      output: t('landing.howItWorks.step2Output', 'Structured Requests with Priorities & Due Dates'),
     },
     {
       num: '03',
       title: t('landing.howItWorks.step3Title'),
       desc: t('landing.howItWorks.step3Desc'),
       icon: UserCheck,
-      actor: 'Auditor & Accounting Team',
-      output: 'Dedicated Accounting Team Member Responsibility',
+      actor: t('landing.howItWorks.actorBoth', 'Auditor & Accounting Team'),
+      output: t('landing.howItWorks.step3Output', 'Dedicated Accounting Team Member Responsibility'),
     },
     {
       num: '04',
       title: t('landing.howItWorks.step4Title'),
       desc: t('landing.howItWorks.step4Desc'),
       icon: UploadCloud,
-      actor: 'Accounting Team Member',
-      output: 'Evidentiary Files Uploaded Against Specific Request',
+      actor: t('landing.howItWorks.actorAccounting', 'Accounting Team Member'),
+      output: t('landing.howItWorks.step4Output', 'Evidentiary Files Uploaded Against Specific Request'),
     },
     {
       num: '05',
       title: t('landing.howItWorks.step5Title'),
       desc: t('landing.howItWorks.step5Desc'),
       icon: FileCheck2,
-      actor: 'Auditor',
-      output: 'Evidence Inspected in Review Workspace',
+      actor: t('landing.howItWorks.actorAuditor', 'Auditor'),
+      output: t('landing.howItWorks.step5Output', 'Evidence Inspected in Review Workspace'),
     },
     {
       num: '06',
       title: t('landing.howItWorks.step6Title'),
       desc: t('landing.howItWorks.step6Desc'),
       icon: CheckCircle2,
-      actor: 'Auditor',
-      output: 'Approved Evidence or Rejection with Explicit Reason',
+      actor: t('landing.howItWorks.actorAuditor', 'Auditor'),
+      output: t('landing.howItWorks.step6Output', 'Approved Evidence or Rejection with Explicit Reason'),
     },
     {
       num: '07',
       title: t('landing.howItWorks.step7Title'),
       desc: t('landing.howItWorks.step7Desc'),
       icon: FolderArchive,
-      actor: 'All Stakeholders',
-      output: 'Finalized Engagement & Permanent Audit History',
+      actor: t('landing.howItWorks.actorAll', 'All Stakeholders'),
+      output: t('landing.howItWorks.step7Output', 'Finalized Engagement & Permanent Audit History'),
     },
   ]
 
@@ -147,7 +147,7 @@ export const HowItWorksSection: React.FC = () => {
           </div>
 
           <div className="dark-card-right">
-            <span className="dark-result-label">Stage Milestone & Output:</span>
+            <span className="dark-result-label">{t('landing.howItWorks.stageMilestone', 'Stage Milestone & Output:')}</span>
             <div className="dark-result-box">
               <ShieldCheck size={18} className="dark-result-icon" />
               <span>{steps[activeStep].output}</span>
@@ -158,11 +158,11 @@ export const HowItWorksSection: React.FC = () => {
                 className="dark-next-step-btn"
                 onClick={() => setActiveStep((prev) => prev + 1)}
               >
-                <span>Next Stage</span>
+                <span>{t('landing.nextStage', 'Next Stage')}</span>
                 <ArrowRight size={14} />
               </button>
             ) : (
-              <span className="dark-complete-badge">Workflow Complete & Preserved</span>
+              <span className="dark-complete-badge">{t('landing.howItWorks.workflowComplete', 'Workflow Complete & Preserved')}</span>
             )}
           </div>
         </div>

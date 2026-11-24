@@ -1,7 +1,7 @@
 /**
  * FinAuditEase Typography System
- * Display & Brand Hierarchy: Instrument Serif (Headlines) & Plus Jakarta Sans (UI, Headings, Data)
- * Standards synchronized from https://sabi-africa-web.vercel.app
+ * Official Global Font Family: Times New Roman ("Times New Roman", Times, serif)
+ * Mandatory typography across all routes, user roles, headers, dialogs, forms, and tables.
  */
 
 /* Display & Visual Hierarchy Headings */
@@ -9,7 +9,7 @@ h1,
 h2,
 .font-display,
 .display-title {
-  font-family: var(--font-display);
+  font-family: var(--font-display, "Times New Roman", Times, serif);
   color: var(--text-main);
   line-height: var(--line-height-tight);
 }
@@ -32,7 +32,7 @@ h4,
 h5,
 h6,
 .font-body {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, "Times New Roman", Times, serif);
   line-height: var(--line-height-normal);
   color: var(--text-main);
   letter-spacing: -0.01em;
@@ -60,10 +60,10 @@ h6 {
   font-weight: 600;
 }
 
-/* Body & Paragraph Text (Plus Jakarta Sans) */
+/* Body & Paragraph Text (Times New Roman) */
 body,
 p {
-  font-family: var(--font-body);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
   color: var(--text-muted);
   font-weight: 450;
   line-height: var(--line-height-relaxed);
@@ -88,13 +88,13 @@ b {
 
 /* Monospace & Data Tokens */
 .font-mono {
-  font-family: var(--font-family-mono);
+  font-family: var(--font-family-mono, ui-monospace, monospace);
 }
 
 /* Financial & Numeric Data Alignment */
 .financial-value,
 .numeric-data {
-  font-family: var(--font-body);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
 }
@@ -141,7 +141,7 @@ b {
 }
 
 .landing-section-title {
-  font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+  font-family: var(--font-serif, "Times New Roman", Times, serif);
   font-weight: 400;
   font-size: clamp(2.2rem, 3.8vw, 3rem);
   color: var(--brand-black, #111827);
@@ -151,7 +151,7 @@ b {
 }
 
 .landing-section-subtitle {
-  font-family: var(--font-body);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
   font-size: clamp(0.95rem, 1.5vw, 1.075rem);
   line-height: 1.7;
   color: var(--color-slate-600, #475569);

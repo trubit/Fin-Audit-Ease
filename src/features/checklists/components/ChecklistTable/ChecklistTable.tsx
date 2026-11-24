@@ -13,8 +13,13 @@ import {
   User,
   ShieldCheck,
   ExternalLink,
+  Send,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '@/features/auth/hooks/useAuth'
+import { formatUserRole } from '@/features/auth/utils/roleUtils'
+import { useToast } from '@/components/feedback/Toast'
+import { documentService } from '@/features/documents/services/documentService'
 import { Badge } from '@/components/common/Badge/Badge'
 import { formatDate, formatDateTime } from '@/utils/dateUtils'
 import type { Checklist, ChecklistItem, ChecklistItemStatus } from '../../types'
@@ -39,6 +44,8 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
   onRefresh,
 }) => {
   const { t } = useTranslation()
+  const { user } = useAuth()
+  const { showToast } = useToast()
   const { mutate: updateItem, isPending } = useUpdateChecklistItem()
   const [updatingItemId, setUpdatingItemId] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL')
@@ -62,7 +69,7 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
   // Map category to PRD user-facing localized labels
   const getCategoryLabel = React.useCallback(
     (cat?: string): string => {
-      if (!cat) return '—'
+      if (!cat) return '-'
       const lower = cat.toLowerCase().trim()
       if (lower.includes('cash') || lower.includes('bank')) {
         return t('checklists.categoryCash', 'Category A: Cash & Bank')
@@ -169,7 +176,7 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
     if (isEffectiveReadOnly) return
     const trimmed = noteDraft.trim()
     if (trimmed.length > 500) {
-      setNoteError('Note exceeds maximum length of 500 characters.')
+      setNoteError(t('checklists.noteLengthWarning', 'Note exceeds maximum length of 500 characters.'))
       return
     }
 
@@ -473,11 +480,7 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
                           </span>
                         )}
                         <div>
-                          <p
-                            className="checklist-item-title"
-                            style={{ cursor: 'pointer' }}
-                            onClick={() => setSelectedItemForModal(item)}
-                          >
+                          <p className="checklist-item-title">
                             {item.title}
                           </p>
                           {item.description && (
@@ -599,7 +602,7 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
                           {getCategoryLabel(item.category)}
                         </span>
                       ) : (
-                        <span className="checklist-empty-cell">—</span>
+                        <span className="checklist-empty-cell">-</span>
                       )}
                     </td>
 
@@ -634,7 +637,7 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
                           {formatDate(item.dueDate)}
                         </span>
                       ) : (
-                        <span className="checklist-empty-cell">—</span>
+                        <span className="checklist-empty-cell">-</span>
                       )}
                     </td>
 
@@ -715,6 +718,38 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
                               <ExternalLink size={11} aria-hidden="true" />
                               <span>{t('common.details', 'Details')}</span>
                             </button>
+
+                            {(item.status === 'REVIEWED' || item.status === 'COMPLETED') && (
+                              <button
+                                type="button"
+                                className="btn btn-outline btn-xs"
+                                onClick={() => {
+                                  const forwarderName = user?.fullName
+                                    ? `${user.fullName} (${formatUserRole(user.role, t)})`
+                                    : t('checklists.supervisorRole', 'Accounting Supervisor')
+                                  documentService.forwardDocument({
+                                    title: item.title,
+                                    classification: 'RECONCILIATION_SCHEDULE',
+                                    source: 'SUPERVISOR_APPROVAL',
+                                    approverOrForwarderName: forwarderName,
+                                    notes: item.notes || t('checklists.approvedScheduleNote', 'Supervisor-approved financial schedule.'),
+                                  })
+                                  showToast({
+                                    type: 'success',
+                                    title: t('pipeline.forwardSuccessTitle', 'Successfully Forwarded'),
+                                    message: t('pipeline.forwardSuccessMsg', '{{title}} was forwarded to Document Repository.', {
+                                      title: item.title,
+                                      target: t('documents.title', 'Document Repository'),
+                                    }),
+                                  })
+                                }}
+                                title={t('checklists.forwardToRepoTooltip', 'Forward supervisor-approved document to Document Repository')}
+                                style={{ display: 'inline-flex', alignItems: 'center', gap: '3px', color: 'var(--color-primary-700)', borderColor: 'var(--color-primary-300)' }}
+                              >
+                                <Send size={11} aria-hidden="true" />
+                                <span>{t('checklists.forwardToRepo', 'Forward')}</span>
+                              </button>
+                            )}
                           </>
                         )}
                       </div>

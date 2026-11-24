@@ -211,6 +211,21 @@ describe('Auditor Signup Schema Validation (Option 1)', () => {
     expect(result.success).toBe(true)
   })
 
+  it('accepts valid auditor registration payload with ANAN professional body', () => {
+    const result = auditorSignupSchema.safeParse({
+      fullName: 'Mallam Ibrahim Bello',
+      email: 'ibrahim@bello-audit.ng',
+      password: 'SecureAuditor2026!#',
+      confirmPassword: 'SecureAuditor2026!#',
+      firmName: 'Bello Assurance Partners',
+      professionalBody: 'ANAN',
+      membershipNumber: 'ANAN/ADV/90123',
+      preferredLanguage: 'en',
+      termsAccepted: true,
+    })
+    expect(result.success).toBe(true)
+  })
+
   it('rejects unsupported professional body', () => {
     const result = auditorSignupSchema.safeParse({
       fullName: 'Dr. Tunde Fashola',

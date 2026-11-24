@@ -6,6 +6,10 @@
  * Can be explicitly disabled by setting VITE_ENABLE_DEV_AUTH="false".
  */
 export const isDevAuthEnabled = (): boolean => {
+  // In production builds, development authentication is strictly disabled
+  if (import.meta.env.PROD) {
+    return false
+  }
   if (import.meta.env.VITE_ENABLE_DEV_AUTH === 'false') {
     return false
   }

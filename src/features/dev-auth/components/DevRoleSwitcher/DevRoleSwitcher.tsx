@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Terminal, RefreshCw, LogOut, ShieldCheck } from 'lucide-react'
+import { Terminal, RefreshCw, LogOut } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { formatUserRole } from '@/features/auth/utils/roleUtils'
@@ -31,20 +31,16 @@ export const DevRoleSwitcher: React.FC = () => {
     if (targetRole) {
       nextRole = targetRole
     } else if (user.role === 'AUDITOR') {
+      nextRole = 'AUDIT_MANAGER'
+    } else if (user.role === 'AUDIT_MANAGER') {
       nextRole = 'FINANCE_USER'
     } else if (user.role === 'FINANCE_USER') {
-      nextRole = 'ADMIN'
-    } else if (user.role === 'ADMIN') {
-      nextRole = 'AUDIT_MANAGER'
+      nextRole = 'ACCOUNTING_MANAGER'
     } else {
       nextRole = 'AUDITOR'
     }
     devAuthService.switchDevRole(nextRole)
-    if (nextRole === 'ADMIN') {
-      navigate('/admin/dashboard')
-    } else {
-      navigate('/dashboard')
-    }
+    navigate('/dashboard')
   }
 
   const handleExit = () => {
@@ -73,18 +69,6 @@ export const DevRoleSwitcher: React.FC = () => {
         </div>
 
         <div className="dev-role-switcher-actions">
-          {user.role !== 'ADMIN' && (
-            <button
-              type="button"
-              className="dev-switcher-btn dev-switcher-btn-admin"
-              onClick={() => handleSwitchRole('ADMIN')}
-              aria-label="Switch directly to Admin Platform"
-            >
-              <ShieldCheck size={13} aria-hidden="true" />
-              <span>Admin Platform</span>
-            </button>
-          )}
-
           <button
             type="button"
             className="dev-switcher-btn dev-switcher-btn-switch"
@@ -93,7 +77,7 @@ export const DevRoleSwitcher: React.FC = () => {
           >
             <RefreshCw size={13} aria-hidden="true" />
             <span>
-              Switch Role ({user.role === 'AUDITOR' ? 'Finance' : user.role === 'FINANCE_USER' ? 'Admin' : user.role === 'ADMIN' ? 'Auditor' : 'Auditor'})
+              Switch Role ({user.role === 'AUDITOR' ? 'Finance' : user.role === 'FINANCE_USER' ? 'Audit Manager' : 'Auditor'})
             </span>
           </button>
 

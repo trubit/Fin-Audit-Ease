@@ -24,7 +24,7 @@ export const TermsAndConditionsPage: React.FC = () => {
 
   // SEO Page Title & Meta synchronization
   useEffect(() => {
-    document.title = 'Website Terms and Conditions — Sabi Africa Innovations Limited | FinAuditEase'
+    document.title = 'Website Terms and Conditions | Sabi Africa Innovations Limited | FinAuditEase'
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -137,7 +137,7 @@ export const TermsAndConditionsPage: React.FC = () => {
             {t('legal.termsTitle', 'Website Terms and Conditions')}
           </h1>
           <p className="terms-page-subtitle">
-            {t('legal.companyName', 'Sabi Africa Innovations Limited')} — {t('common.tagline', 'Audit & Accounting Workflow Technology')}
+            {t('legal.companyName', 'Sabi Africa Innovations Limited')} | {t('common.tagline', 'Audit & Accounting Workflow Technology')}
           </p>
 
           <div className="terms-meta-grid">

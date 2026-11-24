@@ -50,12 +50,16 @@ export const AdminHeader: React.FC = () => {
             </button>
 
             <Link to="/admin/dashboard" className="admin-header-brand" aria-label="FinAuditEase Administration Platform Dashboard">
-              <div className="admin-header-badge-icon" aria-hidden="true">
-                FAE
-              </div>
+              <img
+                src="/images/sabi-africa-logo.jpg"
+                alt="Sabi Africa Innovations Limited Logo"
+                className="admin-header-sabi-logo"
+                width="36"
+                height="36"
+              />
               <div className="admin-header-brand-text">
                 <div className="admin-header-title">
-                  <span>FinAuditEase</span>
+                  <span className="admin-header-brand-name">FinAuditEase</span>
                   <span className="admin-header-platform-pill">{t('admin.header.platformPill', 'Admin')}</span>
                 </div>
                 <span className="admin-header-subtitle">

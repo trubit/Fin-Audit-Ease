@@ -6,7 +6,7 @@
   top: 0;
   z-index: 50;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 
 .admin-header-container {
@@ -54,20 +54,13 @@
   min-width: 0;
 }
 
-.admin-header-badge-icon {
-  width: 36px;
+.admin-header-sabi-logo {
   height: 36px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-weight: 900;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  width: auto;
+  max-width: 36px;
   flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .admin-header-brand-text {
@@ -77,15 +70,21 @@
 }
 
 .admin-header-title {
-  font-family: var(--font-display, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-family: var(--font-display, "Times New Roman", Times, serif);
   font-size: 15px;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.01em;
-  white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  min-width: 0;
+}
+
+.admin-header-brand-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .admin-header-platform-pill {
@@ -97,6 +96,7 @@
   color: #ffffff;
   padding: 1px 7px;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .admin-header-subtitle {
@@ -201,12 +201,22 @@
 @media (max-width: 1023px) {
   .admin-header-menu-btn {
     display: inline-flex;
+    flex-shrink: 0;
   }
 }
 
 @media (max-width: 768px) {
   .admin-header-container {
     padding: 0 var(--spacing-3, 12px);
+    gap: 8px;
+  }
+
+  .admin-header-left {
+    gap: 8px;
+  }
+
+  .admin-header-right {
+    gap: 8px;
   }
 
   .admin-header-status-badge {
@@ -215,6 +225,10 @@
 
   .admin-header-subtitle {
     display: none;
+  }
+
+  .admin-header-brand-name {
+    max-width: 130px;
   }
 
   .admin-header-user-meta {
@@ -227,6 +241,44 @@
 
   .admin-header-logout-btn {
     padding: 6px 8px;
+    min-width: 36px;
+    min-height: 36px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-header-container {
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .admin-header-left {
+    gap: 6px;
+  }
+
+  .admin-header-brand {
+    gap: 6px;
+  }
+
+  /* On small mobile, hide the text 'FinAuditEase' so [Logo] [ADMIN] fits with zero collision */
+  .admin-header-brand-name {
+    display: none;
+  }
+
+  .admin-header-sabi-logo {
+    height: 32px;
+    max-width: 32px;
+  }
+
+  .admin-header-user-badge {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .admin-header-right {
+    gap: 6px;
   }
 }
 

@@ -36,6 +36,9 @@ export interface AuditDocument {
   readonly reviewerName?: string
   readonly reviewedAt?: string
   readonly comment?: string
+  readonly forwardedFrom?: 'AUDIT_APPROVAL' | 'SUPERVISOR_APPROVAL' | 'EXTERNAL_UPLOAD' | 'CHECKLIST'
+  readonly forwardedByName?: string
+  readonly forwardedAt?: string
   readonly createdAt: string
 }
 

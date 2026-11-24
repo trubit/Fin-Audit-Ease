@@ -32,17 +32,20 @@ import { FileUploadZone } from '@/features/documents/components/FileUploadZone/F
 import { DocumentPreviewModal } from '@/features/documents/components/DocumentPreviewModal/DocumentPreviewModal'
 import { DocumentVersionHistory } from '@/features/documents/components/DocumentVersionHistory/DocumentVersionHistory'
 import { ReviewActionModal } from '@/features/review/components/ReviewActionModal/ReviewActionModal'
+import { FormField } from '@/components/forms/FormField'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import {
   useAuditRequest,
   useUpdateAuditRequestStatus,
   useAddAuditRequestComment,
+  useAssignAuditRequest,
 } from '@/features/auditRequests/hooks/useAuditRequests'
 import { useDocuments, useUploadDocument } from '@/features/documents/hooks/useDocuments'
 import { useEngagement } from '@/features/engagements/hooks/useEngagements'
 import { documentService } from '@/features/documents/services/documentService'
 import { formatBytes } from '@/features/documents/utils/validation'
 import { getDeadlineInfo, formatDate, formatDateTime } from '@/utils/dateUtils'
+import { AppApiError } from '@/services/api/apiErrors'
 import type { AuditDocument } from '@/features/documents/types'
 
 export const AuditRequestDetailPage: React.FC = () => {
@@ -53,11 +56,21 @@ export const AuditRequestDetailPage: React.FC = () => {
   const { user } = useAuth()
   const isAuditor =
     user?.role === 'AUDITOR' || user?.role === 'AUDIT_MANAGER' || user?.role === 'ADMIN'
+  const isManagerRole =
+    user?.role === 'AUDIT_MANAGER' ||
+    user?.role === 'ACCOUNTING_MANAGER' ||
+    user?.role === 'ADMIN'
 
   const [modalAction, setModalAction] = useState<'APPROVE' | 'REJECT' | null>(null)
   const [responseComment, setResponseComment] = useState('')
   const [actionSuccessMessage, setActionSuccessMessage] = useState<string | null>(null)
   const [previewDoc, setPreviewDoc] = useState<AuditDocument | null>(null)
+
+  // Manager Assignment State
+  const [assignModalOpen, setAssignModalOpen] = useState(false)
+  const [assigneeInput, setAssigneeInput] = useState('')
+  const [assignError, setAssignError] = useState<string | null>(null)
+  const assignRequestMutation = useAssignAuditRequest()
 
   const {
     data: request,
@@ -162,6 +175,17 @@ export const AuditRequestDetailPage: React.FC = () => {
           ...(isApprove ? { reviewNotes: notes } : { rejectionReason: notes }),
         },
       })
+      if (isApprove) {
+        documentService.forwardDocument({
+          title: request.title,
+          fileName: `${request.referenceCode}_${request.category.replace(/[^a-zA-Z0-9_-]/g, '_')}_Evidence.pdf`,
+          classification: 'RECONCILIATION_SCHEDULE',
+          engagementId: request.engagementId,
+          source: 'AUDIT_APPROVAL',
+          approverOrForwarderName: user?.fullName || 'Lead Auditor',
+          notes: notes || 'Audit request approved and evidentiary requirements verified by auditor.',
+        })
+      }
       setModalAction(null)
       setActionSuccessMessage(
         isApprove
@@ -240,10 +264,41 @@ export const AuditRequestDetailPage: React.FC = () => {
     },
   ]
 
+  const handleAssignSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setAssignError(null)
+    if (!assigneeInput.trim()) {
+      setAssignError('Please enter a valid corporate team member name.')
+      return
+    }
+
+    try {
+      await assignRequestMutation.mutateAsync({
+        id: request.id,
+        payload: {
+          assigneeId: `usr-sme-${Date.now()}`,
+          assigneeName: assigneeInput.trim(),
+        },
+      })
+      showToast({
+        type: 'success',
+        title: 'Request Assigned',
+        message: `Assigned request to ${assigneeInput.trim()}.`,
+      })
+      setAssignModalOpen(false)
+    } catch (err: unknown) {
+      if (err instanceof AppApiError) {
+        setAssignError(err.message)
+      } else {
+        setAssignError(t('errors.generic'))
+      }
+    }
+  }
+
   return (
     <PageContainer
       title={request.title}
-      subtitle={`${request.referenceCode} — ${request.category}`}
+      subtitle={`${request.referenceCode} • ${request.category}`}
       actions={
         isAuditor && !isCompletedEngagement ? (
           <div style={{ display: 'flex', gap: 'var(--spacing-2)', flexWrap: 'wrap' }}>
@@ -432,7 +487,7 @@ export const AuditRequestDetailPage: React.FC = () => {
             variant="info"
             title={t(
               'auditRequests.responseSubmittedBannerTitle',
-              'Evidence Submitted — Under Auditor Review'
+              'Evidence Submitted: Under Auditor Review'
             )}
             description={t(
               'auditRequests.responseSubmittedBannerDesc',
@@ -547,9 +602,31 @@ export const AuditRequestDetailPage: React.FC = () => {
               <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: 'var(--font-size-xs)' }}>
                 {t('auditRequests.assignee')}
               </span>
-              <span style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <User size={14} aria-hidden="true" />
                 <span>{request.assigneeName || t('auditRequests.unassigned')}</span>
+                {isManagerRole && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAssigneeInput(request.assigneeName || '')
+                      setAssignError(null)
+                      setAssignModalOpen(true)
+                    }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--color-primary-600)',
+                      cursor: 'pointer',
+                      fontSize: 'var(--font-size-xs)',
+                      textDecoration: 'underline',
+                      padding: 0,
+                      marginLeft: 4,
+                    }}
+                  >
+                    (Reassign)
+                  </button>
+                )}
               </span>
             </div>
 
@@ -611,7 +688,7 @@ export const AuditRequestDetailPage: React.FC = () => {
               }}
             >
               <span style={{ fontWeight: 600, color: 'var(--color-slate-700)', display: 'block', fontSize: 'var(--font-size-xs)', marginBottom: '2px' }}>
-                Auditor Review Notes:
+                {t('auditRequests.reviewNotes', 'Auditor Review Notes:')}
               </span>
               <span style={{ color: 'var(--color-slate-800)', whiteSpace: 'pre-wrap' }}>
                 {request.reviewNotes || request.rejectionReason}
@@ -641,8 +718,8 @@ export const AuditRequestDetailPage: React.FC = () => {
                   </span>
                   <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-muted)' }}>
                     {request.status === 'ACCEPTED'
-                      ? 'This request has been formally accepted and approved.'
-                      : 'Evaluate submitted documentary evidence and mark as approved or request corrections.'}
+                      ? t('auditRequests.formallyAccepted', 'This request has been formally accepted and approved.')
+                      : t('auditRequests.evaluateSubmittedEvidence', 'Evaluate submitted documentary evidence and mark as approved or request corrections.')}
                   </span>
                 </div>
               </div>
@@ -670,6 +747,35 @@ export const AuditRequestDetailPage: React.FC = () => {
                       <span>{t('auditRequests.approveRequestBtn', 'Approve Request')}</span>
                     </button>
                   </>
+                )}
+                {request.status === 'ACCEPTED' && (
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-md"
+                    onClick={() => {
+                      documentService.forwardDocument({
+                        title: request.title,
+                        fileName: `${request.referenceCode}_${request.category.replace(/[^a-zA-Z0-9_-]/g, '_')}_Evidence.pdf`,
+                        classification: 'RECONCILIATION_SCHEDULE',
+                        engagementId: request.engagementId,
+                        source: 'AUDIT_APPROVAL',
+                        approverOrForwarderName: user?.fullName || 'Lead Auditor',
+                        notes: request.reviewNotes || 'Approved by statutory auditor.',
+                      })
+                      showToast({
+                        type: 'success',
+                        title: t('pipeline.forwardSuccessTitle', 'Successfully Forwarded'),
+                        message: t('pipeline.forwardSuccessMsg', '{{title}} was forwarded to Document Repository.', {
+                          title: request.title,
+                          target: t('documents.title', 'Document Repository'),
+                        }),
+                      })
+                    }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--spacing-2)' }}
+                  >
+                    <FolderLock size={16} aria-hidden="true" />
+                    <span>{t('documents.forwardToRepo', 'Forward to Document Repository')}</span>
+                  </button>
                 )}
                 <Link to="/review" className="btn btn-outline btn-md">
                   <span>{t('auditRequests.goToReview', 'Go to Review Workspace')}</span>
@@ -913,6 +1019,112 @@ export const AuditRequestDetailPage: React.FC = () => {
         document={previewDoc}
         onClose={() => setPreviewDoc(null)}
       />
+
+      {/* Assign Request Modal (Manager Action) */}
+      {assignModalOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'var(--spacing-4)',
+            zIndex: 1000,
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="assign-sme-modal-title"
+        >
+          <div
+            className="card"
+            style={{
+              width: '100%',
+              maxWidth: '480px',
+              padding: 'var(--spacing-6)',
+              backgroundColor: 'var(--bg-surface)',
+              boxShadow: 'var(--shadow-xl)',
+            }}
+          >
+            <h3
+              id="assign-sme-modal-title"
+              style={{ fontSize: 'var(--font-size-lg)', fontWeight: 700, color: 'var(--color-slate-900)' }}
+            >
+              Assign Audit Request
+            </h3>
+            <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-muted)', marginTop: 'var(--spacing-1)', marginBottom: 'var(--spacing-4)' }}>
+              Designate a corporate accounting team member or SME responsible for preparing and uploading evidence for this request.
+            </p>
+
+            {assignError && (
+              <div
+                style={{
+                  padding: 'var(--spacing-3)',
+                  backgroundColor: 'var(--color-danger-50)',
+                  color: 'var(--color-danger-700)',
+                  border: '1px solid var(--color-danger-200)',
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: 'var(--font-size-xs)',
+                  marginBottom: 'var(--spacing-4)',
+                }}
+                role="alert"
+              >
+                {assignError}
+              </div>
+            )}
+
+            <form onSubmit={handleAssignSubmit}>
+              <FormField
+                label="Assignee Full Name"
+                htmlFor="sme-name-input"
+                required
+              >
+                <input
+                  id="sme-name-input"
+                  type="text"
+                  value={assigneeInput}
+                  onChange={(e) => setAssigneeInput(e.target.value)}
+                  placeholder="e.g. Chidinma Okafor"
+                  className="form-input"
+                  required
+                />
+              </FormField>
+
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  gap: 'var(--spacing-2)',
+                  marginTop: 'var(--spacing-4)',
+                }}
+              >
+                <button
+                  type="button"
+                  className="btn btn-outline btn-sm"
+                  onClick={() => setAssignModalOpen(false)}
+                >
+                  {t('common.cancel')}
+                </button>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-sm"
+                  disabled={assignRequestMutation.isPending}
+                >
+                  {assignRequestMutation.isPending ? (
+                    <>
+                      <Loader2 size={14} className="spin-animation" aria-hidden="true" />
+                      <span>{t('auditRequests.saving', 'Saving...')}</span>
+                    </>
+                  ) : (
+                    <span>{t('auditRequests.confirmAssignment', 'Confirm Assignment')}</span>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </PageContainer>
   )
 }

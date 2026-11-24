@@ -192,6 +192,7 @@
   color: var(--color-slate-900);
   margin: 0;
   font-size: var(--font-size-sm);
+  cursor: default;
 }
 
 .checklist-item-desc {
@@ -199,6 +200,7 @@
   color: var(--text-muted);
   margin: var(--spacing-1) 0 0 0;
   line-height: var(--line-height-normal);
+  cursor: default;
 }
 
 .checklist-item-notes-box {

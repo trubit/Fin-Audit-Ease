@@ -401,7 +401,7 @@ export const AcceptInvitationPage: React.FC = () => {
                   type="text"
                   autoComplete="name"
                   className={`input ${errors.fullName ? 'input-error' : ''}`}
-                  placeholder="e.g. Amina Bello"
+                  placeholder={t('authentication.fullNamePlaceholderInvitation', 'e.g. Full Legal Name')}
                   disabled={isSubmitting}
                   {...register('fullName')}
                 />

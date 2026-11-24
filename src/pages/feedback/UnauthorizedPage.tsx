@@ -37,7 +37,7 @@ export const UnauthorizedPage: React.FC = () => {
         </div>
 
         <h1 style={{ fontSize: 'var(--font-size-2xl)', color: 'var(--color-slate-900)', marginBottom: 'var(--spacing-2)' }}>
-          403 — {t('errors.unauthorized')}
+          403: {t('errors.unauthorized')}
         </h1>
 
         <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-muted)', maxWidth: '28rem', marginBottom: 'var(--spacing-6)' }}>

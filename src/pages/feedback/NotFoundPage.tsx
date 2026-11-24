@@ -38,7 +38,7 @@ export const NotFoundPage: React.FC = () => {
         </div>
 
         <h1 style={{ fontSize: 'var(--font-size-3xl)', color: 'var(--color-slate-900)', marginBottom: 'var(--spacing-2)' }}>
-          404 — {t('errors.notFound')}
+          404: {t('errors.notFound')}
         </h1>
 
         <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-muted)', maxWidth: '28rem', marginBottom: 'var(--spacing-6)' }}>

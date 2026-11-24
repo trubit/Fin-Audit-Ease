@@ -59,7 +59,7 @@
 }
 
 .hero-slider-title {
-  font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+  font-family: var(--font-serif, "Times New Roman", Times, serif);
   font-weight: 400;
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   line-height: 1.18;

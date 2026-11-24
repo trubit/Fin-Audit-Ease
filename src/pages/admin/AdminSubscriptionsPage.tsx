@@ -437,7 +437,7 @@ export const AdminSubscriptionsPage: React.FC = () => {
 
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.subscriptions.detailStatus', 'Standing')}</span>
-                  <span className="admin-detail-value">✓ Active Paid Standing</span>
+                  <span className="admin-detail-value">{t('admin.subscriptions.activePaidStanding', '✓ Active Paid Standing')}</span>
                 </div>
 
                 <div className="admin-detail-row">
@@ -452,12 +452,14 @@ export const AdminSubscriptionsPage: React.FC = () => {
 
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.subscriptions.detailSeats', 'Authorized Seats')}</span>
-                  <span className="admin-detail-value">{inspectSub.activeSeats} of {inspectSub.maxSeats} allocated</span>
+                  <span className="admin-detail-value">
+                    {t('admin.subscriptions.seatsAllocated', { active: inspectSub.activeSeats, max: inspectSub.maxSeats, defaultValue: `${inspectSub.activeSeats} of ${inspectSub.maxSeats} allocated` })}
+                  </span>
                 </div>
 
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.subscriptions.detailStorage', 'Regulatory Archive')}</span>
-                  <span className="admin-detail-value">WORM Compliant (7-Year Retention)</span>
+                  <span className="admin-detail-value">{t('admin.subscriptions.wormCompliant7Yr', 'WORM Compliant (7-Year Retention)')}</span>
                 </div>
               </div>
             </div>

@@ -121,7 +121,9 @@ rm DEV_AUTH_REMOVAL.md
 
 ---
 
-## 4. Public Login Page Cleanup in `src/pages/public/LoginPage.tsx`
+## 4. Login Pages Cleanup
+
+### 4.1 Client Login Page Cleanup in `src/pages/public/LoginPage.tsx`
 
 1. **Remove Import**:
    ```tsx
@@ -139,6 +141,66 @@ rm DEV_AUTH_REMOVAL.md
      </Link>
    )}
    ```
+
+### 4.2 Administrator Login Page Cleanup in `src/pages/admin/AdminLoginPage.tsx`
+
+1. **Remove Imports**:
+   ```tsx
+   // REMOVE:
+   import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
+   import { devAuthService } from '@/features/dev-auth/services/devAuthService'
+   ```
+
+2. **Remove Development Preview Handlers**:
+   ```tsx
+   // REMOVE:
+   const handleDevLogin = () => {
+     devAuthService.loginAsDev('ADMIN')
+     navigate(returnPath, { replace: true })
+   }
+
+   const handleAutoFillDemo = () => {
+     setEmail('admin.platform@finauditease.ng')
+     setPassword('AdminSecurePassword2026!')
+   }
+   ```
+
+3. **Remove Development Preview JSX Block**:
+   ```tsx
+   // REMOVE:
+   {isDevAuthEnabled() && !temporaryToken && (
+     <div className="admin-dev-preview-box">
+       <div className="admin-dev-preview-header">
+         <ShieldCheck size={18} className="admin-dev-preview-icon" aria-hidden="true" />
+         <span className="admin-dev-preview-title">{t('devAuth.bannerTitle', 'DEVELOPMENT PREVIEW MODE')}</span>
+       </div>
+       <p className="admin-dev-preview-desc">
+         {t('devAuth.adminPreviewDesc', 'Instant administrator preview access is enabled for frontend inspection. Bypass credentials and enter the console directly.')}
+       </p>
+       <div className="admin-dev-preview-actions">
+         <button
+           type="button"
+           className="admin-dev-preview-btn admin-dev-enter-btn"
+           onClick={handleDevLogin}
+         >
+           <ShieldCheck size={15} aria-hidden="true" />
+           <span>{t('devAuth.enterAdmin', 'Enter Admin Platform')}</span>
+           <ArrowRight size={14} aria-hidden="true" />
+         </button>
+         <button
+           type="button"
+           className="admin-dev-preview-btn admin-dev-autofill-btn"
+           onClick={handleAutoFillDemo}
+         >
+           <span>{t('devAuth.autoFillDemo', 'Auto-fill Demo Credentials')}</span>
+         </button>
+       </div>
+     </div>
+   )}
+   ```
+
+4. **Remove CSS Rules in `src/pages/admin/AdminLoginPage.css`**:
+   Remove the `.admin-dev-preview-*` CSS block (lines under `/* Development Preview Mode Card */`).
 
 ---
 

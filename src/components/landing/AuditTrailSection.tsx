@@ -17,13 +17,13 @@ export const AuditTrailSection: React.FC = () => {
   const { t } = useLanguage()
 
   const trailEvents = [
-    { label: t('landing.auditTrail.event1'), icon: Briefcase, tag: 'Engagement Created', meta: 'Fiscal Year 2024 Audit Scope Defined' },
-    { label: t('landing.auditTrail.event2'), icon: FileText, tag: 'Request Issued', meta: 'Assigned to Accounting Team Member' },
-    { label: t('landing.auditTrail.event3'), icon: Upload, tag: 'Document Submitted', meta: '25MB Ledger Extract Attached with Note' },
-    { label: t('landing.auditTrail.event4'), icon: FileCheck2, tag: 'Document Reviewed', meta: 'Auditor Inspected in Central Review Console' },
-    { label: t('landing.auditTrail.event5'), icon: ShieldCheck, tag: 'Decision Recorded', meta: 'Approved / Explicit Written Reason Kept' },
-    { label: t('landing.auditTrail.event6'), icon: CheckCircle2, tag: 'Engagement Completed', meta: 'All Requirements Satisfied & Signed Off' },
-    { label: t('landing.auditTrail.event7'), icon: History, tag: 'Permanent Record', meta: 'Historical Record Remains Available Forever' },
+    { label: t('landing.auditTrail.event1'), icon: Briefcase, tag: t('landing.auditTrail.event1Tag', 'Engagement Created'), meta: t('landing.auditTrail.event1Meta', 'Fiscal Year 2026 Audit Scope Defined') },
+    { label: t('landing.auditTrail.event2'), icon: FileText, tag: t('landing.auditTrail.event2Tag', 'Request Issued'), meta: t('landing.auditTrail.event2Meta', 'Assigned to Accounting Team Member') },
+    { label: t('landing.auditTrail.event3'), icon: Upload, tag: t('landing.auditTrail.event3Tag', 'Document Submitted'), meta: t('landing.auditTrail.event3Meta', '25MB Ledger Extract Attached with Note') },
+    { label: t('landing.auditTrail.event4'), icon: FileCheck2, tag: t('landing.auditTrail.event4Tag', 'Document Reviewed'), meta: t('landing.auditTrail.event4Meta', 'Auditor Inspected in Central Review Console') },
+    { label: t('landing.auditTrail.event5'), icon: ShieldCheck, tag: t('landing.auditTrail.event5Tag', 'Decision Recorded'), meta: t('landing.auditTrail.event5Meta', 'Approved / Explicit Written Reason Kept') },
+    { label: t('landing.auditTrail.event6'), icon: CheckCircle2, tag: t('landing.auditTrail.event6Tag', 'Engagement Completed'), meta: t('landing.auditTrail.event6Meta', 'All Requirements Satisfied & Signed Off') },
+    { label: t('landing.auditTrail.event7'), icon: History, tag: t('landing.auditTrail.event7Tag', 'Permanent Record'), meta: t('landing.auditTrail.event7Meta', 'Historical Record Remains Available Forever') },
   ]
 
   return (
@@ -56,11 +56,11 @@ export const AuditTrailSection: React.FC = () => {
               <span className="terminal-dot green" />
               <span className="terminal-dot" />
               <span className="terminal-dot" />
-              <span className="top-bar-title">Engagement Audit Trail (Read-Only)</span>
+              <span className="top-bar-title">{t('landing.auditTrail.readonlyTitle', 'Engagement Audit Trail (Read-Only)')}</span>
             </div>
             <div className="top-bar-right">
               <CalendarCheck size={14} />
-              <span>Multi-Year Record Preserved</span>
+              <span>{t('landing.auditTrail.multiYearPreserved', 'Multi-Year Record Preserved')}</span>
             </div>
           </div>
 
@@ -85,7 +85,9 @@ export const AuditTrailSection: React.FC = () => {
                   <div className="trail-event-content">
                     <div className="trail-event-header-row">
                       <span className="trail-event-tag">{evt.tag}</span>
-                      <span className="trail-event-status">{isLast ? 'Retained Forever' : 'Logged & Sealed'}</span>
+                      <span className="trail-event-status">
+                        {isLast ? t('landing.auditTrail.retainedForever', 'Retained Forever') : t('landing.auditTrail.loggedAndSealed', 'Logged & Sealed')}
+                      </span>
                     </div>
                     <span className="trail-event-label">{evt.label}</span>
                     <span className="trail-event-meta">{evt.meta}</span>

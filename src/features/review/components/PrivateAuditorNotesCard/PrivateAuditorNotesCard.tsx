@@ -61,9 +61,9 @@ export const PrivateAuditorNotesCard: React.FC<PrivateAuditorNotesCardProps> = (
           </span>
         </div>
 
-        <span className="review-confidential-badge" title={t('review.auditorConfidentialBadge', 'Auditor Confidential — Hidden from Accounting Team')}>
+        <span className="review-confidential-badge" title={t('review.auditorConfidentialBadge', 'Auditor Confidential (Hidden from Accounting Team)')}>
           <Lock size={12} aria-hidden="true" />
-          <span>{t('review.auditorConfidentialBadge', 'Auditor Confidential — Hidden from Accounting Team')}</span>
+          <span>{t('review.auditorConfidentialBadge', 'Auditor Confidential (Hidden from Accounting Team)')}</span>
         </span>
       </div>
 

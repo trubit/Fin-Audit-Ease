@@ -23,7 +23,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
 
   useEffect(() => {
     if (title) {
-      document.title = `${title} — FinAuditEase`
+      document.title = `${title} | FinAuditEase`
     }
   }, [title])
 
@@ -36,7 +36,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
           <Link
             to="/"
             className="auth-header-brand"
-            aria-label="FinAuditEase — Powered by Sabi Africa Innovations Limited"
+            aria-label="FinAuditEase | Powered by Sabi Africa Innovations Limited"
           >
             <img
               src="/images/sabi-africa-logo.jpg"

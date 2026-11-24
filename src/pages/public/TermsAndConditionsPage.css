@@ -90,7 +90,7 @@
 }
 
 .terms-page-title {
-  font-family: var(--font-family-serif, 'Instrument Serif', Georgia, serif);
+  font-family: var(--font-family-serif, "Times New Roman", Times, serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
   line-height: 1.15;

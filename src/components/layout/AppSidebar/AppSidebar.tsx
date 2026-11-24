@@ -87,15 +87,6 @@ export const AppSidebar: React.FC = () => {
           title: t('navigation.groupWorkspace', 'Workspace'),
           moduleType: 'general',
           items: [
-            ...(user?.role === 'ADMIN'
-              ? [
-                  {
-                    to: '/admin/dashboard',
-                    label: t('admin.nav.dashboard', 'Admin Platform'),
-                    icon: ShieldCheck,
-                  },
-                ]
-              : []),
             { to: '/dashboard', label: t('navigation.dashboard', 'Dashboard'), icon: LayoutDashboard },
           ],
         },
@@ -156,6 +147,7 @@ export const AppSidebar: React.FC = () => {
             { to: '/month-end', label: t('navigation.monthEndClose', 'Month-End Close Checklist'), icon: Layers },
             { to: '/pre-audit', label: t('navigation.preAudit', 'Pre-Audit Preparation'), icon: CalendarCheck },
             { to: '/asset-verification', label: t('assets.registerTitle', 'Asset Verification Register'), icon: Coins },
+            { to: '/communication', label: t('navigation.teamChat', 'Team Chat & Meetings'), icon: MessagesSquare },
           ],
         },
         {
@@ -210,7 +202,7 @@ export const AppSidebar: React.FC = () => {
           {user && (
             <div
               className="app-sidebar-role-card"
-              title={`${formatUserRole(user.role, t)} — ${user.organizationName || user.fullName}`}
+              title={`${formatUserRole(user.role, t)} • ${user.organizationName || user.fullName}`}
             >
               <div className="app-sidebar-role-icon" aria-hidden="true">
                 {isAuditor ? <ShieldCheck size={18} /> : <Building size={18} />}

@@ -401,7 +401,7 @@ export const ReviewPage: React.FC = () => {
                               </span>
                             </div>
                           ) : (
-                            <span style={{ color: 'var(--text-muted)', fontSize: 'var(--font-size-xs)' }}>—</span>
+                            <span style={{ color: 'var(--text-muted)', fontSize: 'var(--font-size-xs)' }}>-</span>
                           )}
                         </td>
                         <td>
@@ -479,7 +479,7 @@ export const ReviewPage: React.FC = () => {
                           color: isOverdue ? 'var(--color-danger-700)' : 'var(--color-slate-800)',
                         }}
                       >
-                        {item.dueDate ? formatDate(item.dueDate) : '—'}
+                        {item.dueDate ? formatDate(item.dueDate) : '-'}
                       </span>
                     </div>
                   </div>

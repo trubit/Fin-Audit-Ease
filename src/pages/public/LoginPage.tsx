@@ -81,7 +81,7 @@ export const LoginPage: React.FC = () => {
           setServerError(
             t(
               'authentication.adminMustUseAdminPortal',
-              'Administrator account detected. Administrators must log in through the separate FinAuditEase Administration Platform at /admin/login.'
+              'Administrator account detected. Please access your designated FinAuditEase Administration Platform portal.'
             )
           )
           return
@@ -130,12 +130,6 @@ export const LoginPage: React.FC = () => {
           <div>
             <span>{t('authentication.noAccount')} </span>
             <Link to="/signup">{t('authentication.signUpLink')}</Link>
-          </div>
-          <div style={{ marginTop: 'var(--spacing-2)', paddingTop: 'var(--spacing-2)', borderTop: '1px solid var(--color-slate-100)' }}>
-            <span style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-slate-500)' }}>{t('authentication.adminPortalNotice', 'Platform Administrator?')} </span>
-            <Link to="/admin/login" style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, color: 'var(--brand-green-700)' }}>
-              {t('authentication.adminPortalLink', 'Access Admin Platform →')}
-            </Link>
           </div>
           {isDevAuthEnabled() && (
             <div style={{ marginTop: 'var(--spacing-2)', paddingTop: 'var(--spacing-2)', borderTop: '1px dashed var(--color-slate-200)' }}>

@@ -18,7 +18,7 @@ describe('Auth Store State Transitions', () => {
     const mockUser: UserProfile = {
       id: 'usr_001',
       email: 'lead.auditor@firm.ng',
-      fullName: 'Adebayo Ogunlesi',
+      fullName: 'Lead Auditor Professional',
       role: 'AUDITOR',
       organizationId: 'org_001',
       organizationName: 'Global Audit Partners',

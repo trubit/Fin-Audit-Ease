@@ -15,7 +15,7 @@ describe('Audit Communication & Meeting Centre Domain and Governance Rules', () 
         type: 'GROUP',
         engagementId: 'eng-100',
         engagementTitle: 'FY2026 Statutory Audit',
-        title: 'Zenith Manufacturing PLC — Engagement Team',
+        title: 'Manufacturing Engagement Team',
         participants: [
           {
             id: 'p-1',

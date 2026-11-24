@@ -44,9 +44,11 @@ export const formatUserRole = (
 
   switch (normalized) {
     case 'AUDITOR':
-      return translate('roles.auditor', 'Chartered Lead Auditor')
+      return translate('roles.auditor', 'Lead Auditor')
     case 'AUDIT_MANAGER':
       return translate('roles.auditManager', 'Audit Engagement Manager')
+    case 'ACCOUNTING_MANAGER':
+      return translate('roles.accountingManager', 'Accounting Engagement Manager')
     case 'FINANCE_USER':
     case 'ACCOUNTING_MEMBER':
       return translate('roles.accountingMember', 'Corporate Accounting Team Member')

@@ -198,7 +198,7 @@ export const AdminOrganisationsPage: React.FC = () => {
             <p className="admin-page-description">
               {t(
                 'admin.organisations.description',
-                'Manage chartered audit practices and corporate enterprise clients with strictly isolated data boundaries.'
+                'Manage audit practices and corporate enterprise clients with strictly isolated data boundaries.'
               )}
             </p>
           </div>
@@ -260,7 +260,7 @@ export const AdminOrganisationsPage: React.FC = () => {
             aria-label={t('admin.organisations.filterCategory', 'Filter by Category')}
           >
             <option value="ALL">{t('admin.organisations.allCategories', 'All Organisation Categories')}</option>
-            <option value="AUDIT_PRACTICE">{t('admin.organisations.auditPracticesOnly', 'Chartered Audit Practices')}</option>
+            <option value="AUDIT_PRACTICE">{t('admin.organisations.auditPracticesOnly', 'Audit Practices')}</option>
             <option value="CORPORATE_CLIENT">{t('admin.organisations.corporateClientsOnly', 'Corporate Client Entities')}</option>
           </select>
         </div>
@@ -438,7 +438,7 @@ export const AdminOrganisationsPage: React.FC = () => {
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.organisations.detailCategory', 'Entity Category')}</span>
                   <span className="admin-detail-value">
-                    {inspectOrg.category === 'AUDIT_PRACTICE' ? 'Chartered Audit Practice' : 'Corporate Enterprise Client'}
+                    {inspectOrg.category === 'AUDIT_PRACTICE' ? 'Audit Practice' : 'Corporate Enterprise Client'}
                   </span>
                 </div>
 

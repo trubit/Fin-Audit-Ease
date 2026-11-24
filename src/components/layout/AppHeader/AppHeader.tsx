@@ -165,8 +165,8 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ isAppView = false }) => {
             className="app-header-brand"
             aria-label={
               isAppView || isAuthenticated
-                ? `${t('navigation.dashboard')} — FinAuditEase`
-                : 'FinAuditEase — Powered by Sabi Africa Innovations Limited'
+                ? `${t('navigation.dashboard')} | FinAuditEase`
+                : 'FinAuditEase | Powered by Sabi Africa Innovations Limited'
             }
             onClick={() => setPublicMenuOpen(false)}
           >

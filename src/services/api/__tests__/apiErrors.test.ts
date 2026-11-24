@@ -61,4 +61,19 @@ describe('API Error Handling and Sanitization', () => {
     expect(error.code).toBe('NETWORK_ERROR')
     expect(error.userMessage).toContain('internet connection')
   })
+
+  it('provides localized messages using getLocalizedMessage', () => {
+    const error = new AppApiError({
+      code: 'NETWORK_ERROR',
+      status: 0,
+      userMessage: 'Unable to connect to the server.',
+    })
+    const mockT = (key: string) => {
+      const dict: Record<string, string> = {
+        'errors.api.networkError': 'Kò lè sopọ̀ mọ́ ẹ̀rọ olupin.',
+      }
+      return dict[key] || key
+    }
+    expect(error.getLocalizedMessage(mockT)).toBe('Kò lè sopọ̀ mọ́ ẹ̀rọ olupin.')
+  })
 })

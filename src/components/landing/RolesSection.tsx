@@ -13,10 +13,10 @@ export const RolesSection: React.FC = () => {
       desc: t('landing.roles.auditorDesc'),
       icon: ShieldCheck,
       capabilities: [
-        'Create and manage audit engagements',
-        'Dispatch structured document requests',
-        'Review evidence and record clear decisions',
-        'Maintain complete engagement workpapers',
+        t('landing.roles.auditorCap1', 'Create and manage audit engagements'),
+        t('landing.roles.auditorCap2', 'Dispatch structured document requests'),
+        t('landing.roles.auditorCap3', 'Review evidence and record clear decisions'),
+        t('landing.roles.auditorCap4', 'Maintain complete engagement workpapers'),
       ],
     },
     {
@@ -25,10 +25,10 @@ export const RolesSection: React.FC = () => {
       desc: t('landing.roles.accountingDesc'),
       icon: Users,
       capabilities: [
-        'Organize pre-audit and month-end schedules year-round',
-        'Receive and respond to auditor requests directly',
-        'Upload verified schedules with client-side validation',
-        'Resolve missing items and track submission status',
+        t('landing.roles.accountingCap1', 'Organize pre-audit and month-end schedules year-round'),
+        t('landing.roles.accountingCap2', 'Receive and respond to auditor requests directly'),
+        t('landing.roles.accountingCap3', 'Upload verified schedules with client-side validation'),
+        t('landing.roles.accountingCap4', 'Resolve missing items and track submission status'),
       ],
     },
     {
@@ -37,10 +37,10 @@ export const RolesSection: React.FC = () => {
       desc: t('landing.roles.oversightDesc'),
       icon: UserCheck2,
       capabilities: [
-        'Monitor overall engagement progress and milestones',
-        'Review escalation alerts and unresolved inquiries',
-        'Maintain compliance governance and quality assurance',
-        'Retain historical inspection readiness',
+        t('landing.roles.oversightCap1', 'Monitor overall engagement progress and milestones'),
+        t('landing.roles.oversightCap2', 'Review escalation alerts and unresolved inquiries'),
+        t('landing.roles.oversightCap3', 'Maintain compliance governance and quality assurance'),
+        t('landing.roles.oversightCap4', 'Retain historical inspection readiness'),
       ],
     },
   ]
@@ -77,7 +77,7 @@ export const RolesSection: React.FC = () => {
                 <p className="role-card-desc">{role.desc}</p>
 
                 <div className="role-capabilities-list">
-                  <span className="capabilities-heading">Key Operational Responsibilities</span>
+                  <span className="capabilities-heading">{t('landing.keyResponsibilities', 'Key Operational Responsibilities')}</span>
                   <ul className="capabilities-ul">
                     {role.capabilities.map((cap) => (
                       <li key={cap} className="capability-item">

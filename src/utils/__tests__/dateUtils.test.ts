@@ -9,8 +9,8 @@ describe('Date and Countdown Utilities', () => {
   })
 
   it('handles missing date gracefully', () => {
-    expect(formatDate(undefined)).toBe('—')
-    expect(formatDate('')).toBe('—')
+    expect(formatDate(undefined)).toBe('-')
+    expect(formatDate('')).toBe('-')
   })
 
   it('calculates future on-track deadline status', () => {

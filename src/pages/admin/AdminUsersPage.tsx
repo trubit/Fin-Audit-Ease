@@ -100,7 +100,7 @@ export const AdminUsersPage: React.FC = () => {
             fullName: e.leadAuditorName,
             email,
             role: 'AUDITOR',
-            organizationName: e.auditorFirmName || 'Chartered Audit Practice',
+            organizationName: e.auditorFirmName || 'Audit Practice',
             isTwoFactorEnabled: true,
             status: 'ACTIVE',
             createdAt: e.createdAt,
@@ -139,10 +139,12 @@ export const AdminUsersPage: React.FC = () => {
       if (a.actorName && a.actorEmail) {
         if (!map.has(a.actorEmail)) {
           let determinedRole: UserRole = 'AUDITOR'
-          if (a.actorRole === 'FINANCE_USER' || a.actorRole?.includes('ACCOUNTING')) {
-            determinedRole = 'FINANCE_USER'
+          if (a.actorRole === 'ACCOUNTING_MANAGER' || a.actorRole?.includes('ACCOUNTING_MGR')) {
+            determinedRole = 'ACCOUNTING_MANAGER'
           } else if (a.actorRole === 'AUDIT_MANAGER') {
             determinedRole = 'AUDIT_MANAGER'
+          } else if (a.actorRole === 'FINANCE_USER' || a.actorRole?.includes('ACCOUNTING')) {
+            determinedRole = 'FINANCE_USER'
           } else if (a.actorRole === 'ADMIN') {
             determinedRole = 'ADMIN'
           }
@@ -246,7 +248,7 @@ export const AdminUsersPage: React.FC = () => {
             <p className="admin-page-description">
               {t(
                 'admin.users.description',
-                'Inspect, search, and manage registered Chartered Auditors, Corporate Accounting Team Members, Audit Engagement Managers, and System Administrators.'
+                'Inspect, search, and manage registered Lead Auditors, Corporate Accounting Team Members, Audit Engagement Managers, and System Administrators.'
               )}
             </p>
           </div>
@@ -292,10 +294,11 @@ export const AdminUsersPage: React.FC = () => {
             aria-label={t('admin.users.filterRole', 'Filter by Role')}
           >
             <option value="ALL">{t('admin.users.allRoles', 'All Roles')}</option>
-            <option value="AUDITOR">{t('roles.auditor', 'Chartered Lead Auditor (AUDITOR)')}</option>
+            <option value="ADMIN">{t('roles.admin', 'System Administrator (ADMIN)')}</option>
+            <option value="AUDITOR">{t('roles.auditor', 'Lead Auditor (AUDITOR)')}</option>
             <option value="FINANCE_USER">{t('roles.accountingMember', 'Corporate Accounting Team (FINANCE_USER)')}</option>
             <option value="AUDIT_MANAGER">{t('roles.auditManager', 'Audit Engagement Manager (AUDIT_MANAGER)')}</option>
-            <option value="ADMIN">{t('roles.admin', 'System Administrator (ADMIN)')}</option>
+            <option value="ACCOUNTING_MANAGER">{t('roles.accountingManager', 'Accounting Engagement Manager (ACCOUNTING_MANAGER)')}</option>
           </select>
 
           {/* Status Filter */}
@@ -626,10 +629,11 @@ export const AdminUsersPage: React.FC = () => {
                   defaultValue={manageRoleUser.role}
                   aria-label={t('admin.users.selectRoleLabel', 'System Role Assignment')}
                 >
-                  <option value="AUDITOR">{t('roles.auditor', 'Chartered Lead Auditor (AUDITOR)')}</option>
+                  <option value="ADMIN">{t('roles.admin', 'System Administrator (ADMIN)')}</option>
+                  <option value="AUDITOR">{t('roles.auditor', 'Lead Auditor (AUDITOR)')}</option>
                   <option value="FINANCE_USER">{t('roles.accountingMember', 'Corporate Accounting Team (FINANCE_USER)')}</option>
                   <option value="AUDIT_MANAGER">{t('roles.auditManager', 'Audit Engagement Manager (AUDIT_MANAGER)')}</option>
-                  <option value="ADMIN">{t('roles.admin', 'System Administrator (ADMIN)')}</option>
+                  <option value="ACCOUNTING_MANAGER">{t('roles.accountingManager', 'Accounting Engagement Manager (ACCOUNTING_MANAGER)')}</option>
                 </select>
                 <span style={{ fontSize: '11px', color: 'var(--muted)', marginTop: '4px', display: 'block' }}>
                   {t('admin.users.roleNotice', 'Role definitions conform strictly to FinAuditEase backend authorization tokens.')}

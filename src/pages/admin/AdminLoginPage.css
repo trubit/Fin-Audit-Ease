@@ -8,18 +8,18 @@
   background: linear-gradient(180deg, #f4fbf6 0%, #fafaf7 40%, #f9fbf9 100%);
   position: relative;
   overflow-x: hidden;
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 
 .admin-login-page-wrapper,
 .admin-login-page-wrapper * {
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 
 .admin-login-card-title,
 .admin-auth-header-title,
 .admin-2fa-step-title {
-  font-family: var(--font-display, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+  font-family: var(--font-display, "Times New Roman", Times, serif);
 }
 
 /* Ambient Radial Glow in background */
@@ -407,5 +407,86 @@
     border-radius: 16px;
   }
 }
+
+/* Development Preview Mode Card (Temporary — See DEV_AUTH_REMOVAL.md) */
+.admin-dev-preview-box {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 1.125rem 1.25rem;
+  background-color: #f0fdf4;
+  border: 1.5px dashed #22c55e;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 1px 2px rgba(34, 197, 94, 0.08);
+}
+
+.admin-dev-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #166534;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.admin-dev-preview-icon {
+  color: #15803d;
+  flex-shrink: 0;
+}
+
+.admin-dev-preview-desc {
+  font-size: 0.8125rem;
+  color: #166534;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.admin-dev-preview-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.admin-dev-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.admin-dev-enter-btn {
+  background-color: #0F5938;
+  color: #ffffff;
+  border-color: #0F5938;
+}
+
+.admin-dev-enter-btn:hover {
+  background-color: #0a4027;
+  border-color: #0a4027;
+}
+
+.admin-dev-autofill-btn {
+  background-color: #ffffff;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.admin-dev-autofill-btn:hover {
+  background-color: #f0fdf4;
+  border-color: #86efac;
+}
+
 
 

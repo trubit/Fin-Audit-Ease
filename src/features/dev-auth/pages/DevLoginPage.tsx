@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, useNavigate, useSearchParams, Link } from 'react-router-dom'
-import { ShieldAlert, UserCheck, Briefcase, ArrowRight, ArrowLeft } from 'lucide-react'
+import { ShieldAlert, UserCheck, Briefcase, ArrowRight, ArrowLeft, Layers } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AuthLayout } from '@/features/auth/components/AuthLayout/AuthLayout'
 import { AuthAlert } from '@/features/auth/components/AuthAlert/AuthAlert'
@@ -23,11 +23,7 @@ export const DevLoginPage: React.FC = () => {
 
   const handleSelectRole = (role: DevRole) => {
     devAuthService.loginAsDev(role)
-    if (role === 'ADMIN') {
-      navigate('/admin/dashboard', { replace: true })
-    } else {
-      navigate('/dashboard', { replace: true })
-    }
+    navigate('/dashboard', { replace: true })
   }
 
   return (
@@ -133,26 +129,26 @@ export const DevLoginPage: React.FC = () => {
             </button>
           </div>
 
-          {/* Platform Administrator Card */}
-          <div className="dev-role-card dev-role-card-admin">
+          {/* Accounting Engagement Manager Card */}
+          <div className="dev-role-card">
             <div>
               <div className="dev-role-header">
-                <div className="dev-role-icon-box dev-role-icon-box-admin" aria-hidden="true">
-                  <ShieldAlert size={22} />
+                <div className="dev-role-icon-box dev-role-icon-box-finance" aria-hidden="true">
+                  <Layers size={22} />
                 </div>
-                <h2 className="dev-role-title">{t('devAuth.adminRole')}</h2>
+                <h2 className="dev-role-title">{t('devAuth.accountingManagerRole', 'Accounting Engagement Manager')}</h2>
               </div>
               <p className="dev-role-desc" style={{ marginTop: 'var(--spacing-3)' }}>
-                {t('devAuth.adminDescription')}
+                {t('devAuth.accountingManagerDescription', 'Inspect Corporate Close, Statutory Tax Deadlines, PBC Request Assignment, and Supervisory Sign-Off.')}
               </p>
             </div>
 
             <button
               type="button"
-              className="btn btn-primary dev-role-btn"
-              onClick={() => handleSelectRole('ADMIN')}
+              className="btn btn-outline dev-role-btn"
+              onClick={() => handleSelectRole('ACCOUNTING_MANAGER')}
             >
-              <span>{t('devAuth.enterAdmin')}</span>
+              <span>{t('devAuth.enterAccountingManager', 'Enter as Accounting Manager')}</span>
               <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>

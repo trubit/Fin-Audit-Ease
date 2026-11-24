@@ -22,7 +22,7 @@
     "stayLoggedIn": "Ci gaba da zama",
     "logOut": "Fita",
     "comingSoon": "Yana nan tafe",
-    "platformNotice": "Tsarin FinAuditEase na Kasuwanci — Sauƙaƙe shirye-shiryen binciken kuɗi, takardu, da bitar aiki.",
+    "platformNotice": "Tsarin FinAuditEase na Kasuwanci: Sauƙaƙe shirye-shiryen binciken kuɗi, takardu, da bitar aiki.",
     "reset": "Sake Saita",
     "filter": "Tace",
     "clearFilters": "Share Tace",
@@ -57,7 +57,12 @@
     "resetFilters": "Sake Saita Matattara",
     "createdLabel": "An Ƙirƙira:",
     "tryAgain": "Sake Gwada",
-    "preparing": "Ana shiryawa..."
+    "preparing": "Ana shiryawa...",
+    "offlineNotice": "Littattafan kudi na kai tsaye, bukatar binciken kudi, da loda takardu suna bukatar intanet mai aiki.",
+    "signingOut": "Ana Rufewa...",
+    "viewAll": "Duba Duka",
+    "timeline": "Ranar Karewar SLA",
+    "notApplicable": "Ba a Aiwatarwa"
   },
   "navigation": {
     "home": "Gida",
@@ -98,7 +103,8 @@
     "auditChecklistAndDocuments": "Jerin Binciken Kudi da Takardun Shaida",
     "weekly": "Jerin Binciken Mako-mako",
     "monthEndClose": "Jerin Rufe Ƙarshen Wata",
-    "communication": "Sadarwar Bincike & Tarurruka"
+    "communication": "Sadarwar Bincike & Tarurruka",
+    "teamChat": "Tattaunawar Kungiya & Tarurruka"
   },
   "authentication": {
     "signInTitle": "Shiga cikin FinAuditEase",
@@ -156,7 +162,7 @@
     "signUpAuditorSubtitle": "Yi rajistar kamfanin binciken kuɗi don gudanar da ayyukan abokan ciniki da buƙatu.",
     "signUpAccountingTitle": "Ƙirƙiri Asusun Tawagar Lissafin Kuɗi",
     "signUpAccountingSubtitle": "Saita dakin aikin kamfanin ku don yin aiki tare da masu binciken kuɗi a duk shekara.",
-    "signUpInvitationTitle": "Tawagar Lissafin Kuɗi — Gayyatar Mai Bincike",
+    "signUpInvitationTitle": "Tawagar Lissafin Kuɗi: Gayyatar Mai Bincike",
     "signUpInvitationSubtitle": "Shiga aikin bincike ta hanyar ingantacciyar gayyata daga mai binciken ku.",
     "signUpSelectSubtitle": "Zaɓi matsayin ƙungiyar ku don ci gaba da tsarin rajista da ya dace.",
     "signUpUnifiedTitle": "Bude asusun FinAuditEase ɗinku",
@@ -177,7 +183,7 @@
     "auditorFeature3": "Gudanar da tsarin bita da bayar da amincewa ga shaidu",
     "auditorSelectCta": "Zaɓi Hanyar Mai Binciken Kuɗi",
     "accountingCardBadge": "Kamfanin Abokin Ciniki",
-    "accountingCardTitle": "Tawagar Lissafin Kuɗi — Rajistar Kai",
+    "accountingCardTitle": "Tawagar Lissafin Kuɗi: Rajistar Kai",
     "accountingCardPersona": "Babban Jami'in Kuɗi, Jagoran Akanta, ko Daraktan Kuɗi",
     "accountingCardDesc": "Shirya aikin lissafin kuɗin ku a duk shekara. Gudanar da daidaita lissafi na ƙarshen wata, tara takardun shiri kafin bincike, da kasancewa a shirye.",
     "accountingFeature1": "Daidaita lissafin kuɗi na ƙarshen wata a duk shekara",
@@ -185,7 +191,7 @@
     "accountingFeature3": "Ma'ajiyar takardun shaida ta dindindin",
     "accountingSelectCta": "Zaɓi Rajistar Kai",
     "invitationCardBadge": "Mamban da Aka Gayyata",
-    "invitationCardTitle": "Tawagar Lissafin Kuɗi — Gayyatar Mai Bincike",
+    "invitationCardTitle": "Tawagar Lissafin Kuɗi: Gayyatar Mai Bincike",
     "invitationCardPersona": "Mamban kamfanin abokin ciniki mai lambar gayyata mai aiki",
     "invitationCardDesc": "Shiga aikin bincike mai aiki wanda mai binciken ku ya ƙirƙira. Haɗa kai tsaye da ingantattun takardun bincike.",
     "invitationFeature1": "Haɗin kai tsaye da aikin bincike ta danna lamba sau ɗaya",
@@ -242,21 +248,22 @@
     "selfRegistration": "Rajistar Kai",
     "auditorInvitation": "Gayyatar Mai Binciken Kuɗi",
     "firmNameLabel": "Sunan Kamfanin Binciken Kuɗi",
-    "firmNamePlaceholder": "misali Apex Assurance Partners",
+    "firmNamePlaceholder": "misali Sunan Kamfanin Binciken Kuɗi",
     "professionalBodyLabel": "Ƙungiyar Kwararrun Masu Ƙididdiga",
     "companyNameLabel": "Sunan Kamfani",
-    "companyNamePlaceholder": "misali Savannah Logistics Ltd",
+    "companyNamePlaceholder": "misali Ƙungiyar Abokin Ciniki",
     "createAuditorAccountButton": "Ƙirƙiri Asusun Mai Binciken Kuɗi",
     "enterDifferentToken": "Shigar da wata alamar gayyatar daban",
     "scopeCompany": "Kamfani",
     "scopeAuditor": "Mai Binciken Kuɗi",
     "scopeEngagement": "Aikin Bincike",
     "scopeExpires": "Yana Karewa",
-    "fullNamePlaceholderAuditor": "misali Olawale Adeleke",
+    "fullNamePlaceholderAuditor": "misali Cikakken Suna",
     "emailPlaceholderAuditor": "lead.auditor@firm.com",
-    "fullNamePlaceholderAccounting": "misali Ngozi Chidiebere",
+    "fullNamePlaceholderAccounting": "misali Cikakken Suna",
     "emailPlaceholderAccounting": "accountant@company.com",
-    "fullNamePlaceholderInvitation": "misali Adebayo Ogunlesi"
+    "fullNamePlaceholderInvitation": "misali Cikakken Suna",
+    "adminMustUseAdminPortal": "An gano asusun mai gudanarwa. Da fatan za a yi amfani da kafar FinAuditEase Administration Platform dinka."
   },
   "signOut": {
     "confirmTitle": "Tabbatar da Fita",
@@ -305,7 +312,7 @@
     "attentionSubtitle": "Buƙatu da takardun da aka tura waɗanda ke buƙatar bitar mai bincike cikin gaggawa.",
     "progressTitle": "Ci gaban Ayyukan Bincike",
     "completedTitle": "Ayyukan da aka Kammala",
-    "completedReadOnly": "An Kammala — Karatu Kaɗai",
+    "completedReadOnly": "An Kammala: Karatu Kaɗai",
     "overdueBadge": "Lokaci Ya Wuce",
     "yearRoundOperations": "Ayyukan Kuɗi na Shekara Duka",
     "yearRoundSubtitle": "Kula da asusun da aka tabbatar, rufe kowane wata daidai, kuma ku shirya don binciken kuɗi kafin ya fara.",
@@ -363,7 +370,7 @@
     "engagementTitleLabel": "Taken Aikin Bincike",
     "engagementTitlePlaceholder": "misali Statutory Financial Audit 2026",
     "clientOrgLabel": "Sunan Kamfanin Abokin Ciniki",
-    "clientOrgPlaceholder": "misali Dangote Cement Plc",
+    "clientOrgPlaceholder": "misali Ƙungiyar Abokin Ciniki",
     "fiscalYearLabel": "Shekarar Kudi",
     "startDateLabel": "Ranar Fara Bincike",
     "targetDateLabel": "Ranar Kammalawa da Aka Nufa",
@@ -387,14 +394,20 @@
     "auditTrailTitle": "Tarihin Ayyukan Bincike na Dindindin",
     "auditTrailDesc": "Duba cikakken tarihin dukkan ayyuka, loda takardu, da shawarwarin bita na wannan bincike.",
     "viewAuditTrail": "Duba Tarihin Bincike",
-    "readOnlyBanner": "An Kammala — Karatu Kaɗai: An kammala wannan aikin bincike. Dukkan shaidu da hukunce-hukunce an adana su na dindindin.",
+    "readOnlyBanner": "An Kammala: Karatu Kaɗai: An kammala wannan aikin bincike. Dukkan shaidu da hukunce-hukunce an adana su na dindindin.",
     "inviteEmailPlaceholder": "abokin_aiki@kamfani.com",
     "statusActive": "Mai Aiki",
     "statusCompleted": "An Kammala",
     "statusArchived": "An Ajiye",
     "memberName": "Sunan Memba",
     "corporateEmail": "Imel ɗin Kamfani",
-    "role": "Matsayi"
+    "role": "Matsayi",
+    "client": "Abokin Ciniki",
+    "leadAuditor": "Babban Odita",
+    "assignFieldLead": "Sanya Babban Oditan Filin Aiki",
+    "assignFieldLeadDesc": "Sanya ko sake sanya odita mai lasisi domin kula da kuma gudanar da aikin fili don wannan huldar.",
+    "confirmAssignment": "Tabbatar da Rabawa",
+    "saving": "Ana Adanawa..."
   },
   "auditRequests": {
     "title": "Bukatun Bincike",
@@ -463,7 +476,7 @@
     "responseCommentLabel": "Bayanin Amsa / Sharhi (Na Zaɓi)",
     "responseCommentPlaceholder": "Ba da ƙarin bayani, nassoshin jadawali, ko cikakken bayanin sulhu don mai binciken kuɗi...",
     "responseSubmittedSuccess": "An aika da amsa cikin nasara don binciken odita.",
-    "responseSubmittedBannerTitle": "An Aika Shaida — Ana Dubawa",
+    "responseSubmittedBannerTitle": "An Aika Shaida: Ana Dubawa",
     "responseSubmittedBannerDesc": "An karɓi takardun shaidarku da amsoshinku. Mai bincike zai duba kuma ya amince da su.",
     "acceptedBannerTitle": "An Karɓa & An Amince da Buƙata",
     "acceptedBannerDesc": "Tawagar binciken kuɗi ta tantance kuma ta amince da takardun shaida na wannan buƙatar.",
@@ -485,7 +498,12 @@
     "viewDetails": "Duba Buƙata",
     "completedEngagementNotice": "Wannan buƙatar tana cikin aikin binciken da aka kammala kuma yanzu na karantawa ne kawai.",
     "goToReview": "Je zuwa Wurin Bita",
-    "returnToList": "Koma zuwa Buƙatun Bincike"
+    "returnToList": "Koma zuwa Buƙatun Bincike",
+    "reviewNotes": "Bayanin Binciken Mai Bincike:",
+    "formallyAccepted": "An amince da wannan bukatar a hukumance kuma an sa mata hannu.",
+    "evaluateSubmittedEvidence": "Kimanta shaidar takardun da aka gabatar kuma ka sa alamar an amince ko neman gyara.",
+    "confirmAssignment": "Tabbatar da Rabawa",
+    "saving": "Ana Adanawa..."
   },
   "profile": {
     "title": "Bayanin Mai Amfani",
@@ -518,7 +536,7 @@
     "uploadPlaceholder": "Tsarin Loda Takardu na ɓoye (Matsakaicin 25MB - PDF, Excel, Word, JPEG, PNG)",
     "chooseFile": "Zaɓi fayil",
     "orDragDrop": "ko jawo ka ajiye anan",
-    "fileRequirementsHint": "Fayilolin da aka amince da su: PDF, Excel, Word, JPEG, PNG — Matsakaicin 25MB ga kowane fayil.",
+    "fileRequirementsHint": "Fayilolin da aka amince da su: PDF, Excel, Word, JPEG, PNG, Matsakaicin 25MB ga kowane fayil.",
     "classificationLabel": "Rukunin Takarda",
     "commentLabel": "Bayanin Mai Bincike / Abokin Ciniki",
     "commentPlaceholder": "misali Bayanin banki na Q3 tare da sa hannu",
@@ -575,7 +593,16 @@
     "dateLabel": "Kwanan Wata:",
     "rejectionReasonLabel": "Dalilin Ƙin Amincewa na Mai Bincike:",
     "sha256Checksum": "Lambar Tsaro ta SHA-256",
-    "permanentNotice": "Takardun da aka loda suna ci gaba da kasancewa cikin tarihin binciken har abada."
+    "permanentNotice": "Takardun da aka loda suna ci gaba da kasancewa cikin tarihin binciken har abada.",
+    "uploadExternalHeading": "Shigar da Takardar Waje",
+    "uploadExternalOptional": "Shigar da Takardar Waje (Na Zabi)",
+    "optionalNotice": "Na zabi: Ana bukata ne kawai don takardu ko jadawalin da aka samu daga wajen manhaja. Duk wani jadawali ko takarda da aka amince a cikin FinAuditEase ana tura shi kai tsaye zuwa ma'ajiyar takardu.",
+    "hideUpload": "Boye Wurin Shigarwa",
+    "statusSource": "Asali & Tabbatarwa",
+    "sourceAuditorApproved": "Mai Binciken Kudi Ya Amince",
+    "sourceSupervisorApproved": "Mai Kulawa Ya Amince",
+    "sourceExternal": "Jadawalin Waje",
+    "forwardToRepo": "Tura zuwa Ma'ajiyar Takardu"
   },
   "checklists": {
     "title": "Jerin Bincike",
@@ -643,7 +670,7 @@
     "categoryProgressLabel": "{{category}}: an kammala {{completed}} daga {{total}}",
     "updateStatusFor": "Sabunta matsayi na {{title}}",
     "weeklyTitle": "Jerin Binciken Mako-mako",
-    "weeklySubtitle": "Sashen Kuɗi — Yi rikodin ayyukan kuɗi na mako-mako, daidaita asusun banki da ƙananan kuɗi, daidaita rasitocin masu kaya, da shirya bayanan rufe wata.",
+    "weeklySubtitle": "Sashen Kuɗi: Yi rikodin ayyukan kuɗi na mako-mako, daidaita asusun banki da ƙananan kuɗi, daidaita rasitocin masu kaya, da shirya bayanan rufe wata.",
     "weeklyChecklistTitle": "Jerin Binciken Mako-mako",
     "accountingTeamOnly": "Rikodin Ayyukan Ƙungiyar Ƙididdigar Kuɗi",
     "submitWeeklyForReview": "Miƙa don Bita",
@@ -718,7 +745,29 @@
     "stepReadiness": "Shirin Bincike",
     "stepReadinessDesc": "Bita ta ƙarshe da sa hannu",
     "auditorReadOnlyBadge": "Duba Na Karantawa Kawai Mai Bincike",
-    "varianceLabel": "Bambanci:"
+    "varianceLabel": "Bambanci:",
+    "variance": "Bambanci",
+    "lockSignedOffNotice": "An sanya hannu kan wannan lokacin rahoto kuma an kulle shi har abada. An kashe damar gyara don kare amincin rufe babban littafin lissafi.",
+    "preparerSubmittedNotice": "An gabatar da aikin mai shiryawa. Ana jiran binciken manaja da sanya hannu na yau da kullun.",
+    "noteLengthWarning": "Bayanin ya wuce matsakaicin haruffa 500.",
+    "currentCloseMonth": "Oktoba 2026 (Rufewar Yanzu)",
+    "nextCloseMonth": "Nuwamba 2026",
+    "yearEndCloseMonth": "Disamba 2026 (Ƙarshen Shekara)",
+    "catFixedAssets": "Dukiya, Masana'anta & Kayan Aiki (Kaddarorin Har Abada)",
+    "catBankDocs": "Takardun Banki & Tabbatarwa",
+    "catTaxDocs": "Takardun Haraji (WHT, VAT, CIT)",
+    "catPayroll": "Albashin Ma'aikata & Kuɗaɗen Doka",
+    "catReceivables": "Kuɗaɗen da Ake Bi & Rage Daraja",
+    "catInventory": "Kayan Ma'ajiyar Kaya & Kimantawa",
+    "catManagementAccounts": "Asusun Gudanarwa & Babban Littafin Lissafi",
+    "forwardToRepo": "Tura",
+    "forwardToRepoTooltip": "Tura takardar da mai kulawa ya amince zuwa Ma'ajiyar Takardu",
+    "supervisorRole": "Mai Kula da Lissafi",
+    "approvedScheduleNote": "Tsarin da aka tabbatar kuma aka amince da shi.",
+    "verifiedSchedule": "Tabbataccen Tsari",
+    "forwardedToRepoNote": "Tsarin da mai kulawa ya amince da shi wanda aka tura zuwa ma'ajiyar takardu ta tsakiya.",
+    "emptyWeeklyTitle": "Babu Wuraren Bincike na Mako-mako",
+    "emptyWeeklyDesc": "Ba a yi rijistar binciken kudi na mako-mako ba tukuna."
   },
   "review": {
     "title": "Ɓangaren Binciken Mai Dubawa",
@@ -759,7 +808,7 @@
     "statusRejected": "An Ƙi",
     "privateAuditorNotes": "Bayanan Sirri Na Mai Bincike",
     "privateAuditorNotesSubtitle": "Bayanai da takardun aiki na sirri na mai bincike. Boyayye daga Ƙungiyar Lissafin Kuɗi.",
-    "auditorConfidentialBadge": "Sirrin Mai Bincike — Boyayye Daga Ƙungiyar Lissafin Kuɗi",
+    "auditorConfidentialBadge": "Sirrin Mai Bincike: Boyayye Daga Ƙungiyar Lissafin Kuɗi",
     "addPrivateNote": "Ƙara Bayanin Sirri Na Mai Bincike",
     "privateNotePlaceholder": "Rubuta bayanan bincike, lissafi, ko takardun aiki...",
     "saveNote": "Ajiye Bayani",
@@ -782,10 +831,10 @@
     "nextFile": "Fayil na gaba",
     "submittedFiles": "Fayilolin Da Aka Miƙa",
     "rejectionReasonLabel": "Dalilin Ƙi Na Mai Bincike",
-    "rejectionNoticeTitle": "An Ƙi Takardar Da Aka Miƙa — Ana Buƙatar Gyara",
+    "rejectionNoticeTitle": "An Ƙi Takardar Da Aka Miƙa: Ana Buƙatar Gyara",
     "rejectionNoticeDesc": "Mai bincike ya nemi gyara. Da fatan za a duba dalilin ƙi a ƙasa kuma a sake loda takardun da aka gyara.",
     "resubmitDocumentAction": "Loda Takardar Da Aka Gyara",
-    "engagementLockedNotice": "An Kammala Aikin Bincike — An kulle wannan aikin don karantawa kawai. Ba za a iya yanke hukunci ba.",
+    "engagementLockedNotice": "An Kammala Aikin Bincike: An kulle wannan aikin don karantawa kawai. Ba za a iya yanke hukunci ba.",
     "conflictError": "Matsayin bincike ya canza. Ana loda sabon matsayi...",
     "searchPlaceholder": "Bincika ta take, shaida, ko abokin ciniki...",
     "filterStatus": "Tace ta Matsayi",
@@ -793,8 +842,8 @@
     "pageSubtitle": "Duba tsarin jadawali da takardun shaida, rubuta shawarar bincike, sannan a amince.",
     "approvedOption": "An Amince",
     "notApprovedOption": "Ba a Amince ba",
-    "approvedTitle": "Jerin Binciken Kudi da Takardun Shaida — An Amince",
-    "notApprovedTitle": "Jerin Binciken Kudi da Takardun Shaida — Ba a Amince ba",
+    "approvedTitle": "Jerin Binciken Kudi da Takardun Shaida: An Amince",
+    "notApprovedTitle": "Jerin Binciken Kudi da Takardun Shaida: Ba a Amince ba",
     "approvedNotesLabel": "Bayanin Amincewa (Na Zabi)",
     "reasonForNotApproved": "Dalilin Rashin Amincewa",
     "notApprovedReasonRequired": "Dole ne a bayar da dalili idan ba a amince da wannan abu ba.",
@@ -926,7 +975,22 @@
     "unauthorizedOrMissing": "Wataƙila babu wannan aikin ko kuma ba ku da izini a kansa.",
     "somethingWentWrong": "Wani abu ya sami matsala",
     "reloadApplication": "Sake Bude Manhaja",
-    "returnToHome": "Koma Shafin Farko"
+    "returnToHome": "Koma Shafin Farko",
+    "api": {
+      "networkError": "An kasa hadawa da uwar garken. Da fatan za a duba intanet dinka.",
+      "timeoutError": "Bukatar ta dauki dogon lokaci kafin ta kammala. Da fatan za a duba intanet dinka sannan a sake gwadawa.",
+      "requestCancelled": "An soke bukatar.",
+      "badRequest": "Bukatar ba ta da inganci. Da fatan za a duba bayanan da ka shigar.",
+      "unauthorized": "Zaman ku ba shi da aiki ko ya kare. Da fatan za a sake shiga.",
+      "forbidden": "Ba ka da izinin yin wannan aikin ko duba wannan abin.",
+      "notFound": "Ba a sami abin da aka nema ba.",
+      "conflict": "Akwai wani rikodin mai cin karo da shi a cikin tsarin.",
+      "validationError": "Bayanin da aka gabatar ya kasa samun tabbaci. Da fatan za a duba wuraren da aka nuna.",
+      "rateLimited": "An aiko da bukatun da suka yi yawa. Da fatan za a jira kadan kafin a sake gwadawa.",
+      "serverError": "Kuskuren uwar garke na ciki ya faru. An sanar da tawagar injiniyoyinmu.",
+      "serviceUnavailable": "Ana kan aikin gyara a kan tsarin a halin yanzu. Da fatan za a sake dubawa nan ba da jimawa ba.",
+      "unknownError": "Kuskuren da ba a tsammaci ba ya faru. Da fatan za a sake gwadawa anjima."
+    }
   },
   "landing": {
     "hero": {
@@ -967,7 +1031,7 @@
       "eyebrow": "Tsarin Aikin Bincike",
       "heading": "Sannan binciken yana farawa.",
       "lead": "Kuma yanzu, maimakon farawa daga farko, kowa ya san inda aikin yake.",
-      "subtitle": "Tsarin aikin binciken yana tafiya cikin haske da tsari — yana haɗa alkawura, buƙatu, ayyukan da aka raba, takardu, bita, shawara, da kammalawa a cikin sarkar da ba ta katsewa.",
+      "subtitle": "Tsarin aikin binciken yana tafiya cikin haske da tsari, yana haɗa alkawura, buƙatu, ayyukan da aka raba, takardu, bita, shawara, da kammalawa a cikin sarkar da ba ta katsewa.",
       "step1Title": "Alƙawari (Engagement)",
       "step1Desc": "Mai bincike yana kafa aikin bincike, yana tsara iyakokin aiki da lokuta.",
       "step2Title": "Buƙata (Request)",
@@ -981,7 +1045,20 @@
       "step6Title": "Shawara (Decision)",
       "step6Desc": "Mai bincike yana amincewa da shaida ko ƙin karɓa tare da rubutaccen dalili mai bayyane.",
       "step7Title": "Kammalawa (Complete)",
-      "step7Desc": "Aikin bincike ya cika dukkan buƙatu kuma an adana tarihin binciken har abada."
+      "step7Desc": "Aikin bincike ya cika dukkan buƙatu kuma an adana tarihin binciken har abada.",
+      "actorAuditor": "Mai Duba Lissafi",
+      "actorAccounting": "Ma'aikacin Sashen Lissafi",
+      "actorBoth": "Mai Duba Lissafi & Sashen Lissafi",
+      "actorAll": "Duk Masu Ruwa da Tsaki",
+      "step1Output": "An Kafa Iyaka da Sharuɗɗan Aiki",
+      "step2Output": "Buƙatun da Aka Tsara tare da Muhimmanci & Ranar Ƙarewa",
+      "step3Output": "Hakkin Takamaiman Ma'aikacin Lissafi",
+      "step4Output": "Fayilolin Shaida da Aka Loda akan Takamaiman Buƙata",
+      "step5Output": "An Bincika Shaida a Wurin Binciken Dubawa",
+      "step6Output": "Shaidar da Aka Amince ko Ƙi tare da Cikakken Dalili",
+      "step7Output": "Aikin da Aka Kammala & Tarihin Duba Lissafi na Har Abada",
+      "stageMilestone": "Matakin Aiki & Sakamako:",
+      "workflowComplete": "An Kammala Aiki & An Adana"
     },
     "capabilities": {
       "eyebrow": "Ƙwarewa da Ayyuka",
@@ -1011,7 +1088,17 @@
       "rememberSubtitle": "Tarihin Bincike & Sanarwa",
       "rememberItem1": "Muhimman sanarwa da tunatarwar ranar ƙarshe",
       "rememberItem2": "Tarihin ayyukan bincike wanda ba ya sauyawa",
-      "rememberItem3": "Adana bayanan bincike na shekaru da dama"
+      "rememberItem3": "Adana bayanan bincike na shekaru da dama",
+      "prepareTag": "Cikakken Shirye-shirye na Ci Gaba",
+      "prepareSummary": "Kawar da gaggawar ƙarshen shekara ta hanyar kiyaye rufe wata da aka tsara da jerin bincike watanni 6 kafin lokaci.",
+      "organizeTag": "Tsabtar Aikin Duba Lissafi",
+      "organizeSummary": "Haɗa ayyukan duba lissafi a wuri ɗaya, sanya buƙatu kai tsaye ga takamaiman ma'aikatan lissafi, da bin ƙa'idodin lokaci.",
+      "respondTag": "Sauƙin Aika Takardu Kai Tsaye",
+      "respondSummary": "Loda hujjoji (har zuwa 25MB) a haɗe kai tsaye da kowace buƙata tare da ƙarin bayani da sauƙin sake aikawa.",
+      "reviewTag": "Bayyanannun Hukunce-hukunce",
+      "reviewSummary": "Masu duba lissafi na duba fayilolin da aka aika, yin rikodin amincewa, da bayar da takamaiman dalilai idan ana buƙatar gyara.",
+      "rememberTag": "Hanyar Bincike & Sanarwa",
+      "rememberSummary": "Kula da cikakken tarihin duba lissafi har abada. Amincewa, ƙi, lokaci, da sanarwa ba sa canzawa."
     },
     "storyProblem": {
       "eyebrow": "Matsalar Da Ke Akwai",
@@ -1063,7 +1150,7 @@
     },
     "engagement": {
       "eyebrow": "Yarjejeniyar Bincike",
-      "heading": "Sannan binciken ya fara — tare da komai a mazauninsa.",
+      "heading": "Sannan binciken ya fara, tare da komai a mazauninsa.",
       "subtitle": "Mai bincike zai iya ƙirƙirar dandalin yarjejeniya da tsara membobin ƙungiyar lissafin kuɗi, buƙatu, wa'adin lokaci, nauyi, takardu, da ci gaban aiki.",
       "step1": "Ƙirƙiri Yarjejeniya",
       "step2": "Gayyaci Ƙungiyar Lissafin Kuɗi",
@@ -1092,7 +1179,7 @@
     },
     "document": {
       "eyebrow": "Tsarin Takardun Aiki",
-      "heading": "Takardu suna tafiya tare da buƙata — ba cikin rikicin imel ba.",
+      "heading": "Takardu suna tafiya tare da buƙata, ba cikin rikicin imel ba.",
       "subtitle": "Membobin ƙungiyar lissafin kuɗi za su iya loda takardun da aka buƙata kai tsaye ga kowace takamaiman buƙata.",
       "step1": "Buƙatar Bincike",
       "step2": "Loda Takardu",
@@ -1132,7 +1219,25 @@
       "event4": "Mai bincike ya duba takarda",
       "event5": "An rubuta hukunci tare da dalili",
       "event6": "An kammala yarjejeniyar bincike",
-      "event7": "Tarihin aiki yana nan a kowane lokaci"
+      "event7": "Tarihin aiki yana nan a kowane lokaci",
+      "readonlyTitle": "Hanyar Binciken Aiki (Karatu Kawai)",
+      "multiYearPreserved": "An Adana Bayanan Shekaru Masu Yawa",
+      "retainedForever": "An Adana Har Abada",
+      "loggedAndSealed": "An Rubuta & An Rufe",
+      "event1Tag": "An Ƙirƙiri Aikin Duba Lissafi",
+      "event1Meta": "An Bayyana Iyakar Binciken Shekarar Kuɗi ta 2026",
+      "event2Tag": "An Ba da Buƙata",
+      "event2Meta": "An Sanya wa Ma'aikacin Sashen Lissafi",
+      "event3Tag": "An Mika Takarda",
+      "event3Meta": "An Haɗa Cirewar Ledger na 25MB tare da Bayani",
+      "event4Tag": "An Bincika Takarda",
+      "event4Meta": "Mai Duba Lissafi ya Bincika a Babbar Tashar Dubawa",
+      "event5Tag": "An Rubuta Hukunci",
+      "event5Meta": "An Amince / An Rike Cikakken Dalili a Rubuce",
+      "event6Tag": "An Kammala Aikin Duba Lissafi",
+      "event6Meta": "An Cika Duk Buƙatu & An Sanya Hannu",
+      "event7Tag": "Bayanan Har Abada",
+      "event7Meta": "Tarihin Aiki Zai Ci gaba da Kasancewa Har Abada"
     },
     "multilingual": {
       "eyebrow": "Goyan Bayan Harsuna Daban-daban",
@@ -1144,7 +1249,9 @@
       "langIg": "Asụsụ Igbo",
       "langHa": "Harshen Hausa",
       "langPcm": "Nigerian Pidgin",
-      "activeLabel": "Harshen Yanzu"
+      "activeLabel": "Harshen Yanzu",
+      "enFeatures": "Daidaitattun Ƙa'idodin Lissafi na Duniya",
+      "pcmFeatures": "Kalami mai sauƙin fahimta a yaren ƙasa"
     },
     "security": {
       "eyebrow": "Tsaro da Amincewa",
@@ -1172,7 +1279,19 @@
       "accountingTitle": "Ƙungiyar Lissafin Kuɗi",
       "accountingDesc": "Tana shirya bayanan lissafi a duk tsawon shekara, amsa buƙatu, loda takardu, da bin diddigin jerin dubawa.",
       "oversightTitle": "Babban Mai Kula",
-      "oversightDesc": "Yana lura da ci gaban yarjejeniya, duba wa'adin bita, da tabbatar da cika dukkan dokoki."
+      "oversightDesc": "Yana lura da ci gaban yarjejeniya, duba wa'adin bita, da tabbatar da cika dukkan dokoki.",
+      "auditorCap1": "Ƙirƙiri da sarrafa ayyukan duba lissafi",
+      "auditorCap2": "Aika buƙatun takardun da aka tsara",
+      "auditorCap3": "Duba shaidu da yin rikodin cikakkun hukunce-hukunce",
+      "auditorCap4": "Kula da cikakkun takardun aikin duba lissafi",
+      "accountingCap1": "Tsara jadawalin kafin duba lissafi da rufe wata a duk shekara",
+      "accountingCap2": "Karɓa da amsa buƙatun mai duba lissafi kai tsaye",
+      "accountingCap3": "Loda jadawalin da aka tabbatar tare da ingantawa",
+      "accountingCap4": "Warware abubuwan da suka ɓace da bin diddigin aikawa",
+      "oversightCap1": "Kula da ci gaban aikin duba lissafi gaba ɗaya",
+      "oversightCap2": "Duba gargaɗin gaggawa da tambayoyin da ba a warware ba",
+      "oversightCap3": "Kula da bin ƙa'idodi da tabbatar da inganci",
+      "oversightCap4": "Kula da shirye-shiryen binciken tarihi a kowane lokaci"
     },
     "finalCta": {
       "phrase1": "Shiri yana zama ci gaba.",
@@ -1188,7 +1307,8 @@
       "navigationHeading": "Kewaya Tsari",
       "authHeading": "Hanyoyin Shiga Asusu",
       "securityHeading": "Amincewa da Tsaro",
-      "rights": "Dukkan haƙƙoƙi an kiyaye su. Sabi Africa Innovations Limited."
+      "rights": "Dukkan haƙƙoƙi an kiyaye su. Sabi Africa Innovations Limited.",
+      "privacyNotice": "Babu adana bayanan sirri ba tare da rufin asiri ba a cikin burauza. Kariyar rashin aiki na aiki."
     },
     "continuousRunway": "Hanyar Shirye-shiryen Ci gaba",
     "weeklyToPreAudit": "Daga Mako zuwa Shirin Bincike",
@@ -1209,11 +1329,46 @@
     "activeReviewBoundary": "Yankin Bita Mai Aiki",
     "returnedForResponse": "An Dawo da Shi don Amsa",
     "keyResponsibilities": "Manyan Nauyin Aiki",
-    "privacyByDesign": "Tsaron Bayanai tun daga Farko"
+    "privacyByDesign": "Tsaron Bayanai tun daga Farko",
+    "ifrsIsaAligned": "Daidai da IFRS da ISA",
+    "tlsEncryption": "Rufaffen Tsaro na TLS da AES-256",
+    "fiveLanguages": "Harsunan Najeriya Guda 5",
+    "markedCompleteLocked": "An Kammala & An Kulle",
+    "revisionLoop": "Hanyar Gyara & Warware Tambayoyi",
+    "sliderVisual": {
+      "weeklyCheckpointsDesc": "An tabbatar da ma'amaloli, rubuce-rubuce da kuɗaɗen hannu",
+      "monthEndClosingDesc": "An sanya hannu kan daidaitawa da jadawalin doka",
+      "preAuditPrepDesc": "Jadawalin jagora da ma'ajiyar shaidu watanni 6 kafin lokaci",
+      "highPriority": "Muhimmanci Mai Girma",
+      "fixedAssetSchedule": "Rijistar Kayan Aiki na Har Abada & Jadawalin Ƙari",
+      "assignedMember": "Jami'in Sashen Lissafi",
+      "dueInDays": "Saura kwanaki 3 ya ƙare",
+      "directDocumentVault": "Ma'ajiyar Takardu Kai Tsaye",
+      "maxSize": "Matsakaicin 25MB",
+      "uploadedByAccounting": "3.8 MB · Ma'aikacin Sashen Lissafi ya loda",
+      "anchored": "A Haɗe",
+      "accountingNote": "Bayanin Sashen Lissafi:",
+      "accountingNoteContent": "Duk takardun lissafin kuɗi, bayanan banki, da daidaita lissafi an tsara su a shirye don duba lissafi.",
+      "auditChecklistAndDocs": "Jerin Abubuwan Dubawa da Takardun Shaida",
+      "auditInspection": "Binciken Duba Lissafi",
+      "checklistApproved": "Jerin Abubuwan Dubawa da Takardun Shaida: An Amince",
+      "complianceMet": "Takardar ta cika dukkan sharuɗɗan doka",
+      "notApprovedWithReason": "Ba a Amince ba tare da Dalili",
+      "rejectionReasonSample": "\"Tambarin banki ya ɓace a shafi na 2. Da fatan za a sake lodawa.\"",
+      "returnedToQueue": "An mayar da shi layin Sashen Lissafi don amsawa",
+      "permanentEngagementRecord": "Cikakken Tarihin Aikin Duba Lissafi",
+      "permanentTrail": "Hanyar Bincike na Har Abada",
+      "engagementFinalized": "An Kammala Aikin Shekarar Kuɗi ta 2026",
+      "allRequestsApproved": "Duk jadawalin da aka buƙata an amince da su kuma an adana su",
+      "multiYearRetained": "An Adana Tarihin Shekaru Masu Yawa",
+      "availableForBenchmarking": "Akwai shi don kwatancen binciken shekara mai zuwa",
+      "tamperEvident": "Cikakken Tarihin Lokaci Wanda Ba Za A Iya Canzawa Ba",
+      "timestampsAccountability": "Cikakken lokaci da lissafin mai amfani"
+    }
   },
   "devAuth": {
     "title": "Shigar Gwajin Ci Gaba",
-    "subtitle": "Na ci gaba kawai — ba ingantaccen shiga ba ne. Don duba fuskar aiki kawai.",
+    "subtitle": "Na ci gaba kawai, ba ingantaccen shiga ba ne. Don duba fuskar aiki kawai.",
     "notice": "Wannan gwajin ci gaba yana ba da damar duba fuskokin Odita da Tawagar Lissafin Kuɗi kafin ingantaccen tsarin bayan fage da API su kasance a shirye. Ba a tura kowane bayanan sirri ko buƙatu zuwa uwar garken ba.",
     "auditorRole": "Matsayin Odita (Auditor)",
     "auditorDescription": "Duba allon odita, ayyukan odit, ƙirƙirar buƙatun odit, da ma'ajiyar takardu.",
@@ -1227,17 +1382,23 @@
     "auditManagerRole": "Matsayin Manajan Binciken Kuɗi",
     "auditManagerDescription": "Kula da ayyukan bincike da dama, tura oditoci, da tabbatar da inganci.",
     "enterAuditManager": "Shiga a matsayin Manajan Bincike",
+    "accountingManagerRole": "Matsayin Manajan Lissafin Kuɗi",
+    "accountingManagerDescription": "Kula da rufewar lissafin kamfani, lokutan haraji, rarraba ayyukan PBC, da amincewar manaja.",
+    "enterAccountingManager": "Shiga a matsayin Manajan Lissafin Kuɗi",
     "backToLogin": "Koma zuwa Shigar Asali",
     "bannerTitle": "YANAYIN GWAJIN CI GABA YANA AIKI",
     "currentRole": "Matsayin Gwaji na Yanzu:",
     "switchToAuditor": "Canza zuwa Odita",
     "switchToFinance": "Canza zuwa Tawagar Lissafin Kuɗi",
     "exitPreview": "Fita daga Gwaji",
-    "sessionExpired": "Lokacin gwajin ci gaba ya ƙare saboda rashin aiki."
+    "sessionExpired": "Lokacin gwajin ci gaba ya ƙare saboda rashin aiki.",
+    "adminPreviewDesc": "An ba da damar duba aikin mai gudanarwa. Shiga kai tsaye cikin dandalin gudanarwa.",
+    "autoFillDemo": "Cika Bayanan Gwaji Kai Tsaye"
   },
   "roles": {
     "auditor": "Babban Odita Mai Lasisi",
     "auditManager": "Manajan Aikin Binciken Kuɗi",
+    "accountingManager": "Manajan Aikin Lissafin Kuɗi",
     "accountingMember": "Memba na Tawagar Lissafin Kuɗi na Kamfani",
     "accountingLead": "Shugaban Tawagar Lissafin Kuɗi",
     "admin": "Manajan Tsari",
@@ -1249,7 +1410,7 @@
   },
   "legal": {
     "termsTitle": "Sharudda da Ka'idojin Yanar Gizo",
-    "termsSubtitle": "Sabi Africa Innovations Limited — Ranar Fara Aiki: 10 Oktoba, 2026",
+    "termsSubtitle": "Sabi Africa Innovations Limited | Ranar Fara Aiki: 10 Oktoba, 2026",
     "termsAndConditions": "Sharudda da Ka'idojin Yanar Gizo",
     "tableOfContents": "Teburin Abubuwan Ciki",
     "backToHome": "Koma FinAuditEase",
@@ -1306,7 +1467,8 @@
     "forwardSuccessMsg": "An tura {{title}} zuwa {{target}}.",
     "weeklyHubTitle": "Binciken Ayyuka na Mako-mako",
     "weeklyHubSubtitle": "Duba rubuce-rubuce da tsare-tsare a mako-mako. Da zarar an tabbatar, tura kai tsaye zuwa Rufe Ƙarshen Wata.",
-    "forwardStatusHeader": "Ci Gaban Tsari"
+    "forwardStatusHeader": "Ci Gaban Tsari",
+    "documentRepoForwardHint": "Yana tura jadawalin tabbatarwa da mai kulawa ya amince kai tsaye zuwa Ma'ajiyar Takardu don duba lissafi."
   },
   "auditModule": {
     "title": "Sashen Binciken Kudi",
@@ -1315,12 +1477,12 @@
   "financeModule": {
     "title": "Sashen Kudi",
     "badge": "Sashen Kudi",
-    "operationsTitle": "Sashen Kudi — Ayyuka da Tabbatar da Kadarori",
+    "operationsTitle": "Sashen Kudi: Ayyuka da Tabbatar da Kadarori",
     "operationsSubtitle": "Jerin binciken ƙarshen wata na duk shekara, shirin gabanin bincike, da rijistar tabbatar da kadarori na zahiri."
   },
   "assets": {
     "registerTitle": "Rijistar Tabbatar da Kadarori",
-    "registerSubtitle": "Sashen Kudi — Gwada alkaluman kwamfuta da sakamakon tabbatarwa na zahiri sannan a rubuta bambanci.",
+    "registerSubtitle": "Sashen Kudi: Gwada alkaluman kwamfuta da sakamakon tabbatarwa na zahiri sannan a rubuta bambanci.",
     "fixedAssets": "Kadarori Masu Dorewa (Fixed Assets)",
     "currentAssets": "Kadarori Masu Gudana (Current Assets)",
     "verificationDate": "Ranar Tabbatarwa",
@@ -1373,7 +1535,14 @@
     "iosInstructions": "Danna maballin Share a Safari, sannan ka zaɓi 'Add to Home Screen'.",
     "offlineTitle": "Ba ku da intanet a yanzu",
     "offlineDesc": "Bayanan bincike da na kuɗi na buƙatar intanet mai aiki. An kashe loda da sauye-sauye har sai an sake haɗa intanet.",
-    "backOnline": "An dawo da intanet. Yanzu kuna kan layi."
+    "backOnline": "An dawo da intanet. Yanzu kuna kan layi.",
+    "installBannerLabel": "Shigar da manhajar FinAuditEase",
+    "iosTitle": "Shigar da FinAuditEase a kan iOS",
+    "iosInstructionPrefix": "Danna",
+    "iosInstructionSuffix": "Raba a Safari, sannan ka zabi \"Kara zuwa Fuskar Farko\".",
+    "installDesc": "Fara aiki cikin sauri daga fuskar na'urarka tare da tanadin data.",
+    "installAction": "Shigar da Manhajar FinAuditEase",
+    "dismissLabel": "Kawar da sanarwar shigarwa"
   },
   "communication": {
     "pageTitle": "Cibiyar Sadarwar Binciken Kuɗi & Tarurruka",
@@ -1511,7 +1680,8 @@
     "sectionsLabel": "Sashe na Cibiyar Sadarwa",
     "tabMessagesAndMeetings": "Saƙonni & Tarurrukan da Aka Tsara",
     "tabEvidentiaryRecordings": "Ma'ajiyar Faifan Bidiyo/Sauti na Hujja",
-    "tabCommunicationAuditTrail": "Tarihin Ayyukan Sadarwa"
+    "tabCommunicationAuditTrail": "Tarihin Ayyukan Sadarwa",
+    "recordingPolicy": "Ka'idar Daukar Rikodi da Yarjejeniyar Masu Halarta"
   },
   "admin": {
     "nav": {
@@ -1535,7 +1705,10 @@
       "auditManagers": "Manajojin Binciken Kudi",
       "communication": "Kula da Sadarwa",
       "notifications": "Sanarwa & Watsa Labarai",
-      "rolesPermissions": "Ayyuka & Izini"
+      "rolesPermissions": "Ayyuka & Izini",
+      "closeMenu": "Rufe tsarin kewayawa na gudanarwa",
+      "openMenu": "Bude tsarin kewayawa na gudanarwa",
+      "accountingManagers": "Manajojin Lissafi"
     },
     "dashboard": {
       "breadcrumb": "Dokokin Manaja",
@@ -1566,7 +1739,8 @@
       "usersPortalDesc": "Gudanar da asusu, matsayi, da tabbatar da 2FA.",
       "orgsPortalDesc": "Bincika kamfanoni da iyakokin sirrin abokan ciniki.",
       "auditorsPortalDesc": "Bibiyar shaidar ICAN/ACCA/ICAEW da ayyukansu.",
-      "securityPortalDesc": "Bincika shiga tsari, tsaron lokaci, da kariya."
+      "securityPortalDesc": "Bincika shiga tsari, tsaron lokaci, da kariya.",
+      "completedEngagements": "Ayyukan Binciken Kudi da Aka Kammala"
     },
     "users": {
       "breadcrumb": "Gudanar da Masu Amfani",
@@ -1606,7 +1780,8 @@
       "roleNotice": "Ma'anar matsayi sun dace da ka'idojin FinAuditEase.",
       "selectStatusLabel": "Halin Tsaron Asusu",
       "actionReset2fa": "Sake Saita Na'urar 2FA",
-      "actionUnlock": "Cire Kullewar Asusu & Maido da Izini"
+      "actionUnlock": "Cire Kullewar Asusu & Maido da Izini",
+      "email": "Adireshin Imel"
     },
     "organisations": {
       "breadcrumb": "Ƙungiyoyi",
@@ -1647,7 +1822,7 @@
       "exportCsv": "Fitar da Jerin (CSV)",
       "searchPlaceholder": "Nemi odita ta suna, kamfani, ko lamba...",
       "filterBody": "Tace ta Ƙungiyar Ƙwararru",
-      "allBodies": "Duk Ƙungiyoyin (ICAN, ACCA, ICAEW)",
+      "allBodies": "Duk Ƙungiyoyin (ICAN, ANAN, ACCA, ICAEW)",
       "tableAuditor": "Odita & Kamfani",
       "tableBody": "Ƙungiyar Ƙwararru",
       "tableMembership": "Lambar Lasisi #",
@@ -1663,7 +1838,10 @@
       "detailActiveEngagements": "Jagoran Ayyukan Bincike",
       "detailVerification": "Halin Tabbatarwa",
       "assignedAudits": "Ayyukan Binciken da Aka Ba da",
-      "noAssignedEngagements": "Babu aikin binciken da aka ba wannan oditan a yanzu."
+      "noAssignedEngagements": "Babu aikin binciken da aka ba wannan oditan a yanzu.",
+      "slaOnTarget": "SLA na kan lokaci",
+      "statutoryCount": "Ayyukan Duba Lissafi na Doka {{count}}",
+      "verifiedPracticingAuditor": "✓ Mai Duba Lissafi da Aka Tabbatar"
     },
     "engagements": {
       "breadcrumb": "Kula da Ayyukan Bincike",
@@ -1693,7 +1871,8 @@
       "detailTotalRequests": "Jimillar Buƙatun PBC",
       "detailCompletedRequests": "Wadanda Aka Gama / Aka Amince",
       "confidentialityCallout": "Sanarwar Warewa ta Doka",
-      "confidentialityNotice": "Duba takardun kuɗi na abokan ciniki, tabbacin banki, da littattafan lissafi yana buƙatar a sanya ku a cikin wannan tawagar."
+      "confidentialityNotice": "Duba takardun kuɗi na abokan ciniki, tabbacin banki, da littattafan lissafi yana buƙatar a sanya ku a cikin wannan tawagar.",
+      "tableEngagement": "Aikin Bincike"
     },
     "subscriptions": {
       "breadcrumb": "Gudanar da Biyan Kuɗin Sabis",
@@ -1727,7 +1906,10 @@
       "detailStartDate": "Farawa",
       "detailRenewal": "Ranar Sabuntawa",
       "detailSeats": "Kujerun da Aka Amince",
-      "detailStorage": "Ma'ajiyar Doka"
+      "detailStorage": "Ma'ajiyar Doka",
+      "activePaidStanding": "✓ Matsayin Biyan Kuɗi Mai Aiki",
+      "seatsAllocated": "An ware {{active}} daga cikin {{max}}",
+      "wormCompliant7Yr": "Bin Ƙa'idar WORM (Adana Shekaru 7)"
     },
     "auditTrail": {
       "breadcrumb": "Tarihin Ayyuka & Doka",
@@ -1748,7 +1930,8 @@
       "tableDetails": "Bayanin Aiki & Abin da Aka Yi Aiki a Kai",
       "tableIntegrity": "IP & Tabbacin Cryptographic",
       "noRecordsFound": "Ba a Sami Ayyuka Ba",
-      "noRecordsFoundDesc": "Gwada goge kwanakin bincike ko tacewar aiki."
+      "noRecordsFoundDesc": "Gwada goge kwanakin bincike ko tacewar aiki.",
+      "tableVerification": "Shaidar Tsaro ta Na'ura"
     },
     "security": {
       "breadcrumb": "Cibiyar Tsaro",
@@ -1769,7 +1952,10 @@
       "tableIntegrity": "Halin Tabbatarwa",
       "verifiedHash": "SHA-256 Yana Aiki",
       "noEventsFound": "Ba a Sami Ayyukan Shiga Ba",
-      "noEventsFoundDesc": "Bayanai za su bayyana yayin da mutane ke shiga tsari."
+      "noEventsFoundDesc": "Bayanai za su bayyana yayin da mutane ke shiga tsari.",
+      "activeAcrossAll": "✓ Yana aiki a kan duk asusun masu duba lissafi da na gudanarwa",
+      "enforcedByRevocation": "Ana aiwatarwa ta hanyar soke alamar abokin ciniki da uwar garke",
+      "normalActivityZeroAnomalies": "● Ayyuka na yau da kullun, ba matsala ko ɗaya"
     },
     "reports": {
       "breadcrumb": "Rahotanni & Bincike",
@@ -1792,7 +1978,15 @@
       "auditReportTitle": "Tabbatar da Tarihin Doka & Shaidar Rashin Canzawa",
       "auditReportSubtitle": "Tarihin cryptographic wanda ya dace da ƙa'idodin ISA 230 / SAS 103",
       "exportAuditCsv": "Fitar da Tarihin Ayyuka (CSV)",
-      "wormStandardTitle": "Ma'aunin Doka na WORM (Rubuta Sau Ɗaya, Karanta Sau Da Yawa)"
+      "wormStandardTitle": "Ma'aunin Doka na WORM (Rubuta Sau Ɗaya, Karanta Sau Da Yawa)",
+      "exportCsv": "Fitar da Rahoton Yanzu (CSV)",
+      "regulatoryNoticeTitle": "Rahoton Binciken Kudi na Doka da Adana WORM",
+      "regulatoryNoticeDesc": "Rahotannin da aka hada a wannan dandalin sun bi ka'idojin Hukumar Ba da Rahoton Kudi ta Najeriya da ka'idojin binciken kudi na kasa da kasa. Ana iya bin sahun dukkan bayanan da aka fitar zuwa ga bayanan binciken kudi da ba za a iya sauyawa ba.",
+      "tabCompliance": "Biye da Ka'ida & Rajistar WORM",
+      "engagementsTitle": "SLA na Ayyukan Doka & Saurin Gamawa",
+      "requestsTitle": "Aikin SLA na Bukatun Takardun PBC",
+      "organisationsTitle": "Kungiyoyin da Ke Halarta & Ayyukan Bincike",
+      "complianceTitle": "Rajistar Shaida ta Bin Ka'idar Doka ta WORM"
     },
     "settings": {
       "breadcrumb": "Saitunan Dandamali",
@@ -1830,7 +2024,21 @@
       "notificationsTitle": "Hanyoyin Sanarwa & Saƙonnin Manaja",
       "emailNotifTitle": "Gargaɗin Tsaro & Tsarin ta Imel",
       "statutoryEscalationsTitle": "Gargaɗi Idan Lokacin Doka Ya Ƙure",
-      "saveNotifBtn": "Ajiye Saitunan Sanarwa"
+      "saveNotifBtn": "Ajiye Saitunan Sanarwa",
+      "matrixRoleSystemAdmin": "Mai Gudanar Da Tsarin",
+      "matrixDescSystemAdmin": "Gudanar da Dandamali, Masu Amfani, Kungiyoyi, Tsaro & Saituna",
+      "matrixDocSystemAdmin": "Kaitacce (Duba metadata kawai; babu sauke takardun aiki na sirri)",
+      "matrixAdminSystemAdmin": "✓ Cikakken Dama",
+      "matrixRoleAuditManager": "Manajan Aikin Binciken Kudi",
+      "matrixDescAuditManager": "Tsarin tabbaci, raba ayyukan kungiya, sa hannu kan matakai",
+      "matrixDocAuditManager": "Ayyukan da aka ba da kawai",
+      "matrixAdminProhibited": "✗ An Hana",
+      "matrixRoleAuditor": "Babban Odita",
+      "matrixDescAuditor": "Bukatun binciken PBC, duba takardu, tabbatar da lissafi, tarurruka",
+      "matrixRoleFinance": "Kungiyar Lissafin Kamfani",
+      "matrixDescFinance": "Lissafin kudi (Mako, Karshen Wata, Kafin Bincike), rajistar kadarori, loda PBC",
+      "matrixDocFinance": "Ayyukan Kungiyar Ka Kawai",
+      "securityDesc": "Tabbatar da karshen zama, tantancewa ta matakai biyu (2FA), da ka'idar kulle asusu."
     },
     "auth": {
       "portalBadge": "Yankin Tsaro na Musamman",
@@ -1849,7 +2057,14 @@
       "returnToMain": "Koma zuwa Shigar Abokan Ciniki",
       "provisioningNotice": "Ana bayar da asusun mai gudanarwa ne ta tsarin cikin gida. An rufe yin rajistar jama’a.",
       "requiredFields": "Da fatan za a bayar da imel da kalmar sirri.",
-      "invalidCredentials": "Bayanin shiga ba daidai ba ne."
+      "invalidCredentials": "Bayanin shiga ba daidai ba ne.",
+      "confirmSignOutTitle": "Ka Tabbatar Da Rufe Zaman Gudanarwa?",
+      "confirmSignOutMessage": "Kuna shirin fita daga Dandalin Gudanarwa na FinAuditEase. Za a rufe zaman ku na gudanarwa kuma a dawo da ku shafin shiga.",
+      "accessDenied": "An hana shiga. Asusunku ba shi da ikon gudanarwa na FinAuditEase Administration Platform. Da fatan za a yi amfani da babban shafi.",
+      "genericError": "Kuskuren da ba a tsammaci ba ya faru yayin shigar gudanarwa.",
+      "invalid2FACode": "Lambar tantancewa mai lamba 6 ba daidai ba ce ko ta wuce lokaci.",
+      "headerSubtitle": "Dandalin Gudanarwa • Sabi Africa Innovations",
+      "backToCredentials": "Koma zuwa Imel da Kalmar Sirri"
     },
     "auditManagers": {
       "title": "Jerin Manajojin Binciken Kudi",
@@ -1871,7 +2086,15 @@
       "colStatus": "Matsayi",
       "inspect": "Duba Bayani",
       "engagementsText": "Ayyuka Masu Aiki",
-      "completedText": "Kammalalle"
+      "completedText": "Kammalalle",
+      "description": "Kula da manyan shugabannin binciken kudi, ikon sa hannu kan aiki, hadin gwiwar kamfanonin bincike, da aikin tantancewa.",
+      "kpiSupervised": "Ayyukan da Aka Kula Da Su",
+      "kpiCompleted": "Fayilolin da Aka Kammala",
+      "kpiVerified": "Tabbacin ICAN / ANAN",
+      "tableAria": "Jerin Manajojin Binciken Kudi",
+      "colFirm": "Kamfanin Binciken Kudi Mai Aiki",
+      "assignedEngagements": "Ayyukan Binciken Kudi Masu Alaka",
+      "noEngagementsAssigned": "Babu wasu ayyukan bincike masu aiki da aka rubuta a wannan zaman."
     },
     "communication": {
       "title": "Kula da Sadarwa & Dakin Ganawa",
@@ -1890,7 +2113,14 @@
       "colConsent": "Yarda da Rikodi",
       "colStorage": "Ma’adana",
       "inspect": "Duba",
-      "consentVerified": "AN YARDA"
+      "consentVerified": "AN YARDA",
+      "description": "Kula da tashoshin sakonni na binciken kudi, dakin bidiyo, adana rikodi, da rajistar yardar masu halarta.",
+      "kpiChannels": "Tashoshin Tattaunawa Masu Aiki",
+      "kpiMeetings": "Taron Bidiyo da Aka Gudanar",
+      "kpiConsent": "Rajistar Yarda da Aka Sa Hannu",
+      "tableAria": "Jerin Tashoshin Sadarwa",
+      "consentLedgerHeading": "Rajistar Yarda Tana Aiki",
+      "consentLedgerBody": "Dukkan mahalarta a wannan tashar sun amince da daukar sautin/bidiyo daidai da Dokar Kare Bayanai ta Najeriya (NDPR) da ka'idojin binciken kudi na kasa da kasa."
     },
     "notifications": {
       "title": "Sanarwa & Watsa Labaran Gaggawa",
@@ -1904,7 +2134,30 @@
       "broadcastHistory": "Tarihin Watsa Labarai",
       "audienceAll": "Duk Masu Amfani",
       "audienceAuditors": "Masu Binciken Kudi Kadai",
-      "audienceAccounting": "Kungiyar Akantoci Kadai"
+      "audienceAccounting": "Kungiyar Akantoci Kadai",
+      "description": "Buga sanarwa ga daukacin dandamali, shawarwarin gaggawa, tunatarwar doka, da duba tsarin sanarwa.",
+      "kpiActive": "Sanarwar Da Ke Aiki",
+      "kpiSystem": "Sanarwar Tsarin Da Aka Aika",
+      "kpiReach": "Yawan Mutanen da Sanarwa Ta Shafa",
+      "kpiDelivery": "Ingancin Isar Sanarwa a Cikin Manhaja",
+      "composeHeading": "Rubuta Sanarwar Dandamali",
+      "composeSub": "Za a watsa shi nan take zuwa manhajojin yanar gizo da kararrawa na sanarwa.",
+      "publishSuccess": "An yi nasarar buga sanarwar dandamali!",
+      "targetAudience": "Masu Karbar Sanarwa",
+      "audAll": "Duk Masu Amfani (Masu Binciken Kudi + Kungiyar Lissafi)",
+      "audAuditors": "Masu Binciken Kudi Kadai (Shugabanni & Manajoji)",
+      "audAccounting": "Kungiyar Lissafin Kamfani Kadai",
+      "severity": "Matsayin Muhimmanci",
+      "sevInfo": "Sanarwar Bayani",
+      "sevWarning": "Gargadi / Ranar Karewar Doka",
+      "sevCritical": "Gaggawa / Sanarwar Tsari",
+      "announcementTitle": "Taken Sanarwa",
+      "titlePlaceholder": "misali Gyaran Tsari da Aka Tsara a Ranar Lahadi",
+      "announcementBody": "Bayanin Sakon Sanarwa",
+      "bodyPlaceholder": "Shigar da cikakken bayanin sanarwa...",
+      "publishBtn": "Buga Sanarwa",
+      "activeHistoryHeading": "Sanarwar Dandamali da Aka Buga",
+      "activeHistorySub": "Sanarwar da ke aiki a halin yanzu da ke fitowa a saman manhaja."
     },
     "rolesPermissions": {
       "title": "Gudanar da Ayyuka & Izini",
@@ -1933,7 +2186,112 @@
       "colAdmin": "Mai Gudanar da Tsari",
       "inspect": "Duba",
       "noResultsTitle": "Ba a Sami Izini Ba",
-      "noResultsDesc": "Babu izinin da ya dace da bincikenka."
+      "noResultsDesc": "Babu izinin da ya dace da bincikenka.",
+      "searchAria": "Nemi izini",
+      "filterCategory": "Tace ta fannin iyawa",
+      "tableAria": "Teburin Izini na RBAC",
+      "policyCode": "Lambar Ka'idar Backend Mai Iko",
+      "description": "Yankin Aiki",
+      "tenantBoundary": "Kebe Masu Amfani & Iyakar Tsaro",
+      "roleAssignment": "Matakan Hakkin Matsayi",
+      "audienceAuditors": "Masu Duba Kawai",
+      "kpiAssuranceRoles": "Matsayin Ayyukan Tabbaci"
+    },
+    "header": {
+      "platformPill": "Admin",
+      "subtitle": "Tare da goyon bayan Sabi Africa Innovations Limited",
+      "liveSession": "Zaman Gudanarwa Na Kai Tsaye",
+      "systemAdmin": "Mai Gudanar Da Tsarin",
+      "signOut": "Fita daga Dandalin Gudanarwa",
+      "confirmSignOut": "Rufe Zama"
+    },
+    "common": {
+      "export": "Fitar da CSV",
+      "actions": "Ayyuka",
+      "close": "Rufe",
+      "exportCsv": "Fitar da CSV",
+      "inspect": "Duba"
+    },
+    "accountingManagers": {
+      "title": "Manajojin Ayyukan Lissafi",
+      "description": "Babban kulawa na manajojin lissafin abokan ciniki, kungiyoyi da aka sa ido a kansu, da shirye-shiryen rufe karshen wata.",
+      "totalManagers": "Manajojin Lissafi",
+      "totalSupervised": "Ayyukan Da Ake Kai Tsaye",
+      "clientOrgs": "Kungiyoyin Abokan Ciniki",
+      "orgsSupervised": "Hukumomin Kamfanoni",
+      "supervisedEngagements": "Ayyukan Da Ake Kula Da Su",
+      "engagementsMonitored": "Binciken Da Ake Ciki",
+      "searchPlaceholder": "Bincika ta sunan manaja, imel, ko kungiyar abokin ciniki...",
+      "searchAria": "Bincika manajojin lissafi",
+      "filterOrg": "Tace ta kungiyar abokin ciniki",
+      "allOrgs": "Dukkan Kungiyoyi",
+      "emptyTitle": "Ba a Sami Manajojin Lissafi Ba",
+      "emptyDescription": "Babu manajojin lissafi da suka dace da abubuwan da kuka zaba.",
+      "colManager": "Manajan Lissafi",
+      "colOrg": "Kungiyar Abokin Ciniki",
+      "colEngagements": "Ayyuka",
+      "colRequests": "Bukatar PBC",
+      "colStatus": "Matsayin Asusu",
+      "modalTitle": "Cikakkun Bayanan Manajan Lissafi"
     }
+  },
+  "status": {
+    "completed": "An Kammala",
+    "pending": "Yana Jiran Tabbatarwa",
+    "active": "Yana Aiki",
+    "inReview": "Ana Dubawa",
+    "overdue": "Lokaci Ya Wuce",
+    "locked": "An Dakatar / Kulle"
+  },
+  "accManager": {
+    "ribbonSubtitle": "Kula da Kudaden Cikin Gida & Shirin Bincike",
+    "monthEndClose": "Karshen Wata",
+    "weeklyControls": "Sarrafa na Mako",
+    "unassignedPbcs": "Bukatun PBC da ba a Raba ba",
+    "daysToYearEnd": "Kwanaki zuwa Karshen Shekara",
+    "taxRadarTitle": "Kula da Harajin Doka da Bin Ka'idoji",
+    "taxRadarSubtitle": "Ka'idojin Lokaci na NRS / FIRS",
+    "statutoryDue": "Ranar Karewa ta Doka: {{date}}",
+    "internalControlsTitle": "Kula da Kudaden Cikin Gida da Rufewa",
+    "monthEndSignOff": "Sa Hannu kan Karshen Wata",
+    "weeklyControlsTitle": "Sarrafa Daidaita Lissafin Mako",
+    "weeklyControlsDesc": "Banki, POS, kudin aljihu & daftarin kaya ({{completed}} / {{total}} an kammala)",
+    "reviewWeek": "Duba Mako",
+    "monthEndChecklistTitle": "Jerin Rufewar Karshen Wata",
+    "monthEndChecklistDesc": "Abubuwa 22 na rufewar doka a cikin rukuni 6 na lissafi ({{completed}} / {{total}} an kammala)",
+    "lockSignOff": "Kulle & Sa Hannu",
+    "preAuditTitle": "Hanyar Shirye-shiryen Kafin Bincike",
+    "preAuditDesc": "Kunshin shirin binciken karshen shekara (abubuwa {{completed}} an kammala)",
+    "openRunway": "Bude Hanya",
+    "assetRegisterTitle": "Rajistar Tabbatar da Kadarori",
+    "assetRegisterDesc": "Alamar kadarori, faduwar daraja & tabbatar da mai kula",
+    "viewRegister": "Duba Rajista",
+    "auditorRequestsTitle": "Bukatun Mai Bincike & Raba Ayyuka ga Masana",
+    "zeroOutstandingRequests": "Babu wata bukatar mai bincike da ta rage.",
+    "unassignedNeedsAssignment": "Ba a ba kowa ba: Yana bukatar rabawa",
+    "respond": "Amsa"
+  },
+  "auditManager": {
+    "acceptanceRate": "Yawan Karba",
+    "portfolioTitle": "Fayilolin Ayyukan Binciken Tabbaci",
+    "noEngagements": "Babu ayyukan binciken kudi na abokin ciniki a cikin fayilolinku a halin yanzu.",
+    "leadAuditor": "Jagora: {{name}}",
+    "targetDate": "Manufa: {{date}}",
+    "staffWorkloadTitle": "Yawan Aikin Ma'aikatan Bincike",
+    "newEngagement": "Sabuwar Huldar Bincike",
+    "noAuditorData": "Babu bayanan aikin mai binciken da aka rubuta.",
+    "highWorkload": "Aiki Mai Yawa",
+    "available": "Akwai",
+    "managerReviewQueue": "Layin Binciken Manaja (Kula da Inganci)",
+    "openReviewCentre": "Bude Cibiyar Bincike",
+    "allEvidenceReviewed": "An duba dukkan shaidun da abokin ciniki ya gabatar.",
+    "zeroPendingQualityControl": "Babu amincewar kula da inganci da ke jiran aiki a layin manaja.",
+    "tableRef": "Manazarta",
+    "tableRequestTitle": "Taken Bukata",
+    "tableEngagement": "Aikin Bincike",
+    "tableStatus": "Matsayi",
+    "tableDueDate": "Ranar Karewa",
+    "tableAction": "Aiki",
+    "review": "Bincika"
   }
 }

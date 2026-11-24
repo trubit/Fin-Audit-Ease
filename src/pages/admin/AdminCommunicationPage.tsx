@@ -54,7 +54,7 @@ export const AdminCommunicationPage: React.FC = () => {
       return {
         id: `chan_${eng.id}`,
         engagementId: eng.id,
-        title: `${eng.title} — Audit Collaboration Channel`,
+        title: `${eng.title} • Audit Collaboration Channel`,
         clientName: eng.clientOrganizationName || 'Client Organisation',
         leadAuditor: eng.leadAuditorName || 'Lead Auditor',
         messagesCount,

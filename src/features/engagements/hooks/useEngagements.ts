@@ -84,3 +84,37 @@ export const useInviteEngagementMember = (engagementId?: string) => {
   })
 }
 
+export const useUpdateEngagement = (engagementId?: string) => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (payload: Parameters<typeof engagementService.updateEngagement>[1]) => {
+      if (!engagementId) throw new Error('Engagement ID is required')
+      return engagementService.updateEngagement(engagementId, payload)
+    },
+    onSuccess: () => {
+      if (engagementId) {
+        void queryClient.invalidateQueries({ queryKey: ['engagement', engagementId] })
+      }
+      void queryClient.invalidateQueries({ queryKey: ['engagements'] })
+    },
+  })
+}
+
+export const useAssignAuditor = (engagementId?: string) => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (payload: { auditorId: string; auditorName: string }) => {
+      if (!engagementId) throw new Error('Engagement ID is required')
+      return engagementService.assignAuditor(engagementId, payload)
+    },
+    onSuccess: () => {
+      if (engagementId) {
+        void queryClient.invalidateQueries({ queryKey: ['engagement', engagementId] })
+      }
+      void queryClient.invalidateQueries({ queryKey: ['engagements'] })
+    },
+  })
+}
+

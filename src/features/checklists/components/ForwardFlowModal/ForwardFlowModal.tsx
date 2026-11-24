@@ -7,14 +7,18 @@ import {
   CalendarCheck,
   FileCheck,
   FileText,
+  FolderLock,
   Loader2,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useToast } from '@/components/feedback/Toast'
+import { documentService } from '@/features/documents/services/documentService'
+import { useAuth } from '@/features/auth/hooks/useAuth'
+import { formatUserRole } from '@/features/auth/utils/roleUtils'
 import './ForwardFlowModal.css'
 
 export type ForwardSourceStage = 'WEEKLY' | 'MONTH_END' | 'PRE_AUDIT' | 'DOCUMENT'
-export type ForwardTargetStage = 'MONTH_END' | 'PRE_AUDIT' | 'AUDIT_REQUEST'
+export type ForwardTargetStage = 'MONTH_END' | 'PRE_AUDIT' | 'AUDIT_REQUEST' | 'DOCUMENT_REPOSITORY'
 
 export interface ForwardFlowModalProps {
   readonly isOpen: boolean
@@ -38,6 +42,7 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
   onForwardSuccess,
 }) => {
   const { t } = useTranslation()
+  const { user } = useAuth()
   const { showToast } = useToast()
   const navigate = useNavigate()
 
@@ -72,6 +77,8 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
 
   const getTargetStageName = (tStage: ForwardTargetStage): string => {
     switch (tStage) {
+      case 'DOCUMENT_REPOSITORY':
+        return t('documents.title', 'Document Repository')
       case 'MONTH_END':
         return t('pipeline.monthEndTitle', 'Month-End Close')
       case 'PRE_AUDIT':
@@ -88,6 +95,20 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
     try {
       // Simulate frontend processing & session recording
       await new Promise((resolve) => setTimeout(resolve, 600))
+
+      if (targetStage === 'DOCUMENT_REPOSITORY') {
+        const forwarderName = user?.fullName
+          ? `${user.fullName} (${formatUserRole(user.role, t)})`
+          : t('checklists.supervisorRole', 'Accounting Supervisor')
+        documentService.forwardDocument({
+          title: itemTitle || documentName || t('checklists.verifiedSchedule', 'Verified Schedule'),
+          fileName: documentName,
+          classification: 'RECONCILIATION_SCHEDULE',
+          source: 'SUPERVISOR_APPROVAL',
+          approverOrForwarderName: forwarderName,
+          notes: forwardNotes || t('checklists.forwardedToRepoNote', 'Supervisor-approved schedule forwarded to central document repository.'),
+        })
+      }
 
       const targetName = getTargetStageName(targetStage)
 
@@ -107,7 +128,9 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
       onClose()
 
       // Optional smart navigation based on user action
-      if (targetStage === 'AUDIT_REQUEST') {
+      if (targetStage === 'DOCUMENT_REPOSITORY') {
+        navigate('/documents')
+      } else if (targetStage === 'AUDIT_REQUEST') {
         navigate(
           `/audit-requests/create?fromPreAudit=true&title=${encodeURIComponent(
             itemTitle
@@ -174,13 +197,21 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
             </div>
           </div>
 
-          {/* Select Target Stage (if Document or flexible) */}
-          {sourceStage === 'DOCUMENT' && (
-            <div className="forward-form-group">
-              <label className="forward-form-label">
-                {t('pipeline.targetStageLabel', 'Select Destination Stage')}
-              </label>
-              <div className="forward-stage-picker">
+          {/* Select Target Stage */}
+          <div className="forward-form-group">
+            <label className="forward-form-label">
+              {t('pipeline.targetStageLabel', 'Select Destination Stage')}
+            </label>
+            <div className="forward-stage-picker">
+              <button
+                type="button"
+                className={`forward-stage-opt ${targetStage === 'DOCUMENT_REPOSITORY' ? 'is-selected' : ''}`}
+                onClick={() => setTargetStage('DOCUMENT_REPOSITORY')}
+              >
+                <FolderLock size={16} />
+                <span>{t('documents.title', 'Document Repository')}</span>
+              </button>
+              {sourceStage !== 'MONTH_END' && (
                 <button
                   type="button"
                   className={`forward-stage-opt ${targetStage === 'MONTH_END' ? 'is-selected' : ''}`}
@@ -189,6 +220,8 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
                   <Layers size={16} />
                   <span>{t('checklists.monthEndTitle', 'Month-End Close')}</span>
                 </button>
+              )}
+              {sourceStage !== 'PRE_AUDIT' && (
                 <button
                   type="button"
                   className={`forward-stage-opt ${targetStage === 'PRE_AUDIT' ? 'is-selected' : ''}`}
@@ -197,17 +230,25 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
                   <CalendarCheck size={16} />
                   <span>{t('checklists.preAuditTitle', 'Pre-Audit Preparation')}</span>
                 </button>
-                <button
-                  type="button"
-                  className={`forward-stage-opt ${targetStage === 'AUDIT_REQUEST' ? 'is-selected' : ''}`}
-                  onClick={() => setTargetStage('AUDIT_REQUEST')}
-                >
-                  <FileCheck size={16} />
-                  <span>{t('auditRequests.title', 'Audit Request')}</span>
-                </button>
-              </div>
+              )}
+              <button
+                type="button"
+                className={`forward-stage-opt ${targetStage === 'AUDIT_REQUEST' ? 'is-selected' : ''}`}
+                onClick={() => setTargetStage('AUDIT_REQUEST')}
+              >
+                <FileCheck size={16} />
+                <span>{t('auditRequests.title', 'Audit Request')}</span>
+              </button>
             </div>
-          )}
+            {targetStage === 'DOCUMENT_REPOSITORY' && (
+              <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-primary-700)', marginTop: 'var(--spacing-2)' }}>
+                {t(
+                  'pipeline.documentRepoForwardHint',
+                  'Directly forwards this supervisor-approved verification schedule into the central Document Repository for statutory audit verification.'
+                )}
+              </p>
+            )}
+          </div>
 
           {/* Contextual Options depending on Target Stage */}
           {targetStage === 'MONTH_END' && (
@@ -221,9 +262,9 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
                 value={selectedPeriod}
                 onChange={(e) => setSelectedPeriod(e.target.value)}
               >
-                <option value="2026-10">October 2026 (Current Close)</option>
-                <option value="2026-11">November 2026</option>
-                <option value="2026-12">December 2026 (Year-End)</option>
+                <option value="2026-10">{t('checklists.currentCloseMonth', 'October 2026 (Current Close)')}</option>
+                <option value="2026-11">{t('checklists.nextCloseMonth', 'November 2026')}</option>
+                <option value="2026-12">{t('checklists.yearEndCloseMonth', 'December 2026 (Year-End)')}</option>
               </select>
             </div>
           )}
@@ -239,13 +280,13 @@ export const ForwardFlowModal: React.FC<ForwardFlowModalProps> = ({
                 value={targetCategory}
                 onChange={(e) => setTargetCategory(e.target.value)}
               >
-                <option value="Property, Plant & Equipment">Property, Plant & Equipment (Fixed Assets)</option>
-                <option value="Bank Documents">Bank Documents & Confirmations</option>
-                <option value="Tax Documents">Tax Documents (WHT, VAT, CIT)</option>
-                <option value="Payroll">Payroll & Statutory Remittances</option>
-                <option value="Accounts Receivable">Accounts Receivable & Impairment</option>
-                <option value="Inventory">Inventory & Valuation</option>
-                <option value="Management Accounts">Management Accounts & General Ledger</option>
+                <option value="Property, Plant & Equipment">{t('checklists.catFixedAssets', 'Property, Plant & Equipment (Fixed Assets)')}</option>
+                <option value="Bank Documents">{t('checklists.catBankDocs', 'Bank Documents & Confirmations')}</option>
+                <option value="Tax Documents">{t('checklists.catTaxDocs', 'Tax Documents (WHT, VAT, CIT)')}</option>
+                <option value="Payroll">{t('checklists.catPayroll', 'Payroll & Statutory Remittances')}</option>
+                <option value="Accounts Receivable">{t('checklists.catReceivables', 'Accounts Receivable & Impairment')}</option>
+                <option value="Inventory">{t('checklists.catInventory', 'Inventory & Valuation')}</option>
+                <option value="Management Accounts">{t('checklists.catManagementAccounts', 'Management Accounts & General Ledger')}</option>
               </select>
             </div>
           )}

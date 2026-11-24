@@ -40,8 +40,8 @@ export const auditorSignupSchema = z
       .string()
       .min(2, 'Firm name must be at least 2 characters')
       .max(120, 'Firm name cannot exceed 120 characters'),
-    professionalBody: z.enum(['ICAN', 'ACCA', 'ICAEW'], {
-      errorMap: () => ({ message: 'Please select a valid professional accounting body (ICAN, ACCA, or ICAEW)' }),
+    professionalBody: z.enum(['ICAN', 'ANAN', 'ACCA', 'ICAEW'], {
+      errorMap: () => ({ message: 'Please select a valid professional accounting body (ICAN, ANAN, ACCA, or ICAEW)' }),
     }),
     membershipNumber: z
       .string()

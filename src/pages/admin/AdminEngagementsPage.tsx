@@ -265,7 +265,7 @@ export const AdminEngagementsPage: React.FC = () => {
                               {eng.leadAuditorName}
                             </span>
                             <span style={{ fontSize: '11px', color: 'var(--muted)' }}>
-                              {eng.auditorFirmName || 'Chartered Firm'}
+                              {eng.auditorFirmName || 'Audit Firm'}
                             </span>
                           </div>
                         </td>
@@ -373,7 +373,7 @@ export const AdminEngagementsPage: React.FC = () => {
 
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.engagements.detailFirm', 'Audit Practice Firm')}</span>
-                  <span className="admin-detail-value">{inspectEngagement.auditorFirmName || 'Chartered Firm'}</span>
+                  <span className="admin-detail-value">{inspectEngagement.auditorFirmName || 'Audit Firm'}</span>
                 </div>
 
                 <div className="admin-detail-row">

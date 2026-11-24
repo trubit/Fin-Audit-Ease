@@ -28,7 +28,7 @@ export const ReviewSection: React.FC = () => {
             <span className="console-title">{t('landing.review.panelTitle')}</span>
             <div className="console-status-pill">
               <span className="pulse-indicator" aria-hidden="true" />
-              <span>Active Review Boundary</span>
+              <span>{t('landing.activeReviewBoundary', 'Active Review Boundary')}</span>
             </div>
           </div>
 
@@ -44,7 +44,7 @@ export const ReviewSection: React.FC = () => {
               <p className="decision-box-desc">{t('landing.review.actionApproveDesc')}</p>
               <div className="decision-box-tag tag-approved">
                 <CheckCircle2 size={13} aria-hidden="true" />
-                <span>Marked Complete &amp; Locked</span>
+                <span>{t('landing.markedCompleteLocked', 'Marked Complete & Locked')}</span>
               </div>
             </div>
 
@@ -59,7 +59,7 @@ export const ReviewSection: React.FC = () => {
               <p className="decision-box-desc">{t('landing.review.actionRejectDesc')}</p>
               <div className="decision-box-tag tag-rejected">
                 <ShieldAlert size={13} aria-hidden="true" />
-                <span>Returned for Response</span>
+                <span>{t('landing.returnedForResponse', 'Returned for Response')}</span>
               </div>
             </div>
           </div>

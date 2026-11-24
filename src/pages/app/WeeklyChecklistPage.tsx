@@ -15,14 +15,13 @@ import { useTranslation } from 'react-i18next'
 import { PageContainer } from '@/components/layout/PageContainer/PageContainer'
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs/Breadcrumbs'
 import { LoadingSkeleton } from '@/components/feedback/LoadingSkeleton/LoadingSkeleton'
+import { EmptyState } from '@/components/feedback/EmptyState/EmptyState'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import {
   useWeeklyChecklist,
   useSubmitChecklistForReview,
   useSignOffChecklist,
   ForwardFlowModal,
-  buildWeeklyItemsForWeek,
-  type Checklist,
   type ForwardTargetStage,
 } from '@/features/checklists'
 import { ChecklistTable } from '@/features/checklists/components/ChecklistTable/ChecklistTable'
@@ -36,53 +35,56 @@ interface WeekOption {
   readonly isCurrent: boolean
 }
 
-const AVAILABLE_WEEKS: WeekOption[] = [
-  {
-    weekNumber: 43,
-    label: 'Week 43 (19 Oct – 25 Oct 2026)',
-    startDate: '2026-10-19',
-    endDate: '2026-10-25',
-    isCurrent: true,
-  },
-  {
-    weekNumber: 42,
-    label: 'Week 42 (12 Oct – 18 Oct 2026)',
-    startDate: '2026-10-12',
-    endDate: '2026-10-18',
-    isCurrent: false,
-  },
-  {
-    weekNumber: 41,
-    label: 'Week 41 (05 Oct – 11 Oct 2026)',
-    startDate: '2026-10-05',
-    endDate: '2026-10-11',
-    isCurrent: false,
-  },
-  {
-    weekNumber: 40,
-    label: 'Week 40 (28 Sep – 04 Oct 2026)',
-    startDate: '2026-10-04',
-    endDate: '2026-10-04',
-    isCurrent: false,
-  },
-]
+const generateAvailableWeeks = (): WeekOption[] => {
+  const weeks: WeekOption[] = []
+  const now = new Date()
+
+  for (let i = 0; i < 4; i++) {
+    const target = new Date(now.getTime() - i * 7 * 24 * 60 * 60 * 1000)
+
+    // Calculate week number
+    const startOfYear = new Date(target.getFullYear(), 0, 1)
+    const pastDaysOfYear = (target.getTime() - startOfYear.getTime()) / 86400000
+    const weekNum = Math.ceil((pastDaysOfYear + startOfYear.getDay() + 1) / 7)
+
+    // Calculate Monday and Sunday of this week
+    const day = target.getDay()
+    const diffToMonday = target.getDate() - day + (day === 0 ? -6 : 1)
+    const monday = new Date(target.getFullYear(), target.getMonth(), diffToMonday)
+    const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6)
+
+    const monStr = monday.toLocaleDateString(undefined, { day: '2-digit', month: 'short' })
+    const sunStr = sunday.toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' })
+    const label =
+      i === 0
+        ? `Week ${weekNum} (${monStr} – ${sunStr})`
+        : `Week ${weekNum} (${monStr} – ${sunStr})`
+
+    weeks.push({
+      weekNumber: weekNum,
+      label,
+      startDate: monday.toISOString().split('T')[0],
+      endDate: sunday.toISOString().split('T')[0],
+      isCurrent: i === 0,
+    })
+  }
+  return weeks
+}
 
 export const WeeklyChecklistPage: React.FC = () => {
   const { t } = useTranslation()
   const { user } = useAuth()
 
-  const [selectedWeekNumber, setSelectedWeekNumber] = useState<number>(43)
+  const availableWeeks = useMemo(() => generateAvailableWeeks(), [])
+  const [selectedWeekNumber, setSelectedWeekNumber] = useState<number>(() => availableWeeks[0]?.weekNumber || 1)
   const [forwardModalOpen, setForwardModalOpen] = useState<boolean>(false)
 
   const isAuditor =
     user?.role === 'AUDITOR' || user?.role === 'AUDIT_MANAGER' || user?.role === 'ADMIN'
   const isManager =
-    user?.role === 'ADMIN' || user?.role === 'AUDIT_MANAGER'
-
-  const currentWeekOption = useMemo(
-    () => AVAILABLE_WEEKS.find((w) => w.weekNumber === selectedWeekNumber) || AVAILABLE_WEEKS[0],
-    [selectedWeekNumber]
-  )
+    user?.role === 'ADMIN' ||
+    user?.role === 'ACCOUNTING_MANAGER' ||
+    user?.role === 'AUDIT_MANAGER'
 
   const {
     data: response,
@@ -97,48 +99,30 @@ export const WeeklyChecklistPage: React.FC = () => {
 
   const checklistData = response?.data
 
-  // Use real backend data if returned, otherwise fallback to canonical 9-item structure for display
-  const checklist: Checklist = useMemo(() => {
-    if (checklistData) return checklistData
-
-    const items = buildWeeklyItemsForWeek(
-      `weekly-${currentWeekOption.weekNumber}`,
-      currentWeekOption.weekNumber,
-      currentWeekOption.endDate
-    )
-
-    return {
-      id: `weekly-${currentWeekOption.weekNumber}`,
-      type: 'WEEKLY_CHECKPOINT',
-      title: t('checklists.weeklyChecklistTitle', 'Weekly Checklist'),
-      periodLabel: currentWeekOption.label,
-      reportingWeek: currentWeekOption.weekNumber,
-      startDate: currentWeekOption.startDate,
-      endDate: currentWeekOption.endDate,
-      items,
-      totalItemsCount: items.length,
-      completedItemsCount: 0,
-      reviewedItemsCount: 0,
-    }
-  }, [checklistData, currentWeekOption, t])
+  // Use real backend data only (strictly no fake synthesized items)
+  const checklist = checklistData
 
   const completedCount = useMemo(() => {
+    if (!checklist?.items) return 0
     return checklist.items.filter(
       (i) => i.status === 'COMPLETED' || i.status === 'DONE' || i.status === 'REVIEWED'
     ).length
-  }, [checklist.items])
+  }, [checklist?.items])
 
   const missingEvidenceCount = useMemo(() => {
+    if (!checklist?.items) return 0
     return checklist.items.filter(
       (i) => i.requiresEvidence && (i.attachedDocumentCount || 0) === 0
     ).length
-  }, [checklist.items])
+  }, [checklist?.items])
 
   const awaitingReviewCount = useMemo(() => {
+    if (!checklist?.items) return 0
     return checklist.items.filter((i) => i.status === 'IN_PROGRESS').length
-  }, [checklist.items])
+  }, [checklist?.items])
 
   const handleSubmitForReview = () => {
+    if (!checklist) return
     submitReview(checklist.id, {
       onSuccess: () => {
         void refetch()
@@ -147,6 +131,7 @@ export const WeeklyChecklistPage: React.FC = () => {
   }
 
   const handleSignOff = () => {
+    if (!checklist) return
     signOff(
       {
         checklistId: checklist.id,
@@ -169,7 +154,7 @@ export const WeeklyChecklistPage: React.FC = () => {
       title={t('checklists.weeklyTitle', 'Weekly Checklist')}
       subtitle={t(
         'checklists.weeklySubtitle',
-        'Finance Module — Record weekly financial activities, reconcile bank & petty cash, match supplier invoices, and prepare postings for month-end close.'
+        'Finance Module: Record weekly financial activities, reconcile bank & petty cash, match supplier invoices, and prepare postings for month-end close.'
       )}
       maxWidth="xl"
       actions={
@@ -185,7 +170,7 @@ export const WeeklyChecklistPage: React.FC = () => {
             <span>{t('common.refresh', 'Refresh')}</span>
           </button>
 
-          {!isAuditor && !checklist.isLocked && (
+          {!isAuditor && checklist && !checklist.isLocked && (
             <button
               type="button"
               className="btn btn-outline btn-md"
@@ -197,7 +182,7 @@ export const WeeklyChecklistPage: React.FC = () => {
             </button>
           )}
 
-          {!isAuditor && !checklist.isLocked && !checklist.isSubmittedForReview && (
+          {!isAuditor && checklist && !checklist.isLocked && !checklist.isSubmittedForReview && (
             <button
               type="button"
               className="btn btn-primary btn-md"
@@ -210,7 +195,7 @@ export const WeeklyChecklistPage: React.FC = () => {
             </button>
           )}
 
-          {isManager && !checklist.isLocked && (
+          {isManager && checklist && !checklist.isLocked && (
             <button
               type="button"
               className="btn btn-success btn-md"
@@ -267,7 +252,7 @@ export const WeeklyChecklistPage: React.FC = () => {
                 onChange={(e) => setSelectedWeekNumber(Number(e.target.value))}
                 style={{ fontWeight: 600, fontSize: 'var(--font-size-sm)' }}
               >
-                {AVAILABLE_WEEKS.map((w) => (
+                {availableWeeks.map((w) => (
                   <option key={w.weekNumber} value={w.weekNumber}>
                     {w.label} {w.isCurrent ? `(${t('checklists.currentWeek', 'Current')})` : ''}
                   </option>
@@ -285,55 +270,57 @@ export const WeeklyChecklistPage: React.FC = () => {
         </div>
 
         {/* Operational Metrics Cards (Section 5) */}
-        <div className="weekly-metrics-grid">
-          <div className="weekly-metric-card">
-            <div className="weekly-metric-icon icon-emerald">
-              <CheckCircle2 size={22} />
+        {checklist && (
+          <div className="weekly-metrics-grid">
+            <div className="weekly-metric-card">
+              <div className="weekly-metric-icon icon-emerald">
+                <CheckCircle2 size={22} />
+              </div>
+              <div className="weekly-metric-content">
+                <p className="weekly-metric-label">{t('checklists.completedItems', 'Completed Items')}</p>
+                <p className="weekly-metric-number">
+                  {completedCount} / {checklist.totalItemsCount}
+                </p>
+              </div>
             </div>
-            <div className="weekly-metric-content">
-              <p className="weekly-metric-label">{t('checklists.completedItems', 'Completed Items')}</p>
-              <p className="weekly-metric-number">
-                {completedCount} / {checklist.totalItemsCount}
-              </p>
-            </div>
-          </div>
 
-          <div className="weekly-metric-card">
-            <div className="weekly-metric-icon icon-amber">
-              <Clock size={22} />
+            <div className="weekly-metric-card">
+              <div className="weekly-metric-icon icon-amber">
+                <Clock size={22} />
+              </div>
+              <div className="weekly-metric-content">
+                <p className="weekly-metric-label">{t('checklists.inProgressItems', 'Awaiting Verification')}</p>
+                <p className="weekly-metric-number">{awaitingReviewCount}</p>
+              </div>
             </div>
-            <div className="weekly-metric-content">
-              <p className="weekly-metric-label">{t('checklists.inProgressItems', 'Awaiting Verification')}</p>
-              <p className="weekly-metric-number">{awaitingReviewCount}</p>
-            </div>
-          </div>
 
-          <div className="weekly-metric-card">
-            <div className="weekly-metric-icon icon-rose">
-              <AlertTriangle size={22} />
+            <div className="weekly-metric-card">
+              <div className="weekly-metric-icon icon-rose">
+                <AlertTriangle size={22} />
+              </div>
+              <div className="weekly-metric-content">
+                <p className="weekly-metric-label">{t('checklists.missingEvidence', 'Missing Evidence')}</p>
+                <p className="weekly-metric-number">{missingEvidenceCount}</p>
+              </div>
             </div>
-            <div className="weekly-metric-content">
-              <p className="weekly-metric-label">{t('checklists.missingEvidence', 'Missing Evidence')}</p>
-              <p className="weekly-metric-number">{missingEvidenceCount}</p>
-            </div>
-          </div>
 
-          <div className="weekly-metric-card">
-            <div className="weekly-metric-icon icon-slate">
-              <ShieldCheck size={22} />
-            </div>
-            <div className="weekly-metric-content">
-              <p className="weekly-metric-label">{t('checklists.signOffStatus', 'Supervisor Status')}</p>
-              <p className="weekly-metric-number" style={{ fontSize: '0.875rem' }}>
-                {checklist.isLocked
-                  ? t('checklists.statusSignedOff', 'Signed Off & Locked')
-                  : checklist.isSubmittedForReview
-                  ? t('checklists.statusUnderReview', 'Under Review')
-                  : t('checklists.statusPendingSubmission', 'Open Postings')}
-              </p>
+            <div className="weekly-metric-card">
+              <div className="weekly-metric-icon icon-slate">
+                <ShieldCheck size={22} />
+              </div>
+              <div className="weekly-metric-content">
+                <p className="weekly-metric-label">{t('checklists.signOffStatus', 'Supervisor Status')}</p>
+                <p className="weekly-metric-number" style={{ fontSize: '0.875rem' }}>
+                  {checklist.isLocked
+                    ? t('checklists.statusSignedOff', 'Signed Off & Locked')
+                    : checklist.isSubmittedForReview
+                    ? t('checklists.statusUnderReview', 'Under Review')
+                    : t('checklists.statusPendingSubmission', 'Open Postings')}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Loading State */}
         {isLoading && (
@@ -343,8 +330,20 @@ export const WeeklyChecklistPage: React.FC = () => {
           </div>
         )}
 
-        {/* 9 Weekly Checklist Items Table */}
-        {!isLoading && (
+        {/* Empty State when no real backend checklist exists for this week */}
+        {!isLoading && !checklist && (
+          <EmptyState
+            icon={<CalendarClock size={36} />}
+            title={t('checklists.emptyWeeklyTitle', 'No Weekly Checklist Available')}
+            description={t(
+              'checklists.emptyWeeklyDesc',
+              'No weekly checkpoint checklist records exist for this period yet. Checklists are provisioned for active audit engagements.'
+            )}
+          />
+        )}
+
+        {/* Weekly Checklist Items Table */}
+        {!isLoading && checklist && (
           <ChecklistTable
             checklist={checklist}
             readOnly={isAuditor || !!checklist.isLocked}
@@ -356,14 +355,16 @@ export const WeeklyChecklistPage: React.FC = () => {
       </div>
 
       {/* Forwarding Modal */}
-      <ForwardFlowModal
-        isOpen={forwardModalOpen}
-        onClose={() => setForwardModalOpen(false)}
-        itemTitle={checklist.title}
-        itemCategory="Weekly Operational Postings"
-        sourceStage="WEEKLY"
-        onForwardSuccess={handleForwardSuccess}
-      />
+      {checklist && (
+        <ForwardFlowModal
+          isOpen={forwardModalOpen}
+          onClose={() => setForwardModalOpen(false)}
+          itemTitle={checklist.title}
+          itemCategory="Weekly Operational Postings"
+          sourceStage="WEEKLY"
+          onForwardSuccess={handleForwardSuccess}
+        />
+      )}
     </PageContainer>
   )
 }

@@ -49,7 +49,7 @@ describe('Temporary Development Authentication Service', () => {
     expect(state.isAuthenticated).toBe(true)
     expect(state.authMode).toBe('development')
     expect(state.user?.role).toBe('FINANCE_USER')
-    expect(state.user?.email).toBe('financial.reporting@zenithenergy.ng')
+    expect(state.user?.email).toBe('accounting@clientcompany.ng')
     expect(clearSpy).toHaveBeenCalled()
   })
 

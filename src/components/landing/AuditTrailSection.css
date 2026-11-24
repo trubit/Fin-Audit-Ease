@@ -43,7 +43,7 @@
 }
 
 .trail-dark-title {
-  font-family: var(--font-serif, 'Instrument Serif', Georgia, serif);
+  font-family: var(--font-serif, "Times New Roman", Times, serif);
   font-size: clamp(2.4rem, 4.5vw, 3.6rem);
   font-weight: 400;
   color: #ffffff;

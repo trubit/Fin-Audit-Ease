@@ -29,7 +29,7 @@ export const HomePage: React.FC = () => {
 
   // SEO & Document Metadata synchronization
   useEffect(() => {
-    document.title = 'FinAuditEase — Powered by Sabi Africa Innovations Limited'
+    document.title = 'FinAuditEase | Powered by Sabi Africa Innovations Limited'
 
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {

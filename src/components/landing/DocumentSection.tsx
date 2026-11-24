@@ -41,7 +41,7 @@ export const DocumentSection: React.FC = () => {
         <div className="landing-doc-layout-grid">
           {/* Left: Sequential Flow (Request -> Upload -> Comment -> Review -> Decision) */}
           <div className="landing-doc-flow-card reveal-on-scroll reveal-delay-1">
-            <h3 className="doc-card-title">Document Workflow Progression</h3>
+            <h3 className="doc-card-title">{t('landing.docProgression', 'Document Workflow Progression')}</h3>
             <div className="doc-flow-steps-col" role="list">
               {workflowSteps.map((step, idx) => {
                 const StepIcon = step.icon
@@ -68,7 +68,7 @@ export const DocumentSection: React.FC = () => {
 
           {/* Right: Supported Formats Vault Grid */}
           <div className="landing-doc-vault-card reveal-on-scroll reveal-delay-2">
-            <h3 className="doc-card-title">Supported Evidentiary Schedules</h3>
+            <h3 className="doc-card-title">{t('landing.supportedSchedules', 'Supported Evidentiary Schedules')}</h3>
             <p className="doc-vault-subtitle">{t('landing.document.vaultNote')}</p>
 
             <div className="doc-vault-grid">
@@ -90,7 +90,7 @@ export const DocumentSection: React.FC = () => {
 
             <div className="doc-vault-footer-note">
               <ShieldCheck size={16} className="vault-shield" aria-hidden="true" />
-              <span>Documents are permanently anchored to their audit request inquiry.</span>
+              <span>{t('landing.docAnchoredNotice', 'Documents are permanently anchored to their audit request inquiry.')}</span>
             </div>
           </div>
         </div>

@@ -38,7 +38,7 @@ export const parseDateSafe = (dateStr?: string): Date | null => {
 }
 
 export const formatDate = (isoString?: string, locale?: string): string => {
-  if (!isoString) return '—'
+  if (!isoString) return '-'
   try {
     const d = parseDateSafe(isoString)
     if (!d) return isoString
@@ -53,7 +53,7 @@ export const formatDate = (isoString?: string, locale?: string): string => {
 }
 
 export const formatDateTime = (isoString?: string, locale?: string): string => {
-  if (!isoString) return '—'
+  if (!isoString) return '-'
   try {
     const d = parseDateSafe(isoString)
     if (!d) return isoString
@@ -281,7 +281,7 @@ export const getMonthEndInfo = (referenceDate?: Date | string | number): MonthEn
  * Examples: "Just now", "15m ago", "2h ago", "Yesterday", "3d ago", or formatted date.
  */
 export const formatRelativeTime = (isoString?: string): string => {
-  if (!isoString) return '—'
+  if (!isoString) return '-'
   try {
     const d = parseDateSafe(isoString)
     if (!d) return isoString

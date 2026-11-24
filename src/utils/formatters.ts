@@ -3,7 +3,7 @@
  */
 
 export const formatDate = (dateString?: string, locale = 'en-GB'): string => {
-  if (!dateString) return '—'
+  if (!dateString) return '-'
   try {
     const d = new Date(dateString)
     return new Intl.DateTimeFormat(locale, {

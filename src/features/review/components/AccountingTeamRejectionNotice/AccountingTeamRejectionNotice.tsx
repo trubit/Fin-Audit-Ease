@@ -26,7 +26,7 @@ export const AccountingTeamRejectionNotice: React.FC<AccountingTeamRejectionNoti
         </div>
         <div style={{ flex: 1 }}>
           <h2 id="accounting-rejection-heading" className="review-rejection-title">
-            {t('review.rejectionNoticeTitle', 'Submission Rejected — Revisions Required')}
+            {t('review.rejectionNoticeTitle', 'Submission Rejected: Revisions Required')}
           </h2>
           <p className="review-rejection-desc">
             {t(

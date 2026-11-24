@@ -88,10 +88,10 @@ Authoritative Backend (Express / PostgreSQL)
 - **Request Body (Auditor)**:
   ```json
   {
-    "fullName": "Olawale Adeleke",
+    "fullName": "Lead Auditor",
     "email": "lead.auditor@firm.ng",
     "password": "Password123!",
-    "firmName": "Apex Assurance Partners",
+    "firmName": "Audit Firm",
     "professionalBody": "ICAN",
     "membershipNumber": "MB/2026/04918",
     "preferredLanguage": "en",
@@ -102,10 +102,10 @@ Authoritative Backend (Express / PostgreSQL)
 - **Request Body (Accounting Team)**:
   ```json
   {
-    "fullName": "Ngozi Chidiebere",
+    "fullName": "Corporate Finance Lead",
     "email": "cfo@company.ng",
     "password": "Password123!",
-    "companyName": "Zenith Food Industries PLC",
+    "companyName": "Corporate Client Enterprise Ltd",
     "jobTitle": "Chief Financial Officer",
     "accountingYearEndDate": "2026-12-31",
     "preferredLanguage": "en",

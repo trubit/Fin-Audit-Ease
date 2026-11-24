@@ -196,7 +196,7 @@ export const AssetVerificationPage: React.FC = () => {
       title={t('assets.registerTitle', 'Asset Verification Register')}
       subtitle={t(
         'assets.registerSubtitle',
-        'Finance Module — Compare accounting-system balances against physical verification results and record discrepancies.'
+        'Finance Module: Compare accounting-system balances against physical verification results and record discrepancies.'
       )}
       maxWidth="xl"
       actions={
@@ -427,7 +427,7 @@ export const AssetVerificationPage: React.FC = () => {
                       <td style={{ fontFamily: 'monospace' }}>
                         {hasPhysical
                           ? `₦${(asset.physicalBalance as number).toLocaleString('en-NG', { minimumFractionDigits: 2 })}`
-                          : '—'}
+                          : '-'}
                       </td>
                       <td style={{ fontFamily: 'monospace' }}>
                         {variance !== null ? (
@@ -441,10 +441,10 @@ export const AssetVerificationPage: React.FC = () => {
                             {variance > 0 ? `+₦${variance.toLocaleString('en-NG', { minimumFractionDigits: 2 })}` : variance < 0 ? `-₦${Math.abs(variance).toLocaleString('en-NG', { minimumFractionDigits: 2 })}` : '₦0.00'}
                           </span>
                         ) : (
-                          '—'
+                          '-'
                         )}
                       </td>
-                      <td>{asset.verificationDate || '—'}</td>
+                      <td>{asset.verificationDate || '-'}</td>
                       <td>{renderStatusBadge(asset.verificationStatus)}</td>
                       {!isAuditor && (
                         <td>
@@ -500,18 +500,18 @@ export const AssetVerificationPage: React.FC = () => {
                       <span className="asset-card-meta-val">
                         {hasPhysical
                           ? `₦${(asset.physicalBalance as number).toLocaleString('en-NG', { minimumFractionDigits: 2 })}`
-                          : '—'}
+                          : '-'}
                       </span>
                     </div>
                     <div className="asset-card-meta-item">
                       <span className="asset-card-meta-label">{t('assets.variance')}</span>
                       <span className="asset-card-meta-val">
-                        {variance !== null ? `₦${variance.toLocaleString('en-NG', { minimumFractionDigits: 2 })}` : '—'}
+                        {variance !== null ? `₦${variance.toLocaleString('en-NG', { minimumFractionDigits: 2 })}` : '-'}
                       </span>
                     </div>
                     <div className="asset-card-meta-item">
                       <span className="asset-card-meta-label">{t('assets.verificationDate')}</span>
-                      <span className="asset-card-meta-val">{asset.verificationDate || '—'}</span>
+                      <span className="asset-card-meta-val">{asset.verificationDate || '-'}</span>
                     </div>
                   </div>
 

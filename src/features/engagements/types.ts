@@ -20,6 +20,9 @@ export interface Engagement {
   readonly leadAuditorId: string
   readonly leadAuditorName: string
   readonly auditorFirmName?: string
+  readonly auditorProfessionalBody?: string
+  readonly auditorEmail?: string
+  readonly auditorMembershipNumber?: string
   readonly status: EngagementStatus
   readonly startDate: string
   readonly targetCompletionDate: string

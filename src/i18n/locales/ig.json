@@ -22,7 +22,7 @@
     "stayLoggedIn": "Nọgide na usoro",
     "logOut": "Pụọ",
     "comingSoon": "Ọ na-abịa n'oge adịghị anya",
-    "platformNotice": "Nhazi Enterprise FinAuditEase — Nkwadebe nyocha ego, akwụkwọ, na nyocha dị mfe.",
+    "platformNotice": "Nhazi Enterprise FinAuditEase: Nkwadebe nyocha ego, akwụkwọ, na nyocha dị mfe.",
     "reset": "Tọgharịa",
     "filter": "Nyochaa",
     "clearFilters": "Kpochapụ Nyocha",
@@ -57,7 +57,12 @@
     "resetFilters": "Tọgharịa Ihe Nzacha",
     "createdLabel": "Emepụtara:",
     "tryAgain": "Nwaa Ọzọ",
-    "preparing": "Na-akwadebe..."
+    "preparing": "Na-akwadebe...",
+    "offlineNotice": "Akwụkwọ ndekọ ego, arịrịọ nyocha ego, na ntinye akwụkwọ chọrọ njikọ ịntanetị na-arụ ọrụ.",
+    "signingOut": "Na-akwụsị...",
+    "viewAll": "Lee Ha Niile",
+    "timeline": "Ụbọchị Ngwụcha SLA",
+    "notApplicable": "Ọ dịghị emetụta"
   },
   "navigation": {
     "home": "Ụlọ",
@@ -98,7 +103,8 @@
     "auditChecklistAndDocuments": "Ndepụta Nyocha na Akwụkwọ Nkwado",
     "weekly": "Ndepụta Nlele Kwa Izu",
     "monthEndClose": "Ndepụta Mmechi Ọgwụgwụ Ọnwa",
-    "communication": "Nkwukọrịta Nnyocha & Nzukọ"
+    "communication": "Nkwukọrịta Nnyocha & Nzukọ",
+    "teamChat": "Mkparịta Ụka Otu & Nzukọ"
   },
   "authentication": {
     "signInTitle": "Banye na FinAuditEase",
@@ -156,7 +162,7 @@
     "signUpAuditorSubtitle": "Debanye aha ụlọ ọrụ nyocha gị iji jikwaa nkwekọrịta ndị ahịa na arịrịọ nyocha.",
     "signUpAccountingTitle": "Mepụta Akaụntụ Otu Ndekọ Ego",
     "signUpAccountingSubtitle": "Hazie ogige ọrụ ụlọ ọrụ gị iji soro ndị na-enyocha ego rụkọọ ọrụ n'afọ niile.",
-    "signUpInvitationTitle": "Otu Ndekọ Ego — Ọkpụkpọ Òkù Onye Nnyocha",
+    "signUpInvitationTitle": "Otu Ndekọ Ego: Ọkpụkpọ Òkù Onye Nnyocha",
     "signUpInvitationSubtitle": "Sonye na nkwekọrịta nnyocha site na nkwado ọkpụkpọ òkù sitere n'aka onye nnyocha gị.",
     "signUpSelectSubtitle": "Họrọ ọrụ nzukọ gị iji gaa n'ihu na usoro ndebanye aha kwesịrị ekwesị.",
     "signUpUnifiedTitle": "Mepụta akaụntụ FinAuditEase gị",
@@ -177,7 +183,7 @@
     "auditorFeature3": "Mee usoro nyocha ma kwado akwụkwọ akaebe",
     "auditorSelectCta": "Họrọ Ọrụ Onye Nnyocha Ego",
     "accountingCardBadge": "Ụlọ Ọrụ Ndị Ahịa",
-    "accountingCardTitle": "Otu Ndekọ Ego — Ndebanye Aha Onwe",
+    "accountingCardTitle": "Otu Ndekọ Ego: Ndebanye Aha Onwe",
     "accountingCardPersona": "Onye Isi Nchịkwa Ego, Onye Isi Ndekọ Ego, ma ọ bụ Onye Nduzi Ego",
     "accountingCardDesc": "Kwadebe ọrụ ndekọ ego gị n'afọ niile. Mee ndozi ngwụcha ọnwa, chịkọta akwụkwọ tupu nnyocha, ma nọrọ na njikere.",
     "accountingFeature1": "Ndozi ndekọ ego ngwụcha ọnwa n'afọ niile",
@@ -185,7 +191,7 @@
     "accountingFeature3": "Ebe nchekwa akwụkwọ akaebe ndekọ ego na-adịgide adịgide",
     "accountingSelectCta": "Họrọ Ndebanye Aha Onwe",
     "invitationCardBadge": "Onye A Kpọrọ Òkù",
-    "invitationCardTitle": "Otu Ndekọ Ego — Ọkpụkpọ Òkù Onye Nnyocha",
+    "invitationCardTitle": "Otu Ndekọ Ego: Ọkpụkpọ Òkù Onye Nnyocha",
     "invitationCardPersona": "Onye otu ụlọ ọrụ ndị ahịa nwere koodu ọkpụkpọ òkù dị irè",
     "invitationCardDesc": "Sonye na nkwekọrịta na-arụ ọrụ nke onye nnyocha gị bidoro. Jikọọ ozugbo na akwụkwọ nnyocha akwadoro.",
     "invitationFeature1": "Njikọ koodu otu pịa na nkwekọrịta ozugbo",
@@ -242,21 +248,22 @@
     "selfRegistration": "Ndebanye Aha Onwe",
     "auditorInvitation": "Ọkpụkpọ Òkù Onye Nnyocha",
     "firmNameLabel": "Aha Ụlọ Ọrụ Nnyocha Ego",
-    "firmNamePlaceholder": "dịka Apex Assurance Partners",
+    "firmNamePlaceholder": "dịka Aha Ụlọ Ọrụ Nyocha Ego",
     "professionalBodyLabel": "Otu Ọkachamara Ndekọ Ego",
     "companyNameLabel": "Aha Ụlọ Ọrụ",
-    "companyNamePlaceholder": "dịka Savannah Logistics Ltd",
+    "companyNamePlaceholder": "dịka Ụlọ Ọrụ Ahịa",
     "createAuditorAccountButton": "Mepụta Akaụntụ Onye Nnyocha Ego",
     "enterDifferentToken": "Tinye koodu ọkpụkpọ òkù ọzọ",
     "scopeCompany": "Ụlọ Ọrụ",
     "scopeAuditor": "Onye Nnyocha Ego",
     "scopeEngagement": "Nkwekọrịta Nnyocha",
     "scopeExpires": "Oge ga-agwụ",
-    "fullNamePlaceholderAuditor": "dịka Olawale Adeleke",
+    "fullNamePlaceholderAuditor": "dịka Aha zuru ezu",
     "emailPlaceholderAuditor": "lead.auditor@firm.com",
-    "fullNamePlaceholderAccounting": "dịka Ngozi Chidiebere",
+    "fullNamePlaceholderAccounting": "dịka Aha zuru ezu",
     "emailPlaceholderAccounting": "accountant@company.com",
-    "fullNamePlaceholderInvitation": "dịka Adebayo Ogunlesi"
+    "fullNamePlaceholderInvitation": "dịka Aha zuru ezu",
+    "adminMustUseAdminPortal": "Achọpụtara akaụntụ nchịkwa. Biko jiri ọnụ ụzọ Platform Nchịkwa FinAuditEase nke gị banye."
   },
   "signOut": {
     "confirmTitle": "Kwenye Ọpụpụ",
@@ -305,7 +312,7 @@
     "attentionSubtitle": "Arịrịọ na nnyefe chọrọ nyocha onye nyocha ngwa ngwa.",
     "progressTitle": "Ọganihu Nkwekọrịta",
     "completedTitle": "Nkwekọrịta Emechara",
-    "completedReadOnly": "Emechara — Ịgụ Naanị",
+    "completedReadOnly": "Emechara: Ịgụ Naanị",
     "overdueBadge": "Oge Agafeela",
     "yearRoundOperations": "Ọrụ Ego Oge Niile",
     "yearRoundSubtitle": "Nọgide na-ahazi akwụkwọ ndekọ ego, mechie ọnwa nke ọma, ma kwadebe maka nnyocha tupu ọ malite.",
@@ -363,7 +370,7 @@
     "engagementTitleLabel": "Isiokwu Nkwekọrịta",
     "engagementTitlePlaceholder": "dịka Statutory Financial Audit 2026",
     "clientOrgLabel": "Aha Ụlọ Ọrụ Ndị Ahịa",
-    "clientOrgPlaceholder": "dịka Dangote Cement Plc",
+    "clientOrgPlaceholder": "dịka Ụlọ Ọrụ Ahịa",
     "fiscalYearLabel": "Afọ Ego",
     "startDateLabel": "Ụbọchị Mmalite Nnyocha",
     "targetDateLabel": "Ụbọchị Mmecha Ebumnuche",
@@ -387,14 +394,20 @@
     "auditTrailTitle": "Akụkọ Ihe Mere Eme Nnyocha",
     "auditTrailDesc": "Nweta akụkọ na-adịgide adịgide banyere ihe omume, ntinye akwụkwọ, na mkpebi nnyocha maka nkwekọrịta a.",
     "viewAuditTrail": "Lee Akụkọ Ihe Mere Eme",
-    "readOnlyBanner": "Emechara — Ịgụ Naanị: Emecharala nkwekọrịta a. A na-echekwa ihe akaebe na mkpebi niile kpamkpam.",
+    "readOnlyBanner": "Emechara: Ịgụ Naanị: Emecharala nkwekọrịta a. A na-echekwa ihe akaebe na mkpebi niile kpamkpam.",
     "inviteEmailPlaceholder": "onyeotu@uloorundiahia.com",
     "statusActive": "Na-arụ Ọrụ",
     "statusCompleted": "Emechara",
     "statusArchived": "Echekwara",
     "memberName": "Aha Onye Otu",
     "corporateEmail": "Ozi Ịntanetị Ụlọ Ọrụ",
-    "role": "Ọrụ"
+    "role": "Ọrụ",
+    "client": "Onye Ahịa",
+    "leadAuditor": "Onye Nyocha Ego Ndị Isi",
+    "assignFieldLead": "Kenyere Onye Ndú Nyocha Ego nke Ubi",
+    "assignFieldLeadDesc": "Kenyere ma ọ bụ kenyegharịa onye nyocha ego nwere ikike ilekọta ma rụọ ọrụ ubi maka ọrụ a.",
+    "confirmAssignment": "Kwado Nkenye",
+    "saving": "Na-echekwa..."
   },
   "auditRequests": {
     "title": "Arịrịọ Nnyocha Ego",
@@ -463,7 +476,7 @@
     "responseCommentLabel": "Ihe Rịba Ama / Nkọwa Nzaghachi (Nhọrọ)",
     "responseCommentPlaceholder": "Nye nkọwa ndị ọzọ, ntụaka usoro ego, ma ọ bụ nkọwa nkwekọrịta maka onye nyocha...",
     "responseSubmittedSuccess": "E zigara nzaghachi n'ụzọ gara nke ọma maka nnyocha onye nyocha ego.",
-    "responseSubmittedBannerTitle": "E Nyefere Akaebe — Na Nnyocha Onye Nyocha Ego",
+    "responseSubmittedBannerTitle": "E Nyefere Akaebe: Na Nnyocha Onye Nyocha Ego",
     "responseSubmittedBannerDesc": "A natala akwụkwọ akaebe na nzaghachi gị. Onye nyocha ga-enyocha ya ma kwado ya.",
     "acceptedBannerTitle": "A Nabatawo & Kwenye Arịrịọ",
     "acceptedBannerDesc": "Ndị otu nyocha ego enyochala ma kwado akwụkwọ akaebe maka arịrịọ a.",
@@ -485,7 +498,12 @@
     "viewDetails": "Lee Arịrịọ",
     "completedEngagementNotice": "Arịrịọ a bụ akụkụ nke ọrụ nyocha emechara ma dị ugbu a maka naanị ọgụgụ.",
     "goToReview": "Gaa n'Ebe Nyocha",
-    "returnToList": "Laghachi na Arịrịọ Nnyocha"
+    "returnToList": "Laghachi na Arịrịọ Nnyocha",
+    "reviewNotes": "Ihe Ndetu Nyocha Onye Nyocha Ego:",
+    "formallyAccepted": "A nabatara arịrịọ a n'ụzọ iwu ma kwado ya.",
+    "evaluateSubmittedEvidence": "Nyochaa ihe akaebe akwụkwọ ndị e tinyere wee kaa akara ka akwadoro ma ọ bụ rịọ mgbazi.",
+    "confirmAssignment": "Kwado Nkenye",
+    "saving": "Na-echekwa..."
   },
   "profile": {
     "title": "Nkọwa Onye Ọrụ",
@@ -518,7 +536,7 @@
     "uploadPlaceholder": "Ntinye Akwụkwọ Nchekwa (Oke karịrị 25MB - PDF, Excel, Word, JPEG, PNG)",
     "chooseFile": "Họrọ faịlụ",
     "orDragDrop": "ma ọ bụ dọrọ dọba ebe a",
-    "fileRequirementsHint": "Ụdị faịlụ kwadoro: PDF, Excel, Word, JPEG, PNG — Oke kachasị bụ 25MB na faịlụ ọ bụla.",
+    "fileRequirementsHint": "Ụdị faịlụ kwadoro: PDF, Excel, Word, JPEG, PNG, Oke kachasị bụ 25MB na faịlụ ọ bụla.",
     "classificationLabel": "Ụdị Akwụkwọ",
     "commentLabel": "Ihe edeturu nke Onye Nnyocha / Ndị Ahịa",
     "commentPlaceholder": "dịka Akwụkwọ nkwupụta ego ụlọ akụ Q3 nwere akara aka",
@@ -575,7 +593,16 @@
     "dateLabel": "Ụbọchị:",
     "rejectionReasonLabel": "Ihe Mere Onye Nnyocha Ji Jụ:",
     "sha256Checksum": "Nlele Nchekwa SHA-256",
-    "permanentNotice": "Akwụkwọ ndị e bulitere na-anọgide dị ka akụkụ nke akụkọ nyocha na-adịgide adịgide."
+    "permanentNotice": "Akwụkwọ ndị e bulitere na-anọgide dị ka akụkụ nke akụkọ nyocha na-adịgide adịgide.",
+    "uploadExternalHeading": "Bulite Akwukwo Mpụga",
+    "uploadExternalOptional": "Bulite Akwukwo Mpụga (Nhọrọ)",
+    "optionalNotice": "Nhọrọ: Dị mkpa naanị maka akwụkwọ ma ọ bụ usoro enwetara na mpụga ngwa a. Usoro ma ọ bụ akwụkwọ ọ bụla akwadoro n'ime FinAuditEase na-ejegharị na nchekwa n'onwe ya.",
+    "hideUpload": "Zoro Mpaghara Nbulite",
+    "statusSource": "Mmalite & Nkwenye",
+    "sourceAuditorApproved": "Onye Nyocha Kwadoro",
+    "sourceSupervisorApproved": "Onye Nlekọta Kwadoro",
+    "sourceExternal": "Usoro Mpụga",
+    "forwardToRepo": "Zipu na Nchekwa Akwụkwọ"
   },
   "checklists": {
     "title": "Ndepụta Nlele Nnyocha",
@@ -643,7 +670,7 @@
     "categoryProgressLabel": "{{category}}: {{completed}} n'ime {{total}} emechara",
     "updateStatusFor": "Melite ọnọdụ maka {{title}}",
     "weeklyTitle": "Ndepụta Nlele Kwa Izu",
-    "weeklySubtitle": "Ngalaba Ego — Dekọọ ọrụ ego kwa izu, dozie ego ụlọ akụ na obere ego, jikọọ akwụkwọ ọnụahịa ndị na-eweta ngwa ahịa, ma kwadebe maka mmechi ọnwa.",
+    "weeklySubtitle": "Ngalaba Ego: Dekọọ ọrụ ego kwa izu, dozie ego ụlọ akụ na obere ego, jikọọ akwụkwọ ọnụahịa ndị na-eweta ngwa ahịa, ma kwadebe maka mmechi ọnwa.",
     "weeklyChecklistTitle": "Ndepụta Nlele Kwa Izu",
     "accountingTeamOnly": "Akwụkwọ Ọrụ Otu Ndekọ Ego",
     "submitWeeklyForReview": "Nyefee maka Nnyocha",
@@ -718,7 +745,29 @@
     "stepReadiness": "Nkwadebe Nnyocha",
     "stepReadinessDesc": "Nnyocha ikpeazụ na nkwado",
     "auditorReadOnlyBadge": "Nlele Naanị Maka Onye Nnyocha",
-    "varianceLabel": "Ọdịiche:"
+    "varianceLabel": "Ọdịiche:",
+    "variance": "Ọdịiche",
+    "lockSignedOffNotice": "Ebinyela aka n'oge mkpesa a ma kpọchie ya kpamkpam. A gbanyụrụ njikwa ndezi iji chebe iguzosi ike n'ezi ihe nke mmechi akwụkwọ ego.",
+    "preparerSubmittedNotice": "Enyefela ọrụ onye nkwadebe. Na-eche nleba anya onye njikwa na mbinye aka oge.",
+    "noteLengthWarning": "Ihe nkọwa karịrị oke mkpụrụedemede 500.",
+    "currentCloseMonth": "Ọktoba 2026 (Mmechi Ugbu a)",
+    "nextCloseMonth": "Novemba 2026",
+    "yearEndCloseMonth": "Disemba 2026 (Ngwụcha Afọ)",
+    "catFixedAssets": "Ngwongwo, Ụlọ Ọrụ & Akụrụngwa (Ngwongwo Na-adịgide Adịgide)",
+    "catBankDocs": "Akwụkwọ Ụlọ Akụ & Nkwenye",
+    "catTaxDocs": "Akwụkwọ Ụtụ Isi (WHT, VAT, CIT)",
+    "catPayroll": "Ụgwọ Ọnwa & Ịkwụ Ụgwọ Iwu",
+    "catReceivables": "Ego A Na-akwụ na Mmebi",
+    "catInventory": "Ngwongwo Ụlọ Ahịa & Ntụle Ọnụahịa",
+    "catManagementAccounts": "Ndekọ Ego Nlekọta & Akwụkwọ Ego Izugbe",
+    "forwardToRepo": "Zipu",
+    "forwardToRepoTooltip": "Zipu akwụkwọ onye nlekọta kwadoro na Nchekwa Akwụkwọ",
+    "supervisorRole": "Onye Nlekọta Akaụntụ",
+    "approvedScheduleNote": "Usoro enyochara ma kwado.",
+    "verifiedSchedule": "Usoro Ekwadoro",
+    "forwardedToRepoNote": "Usoro nke onye nlekọta kwadoro ka e zigara n'ebe nchekwa akwụkwọ etiti.",
+    "emptyWeeklyTitle": "Enweghị Nlele Kwa Izu",
+    "emptyWeeklyDesc": "Enwebeghị nlele ego kwa izu edebanyere aha."
   },
   "review": {
     "title": "Ogige Nyocha nke Onye Nyocha",
@@ -759,7 +808,7 @@
     "statusRejected": "A Jụrụ",
     "privateAuditorNotes": "Ihe Ndetu Nzuzo Onye Nyocha",
     "privateAuditorNotesSubtitle": "Ihe nlele na akwụkwọ ọrụ nke onye nyocha. Ezoro ezo maka Ndị Otu Ndekọ Ego.",
-    "auditorConfidentialBadge": "Ihe Nzuzo Onye Nyocha — Ezoro ezo maka Ndị Otu Ndekọ Ego",
+    "auditorConfidentialBadge": "Ihe Nzuzo Onye Nyocha: Ezoro ezo maka Ndị Otu Ndekọ Ego",
     "addPrivateNote": "Tinye Ihe Ndetu Nzuzo Onye Nyocha",
     "privateNotePlaceholder": "Dee ihe nlele nyocha, mgbakọ, ma ọ bụ ndetu ọrụ...",
     "saveNote": "Chekwaa Ihe Ndetu",
@@ -782,10 +831,10 @@
     "nextFile": "Faịlụ na-esote",
     "submittedFiles": "Faịlụ Ndị E Zitere",
     "rejectionReasonLabel": "Ihe Mere Onye Nyocha Jiri Jụ",
-    "rejectionNoticeTitle": "A Jụrụ Ihe E Zitere — Achọrọ Mgbanwe",
+    "rejectionNoticeTitle": "A Jụrụ Ihe E Zitere: Achọrọ Mgbanwe",
     "rejectionNoticeDesc": "Onye nyocha arịọla mgbanwe. Biko nyochaa ihe kpatara ọjụjụ n'okpuru ma bulite akwụkwọ e degharịrị.",
     "resubmitDocumentAction": "Bulite Akwụkwọ E Doziri Edozi",
-    "engagementLockedNotice": "Nkwekọrịta E Mechiela — Akpọchiri nkwekọrịta a naanị maka ịgụ. Enweghị ike ime mkpebi nyocha.",
+    "engagementLockedNotice": "Nkwekọrịta E Mechiela: Akpọchiri nkwekọrịta a naanị maka ịgụ. Enweghị ike ime mkpebi nyocha.",
     "conflictError": "Ọnọdụ nyocha agbanweela. A na-ebubata ọnọdụ kachasị ọhụrụ...",
     "searchPlaceholder": "Chọọ site na aha, ntụaka, ma ọ bụ onye ahịa...",
     "filterStatus": "Nyochaa site na Ọnọdụ",
@@ -793,8 +842,8 @@
     "pageSubtitle": "Nyochaa usoro ndepụta na akwụkwọ nkwado, dekọọ mkpebi nyocha, ma nye nkwado.",
     "approvedOption": "A Kwadoro",
     "notApprovedOption": "A Kwadoghị",
-    "approvedTitle": "Ndepụta Nyocha na Akwụkwọ Nkwado — A Kwadoro",
-    "notApprovedTitle": "Ndepụta Nyocha na Akwụkwọ Nkwado — A Kwadoghị",
+    "approvedTitle": "Ndepụta Nyocha na Akwụkwọ Nkwado: A Kwadoro",
+    "notApprovedTitle": "Ndepụta Nyocha na Akwụkwọ Nkwado: A Kwadoghị",
     "approvedNotesLabel": "Ndetu Nkwado (Ọ Dịghị Mkpa)",
     "reasonForNotApproved": "Ihe Mere Na-akwadoghị",
     "notApprovedReasonRequired": "A ghaghị inye ihe kpatara na akwadoghị ihe a.",
@@ -926,7 +975,22 @@
     "unauthorizedOrMissing": "Ntinye ahụ nwere ike ọ gaghị adị ma ọ bụ na i nweghị ikike maka ọrụ a.",
     "somethingWentWrong": "Ihe mebiri",
     "reloadApplication": "Mepee Ngwa Ahụ Ọzọ",
-    "returnToHome": "Laghachi n'Ụlọ"
+    "returnToHome": "Laghachi n'Ụlọ",
+    "api": {
+      "networkError": "Enweghị ike ijikọ na sava. Biko nyochaa njikọ ịntanetị gị.",
+      "timeoutError": "Arịrịọ ahụ were ogologo oge iji mechaa. Biko lelee njikọ gị ma nwaa ọzọ.",
+      "requestCancelled": "A kagburu arịrịọ ahụ.",
+      "badRequest": "Arịrịọ ahụ adịghị mma. Biko lelee ihe ndị ị tinyere.",
+      "unauthorized": "Oge nnọkọ gị adịghị mma ma ọ bụ agwụla. Biko banye ọzọ.",
+      "forbidden": "Ị nweghị ikike ime omume a ma ọ bụ lelee akụrụngwa a.",
+      "notFound": "Ahụghị akụrụngwa a rịọrọ.",
+      "conflict": "Ndekọ na-emegide adịlarị na sistemụ.",
+      "validationError": "Data e tinyere agafeghị nkwenye. Biko lelee mpaghara ndị akara akara.",
+      "rateLimited": "E ziri ọtụtụ arịrịọ. Biko chere obere oge tupu ị nwaa ọzọ.",
+      "serverError": "Mmehie sava ime mere. A mara ọkwa ndị otu injinia anyị.",
+      "serviceUnavailable": "Ọrụ a na-enweta mmezi a haziri ahazi ugbu a. Biko lelee ọzọ n'oge na-adịghị anya.",
+      "unknownError": "Mmehie a na-atụghị anya ya mere. Biko nwaa ọzọ ma emechaa."
+    }
   },
   "landing": {
     "hero": {
@@ -967,7 +1031,7 @@
       "eyebrow": "Usoro Ọrụ Nnyocha",
       "heading": "Mgbe ahụ nnyocha na-amalite.",
       "lead": "Ugbu a, kama ịmalite ọzọ site na mbido, onye ọ bụla maara ebe ọrụ ahụ dị.",
-      "subtitle": "Usoro nnyocha na-aga n'ihu n'ụzọ doro anya — na-ejikọta ntinye aka, arịrịọ, ọrụ e kenyere, akwụkwọ, nyocha, mkpebi, na mmecha n'otu agbụ na-adịghị agbaji.",
+      "subtitle": "Usoro nnyocha na-aga n'ihu n'ụzọ doro anya, na-ejikọta ntinye aka, arịrịọ, ọrụ e kenyere, akwụkwọ, nyocha, mkpebi, na mmecha n'otu agbụ na-adịghị agbaji.",
       "step1Title": "Ntinye Aka (Engagement)",
       "step1Desc": "Onye na-enyocha na-emepe nnyocha, na-akọwa oke ọrụ na oge ọ ga-ewe.",
       "step2Title": "Arịrịọ (Request)",
@@ -981,7 +1045,20 @@
       "step6Title": "Mkpebi (Decision)",
       "step6Desc": "Onye nyocha na-akwado akaebe ma ọ bụ jụ ya site n'inye ezi ihe kpatara ya n'akwụkwọ.",
       "step7Title": "Mmecha (Complete)",
-      "step7Desc": "Nnyocha ahụ eruo mmecha ma debe akụkọ nnyocha na-enweghị mgbanwe ruo mgbe ebighị ebi."
+      "step7Desc": "Nnyocha ahụ eruo mmecha ma debe akụkọ nnyocha na-enweghị mgbanwe ruo mgbe ebighị ebi.",
+      "actorAuditor": "Onye Nyocha",
+      "actorAccounting": "Onye Otu Ndekọ Ego",
+      "actorBoth": "Onye Nyocha & Otu Ndekọ Ego",
+      "actorAll": "Ndị Niile Metụtara",
+      "step1Output": "Usoro na Oke Ọrụ Ntinye Aka E Guzobere",
+      "step2Output": "Arịrịọ Ahaziri Ahazi nwere Ihe Mbụ & Oge Ngwụcha",
+      "step3Output": "Ọrụ Onye Otu Ndekọ Ego Akpọrọ Aha",
+      "step4Output": "Faịlụ Ihe Akaebe E Bulitere Maka Arịrịọ Akpọrọ Aha",
+      "step5Output": "Ihe Akaebe Enyochara n'Ebe Nyocha Pụrụ Iche",
+      "step6Output": "Ihe Akaebe Kwadoro ma ọ bụ Ịjụ nwere Ihe Kpatara Ya Pụtara Ìhè",
+      "step7Output": "Ntinye Aka Emechara & Akụkọ Nyocha Na-adịgide Adịgide",
+      "stageMilestone": "Ihe Dị Mkpa na Nsonaazụ:",
+      "workflowComplete": "Usoro Ọrụ Emechara & Chekwara"
     },
     "capabilities": {
       "eyebrow": "Njirimara Ikpo Okwu",
@@ -1011,7 +1088,17 @@
       "rememberSubtitle": "Usoro Nnyocha & Ịdọ Aka Ná Ntị",
       "rememberItem1": "Ọkwa dị mkpa na ịdọ aka ná ntị oge ngwụcha",
       "rememberItem2": "Ndekọ ihe ndị mere n'oge nnyocha na-agbanweghị agbanwe",
-      "rememberItem3": "Nchekwa nnyocha afọ dị iche iche na-adịgide adịgide"
+      "rememberItem3": "Nchekwa nnyocha afọ dị iche iche na-adịgide adịgide",
+      "prepareTag": "Njikere Na-aga n'Ihu",
+      "prepareSummary": "Wepụ ọsọ ngwụcha afọ site n'idebe mmechi ọnwa ahaziri ahazi na ndepụta nyocha tupu oge eruo ọnwa 6 n'ihu.",
+      "organizeTag": "Ihe Doro Anya na Ntinye Aka",
+      "organizeSummary": "Dozie ntinye aka nyocha n'otu ebe, kenye arịrịọ ozugbo nye ndị otu ndekọ ego a kapịrị ọnụ, ma soro oge ngwụcha siri ike.",
+      "respondTag": "Nfegharị Akwụkwọ Ozugbo",
+      "respondSummary": "Bulite ihe akaebe (ruo 25MB) jikọtara ya na arịrịọ nyocha ọ bụla nwere nkọwa doro anya na usoro nnyefe dị ọcha.",
+      "reviewTag": "Mkpebi Pụtara Ìhè",
+      "reviewSummary": "Ndị nyocha na-enyocha faịlụ ndị ezigara, dekọọ mkpebi nkwado, ma nye ihe kpatara ya ede ederede mgbe achọrọ ndegharị.",
+      "rememberTag": "Usoro Nyocha & Mkpu",
+      "rememberSummary": "Debe akụkọ ihe mere eme nyocha zuru ezu ka ọ dịrị mgbe niile. Nkwado, ịjụ, oge, na ọkwa anaghị agbanwe agbanwe."
     },
     "storyProblem": {
       "eyebrow": "Nsogbu Dị N'ime Ya",
@@ -1063,7 +1150,7 @@
     },
     "engagement": {
       "eyebrow": "Nkwekọrịta Nnyocha",
-      "heading": "Mgbe ahụ ka nnyocha na-amalite — ihe niile dị n'ọnọdụ ya.",
+      "heading": "Mgbe ahụ ka nnyocha na-amalite, ihe niile dị n'ọnọdụ ya.",
       "subtitle": "Onye nyocha nwere ike ịmepụta ogige nkwekọrịta ma hazie ndị otu ndekọ ego, arịrịọ, oge ngwụcha, ọrụ, akwụkwọ, na ọganihu.",
       "step1": "Mepụta Nkwekọrịta",
       "step2": "Kpọọ Ndị Otu Ndekọ Ego",
@@ -1092,7 +1179,7 @@
     },
     "document": {
       "eyebrow": "Usoro Akwụkwọ Akaebe",
-      "heading": "Akwụkwọ na-eso arịrịọ na-aga — ọ bụghị n'ime ọgbaaghara email.",
+      "heading": "Akwụkwọ na-eso arịrịọ na-aga, ọ bụghị n'ime ọgbaaghara email.",
       "subtitle": "Ndị otu ndekọ ego nwere ike itinye akwụkwọ a rịọrọ ozugbo n'akụkụ arịrịọ ọ bụla.",
       "step1": "Arịrịọ Nnyocha",
       "step2": "Tinye Akwụkwọ",
@@ -1132,7 +1219,25 @@
       "event4": "Onye Nyocha nyochara akwụkwọ",
       "event5": "Edekọrọ mkpebi na nkọwa ya",
       "event6": "Emechara nkwekọrịta nnyocha",
-      "event7": "Ndekọ akụkọ na-adị maka nlele n'oge ọ bụla"
+      "event7": "Ndekọ akụkọ na-adị maka nlele n'oge ọ bụla",
+      "readonlyTitle": "Usoro Nyocha Ntinye Aka (Ọgụgụ Naanị)",
+      "multiYearPreserved": "Echekwara Ndekọ Ọtụtụ Afọ",
+      "retainedForever": "Echekwara Ruo Mgbe Ebighị Ebi",
+      "loggedAndSealed": "Edere & Mechie",
+      "event1Tag": "Emepụtara Ntinye Aka",
+      "event1Meta": "Akọwapụtara Oke Nyocha Afọ Ego 2026",
+      "event2Tag": "Enyere Arịrịọ",
+      "event2Meta": "E kenyere Onye Otu Ndekọ Ego",
+      "event3Tag": "Enyefere Akwụkwọ",
+      "event3Meta": "Akwụkwọ Ledger 25MB E tinyere nwere Nkọwa",
+      "event4Tag": "Enyochara Akwụkwọ",
+      "event4Meta": "Onye Nyocha nyochara n'Ihe Nleba Anya Nyocha",
+      "event5Tag": "Edekọrọ Mkpebi",
+      "event5Meta": "Kwadoro / Echekwara Ihe Kpatara Ya Edebere",
+      "event6Tag": "Ntinye Aka Emechara",
+      "event6Meta": "Ihe Niile Achọrọ Emezuru & Binyere Aka",
+      "event7Tag": "Ndekọ Na-adịgide Adịgide",
+      "event7Meta": "Ndekọ Akụkọ Na-anọgide Maka Ọdịnihu"
     },
     "multilingual": {
       "eyebrow": "Nkwado n'Ọtụtụ Asụsụ",
@@ -1144,7 +1249,9 @@
       "langIg": "Asụsụ Igbo",
       "langHa": "Harshen Hausa",
       "langPcm": "Nigerian Pidgin",
-      "activeLabel": "Asụsụ Dị Ugbu A"
+      "activeLabel": "Asụsụ Dị Ugbu A",
+      "enFeatures": "Ụkpụrụ Ndekọ Ego Mba Nile",
+      "pcmFeatures": "Nkọwa dị mfe n'asụsụ obodo"
     },
     "security": {
       "eyebrow": "Nchekwa na Ntụkwasị Obi",
@@ -1172,7 +1279,19 @@
       "accountingTitle": "Ndị Otu Ndekọ Ego",
       "accountingDesc": "Na-akwadebe ndekọ n'afọ dum, na-azaghachi arịrịọ, na-etinye akwụkwọ, ma na-esochi ndepụta.",
       "oversightTitle": "Ndị Nlekọta Ọrụ Ụlọ Ọrụ",
-      "oversightDesc": "Na-enyocha ọganihu nkwekọrịta, na-esochi oge nyocha, ma na-ahụ na emezuru iwu niile."
+      "oversightDesc": "Na-enyocha ọganihu nkwekọrịta, na-esochi oge nyocha, ma na-ahụ na emezuru iwu niile.",
+      "auditorCap1": "Mepụta ma jikwaa ntinye aka nyocha",
+      "auditorCap2": "Zipu arịrịọ akwụkwọ ahaziri ahazi",
+      "auditorCap3": "Nyochaa ihe akaebe ma dekọọ mkpebi doro anya",
+      "auditorCap4": "Debe akwụkwọ ọrụ nyocha zuru ezu",
+      "accountingCap1": "Hazi usoro tupu nyocha na mmechi ọnwa n'afọ niile",
+      "accountingCap2": "Nweta ma zaa arịrịọ ndị nyocha ozugbo",
+      "accountingCap3": "Bulite usoro enyochara nwere nkwenye kwesịrị",
+      "accountingCap4": "Dozie ihe ndị na-efu ma soro ọganihu nnyefe",
+      "oversightCap1": "Nyochaa ọganihu ntinye aka na ihe ndị dị mkpa",
+      "oversightCap2": "Nyochaa mgbalị dị elu na ajụjụ ndị a na-edozighị",
+      "oversightCap3": "Jikwaa nchịkwa nrubeisi na mmesi obi ike dị mma",
+      "oversightCap4": "Debe njikere nyocha akụkọ ihe mere eme mgbe niile"
     },
     "finalCta": {
       "phrase1": "Nkwadebe na-aghọ ọganihu.",
@@ -1188,7 +1307,8 @@
       "navigationHeading": "Nduzi Ogige",
       "authHeading": "Ọnụ Ụzọ Akaụntụ",
       "securityHeading": "Ntụkwasị Obi na Nchekwa",
-      "rights": "Ikike niile echekwara. Sabi Africa Innovations Limited."
+      "rights": "Ikike niile echekwara. Sabi Africa Innovations Limited.",
+      "privacyNotice": "Enweghị nchekwa okwuntughe na-enweghị nchekwa na nchọgharị. Nchedo enweghị ọrụ na-arụ ọrụ."
     },
     "continuousRunway": "Usoro Nkwadebe Na-aga N'ihu",
     "weeklyToPreAudit": "Kwa Izu ruo Tupu Nnyocha",
@@ -1209,11 +1329,46 @@
     "activeReviewBoundary": "Oke Nnyocha Na-arụ Ọrụ",
     "returnedForResponse": "Laghachiri maka Nzaghachi",
     "keyResponsibilities": "Isi Ọrụ Ịrụ Ọrụ",
-    "privacyByDesign": "Nzuzo site na Nhazi"
+    "privacyByDesign": "Nzuzo site na Nhazi",
+    "ifrsIsaAligned": "Kwekọrọ na IFRS na ISA",
+    "tlsEncryption": "Nchekwa Nzuzo TLS na AES-256",
+    "fiveLanguages": "Asụsụ Naijiria Ise",
+    "markedCompleteLocked": "Emechara & Kpọchiri",
+    "revisionLoop": "Ndegharị & Mkpebi Nzaghachi",
+    "sliderVisual": {
+      "weeklyCheckpointsDesc": "Azụmahịa, ntinye ego na ego dị na aka enyochara",
+      "monthEndClosingDesc": "Nkwekọrịta na usoro iwu binyere aka",
+      "preAuditPrepDesc": "Usoro isi na ebe nchekwa ihe akaebe ọnwa 6 tupu oge eruo",
+      "highPriority": "Ihe Dị Mkpa Nke Ukwuu",
+      "fixedAssetSchedule": "Ndekọ Ngwongwo Na-adịgide Adịgide & Nhazi Mgbakwunye",
+      "assignedMember": "Onye Otu Ndekọ Ego",
+      "dueInDays": "Fọdụrụ ụbọchị 3 ka o ruo",
+      "directDocumentVault": "Ebe Nchekwa Akwụkwọ Ozugbo",
+      "maxSize": "Kachasị 25MB",
+      "uploadedByAccounting": "3.8 MB · Onye Otu Ndekọ Ego bulitere ya",
+      "anchored": "Jikọtara",
+      "accountingNote": "Ihe Nkọwa Otu Ndekọ Ego:",
+      "accountingNoteContent": "E debere akwụkwọ ọnụahịa niile enyochara, nkwupụta ụlọ akụ, na ndozi akaụntụ n'usoro dị njikere maka nyocha.",
+      "auditChecklistAndDocs": "Ndepụta Nyocha na Akwụkwọ Nkwado",
+      "auditInspection": "Nyocha Nlekọta",
+      "checklistApproved": "Ndepụta Nyocha na Akwụkwọ Nkwado: Kwadoro",
+      "complianceMet": "Akwụkwọ ahụ mezuru ihe iwu chọrọ",
+      "notApprovedWithReason": "Akwadoghị ya nwere Ihe Kpatara Ya",
+      "rejectionReasonSample": "\"Mkpọchi ụlọ akụ na-efu na peeji nke 2. Biko bulite ọzọ.\"",
+      "returnedToQueue": "Eweghachiri ya n'ahịrị Otu Ndekọ Ego maka nzaghachi",
+      "permanentEngagementRecord": "Ndekọ Ntinye Aka Na-adịgide Adịgide",
+      "permanentTrail": "Usoro Na-adịgide Adịgide",
+      "engagementFinalized": "Ntinye Aka Afọ Ego 2026 Emechara",
+      "allRequestsApproved": "Akwụkwọ nyocha niile akwadoro ma chekwaa",
+      "multiYearRetained": "Echekwara Akụkọ Ọtụtụ Afọ",
+      "availableForBenchmarking": "Ọ dị maka ntụnyere nyocha nke afọ na-abịa",
+      "tamperEvident": "Usoro Oge Na-enweghị Mgbanwe Nzuzo",
+      "timestampsAccountability": "Oge zuru ezu na ikike onye ọrụ doro anya"
+    }
   },
   "devAuth": {
     "title": "Nbanye Nlele Mmepe",
-    "subtitle": "Maka mmepe naanị — ọ bụghị ezigbo nkwenye njirimara. Maka nlele ihuenyo naanị.",
+    "subtitle": "Maka mmepe naanị, ọ bụghị ezigbo nkwenye njirimara. Maka nlele ihuenyo naanị.",
     "notice": "Nlele mmepe a na-enye ohere inyocha ihuenyo Onye Nyocha Ego na Otu Ndekọ Ego tupu ezigbo usoro azụ na API adịrị njikere. Enweghị ozi nzuzo ma ọ bụ arịrịọ ezigara na sava.",
     "auditorRole": "Ọrụ Onye Nyocha Ego (Auditor)",
     "auditorDescription": "Nyochaa deshibọdụ onye nyocha, ọrụ nyocha, ịmepụta arịrịọ nyocha, na nchekwa akwụkwọ.",
@@ -1227,17 +1382,23 @@
     "auditManagerRole": "Ọrụ Onye Nhazi Nyocha Ego",
     "auditManagerDescription": "Nyochaa ọtụtụ nyocha ego, ikenye ndị nyocha, na njikwa ogo ọrụ.",
     "enterAuditManager": "Banye dịka Onye Nhazi Nyocha Ego",
+    "accountingManagerRole": "Ọrụ Onye Nhazi Ndekọ Ego",
+    "accountingManagerDescription": "Nyochaa mmechi ndekọ ego ụlọ ọrụ, oge ụtụ isi, ikenye ọrụ PBC, na nkwenye onye nhazi.",
+    "enterAccountingManager": "Banye dịka Onye Nhazi Ndekọ Ego",
     "backToLogin": "Laghachi na Nbanye Izugbe",
     "bannerTitle": "ỌNỌDỤ NLELE MMEPE NA-ARỤ ỌRỤ",
     "currentRole": "Ọrụ Nlele Ugbu a:",
     "switchToAuditor": "Gbanwee gaa na Onye Nyocha Ego",
     "switchToFinance": "Gbanwee gaa na Ndị Otu Ndekọ Ego",
     "exitPreview": "Pụọ na Nlele",
-    "sessionExpired": "Oge nlele mmepe agwụla n'ihi enweghị ọrụ."
+    "sessionExpired": "Oge nlele mmepe agwụla n'ihi enweghị ọrụ.",
+    "adminPreviewDesc": "E mepere ohere nlele nchịkwa maka nyocha ngwa. Gaa n'ihu ozugbo na panel nchịkwa.",
+    "autoFillDemo": "Dejupụta Ihe Nzuzo Ngosipụta Na-akpaghị Aka"
   },
   "roles": {
     "auditor": "Onye Nyocha Ego Ndị Isi",
     "auditManager": "Onye Isi Nlekọta Nyocha Ego",
+    "accountingManager": "Onye Isi Nlekọta Ndekọ Ego",
     "accountingMember": "Onye Otu Ndekọ Ego Ụlọ Ọrụ",
     "accountingLead": "Onye Ndú Ndị Otu Ndekọ Ego",
     "admin": "Onye Nlekọta Sistemụ",
@@ -1249,7 +1410,7 @@
   },
   "legal": {
     "termsTitle": "Usoro na Ọnọdụ Weebụsaịtị",
-    "termsSubtitle": "Sabi Africa Innovations Limited — Ụbọchị Mmalite: 10 Ọktoba, 2026",
+    "termsSubtitle": "Sabi Africa Innovations Limited | Ụbọchị Mmalite: 10 Ọktoba, 2026",
     "termsAndConditions": "Usoro na Ọnọdụ Weebụsaịtị",
     "tableOfContents": "Tebụl ọdịnaya",
     "backToHome": "Laghachi na FinAuditEase",
@@ -1306,7 +1467,8 @@
     "forwardSuccessMsg": "E zigara {{title}} na {{target}}.",
     "weeklyHubTitle": "Nlele Ọrụ Kwa Izu",
     "weeklyHubSubtitle": "Nyochaa ntinye na usoro kwa izu. Ozugbo enyochara, ziga ya na Mmechi Ọnwa.",
-    "forwardStatusHeader": "Ọganihu Usoro"
+    "forwardStatusHeader": "Ọganihu Usoro",
+    "documentRepoForwardHint": "Na-eziga usoro nkwenye a kwadoro ozugbo na Nchekwa Akwụkwọ maka nyocha ego."
   },
   "auditModule": {
     "title": "Mpaghara Nyocha (Audit Module)",
@@ -1315,12 +1477,12 @@
   "financeModule": {
     "title": "Mpaghara Ego (Finance Module)",
     "badge": "Mpaghara Ego",
-    "operationsTitle": "Mpaghara Ego — Ọrụ na Nkwenye Akụ",
+    "operationsTitle": "Mpaghara Ego: Ọrụ na Nkwenye Akụ",
     "operationsSubtitle": "Ndepụta ngwụcha ọnwa afọ niile, nkwadebe tupu nyocha, na ndekọ nkwenye akụ anụ ahụ."
   },
   "assets": {
     "registerTitle": "Ndekọ Nkwenye Akụ",
-    "registerSubtitle": "Mpaghara Ego — Tulee ọnụọgụ dị na kọmpụta na nsonaazụ nkwenye anụ ahụ ma dekọọ ọdịiche.",
+    "registerSubtitle": "Mpaghara Ego: Tulee ọnụọgụ dị na kọmpụta na nsonaazụ nkwenye anụ ahụ ma dekọọ ọdịiche.",
     "fixedAssets": "Akụ Na-adịgide Adịgide (Fixed Assets)",
     "currentAssets": "Akụ Dị Ugbu A (Current Assets)",
     "verificationDate": "Ụbọchị Nkwenye",
@@ -1373,7 +1535,14 @@
     "iosInstructions": "Pịa bọtịnụ Share na Safari, wee họrọ 'Add to Home Screen'.",
     "offlineTitle": "Ị nọghị n'ịntanetị ugbu a",
     "offlineDesc": "Ndekọ nyocha na ego chọrọ njikọ ịntanetị na-arụ ọrụ. Agbanyụrụ nbudata na mgbanwe ruo mgbe njikọ laghachiri.",
-    "backOnline": "Njikọ adịghachila. Ị nọghachila n'ịntanetị."
+    "backOnline": "Njikọ adịghachila. Ị nọghachila n'ịntanetị.",
+    "installBannerLabel": "Wụnye ngwa FinAuditEase",
+    "iosTitle": "Wụnye FinAuditEase na iOS",
+    "iosInstructionPrefix": "Pịa",
+    "iosInstructionSuffix": "Kekọrịta na Safari, wee họrọ \"Tinye na Ihuenyo Mbụ\".",
+    "installDesc": "Mbido ngwa ngwa site na ihuenyo mbụ gị nwere nchekwa data ekwentị.",
+    "installAction": "Wụnye Ngwa FinAuditEase",
+    "dismissLabel": "Kagbuo ozi ntinye"
   },
   "communication": {
     "pageTitle": "Ebe Nkwukọrịta & Nzukọ Nnyocha Ego",
@@ -1511,7 +1680,8 @@
     "sectionsLabel": "Ngalaba Ebe Nkwukọrịta",
     "tabMessagesAndMeetings": "Ozi & Nzukọ Ndị A Haziri",
     "tabEvidentiaryRecordings": "Ebe Ndebe Ndekọ Ihe Akaebe",
-    "tabCommunicationAuditTrail": "Usoro Ihe Mere na Nkwukọrịta"
+    "tabCommunicationAuditTrail": "Usoro Ihe Mere na Nkwukọrịta",
+    "recordingPolicy": "Amụma Ndekọ na Nkwenye Ndị Sonyere"
   },
   "admin": {
     "nav": {
@@ -1535,7 +1705,10 @@
       "auditManagers": "Ndị Nlekọta Nnyocha",
       "communication": "Nlekọta Nkwukọrịta",
       "notifications": "Ọkwa & Mgbasa Ozi",
-      "rolesPermissions": "Ọrụ & Ikike"
+      "rolesPermissions": "Ọrụ & Ikike",
+      "closeMenu": "Mechie nsoro nchịkwa",
+      "openMenu": "Mepee nsoro nchịkwa",
+      "accountingManagers": "Ndị Nlekọta Akaụntụ"
     },
     "dashboard": {
       "breadcrumb": "Nchịkwa Onye Nlekọta",
@@ -1566,7 +1739,8 @@
       "usersPortalDesc": "Jikwaa akaụntụ, ọrụ, na nkwenye 2FA.",
       "orgsPortalDesc": "Nyochaa ụlọ ọrụ na oke nzuzo nke ndị ahịa.",
       "auditorsPortalDesc": "Soro nzere ICAN/ACCA/ICAEW na ọrụ ha.",
-      "securityPortalDesc": "Nyochaa nbanye, nchekwa oge, na nchekwa sistemụ."
+      "securityPortalDesc": "Nyochaa nbanye, nchekwa oge, na nchekwa sistemụ.",
+      "completedEngagements": "Ọrụ Nyocha Ego Emechara"
     },
     "users": {
       "breadcrumb": "Nlekọta Ndị Ọrụ",
@@ -1606,7 +1780,8 @@
       "roleNotice": "Nkọwa ọrụ dabara na iwu ikike FinAuditEase.",
       "selectStatusLabel": "Ọnọdụ Nchekwa Akaụntụ",
       "actionReset2fa": "Tọgharịa Ngwaọrụ 2FA",
-      "actionUnlock": "Wepụ Mkpọchi Akaụntụ & Nweghachi Ọrụ"
+      "actionUnlock": "Wepụ Mkpọchi Akaụntụ & Nweghachi Ọrụ",
+      "email": "Adreesị Ozi Ịntanetị"
     },
     "organisations": {
       "breadcrumb": "Ụlọ Ọrụ",
@@ -1647,7 +1822,7 @@
       "exportCsv": "Mepụta Ndepụta (CSV)",
       "searchPlaceholder": "Chọọ onye nyocha site na aha, ụlọ ọrụ, ma ọ bụ nọmba...",
       "filterBody": "Nyochaa site na Òtù Ọrụ",
-      "allBodies": "Òtù Ọrụ Niile (ICAN, ACCA, ICAEW)",
+      "allBodies": "Òtù Ọrụ Niile (ICAN, ANAN, ACCA, ICAEW)",
       "tableAuditor": "Onye Nyocha & Ụlọ Ọrụ",
       "tableBody": "Òtù Ọrụ",
       "tableMembership": "Nọmba Akwụkwọ Ikike #",
@@ -1663,7 +1838,10 @@
       "detailActiveEngagements": "Onye Isi Ọrụ Nyocha",
       "detailVerification": "Ọnọdụ Nkwenye",
       "assignedAudits": "Ọrụ Nyocha E Kenyere Ya",
-      "noAssignedEngagements": "Ọ dịghị ọrụ nyocha e kenyere onye nyocha a ugbu a."
+      "noAssignedEngagements": "Ọ dịghị ọrụ nyocha e kenyere onye nyocha a ugbu a.",
+      "slaOnTarget": "SLA dị na ebumnuche",
+      "statutoryCount": "Ntinye Aka Nyocha Iwu {{count}}",
+      "verifiedPracticingAuditor": "✓ Onye Nyocha E Kwadoro N'Aka"
     },
     "engagements": {
       "breadcrumb": "Nlekọta Ọrụ Nyocha",
@@ -1693,7 +1871,8 @@
       "detailTotalRequests": "Ngụkọta Arịrịọ PBC",
       "detailCompletedRequests": "Ndị E Mechara / Kwadoro",
       "confidentialityCallout": "Ọkwa Nkewapụ Iwu",
-      "confidentialityNotice": "Ịlele akwụkwọ ego ndị ahịa, nkwenye ụlọ akụ, na akwụkwọ ndekọ chọrọ ka e kenye gị n'ọrụ a."
+      "confidentialityNotice": "Ịlele akwụkwọ ego ndị ahịa, nkwenye ụlọ akụ, na akwụkwọ ndekọ chọrọ ka e kenye gị n'ọrụ a.",
+      "tableEngagement": "Ọrụ Nyocha Ego"
     },
     "subscriptions": {
       "breadcrumb": "Nlekọta Ndenye Aha Ịkwụ Ụgwọ",
@@ -1727,7 +1906,10 @@
       "detailStartDate": "Mmalite",
       "detailRenewal": "Ụbọchị Mmeghari",
       "detailSeats": "Oche E Nyere Ikike",
-      "detailStorage": "Ebe Ndebe Iwu"
+      "detailStorage": "Ebe Ndebe Iwu",
+      "activePaidStanding": "✓ Ọnọdụ Akwụgoro Ego Na-arụ Ọrụ",
+      "seatsAllocated": "{{active}} n'ime {{max}} e kenyere",
+      "wormCompliant7Yr": "Kwekọrọ na WORM (Nchekwa Afọ 7)"
     },
     "auditTrail": {
       "breadcrumb": "Usoro Ihe Mere & Akụkọ Iwu",
@@ -1748,7 +1930,8 @@
       "tableDetails": "Nkọwa Omume & Ihe E Mere na Ya",
       "tableIntegrity": "IP & Nchekwa Cryptographic",
       "noRecordsFound": "Ọ Dịghị Ndekọ Achọtara",
-      "noRecordsFoundDesc": "Gbalịa tọgharịa ụbọchị ma ọ bụ ihe nzacha gị."
+      "noRecordsFoundDesc": "Gbalịa tọgharịa ụbọchị ma ọ bụ ihe nzacha gị.",
+      "tableVerification": "Ihe Akaebe Nzuzo"
     },
     "security": {
       "breadcrumb": "Ebe Nchekwa",
@@ -1769,7 +1952,10 @@
       "tableIntegrity": "Ọnọdụ Nkwenye",
       "verifiedHash": "SHA-256 Ziri Ezi",
       "noEventsFound": "Ọ Dịghị Ihe Omume Nbanye Achọtara",
-      "noEventsFoundDesc": "Data ga-apụta ka ndị ọrụ na-abanye na sistemụ."
+      "noEventsFoundDesc": "Data ga-apụta ka ndị ọrụ na-abanye na sistemụ.",
+      "activeAcrossAll": "✓ Na-arụ ọrụ n'aka ndị nyocha na ndị nchịkwa niile",
+      "enforcedByRevocation": "Emere site na kagbuo akara ngosi onye ahịa na sava",
+      "normalActivityZeroAnomalies": "● Ọrụ nkịtị, 0 ihe na-ezighi ezi"
     },
     "reports": {
       "breadcrumb": "Akụkọ & Nnyocha",
@@ -1792,7 +1978,15 @@
       "auditReportTitle": "Nkwenye Usoro Ihe Mere & Ihe Akaebe nke Iwu",
       "auditReportSubtitle": "Ndekọ cryptographic kwekọrọ na ụkpụrụ ISA 230 / SAS 103",
       "exportAuditCsv": "Mepụta Usoro Ihe Mere (CSV)",
-      "wormStandardTitle": "Usoro Iwu WORM (Dee Otu Ugboro, Gụọ Ọtụtụ Ugboro)"
+      "wormStandardTitle": "Usoro Iwu WORM (Dee Otu Ugboro, Gụọ Ọtụtụ Ugboro)",
+      "exportCsv": "Bupụ Akụkọ Ugbu a (CSV)",
+      "regulatoryNoticeTitle": "Akụkọ Nyocha Ego nke Iwu na Nchekwa WORM",
+      "regulatoryNoticeDesc": "Akụkọ ndị a chịkọtara n'elu ikpo okwu a na-agbaso ntuziaka Financial Reporting Council nke Naịjirịa na ụkpụrụ nyocha ego mba ụwa. Enwere ike ịchọpụta ngụkọta nyocha niile e wepụtara na ndekọ nyocha nke enweghị ike ịgbanwe.",
+      "tabCompliance": "Nrubeisi na Akwụkwọ WORM",
+      "engagementsTitle": "Oge SLA nke Ọrụ Iwu na Ọsọ Mmecha",
+      "requestsTitle": "Arụmọrụ SLA maka Arịrịọ Akwụkwọ PBC",
+      "organisationsTitle": "Òtù Ndị Na-esonye na Ọrụ Nyocha Ego",
+      "complianceTitle": "Akwụkwọ Ihe Akaebe nke Nrubeisi Iwu WORM"
     },
     "settings": {
       "breadcrumb": "Ntọala Sistemụ",
@@ -1830,7 +2024,21 @@
       "notificationsTitle": "Ọwa Ịdọ Aka ná Ntị & Ozi Nlekọta",
       "emailNotifTitle": "Ozi-e Ịdọ Aka ná Ntị Nchekwa & Sistemụ",
       "statutoryEscalationsTitle": "Ịdọ Aka ná Ntị Ma Oge Iwu Gafee",
-      "saveNotifBtn": "Chekwaa Ntọala Ịdọ Aka ná Ntị"
+      "saveNotifBtn": "Chekwaa Ntọala Ịdọ Aka ná Ntị",
+      "matrixRoleSystemAdmin": "Onye Nchịkwa Usoro",
+      "matrixDescSystemAdmin": "Nchịkwa Platform, Ndị Ọrụ, Òtù, Nchekwa & Ntọala",
+      "matrixDocSystemAdmin": "Amachibidoro (Nlekọta metadata naanị; enweghị nbudata akwụkwọ ọrụ nkeonwe)",
+      "matrixAdminSystemAdmin": "✓ Nnweta Zuru Ezu",
+      "matrixRoleAuditManager": "Onye Nlekọta Ọrụ Nyocha Ego",
+      "matrixDescAuditManager": "Atụmatụ mmesi obi ike, nkenye otu, mbinye aka na ihe ndị dị mkpa",
+      "matrixDocAuditManager": "Naanị Ọrụ E kenyere",
+      "matrixAdminProhibited": "✗ Amachibidoro",
+      "matrixRoleAuditor": "Onye Nyocha Ego Ndị Isi",
+      "matrixDescAuditor": "Arịrịọ nyocha PBC, nyocha akwụkwọ, nkwenye ndepụta, nzukọ",
+      "matrixRoleFinance": "Ndị Otu Ndekọ Ego Ụlọ Ọrụ",
+      "matrixDescFinance": "Ndepụta ego (Kwa izu, Mmechi Ọnwa, Tupu Nyocha), ndekọ ngwongwo, ntinye PBC",
+      "matrixDocFinance": "Naanị Ọrụ Òtù nke Onwe",
+      "securityDesc": "Mmanye oge ngwụcha nnọkọ, nkwenye abụọ (2FA), na ọnụ ụzọ mkpọchi akaụntụ."
     },
     "auth": {
       "portalBadge": "Mpaghara Nchebe Pụrụ Iche",
@@ -1849,7 +2057,14 @@
       "returnToMain": "Laghachi na Nbanye Ndị Ọrụ",
       "provisioningNotice": "A na-enye akaụntụ nlekọta site na nhazi ime ụlọ. Emechiri ndebanye aha ọha.",
       "requiredFields": "Biko nye ma email na okwuntughe.",
-      "invalidCredentials": "Ihe nbanye ezighi ezi."
+      "invalidCredentials": "Ihe nbanye ezighi ezi.",
+      "confirmSignOutTitle": "Kwụsị Oge Nchịkwa?",
+      "confirmSignOutMessage": "Ị na-achọ ịpụ na Platform Nchịkwa FinAuditEase. Ihe nnọchianya nnọkọ gị ga-agwụ ma a ga-akpọghachi gị na ibe nbanye nchịkwa.",
+      "accessDenied": "A jụrụ ịbanye. Akaụntụ gị enweghị ikike nchịkwa maka Platform Nchịkwa FinAuditEase. Biko jiri ọnụ ụzọ ngwa isi.",
+      "genericError": "Mmehie a na-atụghị anya ya mere n'oge nkwenye nchịkwa.",
+      "invalid2FACode": "Koodu nkwenye ọnụọgụ 6 ezighi ezi ma ọ bụ agwụla oge.",
+      "headerSubtitle": "Platform Nchịkwa • Sabi Africa Innovations",
+      "backToCredentials": "Laghachi na Email na Okwuntughe"
     },
     "auditManagers": {
       "title": "Akwụkwọ Ndekọ Ndị Nlekọta Nnyocha",
@@ -1871,7 +2086,15 @@
       "colStatus": "Ọnọdụ",
       "inspect": "Nyochaa",
       "engagementsText": "Ọrụ Nọ n’Aka",
-      "completedText": "E Mechara"
+      "completedText": "E Mechara",
+      "description": "Nlekọta nke ndị isi nyocha ego, ikike nkwenye ọrụ, mmekorita ụlọ ọrụ nyocha ego, na arụmọrụ nkwenye pọtụfoliyo.",
+      "kpiSupervised": "Ọrụ Nyocha Ego E Lekọtara",
+      "kpiCompleted": "Pọtụfoliyo Emechara",
+      "kpiVerified": "Nkwenye ICAN / ANAN",
+      "tableAria": "Ndepụta Ndị Nlekọta Nyocha Ego",
+      "colFirm": "Ụlọ Ọrụ Nyocha Ego Na-arụ Ọrụ",
+      "assignedEngagements": "Ọrụ Nyocha Ego Jikọrọ Aka",
+      "noEngagementsAssigned": "Enweghị ọrụ nyocha ego na-arụ ọrụ edekọrọ na oge a."
     },
     "communication": {
       "title": "Nlekọta Nkwukọrịta & Ụlọ Nzukọ",
@@ -1890,7 +2113,14 @@
       "colConsent": "Nkwado Ndekọ",
       "colStorage": "Nchekwa",
       "inspect": "Nyochaa",
-      "consentVerified": "AKWADORO NDỊ"
+      "consentVerified": "AKWADORO NDỊ",
+      "description": "Nlekọta usoro maka ọwa ozi nyocha ego echekwara, njikọ ụlọ vidiyo, nchekwa ndekọ iwu, na akwụkwọ nkwenye ndị sonyere.",
+      "kpiChannels": "Ọwa Mkparịta Ụka Na-arụ Ọrụ",
+      "kpiMeetings": "Nzukọ Vidiyo Emere",
+      "kpiConsent": "Akwụkwọ Nkwenye E Binyere Aka",
+      "tableAria": "Ndepụta Ọwa Nkwukọrịta",
+      "consentLedgerHeading": "Akwụkwọ Nkwenye Dị Irè",
+      "consentLedgerBody": "Ndị niile sonyere na ọwa a nyere ikike maka ndekọ ọdịyo/vidiyo dabere na Iwu Nchekwa Data Naịjirịa (NDPR) na ụkpụrụ nyocha ego mba ụwa."
     },
     "notifications": {
       "title": "Ọkwa Sistemu & Mgbasa Ozi Mberede",
@@ -1904,7 +2134,30 @@
       "broadcastHistory": "Akụkọ Mgbasa Ozi",
       "audienceAll": "Ndị Ọrụ Niile",
       "audienceAuditors": "Ndị Nyocha Ego Naanị",
-      "audienceAccounting": "Ndị Akaụntụ Naanị"
+      "audienceAccounting": "Ndị Akaụntụ Naanị",
+      "description": "Kpọsaa ọkwa n'elu ikpo okwu niile, ndụmọdụ mberede, ncheta iwu, ma nyochaa ozi n'ofe ngwa.",
+      "kpiActive": "Ọkwa Mgbasa Ozi Na-arụ Ọrụ",
+      "kpiSystem": "Ọkwa Usoro E Zilara",
+      "kpiReach": "Ngụkọta Ndị Ọkwa Ruru",
+      "kpiDelivery": "Ọnọdụ Nnyefe N'ime Ngwa",
+      "composeHeading": "Dee Ọkwa Platform",
+      "composeSub": "A na-eziga ya ozugbo gafee ngwa ndị jikọrọ na mgbịrịgba ọkwa.",
+      "publishSuccess": "E bipụtara ọkwa n'elu ikpo okwu nke ọma!",
+      "targetAudience": "Ndị E Bu N'uche",
+      "audAll": "Ndị Ọrụ Niile (Ndị Nyocha Ego + Ndị Otu Ndekọ Ego)",
+      "audAuditors": "Naanị Ndị Nyocha Ego (Ndị Isi na Ndị Nlekọta)",
+      "audAccounting": "Naanị Ndị Otu Ndekọ Ego Ụlọ Ọrụ",
+      "severity": "Ọkwa Dị Mkpa",
+      "sevInfo": "Ọkwa Ozi",
+      "sevWarning": "Ịdọ Aka Ná Ntị / Oge Ngwụcha Iwu",
+      "sevCritical": "Ọkwa Dị Mkpa / Ozi Usoro",
+      "announcementTitle": "Isi Okwu Ọkwa",
+      "titlePlaceholder": "dịka Ndozi Usoro A Haziri na Sọnde",
+      "announcementBody": "Isi Ozi Ọkwa",
+      "bodyPlaceholder": "Tinye nkọwa ọkwa zuru ezu...",
+      "publishBtn": "Bipụta Ọkwa",
+      "activeHistoryHeading": "Ọkwa Platform E Bipụtara",
+      "activeHistorySub": "Ozi na-arụ ọrụ ugbu a na-egosi na nkụnye eji arụ ọrụ ngwa ndị ahịa."
     },
     "rolesPermissions": {
       "title": "Ọrụ & Nlekọta Ikike",
@@ -1933,7 +2186,112 @@
       "colAdmin": "Onye Nlekọta Sistemu",
       "inspect": "Nyochaa",
       "noResultsTitle": "Enweghị Ikike Ahụrụ",
-      "noResultsDesc": "Enweghị ikike dabara na ọchụchọ gị."
+      "noResultsDesc": "Enweghị ikike dabara na ọchụchọ gị.",
+      "searchAria": "Chọọ ikike",
+      "filterCategory": "Hazi site na ngalaba ikike",
+      "tableAria": "Tebụl Ikike RBAC",
+      "policyCode": "Koodu Amụma Backend nke Ikike",
+      "description": "Oke Ọrụ",
+      "tenantBoundary": "Nkewapụ Onye Ọrụ na Oke Nzuzo",
+      "roleAssignment": "Ọkwa Ikike Ọrụ",
+      "audienceAuditors": "Ndị Nyocha Nanị",
+      "kpiAssuranceRoles": "Ọrụ Nkwenye Nlele"
+    },
+    "header": {
+      "platformPill": "Onye Nchịkwa",
+      "subtitle": "Nke Sabi Africa Innovations Limited kwadoro",
+      "liveSession": "Oge Nchịkwa Na-aga N'ihu",
+      "systemAdmin": "Onye Nchịkwa Usoro",
+      "signOut": "Pụọ na Platform Nchịkwa",
+      "confirmSignOut": "Kwụsị Oge"
+    },
+    "common": {
+      "export": "Bupụ gaa na CSV",
+      "actions": "Omume",
+      "close": "Mechie",
+      "exportCsv": "Bupụ CSV",
+      "inspect": "Nyochaa"
+    },
+    "accountingManagers": {
+      "title": "Ndị Nlekọta Akaụntụ Ndị Ahịa",
+      "description": "Nlekọta etiti nke ndị nlekọta akaụntụ ndị ahịa, òtù dị iche iche a na-elekọta, na njikere mmechi ngwụcha ọnwa.",
+      "totalManagers": "Ndị Nlekọta Akaụntụ",
+      "totalSupervised": "Pọtụfoliyo Na-arụ Ọrụ",
+      "clientOrgs": "Òtù Ndị Ahịa",
+      "orgsSupervised": "Òtù Ụlọ Ọrụ",
+      "supervisedEngagements": "Ọrụ Nlele A Na-elekọta",
+      "engagementsMonitored": "Nyocha Na-arụ Ọrụ",
+      "searchPlaceholder": "Chọọ site na aha onye njikwa, ozi-e, ma ọ bụ nzukọ ndị ahịa...",
+      "searchAria": "Chọọ ndị nlekọta akaụntụ",
+      "filterOrg": "Hazi site na nzukọ ndị ahịa",
+      "allOrgs": "Òtù Niile",
+      "emptyTitle": "Enweghị Ndị Nlekọta Akaụntụ Ahụrụ",
+      "emptyDescription": "Enweghị ndị nlekọta akaụntụ dakọtara na nchọpụta gị.",
+      "colManager": "Onye Nlekọta Akaụntụ",
+      "colOrg": "Òtù Onye Ahịa",
+      "colEngagements": "Ọrụ Nlele",
+      "colRequests": "Arịrịọ PBC",
+      "colStatus": "Ọnọdụ Akaụntụ",
+      "modalTitle": "Nkọwa Onye Nlekọta Akaụntụ"
     }
+  },
+  "status": {
+    "completed": "Emechara",
+    "pending": "Na-eche Nkwenye",
+    "active": "Na-arụ Ọrụ",
+    "inReview": "Na-enyocha",
+    "overdue": "Oge Agwụla",
+    "locked": "Kwụsịtụrụ / Mkpọchi"
+  },
+  "accManager": {
+    "ribbonSubtitle": "Njikwa Ego Ime na Nkwadebe Nyocha",
+    "monthEndClose": "Mmechi Ọnwa",
+    "weeklyControls": "Njikwa Kwa Izu",
+    "unassignedPbcs": "PBC ndị a na-ekenyebeghị",
+    "daysToYearEnd": "Ụbọchị fọdụrụ na Ọgwụgwụ Afọ",
+    "taxRadarTitle": "Nleba Anya Ụtụ Isi Iwu na Nrubeisi",
+    "taxRadarSubtitle": "Oge Iwu NRS / FIRS",
+    "statutoryDue": "Oge Ngwụcha Iwu: {{date}}",
+    "internalControlsTitle": "Njikwa Ego Ime na Mmechi",
+    "monthEndSignOff": "Mbinye Aka Mmechi Ọnwa",
+    "weeklyControlsTitle": "Njikwa Nkwekọrịta Kwa Izu",
+    "weeklyControlsDesc": "Ụlọ akụ, POS, obere ego na akwụkwọ ọnụahịa ndị na-ebubata ({{completed}} / {{total}} emechara)",
+    "reviewWeek": "Nyochaa Izu",
+    "monthEndChecklistTitle": "Ndepụta Mmechi Ọnwa",
+    "monthEndChecklistDesc": "Ihe 22 mmechi iwu gafee ngalaba ndekọ ego 6 ({{completed}} / {{total}} emechara)",
+    "lockSignOff": "Kpọchie & Banye Aka",
+    "preAuditTitle": "Ụzọ Nkwadebe Tupu Nyocha",
+    "preAuditDesc": "Ngwugwu nkwadebe nyocha ngwụcha afọ (ihe {{completed}} emechara)",
+    "openRunway": "Mepee Ụzọ",
+    "assetRegisterTitle": "Akwụkwọ Nkwenye Ngwongwo",
+    "assetRegisterDesc": "Ihe nrịbama ngwongwo, mbelata uru na nkwenye onye nlekọta",
+    "viewRegister": "Lee Akwụkwọ Ndebanye",
+    "auditorRequestsTitle": "Arịrịọ Onye Nyocha Ego na Nkewa Ọrụ SME",
+    "zeroOutstandingRequests": "Enweghị arịrịọ onye nyocha ego fọdụrụ.",
+    "unassignedNeedsAssignment": "Enweghị onye nwe: Chọrọ Nkenye",
+    "respond": "Zaghachi"
+  },
+  "auditManager": {
+    "acceptanceRate": "Ọnụego Nnabata",
+    "portfolioTitle": "Pọtụfoliyo Ọrụ Nyocha Mmesi Obi Ike",
+    "noEngagements": "Enweghị ọrụ nyocha ego ndị ahịa dị na pọtụfoliyo gị ugbu a.",
+    "leadAuditor": "Onye Ndú: {{name}}",
+    "targetDate": "Ebumnuche: {{date}}",
+    "staffWorkloadTitle": "Ibu Ọrụ Ndị Ọrụ Nyocha Ego",
+    "newEngagement": "Ọrụ Nyocha Ego Ọhụrụ",
+    "noAuditorData": "Enweghị data nkenye onye nyocha ego edekọrọ.",
+    "highWorkload": "Ibu Ọrụ Dị Elu",
+    "available": "Dị Njikere",
+    "managerReviewQueue": "Usoro Nyocha Nlekọta (Njikwa Ogo)",
+    "openReviewCentre": "Mepee Ebe Nyocha",
+    "allEvidenceReviewed": "E nyochaala ihe akaebe niile ndị ahịa nyefere.",
+    "zeroPendingQualityControl": "Enweghị nkwenye njikwa ogo na-echere na usoro nlekọta.",
+    "tableRef": "Ntụaka",
+    "tableRequestTitle": "Isi Okwu Arịrịọ",
+    "tableEngagement": "Ọrụ Nyocha Ego",
+    "tableStatus": "Ọnọdụ",
+    "tableDueDate": "Ụbọchị Ngwụcha",
+    "tableAction": "Omume",
+    "review": "Nyochaa"
   }
 }

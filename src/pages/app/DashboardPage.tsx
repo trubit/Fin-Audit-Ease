@@ -33,6 +33,8 @@ import {
   useMonthEndChecklist,
   usePreAuditChecklist,
 } from '@/features/checklists'
+import { AuditManagerDashboardView } from '@/features/dashboard/components/AuditManagerDashboardView/AuditManagerDashboardView'
+import { AccountingManagerDashboardView } from '@/features/dashboard/components/AccountingManagerDashboardView/AccountingManagerDashboardView'
 import { Pagination } from '@/components/common/Pagination'
 import { getDeadlineInfo, formatDate, getYearEndInfo, getMonthEndInfo } from '@/utils/dateUtils'
 import './DashboardPage.css'
@@ -178,7 +180,7 @@ export const DashboardPage: React.FC = () => {
   }, [auditRequests])
 
   const welcomeGreeting = user?.fullName
-    ? `${isAuditorRole ? t('dashboard.auditorWelcome') : t('dashboard.financeWelcome')} — ${user.fullName}`
+    ? `${isAuditorRole ? t('dashboard.auditorWelcome') : t('dashboard.financeWelcome')} • ${user.fullName}`
     : isAuditorRole
     ? t('dashboard.auditorWelcome')
     : t('dashboard.financeWelcome')
@@ -281,9 +283,36 @@ export const DashboardPage: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
+      {/* 0. AUDIT ENGAGEMENT MANAGER WORKFLOW DASHBOARD                            */}
+      {/* ========================================================================= */}
+      {!isLoading && !isError && user?.role === 'AUDIT_MANAGER' && (
+        <AuditManagerDashboardView
+          engagements={engagements}
+          auditRequests={auditRequests}
+          user={user}
+          onRefresh={handleRetryAll}
+        />
+      )}
+
+      {/* ========================================================================= */}
+      {/* 0.1 ACCOUNTING ENGAGEMENT MANAGER WORKFLOW DASHBOARD                       */}
+      {/* ========================================================================= */}
+      {!isLoading && !isError && user?.role === 'ACCOUNTING_MANAGER' && (
+        <AccountingManagerDashboardView
+          auditRequests={auditRequests}
+          engagements={engagements}
+          user={user}
+          weeklyChecklist={weeklyChecklist ?? undefined}
+          monthEndChecklist={monthEndChecklist ?? undefined}
+          preAuditChecklist={preAuditChecklist ?? undefined}
+          onRefresh={handleRetryAll}
+        />
+      )}
+
+      {/* ========================================================================= */}
       {/* 1. AUDITOR WORKFLOW DASHBOARD                                             */}
       {/* ========================================================================= */}
-      {!isLoading && !isError && isAuditorRole && (
+      {!isLoading && !isError && isAuditorRole && user?.role !== 'AUDIT_MANAGER' && (
         <>
           {engagements.length === 0 ? (
             <EmptyState
@@ -619,7 +648,7 @@ export const DashboardPage: React.FC = () => {
       {/* ========================================================================= */}
       {/* 2. ACCOUNTING TEAM WORKFLOW DASHBOARD                                     */}
       {/* ========================================================================= */}
-      {!isLoading && !isError && !isAuditorRole && (
+      {!isLoading && !isError && !isAuditorRole && user?.role !== 'ACCOUNTING_MANAGER' && (
         <div className="dashboard-root">
           {/* Fiscal Countdown & Context Ribbon */}
           <div className="dashboard-context-ribbon">
@@ -809,7 +838,7 @@ export const DashboardPage: React.FC = () => {
             <div className="dashboard-section-header">
               <div className="dashboard-section-title-group">
                 <h2 id="year-round-heading" className="dashboard-section-title">
-                  {t('financeModule.operationsTitle', 'Finance Module — Operations & Verification')}
+                  {t('financeModule.operationsTitle', 'Finance Module: Operations & Verification')}
                 </h2>
                 <p className="dashboard-section-subtitle">
                   {t('financeModule.operationsSubtitle', 'Year-round month-end checklists, pre-audit runways, and physical asset verification register.')}

@@ -22,7 +22,7 @@ export interface AdminAuditorRecord {
   readonly fullName: string
   readonly email: string
   readonly firmName: string
-  readonly professionalBody: 'ICAN' | 'ACCA' | 'ICAEW' | string
+  readonly professionalBody: 'ICAN' | 'ANAN' | 'ACCA' | 'ICAEW' | string
   readonly membershipNumber: string
   readonly activeEngagementsCount: number
   readonly completedEngagementsCount: number
@@ -56,9 +56,9 @@ export const AdminAuditorsPage: React.FC = () => {
         id: currentUser.id,
         fullName: currentUser.fullName,
         email: currentUser.email,
-        firmName: currentUser.organizationName || 'Apex Assurance & Advisory Partners',
-        professionalBody: 'ICAN',
-        membershipNumber: currentUser.membershipNumber || 'MBR-ICAN-4821',
+        firmName: currentUser.organizationName || t('common.notApplicable', 'N/A'),
+        professionalBody: currentUser.professionalBody || 'ICAN',
+        membershipNumber: currentUser.membershipNumber || t('common.notApplicable', 'N/A'),
         activeEngagementsCount: 0,
         completedEngagementsCount: 0,
         totalRequestsCount: 0,
@@ -87,18 +87,16 @@ export const AdminAuditorsPage: React.FC = () => {
             engagements: [...existing.engagements, eng],
           })
         } else {
-          // Determine mock professional body deterministically from name length for visual diversity
-          const bodies = ['ICAN', 'ACCA', 'ICAEW']
-          const profBody = bodies[Math.abs(eng.leadAuditorName.length) % bodies.length]
-          const email = `${eng.leadAuditorName.toLowerCase().replace(/[^a-z0-9]/g, '.')}@${(eng.auditorFirmName || 'firm').toLowerCase().replace(/[^a-z0-9]/g, '')}.ng`
+          const profBody = eng.auditorProfessionalBody || 'ICAN'
+          const email = eng.auditorEmail || `${eng.leadAuditorName.toLowerCase().replace(/[^a-z0-9]/g, '.')}@${(eng.auditorFirmName || 'firm').toLowerCase().replace(/[^a-z0-9]/g, '')}.ng`
 
           map.set(auditorId, {
             id: auditorId,
             fullName: eng.leadAuditorName,
             email,
-            firmName: eng.auditorFirmName || 'Chartered Audit Firm',
+            firmName: eng.auditorFirmName || t('common.notApplicable', 'N/A'),
             professionalBody: profBody,
-            membershipNumber: `${profBody}-${Math.abs(eng.leadAuditorName.length * 891)}`,
+            membershipNumber: eng.auditorMembershipNumber || t('common.notApplicable', 'N/A'),
             activeEngagementsCount: isActive ? 1 : 0,
             completedEngagementsCount: isCompleted ? 1 : 0,
             totalRequestsCount: eng.totalRequestsCount || 0,
@@ -179,7 +177,7 @@ export const AdminAuditorsPage: React.FC = () => {
             <p className="admin-page-description">
               {t(
                 'admin.auditors.description',
-                'Monitor Chartered Lead Auditors across ICAN, ACCA, and ICAEW bodies, engagement assignments, turnaround velocity, and statutory compliance.'
+                'Monitor Lead Auditors across ICAN, ANAN, ACCA, and ICAEW bodies, engagement assignments, turnaround velocity, and statutory compliance.'
               )}
             </p>
           </div>
@@ -224,10 +222,11 @@ export const AdminAuditorsPage: React.FC = () => {
             }}
             aria-label={t('admin.auditors.filterBody', 'Filter by Professional Body')}
           >
-            <option value="ALL">{t('admin.auditors.allBodies', 'All Professional Bodies (ICAN, ACCA, ICAEW)')}</option>
-            <option value="ICAN">ICAN (Institute of Chartered Accountants of Nigeria)</option>
-            <option value="ACCA">ACCA (Association of Chartered Certified Accountants)</option>
-            <option value="ICAEW">ICAEW (Institute of Chartered Accountants in England and Wales)</option>
+            <option value="ALL">{t('admin.auditors.allBodies', 'All Professional Bodies (ICAN, ANAN, ACCA, ICAEW)')}</option>
+            <option value="ICAN">ICAN (Institute of Accountants of Nigeria)</option>
+            <option value="ANAN">ANAN (Association of National Accountants of Nigeria)</option>
+            <option value="ACCA">ACCA (Association of Certified Accountants)</option>
+            <option value="ICAEW">ICAEW</option>
           </select>
         </div>
 
@@ -256,7 +255,7 @@ export const AdminAuditorsPage: React.FC = () => {
             <table className="admin-table">
               <thead>
                 <tr>
-                  <th>{t('admin.auditors.tableAuditor', 'Chartered Auditor & Firm')}</th>
+                  <th>{t('admin.auditors.tableAuditor', 'Auditor & Firm')}</th>
                   <th>{t('admin.auditors.tableBody', 'Professional Body')}</th>
                   <th>{t('admin.auditors.tableMembership', 'License / Membership #')}</th>
                   <th>{t('admin.auditors.tableActiveAudits', 'Active Engagements')}</th>
@@ -306,7 +305,7 @@ export const AdminAuditorsPage: React.FC = () => {
                         <td>
                           <span
                             className={`admin-pill ${
-                              aud.professionalBody === 'ICAN'
+                              aud.professionalBody === 'ICAN' || aud.professionalBody === 'ANAN'
                                 ? 'admin-pill-success'
                                 : aud.professionalBody === 'ACCA'
                                 ? 'admin-pill-info'
@@ -333,7 +332,7 @@ export const AdminAuditorsPage: React.FC = () => {
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', maxWidth: '140px' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: 600, color: 'var(--brand-green-800)' }}>
                               <span>{completionRate}%</span>
-                              <span style={{ color: 'var(--muted)', fontWeight: 400 }}>SLA on-target</span>
+                              <span style={{ color: 'var(--muted)', fontWeight: 400 }}>{t('admin.auditors.slaOnTarget', 'SLA on-target')}</span>
                             </div>
                             <div style={{ height: '4px', width: '100%', backgroundColor: '#e2e8e4', borderRadius: '2px', overflow: 'hidden' }}>
                               <div
@@ -434,12 +433,14 @@ export const AdminAuditorsPage: React.FC = () => {
 
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.auditors.detailActiveEngagements', 'Active Engagement Lead')}</span>
-                  <span className="admin-detail-value">{inspectAuditor.activeEngagementsCount} Statutory Engagements</span>
+                  <span className="admin-detail-value">
+                    {t('admin.auditors.statutoryCount', { count: inspectAuditor.activeEngagementsCount, defaultValue: `${inspectAuditor.activeEngagementsCount} Statutory Engagements` })}
+                  </span>
                 </div>
 
                 <div className="admin-detail-row">
                   <span className="admin-detail-label">{t('admin.auditors.detailVerification', 'Verification Standing')}</span>
-                  <span className="admin-detail-value">✓ Verified Practicing Auditor</span>
+                  <span className="admin-detail-value">{t('admin.auditors.verifiedPracticingAuditor', '✓ Verified Practicing Auditor')}</span>
                 </div>
               </div>
 

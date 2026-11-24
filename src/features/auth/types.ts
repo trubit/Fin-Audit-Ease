@@ -3,7 +3,7 @@
  * Defines the contract consumed by frontend routing guards, session handlers, and API services.
  */
 
-export type UserRole = 'AUDITOR' | 'FINANCE_USER' | 'ADMIN' | 'AUDIT_MANAGER'
+export type UserRole = 'AUDITOR' | 'FINANCE_USER' | 'ADMIN' | 'AUDIT_MANAGER' | 'ACCOUNTING_MANAGER'
 
 export interface UserProfile {
   readonly id: string
@@ -14,6 +14,7 @@ export interface UserProfile {
   readonly organizationName: string
   readonly isTwoFactorEnabled: boolean
   readonly membershipNumber?: string
+  readonly professionalBody?: ProfessionalAccountingBody | string
   readonly jobTitle?: string
   readonly accountingYearEndDate?: string
   readonly commencementDate?: string
@@ -50,7 +51,7 @@ export interface LoginResponse {
   readonly tokenExpiresAt?: string
 }
 
-export type ProfessionalAccountingBody = 'ICAN' | 'ACCA' | 'ICAEW'
+export type ProfessionalAccountingBody = 'ICAN' | 'ANAN' | 'ACCA' | 'ICAEW'
 
 export interface AuditorSignUpPayload {
   readonly fullName: string

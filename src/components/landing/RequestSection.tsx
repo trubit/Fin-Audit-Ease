@@ -49,14 +49,14 @@ export const RequestSection: React.FC = () => {
               </div>
               <div className="meta-item">
                 <FileText size={14} className="meta-icon" aria-hidden="true" />
-                <span>Reference Schedule Template Attached</span>
+                <span>{t('landing.refTemplateAttached', 'Reference Schedule Template Attached')}</span>
               </div>
             </div>
           </div>
 
           {/* Right: Status Progression & Rejection Path Visual */}
           <div className="request-status-flow-box reveal-on-scroll reveal-delay-2">
-            <h4 className="flow-box-heading">Status Progression</h4>
+            <h4 className="flow-box-heading">{t('landing.statusProgression', 'Status Progression')}</h4>
             
             {/* Primary Happy Path */}
             <div className="status-path-primary" role="list">
@@ -86,7 +86,7 @@ export const RequestSection: React.FC = () => {
             <div className="rejection-path-section">
               <div className="rejection-divider">
                 <CornerDownRight size={14} className="rejection-down-icon" aria-hidden="true" />
-                <span className="rejection-heading-text">Revision &amp; Resolution Loop</span>
+                <span className="rejection-heading-text">{t('landing.revisionLoop', 'Revision & Resolution Loop')}</span>
               </div>
 
               <div className="rejection-flow-row" role="list">

@@ -135,7 +135,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                 <>
                   <Briefcase size={12} aria-hidden="true" />
                   <span>
-                    {activeEngagement.clientOrganizationName} — {activeEngagement.title} (FY{activeEngagement.fiscalYear})
+                    {activeEngagement.clientOrganizationName} • {activeEngagement.title} (FY{activeEngagement.fiscalYear})
                   </span>
                 </>
               ) : (

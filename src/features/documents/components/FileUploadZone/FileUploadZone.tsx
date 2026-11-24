@@ -244,7 +244,7 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({
         <p className="dropzone-hint">
           {t(
             'documents.fileRequirementsHint',
-            'Supported formats: PDF, Excel, Word, CSV, Images (JPEG, PNG, WEBP, SVG), and Videos (MP4, MOV, WEBM) — Maximum 25MB per file'
+            'Supported formats: PDF, Excel, Word, CSV, Images (JPEG, PNG, WEBP, SVG), and Videos (MP4, MOV, WEBM) (Maximum 25MB per file)'
           )}
         </p>
       </div>

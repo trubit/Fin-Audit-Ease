@@ -206,30 +206,30 @@ export const HeroSlider: React.FC = () => {
               <div className="visual-header">
                 <div className="visual-header-left">
                   <CalendarCheck2 size={18} className="visual-icon-green" />
-                  <span className="visual-title">Continuous Preparation Runway</span>
+                  <span className="visual-title">{t('landing.continuousRunway', 'Continuous Preparation Runway')}</span>
                 </div>
-                <span className="visual-pill green">Weekly to Pre-Audit</span>
+                <span className="visual-pill green">{t('landing.weeklyToPreAudit', 'Weekly to Pre-Audit')}</span>
               </div>
               <div className="visual-timeline-steps">
                 <div className="timeline-item done">
                   <div className="t-icon done"><CheckCircle2 size={14} /></div>
                   <div className="t-text">
-                    <strong>Weekly Checkpoints</strong>
-                    <span>Transactions, postings &amp; cash balances verified</span>
+                    <strong>{t('landing.weeklyCheckpoints', 'Weekly Checkpoints')}</strong>
+                    <span>{t('landing.sliderVisual.weeklyCheckpointsDesc', 'Transactions, postings & cash balances verified')}</span>
                   </div>
                 </div>
                 <div className="timeline-item done">
                   <div className="t-icon done"><CheckCircle2 size={14} /></div>
                   <div className="t-text">
-                    <strong>Month-End Closing</strong>
-                    <span>Reconciliations &amp; statutory schedules signed off</span>
+                    <strong>{t('landing.monthEndClosing', 'Month-End Closing')}</strong>
+                    <span>{t('landing.sliderVisual.monthEndClosingDesc', 'Reconciliations & statutory schedules signed off')}</span>
                   </div>
                 </div>
                 <div className="timeline-item current">
                   <div className="t-icon active"><Clock size={14} /></div>
                   <div className="t-text">
-                    <strong>Pre-Audit Preparation</strong>
-                    <span>Lead schedules &amp; evidentiary vault 6 months prior</span>
+                    <strong>{t('landing.preAuditPrep', 'Pre-Audit Preparation')}</strong>
+                    <span>{t('landing.sliderVisual.preAuditPrepDesc', 'Lead schedules & evidentiary vault 6 months prior')}</span>
                   </div>
                 </div>
               </div>
@@ -243,22 +243,22 @@ export const HeroSlider: React.FC = () => {
                   <FileQuestion size={18} className="visual-icon-green" />
                   <span className="visual-title">Request #REQ-042</span>
                 </div>
-                <span className="visual-pill priority">High Priority</span>
+                <span className="visual-pill priority">{t('landing.sliderVisual.highPriority', 'High Priority')}</span>
               </div>
               <div className="request-body">
-                <h4 className="req-heading">Fixed Asset Register & Additions Schedule</h4>
+                <h4 className="req-heading">{t('landing.sliderVisual.fixedAssetSchedule', 'Fixed Asset Register & Additions Schedule')}</h4>
                 <div className="req-meta-row">
-                  <span className="meta-chip"><UserCheck size={13} /> Amina Bello (Accounting Team)</span>
-                  <span className="meta-chip"><Clock size={13} /> Due in 3 days</span>
+                  <span className="meta-chip"><UserCheck size={13} /> {t('landing.sliderVisual.assignedMember', 'Assigned Accounting Officer')}</span>
+                  <span className="meta-chip"><Clock size={13} /> {t('landing.sliderVisual.dueInDays', 'Due in 3 days')}</span>
                 </div>
                 <div className="req-status-progression">
-                  <span className="prog-step passed">Pending</span>
+                  <span className="prog-step passed">{t('landing.request.statusPending', 'Pending')}</span>
                   <span className="prog-arrow">→</span>
-                  <span className="prog-step passed">Responded</span>
+                  <span className="prog-step passed">{t('landing.request.statusResponded', 'Responded')}</span>
                   <span className="prog-arrow">→</span>
-                  <span className="prog-step active">Under Review</span>
+                  <span className="prog-step active">{t('landing.request.statusUnderReview', 'Under Review')}</span>
                   <span className="prog-arrow">→</span>
-                  <span className="prog-step">Approved</span>
+                  <span className="prog-step">{t('landing.request.statusApproved', 'Approved')}</span>
                 </div>
               </div>
             </div>
@@ -269,20 +269,20 @@ export const HeroSlider: React.FC = () => {
               <div className="visual-header">
                 <div className="visual-header-left">
                   <FileSpreadsheet size={18} className="visual-icon-green" />
-                  <span className="visual-title">Direct Document Vault</span>
+                  <span className="visual-title">{t('landing.sliderVisual.directDocumentVault', 'Direct Document Vault')}</span>
                 </div>
-                <span className="visual-pill green">25MB Max</span>
+                <span className="visual-pill green">{t('landing.sliderVisual.maxSize', '25MB Max')}</span>
               </div>
               <div className="doc-item-row">
                 <div className="doc-icon-box"><FileSpreadsheet size={20} /></div>
                 <div className="doc-details">
-                  <span className="doc-name">Fixed_Assets_Ledger_2024.xlsx</span>
-                  <span className="doc-sub">3.8 MB · Uploaded by Accounting Team</span>
+                  <span className="doc-name">Fixed_Assets_Ledger_2026.xlsx</span>
+                  <span className="doc-sub">{t('landing.sliderVisual.uploadedByAccounting', '3.8 MB · Uploaded by Accounting Team')}</span>
                 </div>
-                <span className="doc-badge">Anchored</span>
+                <span className="doc-badge">{t('landing.sliderVisual.anchored', 'Anchored')}</span>
               </div>
               <div className="doc-context-note">
-                <strong>Accounting Team Note:</strong> Depreciation recalculated per Section 14 statutory guidelines. Supporting vendor invoices attached in Appendix B.
+                <strong>{t('landing.sliderVisual.accountingNote', 'Accounting Team Note:')}</strong> {t('landing.sliderVisual.accountingNoteContent', 'All verified invoices, bank statements, and reconciliations are organized and ready for audit review.')}
               </div>
             </div>
           )}
@@ -292,28 +292,28 @@ export const HeroSlider: React.FC = () => {
               <div className="visual-header">
                 <div className="visual-header-left">
                   <ShieldCheck size={18} className="visual-icon-green" />
-                  <span className="visual-title">Audit Checklist and Supporting Documents</span>
+                  <span className="visual-title">{t('landing.sliderVisual.auditChecklistAndDocs', 'Audit Checklist and Supporting Documents')}</span>
                 </div>
-                <span className="visual-pill blue">Audit Inspection</span>
+                <span className="visual-pill blue">{t('landing.sliderVisual.auditInspection', 'Audit Inspection')}</span>
               </div>
               <div className="decision-split">
                 <div className="decision-card approve">
                   <div className="dec-icon green"><CheckCircle2 size={16} /></div>
                   <div className="dec-text">
-                    <strong>Audit Checklist and Supporting Documents — Approved</strong>
-                    <span>Document meets compliance requirements</span>
+                    <strong>{t('landing.sliderVisual.checklistApproved', 'Audit Checklist and Supporting Documents (Approved)')}</strong>
+                    <span>{t('landing.sliderVisual.complianceMet', 'Document meets compliance requirements')}</span>
                   </div>
                 </div>
                 <div className="decision-card reject">
                   <div className="dec-icon red"><XCircle size={16} /></div>
                   <div className="dec-text">
-                    <strong>Not Approved with Reason</strong>
-                    <span>"Bank stamp missing on page 2. Please re-upload."</span>
+                    <strong>{t('landing.sliderVisual.notApprovedWithReason', 'Not Approved with Reason')}</strong>
+                    <span>{t('landing.sliderVisual.rejectionReasonSample', '"Bank stamp missing on page 2. Please re-upload."')}</span>
                   </div>
                 </div>
               </div>
               <div className="resubmit-notice">
-                <ArrowRight size={14} /> Returned to Accounting Team queue for response
+                <ArrowRight size={14} /> {t('landing.sliderVisual.returnedToQueue', 'Returned to Accounting Team queue for response')}
               </div>
             </div>
           )}
@@ -323,30 +323,30 @@ export const HeroSlider: React.FC = () => {
               <div className="visual-header">
                 <div className="visual-header-left">
                   <History size={18} className="visual-icon-green" />
-                  <span className="visual-title">Permanent Engagement Record</span>
+                  <span className="visual-title">{t('landing.sliderVisual.permanentEngagementRecord', 'Permanent Engagement Record')}</span>
                 </div>
-                <span className="visual-pill green">Permanent Trail</span>
+                <span className="visual-pill green">{t('landing.sliderVisual.permanentTrail', 'Permanent Trail')}</span>
               </div>
               <div className="trail-timeline">
                 <div className="trail-node">
                   <span className="trail-dot green" />
                   <div className="trail-info">
-                    <strong>Fiscal Year 2024 Engagement Finalized</strong>
-                    <span>All 64 requests approved and archived</span>
+                    <strong>{t('landing.sliderVisual.engagementFinalized', 'Fiscal Year 2026 Engagement Finalized')}</strong>
+                    <span>{t('landing.sliderVisual.allRequestsApproved', 'All requested schedules approved and archived')}</span>
                   </div>
                 </div>
                 <div className="trail-node">
                   <span className="trail-dot blue" />
                   <div className="trail-info">
-                    <strong>Multi-Year History Retained</strong>
-                    <span>Available for subsequent year audit benchmarking</span>
+                    <strong>{t('landing.sliderVisual.multiYearRetained', 'Multi-Year History Retained')}</strong>
+                    <span>{t('landing.sliderVisual.availableForBenchmarking', 'Available for subsequent year audit benchmarking')}</span>
                   </div>
                 </div>
                 <div className="trail-node">
                   <span className="trail-dot dark" />
                   <div className="trail-info">
-                    <strong>Tamper-Evident Chronology</strong>
-                    <span>Complete timestamps & user accountability</span>
+                    <strong>{t('landing.sliderVisual.tamperEvident', 'Tamper-Evident Chronology')}</strong>
+                    <span>{t('landing.sliderVisual.timestampsAccountability', 'Complete timestamps & user accountability')}</span>
                   </div>
                 </div>
               </div>

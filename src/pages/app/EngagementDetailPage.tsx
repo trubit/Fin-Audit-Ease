@@ -36,6 +36,7 @@ import {
   useEngagementMilestones,
   useEngagementMembers,
   useInviteEngagementMember,
+  useAssignAuditor,
 } from '@/features/engagements/hooks/useEngagements'
 import { useAuditRequests } from '@/features/auditRequests/hooks/useAuditRequests'
 import { useDocuments } from '@/features/documents/hooks/useDocuments'
@@ -52,6 +53,7 @@ export const EngagementDetailPage: React.FC = () => {
 
   const isAuditor =
     user?.role === 'AUDITOR' || user?.role === 'AUDIT_MANAGER' || user?.role === 'ADMIN'
+  const isAuditManager = user?.role === 'AUDIT_MANAGER' || user?.role === 'ADMIN'
 
   // Invitation Form State
   const [inviteModalOpen, setInviteModalOpen] = useState(false)
@@ -61,6 +63,12 @@ export const EngagementDetailPage: React.FC = () => {
   const [inviteSuccessToken, setInviteSuccessToken] = useState<string | null>(null)
   const [tokenCopied, setTokenCopied] = useState(false)
   const inviteModalRef = useRef<HTMLDivElement>(null)
+
+  // Auditor Assignment State (Audit Manager)
+  const [assignAuditorModalOpen, setAssignAuditorModalOpen] = useState(false)
+  const [auditorInputName, setAuditorInputName] = useState('')
+  const [assignAuditorError, setAssignAuditorError] = useState<string | null>(null)
+  const assignAuditorMutation = useAssignAuditor(id)
 
   useEffect(() => {
     if (!inviteModalOpen) return
@@ -182,10 +190,38 @@ export const EngagementDetailPage: React.FC = () => {
     }
   }
 
+  const handleAssignAuditorSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setAssignAuditorError(null)
+    if (!auditorInputName.trim()) {
+      setAssignAuditorError('Please enter a valid auditor name.')
+      return
+    }
+
+    try {
+      await assignAuditorMutation.mutateAsync({
+        auditorId: `aud-${Date.now()}`,
+        auditorName: auditorInputName.trim(),
+      })
+      showToast({
+        type: 'success',
+        title: 'Auditor Assigned',
+        message: `Successfully assigned ${auditorInputName.trim()} as Lead Auditor.`,
+      })
+      setAssignAuditorModalOpen(false)
+    } catch (err: unknown) {
+      if (err instanceof AppApiError) {
+        setAssignAuditorError(err.message)
+      } else {
+        setAssignAuditorError(t('errors.generic'))
+      }
+    }
+  }
+
   return (
     <PageContainer
       title={engagement.title}
-      subtitle={`${engagement.clientOrganizationName} — Fiscal Year ${engagement.fiscalYear}`}
+      subtitle={`${engagement.clientOrganizationName} • Fiscal Year ${engagement.fiscalYear}`}
       actions={
         isAuditor && !isCompleted ? (
           <div style={{ display: 'flex', gap: 'var(--spacing-2)', flexWrap: 'wrap' }}>
@@ -203,6 +239,20 @@ export const EngagementDetailPage: React.FC = () => {
               <MessagesSquare size={16} aria-hidden="true" />
               <span>{t('navigation.communication', 'Communication & Meetings')}</span>
             </Link>
+            {isAuditManager && (
+              <button
+                type="button"
+                className="btn btn-outline btn-md"
+                onClick={() => {
+                  setAuditorInputName(engagement.leadAuditorName || '')
+                  setAssignAuditorError(null)
+                  setAssignAuditorModalOpen(true)
+                }}
+              >
+                <Users size={16} aria-hidden="true" />
+                <span>{t('engagements.assignFieldLead', 'Assign Lead Auditor')}</span>
+              </button>
+            )}
             <button
               type="button"
               className="btn btn-outline btn-md"
@@ -991,6 +1041,112 @@ export const EngagementDetailPage: React.FC = () => {
                 </div>
               </form>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Assign Field Auditor Modal (Audit Engagement Manager Action) */}
+      {assignAuditorModalOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'var(--spacing-4)',
+            zIndex: 1000,
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="assign-auditor-modal-title"
+        >
+          <div
+            className="card"
+            style={{
+              width: '100%',
+              maxWidth: '480px',
+              padding: 'var(--spacing-6)',
+              backgroundColor: 'var(--bg-surface)',
+              boxShadow: 'var(--shadow-xl)',
+            }}
+          >
+            <h3
+              id="assign-auditor-modal-title"
+              style={{ fontSize: 'var(--font-size-lg)', fontWeight: 700, color: 'var(--color-slate-900)' }}
+            >
+              {t('engagements.assignFieldLead', 'Assign Field Lead Auditor')}
+            </h3>
+            <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-muted)', marginTop: 'var(--spacing-1)', marginBottom: 'var(--spacing-4)' }}>
+              {t('engagements.assignFieldLeadDesc', 'Assign or reassign a designated auditor to supervise and execute fieldwork for this engagement.')}
+            </p>
+
+            {assignAuditorError && (
+              <div
+                style={{
+                  padding: 'var(--spacing-3)',
+                  backgroundColor: 'var(--color-danger-50)',
+                  color: 'var(--color-danger-700)',
+                  border: '1px solid var(--color-danger-200)',
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: 'var(--font-size-xs)',
+                  marginBottom: 'var(--spacing-4)',
+                }}
+                role="alert"
+              >
+                {assignAuditorError}
+              </div>
+            )}
+
+            <form onSubmit={handleAssignAuditorSubmit}>
+              <FormField
+                label="Lead Auditor Full Name"
+                htmlFor="auditor-name-input"
+                required
+              >
+                <input
+                  id="auditor-name-input"
+                  type="text"
+                  value={auditorInputName}
+                  onChange={(e) => setAuditorInputName(e.target.value)}
+                  placeholder="e.g. Lead Auditor Name, FCA / ACA"
+                  className="form-input"
+                  required
+                />
+              </FormField>
+
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  gap: 'var(--spacing-2)',
+                  marginTop: 'var(--spacing-4)',
+                }}
+              >
+                <button
+                  type="button"
+                  className="btn btn-outline btn-sm"
+                  onClick={() => setAssignAuditorModalOpen(false)}
+                >
+                  {t('common.cancel')}
+                </button>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-sm"
+                  disabled={assignAuditorMutation.isPending}
+                >
+                  {assignAuditorMutation.isPending ? (
+                    <>
+                      <Loader2 size={14} className="spinner" aria-hidden="true" />
+                      <span>{t('engagements.saving', 'Saving...')}</span>
+                    </>
+                  ) : (
+                    <span>{t('engagements.confirmAssignment', 'Confirm Assignment')}</span>
+                  )}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

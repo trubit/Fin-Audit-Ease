@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { AlertTriangle, ShieldCheck, ArrowRight, Loader2, ArrowLeft, KeyRound } from 'lucide-react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { AlertTriangle, ShieldCheck, Loader2, ArrowLeft, KeyRound, ArrowRight } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useAdminAuth } from '@/features/admin-auth/hooks/useAdminAuth'
 import { PasswordInput } from '@/features/auth/components/PasswordInput/PasswordInput'
 import { LanguageSwitcher } from '@/components/navigation/LanguageSwitcher/LanguageSwitcher'
 import { AppApiError } from '@/services/api/apiErrors'
+import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
+import { devAuthService } from '@/features/dev-auth/services/devAuthService'
 import './AdminLoginPage.css'
 
 export const AdminLoginPage: React.FC = () => {
@@ -22,6 +24,16 @@ export const AdminLoginPage: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const returnPath = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/admin/dashboard'
+
+  const handleDevLogin = () => {
+    devAuthService.loginAsDev('ADMIN')
+    navigate(returnPath, { replace: true })
+  }
+
+  const handleAutoFillDemo = () => {
+    setEmail('admin.platform@finauditease.ng')
+    setPassword('AdminSecurePassword2026!')
+  }
 
   const handleSubmitCredentials = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -100,10 +112,9 @@ export const AdminLoginPage: React.FC = () => {
       {/* Official Top Navigation Bar */}
       <header className="admin-auth-header" role="banner">
         <div className="admin-auth-header-container">
-          <Link
-            to="/"
+          <div
             className="admin-auth-header-brand"
-            aria-label="FinAuditEase — Powered by Sabi Africa Innovations Limited"
+            aria-label="FinAuditEase | Powered by Sabi Africa Innovations Limited"
           >
             <img
               src="/images/sabi-africa-logo.jpg"
@@ -118,7 +129,7 @@ export const AdminLoginPage: React.FC = () => {
                 {t('admin.auth.headerSubtitle', 'Administration Platform • Sabi Africa Innovations')}
               </span>
             </div>
-          </Link>
+          </div>
 
           <div className="admin-auth-header-actions">
             <LanguageSwitcher variant="header" />
@@ -150,25 +161,42 @@ export const AdminLoginPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Warning Banner */}
-          <div className="admin-login-warning-box" role="alert">
-            <AlertTriangle size={18} className="admin-login-warning-icon" aria-hidden="true" />
-            <div className="admin-login-warning-text">
-              <strong>{t('admin.auth.warningHeading', 'RESTRICTED SYSTEM ACCESS')}</strong>
-              <span>
-                {t(
-                  'admin.auth.warningBody',
-                  'Authorized platform operations personnel only. Public registration is disabled. All connection attempts and actions are immutably logged.'
-                )}
-              </span>
-            </div>
-          </div>
-
           {/* Error Feedback */}
           {errorMessage && (
             <div className="admin-login-error-alert" role="alert">
               <AlertTriangle size={16} aria-hidden="true" />
               <span>{errorMessage}</span>
+            </div>
+          )}
+
+          {/* Development Preview Mode Box */}
+          {isDevAuthEnabled() && !temporaryToken && (
+            <div className="admin-dev-preview-box">
+              <div className="admin-dev-preview-header">
+                <ShieldCheck size={18} className="admin-dev-preview-icon" aria-hidden="true" />
+                <span className="admin-dev-preview-title">{t('devAuth.bannerTitle', 'DEVELOPMENT PREVIEW MODE')}</span>
+              </div>
+              <p className="admin-dev-preview-desc">
+                {t('devAuth.adminPreviewDesc', 'Instant administrator preview access is enabled for frontend inspection. Bypass credentials and enter the console directly.')}
+              </p>
+              <div className="admin-dev-preview-actions">
+                <button
+                  type="button"
+                  className="admin-dev-preview-btn admin-dev-enter-btn"
+                  onClick={handleDevLogin}
+                >
+                  <ShieldCheck size={15} aria-hidden="true" />
+                  <span>{t('devAuth.enterAdmin', 'Enter Admin Platform')}</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  className="admin-dev-preview-btn admin-dev-autofill-btn"
+                  onClick={handleAutoFillDemo}
+                >
+                  <span>{t('devAuth.autoFillDemo', 'Auto-fill Demo Credentials')}</span>
+                </button>
+              </div>
             </div>
           )}
 
@@ -288,22 +316,6 @@ export const AdminLoginPage: React.FC = () => {
               </button>
             </form>
           )}
-
-          {/* Footer & Return Link */}
-          <div className="admin-login-card-footer">
-            <p className="admin-login-footer-text">
-              {t('admin.auth.notAdminQuestion', 'Auditor or Corporate Accounting Team Member?')}
-            </p>
-            <Link to="/login" className="admin-login-return-link">
-              <span>{t('admin.auth.returnToMain', 'Return to FinAuditEase Client Sign-In')}</span>
-              <ArrowRight size={14} aria-hidden="true" />
-            </Link>
-
-            <div className="admin-security-seal">
-              <span className="admin-security-seal-dot" aria-hidden="true" />
-              <span>{t('admin.auth.securitySeal', 'TLS 1.3 Strict Encrypted • Immutable Audit Trail Monitored')}</span>
-            </div>
-          </div>
         </div>
       </main>
     </div>

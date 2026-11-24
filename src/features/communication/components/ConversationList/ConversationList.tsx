@@ -126,7 +126,7 @@ export const ConversationList: React.FC<ConversationListProps> = ({
             )}
             {engagements.map((eng) => (
               <option key={eng.id} value={eng.id}>
-                {eng.clientOrganizationName} — FY{eng.fiscalYear} ({eng.title})
+                {eng.clientOrganizationName} • FY{eng.fiscalYear} ({eng.title})
               </option>
             ))}
           </select>
@@ -237,7 +237,7 @@ export const ConversationList: React.FC<ConversationListProps> = ({
                 <div className="conv-item-content">
                   <div className="conv-item-header">
                     <h3 className="conv-item-title">
-                      {currentEngagement.clientOrganizationName} — {t('communication.engagementTeam')}
+                      {currentEngagement.clientOrganizationName} • {t('communication.engagementTeam')}
                     </h3>
                   </div>
                   <p className="conv-item-subtitle">

@@ -20,7 +20,7 @@ describe('Phase 8: Checklists, Month End & Pre-Audit Preparation', () => {
 
     it('formats ISO dates accurately', () => {
       expect(formatDate('2026-12-31')).toContain('2026')
-      expect(formatDate(undefined)).toBe('—')
+      expect(formatDate(undefined)).toBe('-')
     })
 
     it('calculates countdown from real backend year-end date', () => {

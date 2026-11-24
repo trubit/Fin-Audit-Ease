@@ -27,8 +27,8 @@ export const CapabilitiesSection: React.FC = () => {
         t('landing.capabilities.prepareItem2'),
         t('landing.capabilities.prepareItem3'),
       ],
-      tag: 'Continuous Readiness',
-      summary: 'Eliminate end-of-year rush by maintaining structured monthly closes and verified pre-audit checklists 6 months ahead.',
+      tag: t('landing.capabilities.prepareTag', 'Continuous Readiness'),
+      summary: t('landing.capabilities.prepareSummary', 'Eliminate end-of-year rush by maintaining structured monthly closes and verified pre-audit checklists 6 months ahead.'),
     },
     {
       id: 'organize',
@@ -41,8 +41,8 @@ export const CapabilitiesSection: React.FC = () => {
         t('landing.capabilities.organizeItem2'),
         t('landing.capabilities.organizeItem3'),
       ],
-      tag: 'Engagement Clarity',
-      summary: 'Centralize audit engagements, assign requests directly to specific accounting team members, and track strict deadlines.',
+      tag: t('landing.capabilities.organizeTag', 'Engagement Clarity'),
+      summary: t('landing.capabilities.organizeSummary', 'Centralize audit engagements, assign requests directly to specific accounting team members, and track strict deadlines.'),
     },
     {
       id: 'respond',
@@ -55,8 +55,8 @@ export const CapabilitiesSection: React.FC = () => {
         t('landing.capabilities.respondItem2'),
         t('landing.capabilities.respondItem3'),
       ],
-      tag: 'Direct Document Flow',
-      summary: 'Upload evidence (up to 25MB) directly anchored to each audit request with clarifying comments and clean re-submission loops.',
+      tag: t('landing.capabilities.respondTag', 'Direct Document Flow'),
+      summary: t('landing.capabilities.respondSummary', 'Upload evidence (up to 25MB) directly anchored to each audit request with clarifying comments and clean re-submission loops.'),
     },
     {
       id: 'review',
@@ -69,8 +69,8 @@ export const CapabilitiesSection: React.FC = () => {
         t('landing.capabilities.reviewItem2'),
         t('landing.capabilities.reviewItem3'),
       ],
-      tag: 'Transparent Decisions',
-      summary: 'Auditors inspect submitted files, record approval decisions, and provide explicit written reasons when documentation needs revision.',
+      tag: t('landing.capabilities.reviewTag', 'Transparent Decisions'),
+      summary: t('landing.capabilities.reviewSummary', 'Auditors inspect submitted files, record approval decisions, and provide explicit written reasons when documentation needs revision.'),
     },
     {
       id: 'remember',
@@ -83,8 +83,8 @@ export const CapabilitiesSection: React.FC = () => {
         t('landing.capabilities.rememberItem2'),
         t('landing.capabilities.rememberItem3'),
       ],
-      tag: 'Audit Trail & Alerts',
-      summary: 'Keep the complete audit history accessible forever. Approvals, rejections, timestamps, and notifications remain unalterable.',
+      tag: t('landing.capabilities.rememberTag', 'Audit Trail & Alerts'),
+      summary: t('landing.capabilities.rememberSummary', 'Keep the complete audit history accessible forever. Approvals, rejections, timestamps, and notifications remain unalterable.'),
     },
   ]
 
@@ -163,7 +163,7 @@ export const CapabilitiesSection: React.FC = () => {
 
           <div className="cap-detail-action">
             <a href="#how-it-works" className="cap-learn-more-link">
-              <span>See workflow in action</span>
+              <span>{t('landing.seeWorkflowInAction', 'See workflow in action')}</span>
               <ArrowRight size={15} />
             </a>
           </div>

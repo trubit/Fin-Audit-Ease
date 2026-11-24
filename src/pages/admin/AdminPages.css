@@ -1,6 +1,6 @@
 /**
  * FinAuditEase Admin Platform Pages Shared Stylesheet
- * Strict App Typography Enforcement (Plus Jakarta Sans & Instrument Serif)
+ * Official Typography Enforcement: Times New Roman ("Times New Roman", Times, serif)
  * Brand colors: Sabi Africa Emerald (#1a6b4a, #2d9b68, #e8f5ee), Charcoal (#1c1c1c), Slate (#4a4a4a)
  */
 
@@ -24,7 +24,7 @@
 .admin-select,
 .admin-filter-select,
 .admin-modal-card {
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 
 .admin-layout-shell h1,
@@ -36,7 +36,7 @@
 .admin-modal-title,
 .admin-metric-value,
 .admin-kpi-value {
-  font-family: var(--font-display, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
+  font-family: var(--font-display, "Times New Roman", Times, serif);
 }
 
 .admin-page-header {
@@ -615,7 +615,7 @@
   font-weight: 500;
   color: var(--brand-charcoal, #1c1c1c);
   cursor: pointer;
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 
 .admin-select:focus {
@@ -668,6 +668,6 @@
   font-size: 11px;
   font-weight: 600;
   color: #334155;
-  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+  font-family: var(--font-body, "Times New Roman", Times, serif);
 }
 

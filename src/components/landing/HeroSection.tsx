@@ -65,23 +65,23 @@ export const HeroSection: React.FC = () => {
         <div className="landing-hero-trust-bar" role="list" aria-label="Key frameworks and standards">
           <div className="landing-hero-trust-tag" role="listitem">
             <span className="trust-tag-dot" aria-hidden="true" />
-            <span>Statutory Audit Ready</span>
+            <span>{t('landing.statutoryAuditReady', 'Statutory Audit Ready')}</span>
           </div>
           <div className="landing-hero-trust-tag" role="listitem">
             <span className="trust-tag-dot" aria-hidden="true" />
-            <span>IFRS &amp; ISA Aligned</span>
+            <span>{t('landing.ifrsIsaAligned', 'IFRS & ISA Aligned')}</span>
           </div>
           <div className="landing-hero-trust-tag" role="listitem">
             <span className="trust-tag-dot" aria-hidden="true" />
-            <span>TLS &amp; AES-256 Encryption</span>
+            <span>{t('landing.tlsEncryption', 'TLS & AES-256 Encryption')}</span>
           </div>
           <div className="landing-hero-trust-tag" role="listitem">
             <span className="trust-tag-dot" aria-hidden="true" />
-            <span>Built for NDPA Privacy Standards</span>
+            <span>{t('landing.builtForNdpa', 'Built for NDPA Privacy Standards')}</span>
           </div>
           <div className="landing-hero-trust-tag" role="listitem">
             <span className="trust-tag-dot" aria-hidden="true" />
-            <span>5 Nigerian Languages</span>
+            <span>{t('landing.fiveLanguages', '5 Nigerian Languages')}</span>
           </div>
         </div>
       </div>

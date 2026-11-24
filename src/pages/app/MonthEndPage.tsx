@@ -25,8 +25,6 @@ import {
   useSignOffChecklist,
   PipelineFlowBanner,
   ForwardFlowModal,
-  buildMonthEndItemsForPeriod,
-  type Checklist,
 } from '@/features/checklists'
 import { ChecklistTable } from '@/features/checklists/components/ChecklistTable/ChecklistTable'
 import { getMonthEndInfo } from '@/utils/dateUtils'
@@ -58,7 +56,9 @@ export const MonthEndPage: React.FC = () => {
   const isAuditorRole =
     user?.role === 'AUDITOR' || user?.role === 'AUDIT_MANAGER' || user?.role === 'ADMIN'
   const isManagerRole =
-    user?.role === 'ADMIN' || user?.role === 'AUDIT_MANAGER'
+    user?.role === 'ADMIN' ||
+    user?.role === 'ACCOUNTING_MANAGER' ||
+    user?.role === 'AUDIT_MANAGER'
 
   const currentMonthText = t('checklists.currentMonth', 'Current')
 
@@ -87,27 +87,8 @@ export const MonthEndPage: React.FC = () => {
 
   const rawChecklist = response?.data
 
-  // Real backend checklist or canonical 21-item Month-End Close structure
-  const checklist: Checklist | undefined = useMemo(() => {
-    if (rawChecklist) return rawChecklist
-    if (isCurrentPeriod) {
-      const now = new Date(initialTimestamp)
-      const year = now.getFullYear()
-      const month = now.getMonth()
-      const items = buildMonthEndItemsForPeriod(`month-end-${selectedPeriod}`, year, month)
-      return {
-        id: `month-end-${selectedPeriod}`,
-        type: 'MONTH_END_CLOSE',
-        title: t('checklists.monthEndTitle', 'Month-End Close Checklist'),
-        periodLabel: availablePeriods[0].label,
-        items,
-        totalItemsCount: items.length,
-        completedItemsCount: 0,
-        reviewedItemsCount: 0,
-      }
-    }
-    return undefined
-  }, [rawChecklist, isCurrentPeriod, initialTimestamp, selectedPeriod, availablePeriods, t])
+  // Real backend checklist (strictly no fake synthesized items)
+  const checklist = rawChecklist
 
   // Calculate real Month-End countdown
   const monthEndInfo = useMemo(() => {

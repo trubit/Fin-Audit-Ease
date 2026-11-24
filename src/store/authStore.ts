@@ -3,6 +3,8 @@ import type { UserProfile, AuthState } from '@/features/auth/types'
 import { setAppLanguage } from '@/i18n'
 import { APP_CONFIG, type SupportedLocale } from '@/config/app.config'
 import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
+import { DEV_USERS } from '@/features/dev-auth/constants'
+import type { DevRole } from '@/features/dev-auth/types'
 
 export interface AuthStoreState extends AuthState {
   readonly setAuthenticatedUser: (user: UserProfile) => void
@@ -37,9 +39,29 @@ const getInitialDevSession = (): {
       if (raw) {
         const parsed = JSON.parse(raw) as UserProfile
         if (parsed?.id && parsed?.role) {
-          applyUserPreferredLanguage(parsed.preferredLanguage)
+          // Guarantee that stale legacy preview profiles cached in browser sessionStorage
+          // are immediately purged and aligned with canonical neutral development profiles.
+          const canonical = DEV_USERS[parsed.role as DevRole]
+          let cleanUser: UserProfile = canonical
+            ? {
+                ...canonical,
+                preferredLanguage: parsed.preferredLanguage,
+              }
+            : parsed
+          if (
+            cleanUser?.organizationName &&
+            (/chartered/i.test(cleanUser.organizationName) ||
+              /assurance\s*practice/i.test(cleanUser.organizationName))
+          ) {
+            cleanUser = {
+              ...cleanUser,
+              organizationName: 'Audit Firm',
+            }
+          }
+          window.sessionStorage.setItem(DEV_SESSION_KEY, JSON.stringify(cleanUser))
+          applyUserPreferredLanguage(cleanUser.preferredLanguage)
           return {
-            user: parsed,
+            user: cleanUser,
             status: 'authenticated',
             isAuthenticated: true,
             authMode: 'development',

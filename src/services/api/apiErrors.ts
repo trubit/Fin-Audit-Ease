@@ -79,6 +79,30 @@ export class AppApiError extends Error {
   get isServerError(): boolean {
     return this.status >= 500
   }
+
+  getLocalizedMessage(t?: (key: string, options?: { defaultValue?: string }) => string): string {
+    if (typeof t !== 'function') return this.userMessage
+    const keyMap: Record<ApiErrorCode, string> = {
+      NETWORK_ERROR: 'errors.api.networkError',
+      TIMEOUT_ERROR: 'errors.api.timeoutError',
+      REQUEST_CANCELLED: 'errors.api.requestCancelled',
+      BAD_REQUEST: 'errors.api.badRequest',
+      UNAUTHORIZED: 'errors.api.unauthorized',
+      FORBIDDEN: 'errors.api.forbidden',
+      NOT_FOUND: 'errors.api.notFound',
+      CONFLICT: 'errors.api.conflict',
+      UNPROCESSABLE_ENTITY: 'errors.api.validationError',
+      RATE_LIMITED: 'errors.api.rateLimited',
+      SERVER_ERROR: 'errors.api.serverError',
+      BAD_GATEWAY: 'errors.api.serverError',
+      SERVICE_UNAVAILABLE: 'errors.api.serviceUnavailable',
+      CONFIGURATION_ERROR: 'errors.api.unknownError',
+      CONTRACT_ERROR: 'errors.api.unknownError',
+      UNKNOWN_ERROR: 'errors.api.unknownError',
+    }
+    const key = keyMap[this.code] || 'errors.api.unknownError'
+    return t(key, { defaultValue: this.userMessage })
+  }
 }
 
 /**

@@ -73,3 +73,45 @@ export const useAddAuditRequestComment = () => {
     },
   })
 }
+
+export const useAssignAuditRequest = () => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({
+      id,
+      payload,
+    }: {
+      id: string
+      payload: { assigneeId: string; assigneeName?: string }
+    }) => auditRequestService.assignAuditRequest(id, payload),
+    onSuccess: (response, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['auditRequest', variables.id] })
+      queryClient.invalidateQueries({ queryKey: ['auditRequests'] })
+      if (response.data?.engagementId) {
+        queryClient.invalidateQueries({ queryKey: ['engagement', response.data.engagementId] })
+      }
+    },
+  })
+}
+
+export const useUpdateAuditRequest = () => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({
+      id,
+      payload,
+    }: {
+      id: string
+      payload: Parameters<typeof auditRequestService.updateAuditRequest>[1]
+    }) => auditRequestService.updateAuditRequest(id, payload),
+    onSuccess: (response, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['auditRequest', variables.id] })
+      queryClient.invalidateQueries({ queryKey: ['auditRequests'] })
+      if (response.data?.engagementId) {
+        queryClient.invalidateQueries({ queryKey: ['engagement', response.data.engagementId] })
+      }
+    },
+  })
+}

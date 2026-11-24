@@ -95,7 +95,7 @@ export const CommunicationPage: React.FC = () => {
       type: 'GROUP',
       engagementId: activeEngagement.id,
       engagementTitle: activeEngagement.title,
-      title: `${activeEngagement.clientOrganizationName} — ${t('communication.engagementTeam')}`,
+      title: `${activeEngagement.clientOrganizationName} • ${t('communication.engagementTeam')}`,
       participants: engagementMembers.map((m) => ({
         id: m.id,
         userId: m.userId,
@@ -224,7 +224,7 @@ export const CommunicationPage: React.FC = () => {
     // Select first scheduled or in-progress meeting, or fallback to current engagement session
     const currentMeeting = meetings[0] || (activeEngagement ? {
       id: `mtg-${activeEngagement.id}`,
-      title: `${activeEngagement.clientOrganizationName} — Walkthrough Session`,
+      title: `${activeEngagement.clientOrganizationName} • Walkthrough Session`,
       agenda: 'Audit Walkthrough and Statutory Evidentiary Inspection',
       meetingType: 'WALKTHROUGH' as const,
       status: 'SCHEDULED' as const,

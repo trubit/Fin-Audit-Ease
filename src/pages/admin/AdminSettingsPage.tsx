@@ -246,40 +246,40 @@ export const AdminSettingsPage: React.FC = () => {
                   <td>
                     <span className="admin-pill admin-pill-neutral">ADMIN</span>
                   </td>
-                  <td style={{ fontWeight: 600 }}>System Administrator</td>
-                  <td>Platform Administration, Users, Orgs, Security &amp; Settings</td>
-                  <td>Restricted (Metadata oversight only; no private workpaper download)</td>
-                  <td style={{ color: 'var(--brand-green-800)', fontWeight: 700 }}>✓ Full Access</td>
+                  <td style={{ fontWeight: 600 }}>{t('admin.settings.matrixRoleSystemAdmin', 'System Administrator')}</td>
+                  <td>{t('admin.settings.matrixDescSystemAdmin', 'Platform Administration, Users, Orgs, Security & Settings')}</td>
+                  <td>{t('admin.settings.matrixDocSystemAdmin', 'Restricted (Metadata oversight only; no private workpaper download)')}</td>
+                  <td style={{ color: 'var(--brand-green-800)', fontWeight: 700 }}>{t('admin.settings.matrixAdminSystemAdmin', '✓ Full Access')}</td>
                 </tr>
 
                 <tr>
                   <td>
                     <span className="admin-pill admin-pill-info">AUDIT_MANAGER</span>
                   </td>
-                  <td style={{ fontWeight: 600 }}>Audit Engagement Manager</td>
-                  <td>Assurance planning, team assignments, milestone sign-offs</td>
-                  <td>Assigned Engagements Only</td>
-                  <td style={{ color: '#b91c1c', fontWeight: 700 }}>✗ Prohibited</td>
+                  <td style={{ fontWeight: 600 }}>{t('admin.settings.matrixRoleAuditManager', 'Audit Engagement Manager')}</td>
+                  <td>{t('admin.settings.matrixDescAuditManager', 'Assurance planning, team assignments, milestone sign-offs')}</td>
+                  <td>{t('admin.settings.matrixDocAuditManager', 'Assigned Engagements Only')}</td>
+                  <td style={{ color: '#b91c1c', fontWeight: 700 }}>{t('admin.settings.matrixAdminProhibited', '✗ Prohibited')}</td>
                 </tr>
 
                 <tr>
                   <td>
                     <span className="admin-pill admin-pill-success">AUDITOR</span>
                   </td>
-                  <td style={{ fontWeight: 600 }}>Chartered Lead Auditor</td>
-                  <td>PBC audit requests, document review, checklist verification, meetings</td>
-                  <td>Assigned Engagements Only</td>
-                  <td style={{ color: '#b91c1c', fontWeight: 700 }}>✗ Prohibited</td>
+                  <td style={{ fontWeight: 600 }}>{t('admin.settings.matrixRoleAuditor', 'Lead Auditor')}</td>
+                  <td>{t('admin.settings.matrixDescAuditor', 'PBC audit requests, document review, checklist verification, meetings')}</td>
+                  <td>{t('admin.settings.matrixDocAuditManager', 'Assigned Engagements Only')}</td>
+                  <td style={{ color: '#b91c1c', fontWeight: 700 }}>{t('admin.settings.matrixAdminProhibited', '✗ Prohibited')}</td>
                 </tr>
 
                 <tr>
                   <td>
                     <span className="admin-pill admin-pill-info">FINANCE_USER</span>
                   </td>
-                  <td style={{ fontWeight: 600 }}>Corporate Accounting Team</td>
-                  <td>Finance checklists (Weekly, Month-End, Pre-Audit), asset register, PBC upload</td>
-                  <td>Own Organisation Engagements Only</td>
-                  <td style={{ color: '#b91c1c', fontWeight: 700 }}>✗ Prohibited</td>
+                  <td style={{ fontWeight: 600 }}>{t('admin.settings.matrixRoleFinance', 'Corporate Accounting Team')}</td>
+                  <td>{t('admin.settings.matrixDescFinance', 'Finance checklists (Weekly, Month-End, Pre-Audit), asset register, PBC upload')}</td>
+                  <td>{t('admin.settings.matrixDocFinance', 'Own Organisation Engagements Only')}</td>
+                  <td style={{ color: '#b91c1c', fontWeight: 700 }}>{t('admin.settings.matrixAdminProhibited', '✗ Prohibited')}</td>
                 </tr>
               </tbody>
             </table>
@@ -294,7 +294,7 @@ export const AdminSettingsPage: React.FC = () => {
             {t('admin.settings.securityTitle', 'Enterprise Security Policies & Inactivity Boundaries')}
           </h2>
           <p style={{ fontSize: '13px', color: 'var(--slate)', marginBottom: 'var(--spacing-6)' }}>
-            Enforce session timeouts, two-factor authentication, and account lockout thresholds.
+            {t('admin.settings.securityDesc', 'Enforce session timeouts, two-factor authentication, and account lockout thresholds.')}
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)', maxWidth: '600px', marginBottom: 'var(--spacing-6)' }}>

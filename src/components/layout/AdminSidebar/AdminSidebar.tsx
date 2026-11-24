@@ -18,7 +18,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
-  ArrowUpRight,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useUIStore } from '@/store/uiStore'
@@ -118,6 +117,11 @@ export const AdminSidebar: React.FC = () => {
           label: t('admin.nav.auditManagers', 'Audit Managers'),
           icon: UserCog,
         },
+        {
+          to: '/admin/accounting-managers',
+          label: t('admin.nav.accountingManagers', 'Accounting Managers'),
+          icon: UserCheck,
+        },
       ],
     },
     {
@@ -181,12 +185,6 @@ export const AdminSidebar: React.FC = () => {
           label: t('admin.nav.rolesPermissions', 'Roles & Permissions'),
           icon: KeyRound,
         },
-        {
-          to: '/dashboard',
-          label: t('admin.nav.userWorkspace', 'User Workspace View'),
-          icon: ArrowUpRight,
-          isExternalWorkspace: true,
-        },
       ],
     },
   ]
@@ -213,7 +211,7 @@ export const AdminSidebar: React.FC = () => {
           {activeUser && (
             <div
               className="admin-sidebar-role-card"
-              title={`${formatUserRole(activeUser.role, t)} — ${activeUser.organizationName || activeUser.fullName}`}
+              title={`${formatUserRole(activeUser.role, t)} • ${activeUser.organizationName || activeUser.fullName}`}
             >
               <div className="admin-sidebar-role-icon" aria-hidden="true">
                 <ShieldCheck size={18} />

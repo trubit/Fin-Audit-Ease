@@ -43,7 +43,7 @@ export const FinalCtaSection: React.FC = () => {
           </div>
 
           <div className="final-cta-attribution">
-            <span>FinAuditEase — Powered by Sabi Africa Innovations Limited</span>
+            <span>FinAuditEase | Powered by Sabi Africa Innovations Limited</span>
           </div>
         </div>
       </div>

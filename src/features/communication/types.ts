@@ -76,7 +76,7 @@ export type RecordingConsentStatus = 'PENDING' | 'GRANTED' | 'DECLINED'
 export interface ParticipantConsentRecord {
   readonly userId: string
   readonly fullName: string
-  readonly email: string
+  readonly email?: string
   readonly role: string
   readonly consentStatus: RecordingConsentStatus
   readonly consentTimestamp?: string
@@ -94,18 +94,19 @@ export interface AuditMeeting {
   readonly durationMinutes: number
   readonly timezone: string
   readonly engagementId: string
-  readonly engagementTitle: string
-  readonly conversationId: string
-  readonly hostUserId: string
-  readonly hostName: string
+  readonly engagementTitle?: string
+  readonly conversationId?: string
+  readonly hostUserId?: string
+  readonly hostName?: string
   readonly recordingPolicy: RecordingPolicy
-  readonly recordingConsentRequired: boolean
-  readonly allConsentsGranted: boolean
+  readonly recordingConsentRequired?: boolean
+  readonly allConsentsGranted?: boolean
   readonly participants: readonly ParticipantConsentRecord[]
+  readonly meetingRoomId?: string
   readonly recordingId?: string
   readonly joinUrl?: string
   readonly createdAt: string
-  readonly updatedAt: string
+  readonly updatedAt?: string
 }
 
 export interface ScheduleMeetingPayload {

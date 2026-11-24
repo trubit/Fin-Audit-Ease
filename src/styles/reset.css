@@ -17,13 +17,14 @@ html {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+  font-family: "Times New Roman", Times, serif;
 }
 
 body {
   min-height: 100vh;
   min-height: 100dvh;
   line-height: 1.6;
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-sans, "Times New Roman", Times, serif);
   font-weight: 450;
   background-color: var(--bg-app);
   color: var(--text-main);

@@ -1,5 +1,5 @@
 import React, { useState, useId } from 'react'
-import { Download, Search, Eye, Lock, RotateCcw, Upload, Send } from 'lucide-react'
+import { Download, Search, Eye, Lock, RotateCcw, Upload, Send, ShieldCheck, CheckCircle2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { PageContainer } from '@/components/layout/PageContainer/PageContainer'
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs/Breadcrumbs'
@@ -35,6 +35,7 @@ export const DocumentsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [selectedUploadEngagement, setSelectedUploadEngagement] = useState<string>('')
+  const [isUploadOpen, setIsUploadOpen] = useState<boolean>(false)
   const [previewDoc, setPreviewDoc] = useState<AuditDocument | null>(null)
   const [forwardDoc, setForwardDoc] = useState<AuditDocument | null>(null)
 
@@ -110,30 +111,28 @@ export const DocumentsPage: React.FC = () => {
     setCurrentPage(1)
   }
 
-  // Pre-select first engagement for upload if only one exists
+  // Pre-select first engagement for upload if available
   const effectiveUploadEngagement =
-    selectedUploadEngagement || (engagements.length === 1 ? engagements[0].id : '')
+    selectedUploadEngagement || (engagements.length > 0 ? engagements[0].id : '')
 
   return (
     <PageContainer
       title={t('documents.title')}
       subtitle={t('documents.subtitle')}
       actions={
-        <a
-          href={`#${uploadEngagementId}`}
-          className="btn btn-primary btn-md"
-          onClick={(e) => {
-            e.preventDefault()
-            const el = document.getElementById(uploadEngagementId)
-            if (el) {
-              el.scrollIntoView({ behavior: 'smooth' })
-              el.focus()
-            }
-          }}
+        <button
+          type="button"
+          className="btn btn-outline btn-md"
+          onClick={() => setIsUploadOpen((prev) => !prev)}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--spacing-2)' }}
         >
           <Upload size={16} aria-hidden="true" />
-          <span>{t('documents.submitUpload', 'Upload Evidentiary Schedules')}</span>
-        </a>
+          <span>
+            {isUploadOpen
+              ? t('documents.hideUpload', 'Hide Upload Area')
+              : t('documents.uploadExternalOptional', 'Upload External Document (Optional)')}
+          </span>
+        </button>
       }
     >
       <Breadcrumbs
@@ -167,76 +166,97 @@ export const DocumentsPage: React.FC = () => {
           </span>
         </div>
 
-        {/* Upload Evidentiary Schedule Section */}
-        <section aria-labelledby="upload-section-heading">
-          <div className="card" style={{ padding: 'var(--spacing-6)' }}>
-            <h2
-              id="upload-section-heading"
-              style={{
-                fontSize: 'var(--font-size-base)',
-                fontWeight: 700,
-                color: 'var(--color-slate-900)',
-                marginBottom: 'var(--spacing-4)',
-              }}
-            >
-              {t('documents.submitUpload', 'Upload Evidentiary Schedules')}
-            </h2>
+        {/* Optional Upload Section */}
+        {isUploadOpen && (
+          <section aria-labelledby="upload-section-heading">
+            <div className="card" style={{ padding: 'var(--spacing-6)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--spacing-2)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-2)' }}>
+                  <h2
+                    id="upload-section-heading"
+                    style={{
+                      fontSize: 'var(--font-size-base)',
+                      fontWeight: 700,
+                      color: 'var(--color-slate-900)',
+                      margin: 0,
+                    }}
+                  >
+                    {t('documents.uploadExternalHeading', 'Upload External Document')}
+                  </h2>
+                  <Badge variant="neutral">{t('common.optional', 'Optional')}</Badge>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-outline btn-xs"
+                  onClick={() => setIsUploadOpen(false)}
+                >
+                  {t('common.close', 'Close')}
+                </button>
+              </div>
 
-            {/* Engagement Selection for Upload */}
-            <div style={{ marginBottom: 'var(--spacing-4)', maxWidth: '420px' }}>
-              <label
-                htmlFor={uploadEngagementId}
-                style={{
-                  display: 'block',
-                  fontSize: 'var(--font-size-xs)',
-                  fontWeight: 600,
-                  color: 'var(--color-slate-700)',
-                  marginBottom: 'var(--spacing-1)',
-                }}
-              >
-                {t('auditRequests.selectEngagement')} *
-              </label>
-              <select
-                id={uploadEngagementId}
-                className="form-input"
-                value={effectiveUploadEngagement}
-                onChange={(e) => setSelectedUploadEngagement(e.target.value)}
-              >
-                <option value="">-- {t('auditRequests.selectEngagement')} --</option>
-                {engagements.map((eng) => (
-                  <option key={eng.id} value={eng.id}>
-                    {eng.title} ({eng.clientOrganizationName})
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {effectiveUploadEngagement ? (
-              <FileUploadZone
-                engagementId={effectiveUploadEngagement}
-                onUploadComplete={() => {
-                  void refetch()
-                }}
-                onUpload={async (file, meta, options) => {
-                  await uploadMutation.mutateAsync({ file, meta, options })
-                }}
-                isUploading={uploadMutation.isPending}
-              />
-            ) : (
-              <p
-                style={{
-                  fontSize: 'var(--font-size-xs)',
-                  color: 'var(--text-muted)',
-                  padding: 'var(--spacing-4)',
-                  backgroundColor: 'var(--color-slate-50)',
-                  borderRadius: 'var(--radius-md)',
-                }}
-              >
-                {t('documents.selectEngagementToUpload')}
+              <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-muted)', marginBottom: 'var(--spacing-4)' }}>
+                {t(
+                  'documents.optionalNotice',
+                  'Optional: Only required for supporting documents or schedules obtained outside the app. Any schedule or document approved inside FinAuditEase is automatically forwarded to the repository below.'
+                )}
               </p>
-            )}
-          </div>
-        </section>
+
+              {/* Engagement Selection for Upload */}
+              <div style={{ marginBottom: 'var(--spacing-4)', maxWidth: '420px' }}>
+                <label
+                  htmlFor={uploadEngagementId}
+                  style={{
+                    display: 'block',
+                    fontSize: 'var(--font-size-xs)',
+                    fontWeight: 600,
+                    color: 'var(--color-slate-700)',
+                    marginBottom: 'var(--spacing-1)',
+                  }}
+                >
+                  {t('auditRequests.selectEngagement')} *
+                </label>
+                <select
+                  id={uploadEngagementId}
+                  className="form-input"
+                  value={effectiveUploadEngagement}
+                  onChange={(e) => setSelectedUploadEngagement(e.target.value)}
+                >
+                  <option value="">-- {t('auditRequests.selectEngagement')} --</option>
+                  {engagements.map((eng) => (
+                    <option key={eng.id} value={eng.id}>
+                      {eng.title} ({eng.clientOrganizationName})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {effectiveUploadEngagement ? (
+                <FileUploadZone
+                  engagementId={effectiveUploadEngagement}
+                  onUploadComplete={() => {
+                    void refetch()
+                  }}
+                  onUpload={async (file, meta, options) => {
+                    await uploadMutation.mutateAsync({ file, meta, options })
+                  }}
+                  isUploading={uploadMutation.isPending}
+                />
+              ) : (
+                <p
+                  style={{
+                    fontSize: 'var(--font-size-xs)',
+                    color: 'var(--text-muted)',
+                    padding: 'var(--spacing-4)',
+                    backgroundColor: 'var(--color-slate-50)',
+                    borderRadius: 'var(--radius-md)',
+                  }}
+                >
+                  {t('documents.selectEngagementToUpload')}
+                </p>
+              )}
+            </div>
+          </section>
+        )}
 
         {/* Repository Documents List Section */}
         <section aria-labelledby="repo-heading">
@@ -406,6 +426,9 @@ export const DocumentsPage: React.FC = () => {
                         {t('documents.fileName')}
                       </th>
                       <th style={{ padding: 'var(--spacing-3) var(--spacing-4)', fontWeight: 600 }}>
+                        {t('documents.statusSource', 'Source & Verification')}
+                      </th>
+                      <th style={{ padding: 'var(--spacing-3) var(--spacing-4)', fontWeight: 600 }}>
                         {t('documents.classificationLabel')}
                       </th>
                       <th style={{ padding: 'var(--spacing-3) var(--spacing-4)', fontWeight: 600 }}>
@@ -432,10 +455,42 @@ export const DocumentsPage: React.FC = () => {
                             color: 'var(--color-slate-900)',
                           }}
                         >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <span>{doc.originalFileName || doc.fileName}</span>
-                            {doc.version && <Badge variant="neutral">v{doc.version}</Badge>}
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                              <span>{doc.originalFileName || doc.fileName}</span>
+                              {doc.version && <Badge variant="neutral">v{doc.version}</Badge>}
+                            </div>
+                            {doc.reviewNotes && (
+                              <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', fontWeight: 400 }}>
+                                {doc.reviewNotes}
+                              </span>
+                            )}
                           </div>
+                        </td>
+                        <td style={{ padding: 'var(--spacing-3) var(--spacing-4)' }}>
+                          {doc.forwardedFrom === 'AUDIT_APPROVAL' ? (
+                            <span
+                              className="badge badge-success"
+                              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                              title={doc.reviewNotes || 'Approved by statutory auditor'}
+                            >
+                              <ShieldCheck size={12} aria-hidden="true" />
+                              <span>{t('documents.sourceAuditorApproved', 'Auditor Approved')}</span>
+                            </span>
+                          ) : doc.forwardedFrom === 'SUPERVISOR_APPROVAL' ? (
+                            <span
+                              className="badge badge-info"
+                              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                              title={doc.reviewNotes || 'Approved by accounting supervisor'}
+                            >
+                              <CheckCircle2 size={12} aria-hidden="true" />
+                              <span>{t('documents.sourceSupervisorApproved', 'Supervisor Approved')}</span>
+                            </span>
+                          ) : (
+                            <span className="badge badge-neutral">
+                              {t('documents.sourceExternal', 'External Schedule')}
+                            </span>
+                          )}
                         </td>
                         <td style={{ padding: 'var(--spacing-3) var(--spacing-4)' }}>
                           <Badge variant="neutral">{doc.classification}</Badge>

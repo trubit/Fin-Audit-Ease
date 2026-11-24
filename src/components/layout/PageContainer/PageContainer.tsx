@@ -24,7 +24,7 @@ export const PageContainer: React.FC<PageContainerProps> = ({
 }) => {
   useEffect(() => {
     if (title) {
-      document.title = `${title} — FinAuditEase`
+      document.title = `${title} | FinAuditEase`
     }
   }, [title])
 

@@ -52,7 +52,7 @@ export const AuditorDecisionCard: React.FC<AuditorDecisionCardProps> = ({
           <span>
             {t(
               'review.engagementLockedNotice',
-              'Engagement Completed — This engagement is locked in read-only archive mode. Review actions cannot be performed.'
+              'Engagement Completed: This engagement is locked in read-only archive mode. Review actions cannot be performed.'
             )}
           </span>
         </div>

@@ -59,7 +59,7 @@ export const AdminAuditManagersPage: React.FC = () => {
         id: currentUser.id,
         fullName: currentUser.fullName,
         email: currentUser.email,
-        firmName: currentUser.organizationName || 'Sabi Chartered Audit Firm',
+        firmName: currentUser.organizationName || 'Sabi Audit Firm',
         professionalBody: 'ICAN (Fellow)',
         membershipNumber: currentUser.membershipNumber || 'FCA/2012/03841',
         supervisedEngagementsCount: 0,
@@ -90,7 +90,7 @@ export const AdminAuditManagersPage: React.FC = () => {
         } else {
           const firm = eng.clientOrganizationName
             ? `${eng.leadAuditorName ? 'Audit Practice for ' : ''}${eng.clientOrganizationName} Engagements`
-            : 'Chartered Practice'
+            : 'Audit Practice'
 
           map.set(managerId, {
             id: managerId,
