@@ -8,6 +8,7 @@ import { useAuth } from '@/features/auth/hooks/useAuth'
 import { formatUserRole } from '@/features/auth/utils/roleUtils'
 import { NotificationBell } from '@/features/notifications/components/NotificationBell/NotificationBell'
 import { SignOutConfirmModal } from '@/components/feedback/SignOutConfirmModal/SignOutConfirmModal'
+import { isDevAuthEnabled } from '@/features/dev-auth/utils/isDevAuthEnabled'
 import './AppHeader.css'
 
 export interface AppHeaderProps {
@@ -255,6 +256,24 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ isAppView = false }) => {
                 {t('navigation.languages')}
               </a>
               <span className="app-header-divider" aria-hidden="true" />
+              {isDevAuthEnabled() && (
+                <Link
+                  to="/dev-login"
+                  className="btn btn-secondary btn-sm"
+                  style={{
+                    backgroundColor: '#fef3c7',
+                    border: '1px solid #f59e0b',
+                    color: '#92400e',
+                    fontWeight: 700,
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    fontSize: '12px',
+                  }}
+                  title="Preview application roles before final hosting"
+                >
+                  ⚡ Preview Login
+                </Link>
+              )}
               <Link to="/login" className="app-header-nav-link">
                 {t('navigation.login')}
               </Link>
@@ -369,6 +388,23 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ isAppView = false }) => {
             <div className="public-mobile-divider" />
 
             <div className="public-mobile-actions">
+              {isDevAuthEnabled() && (
+                <Link
+                  to="/dev-login"
+                  className="btn btn-secondary btn-lg"
+                  style={{
+                    backgroundColor: '#fef3c7',
+                    border: '1px solid #f59e0b',
+                    color: '#92400e',
+                    fontWeight: 700,
+                    marginBottom: '8px',
+                    textAlign: 'center',
+                  }}
+                  onClick={() => setPublicMenuOpen(false)}
+                >
+                  ⚡ Preview Login
+                </Link>
+              )}
               <Link
                 to="/login"
                 className="btn btn-outline btn-lg"

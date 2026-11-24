@@ -1,15 +1,11 @@
 /**
  * Determines whether temporary development preview authentication is active.
  *
- * Enabled by default for local development and Vercel preview/staging environments
- * so engineering, stakeholders, and backend developers can inspect and test the UI.
- * Can be explicitly disabled by setting VITE_ENABLE_DEV_AUTH="false".
+ * Enabled by default for local development, staging, and deployed preview environments
+ * so engineering, stakeholders, and reviewers can preview and test all roles before final hosting.
+ * Can be explicitly disabled for final production hosting by setting VITE_ENABLE_DEV_AUTH="false".
  */
 export const isDevAuthEnabled = (): boolean => {
-  // In production builds, development authentication is strictly disabled
-  if (import.meta.env.PROD) {
-    return false
-  }
   if (import.meta.env.VITE_ENABLE_DEV_AUTH === 'false') {
     return false
   }
