@@ -74,6 +74,10 @@ function platformHistoryFallbackPlugin(isAdmin: boolean): Plugin {
 export default defineConfig(({ mode }) => {
   const isAdmin = mode === 'admin' || process.env.VITE_APP === 'admin'
 
+  const rollupInput: Record<string, string> = isAdmin
+    ? { admin: path.resolve(import.meta.dirname, 'admin.html') }
+    : { main: path.resolve(import.meta.dirname, 'index.html') }
+
   return {
     plugins: [
       react(),
@@ -151,9 +155,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       rollupOptions: {
-        input: isAdmin
-          ? { admin: path.resolve(import.meta.dirname, 'admin.html') }
-          : { main: path.resolve(import.meta.dirname, 'index.html') },
+        input: rollupInput,
       },
     },
     server: {
