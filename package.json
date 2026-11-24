@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:admin": "vite --mode admin",
     "build": "tsc -b && vite build",
+    "build:main": "tsc -b && vite build",
     "build:user": "tsc -b && vite build",
-    "build:admin": "tsc -b && vite build",
+    "build:admin": "tsc -b && vite build --mode admin",
     "lint": "oxlint",
     "test": "vitest run",
     "test:watch": "vitest",

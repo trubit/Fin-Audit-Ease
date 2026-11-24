@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/admin.html"
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -21,10 +21,6 @@
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        },
         {
           "key": "X-Frame-Options",
           "value": "DENY"
