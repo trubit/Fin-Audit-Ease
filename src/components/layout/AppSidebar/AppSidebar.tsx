@@ -93,7 +93,6 @@ export const AppSidebar: React.FC = () => {
         {
           id: 'audit-module',
           title: t('auditModule.title', 'Audit Module'),
-          moduleBadge: t('auditModule.badge', 'Audit'),
           moduleType: 'audit',
           items: [
             { to: '/engagements', label: t('navigation.engagements', 'Engagements'), icon: Briefcase },
@@ -107,7 +106,6 @@ export const AppSidebar: React.FC = () => {
         {
           id: 'finance-module',
           title: t('financeModule.title', 'Finance Module'),
-          moduleBadge: t('financeModule.badge', 'Finance'),
           moduleType: 'finance',
           items: [
             { to: '/asset-verification', label: t('assets.registerTitle', 'Asset Verification Register'), icon: Coins },
@@ -140,7 +138,6 @@ export const AppSidebar: React.FC = () => {
         {
           id: 'finance-module',
           title: t('financeModule.title', 'Finance Module'),
-          moduleBadge: t('financeModule.badge', 'Finance'),
           moduleType: 'finance',
           items: [
             { to: '/weekly', label: t('navigation.weekly', 'Weekly Checklist'), icon: CalendarClock },
@@ -153,7 +150,6 @@ export const AppSidebar: React.FC = () => {
         {
           id: 'audit-module',
           title: t('auditModule.title', 'Audit Module'),
-          moduleBadge: t('auditModule.badge', 'Audit'),
           moduleType: 'audit',
           items: [
             { to: '/engagements', label: t('navigation.engagements', 'Engagements'), icon: Briefcase },
@@ -229,7 +225,7 @@ export const AppSidebar: React.FC = () => {
                   <span className={`app-sidebar-group-title ${group.moduleType ? `group-title--${group.moduleType}` : ''}`}>
                     {group.title}
                   </span>
-                  {group.moduleBadge && sidebarOpen && (
+                  {group.moduleBadge && group.moduleBadge !== group.title && sidebarOpen && (
                     <span className={`app-sidebar-module-badge module-badge--${group.moduleType}`}>
                       {group.moduleBadge}
                     </span>
