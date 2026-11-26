@@ -255,7 +255,7 @@
 }
 
 .app-header-sabi-logo {
-  height: 36px;
+  height: 44px;
   width: auto;
   flex-shrink: 0;
   object-fit: contain;
@@ -271,7 +271,7 @@
 
 .app-header-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--green-deep, #1a6b4a);
   letter-spacing: -0.5px;
@@ -280,16 +280,17 @@
 }
 
 .app-header-subtitle {
-  font-size: 0.6875rem;
-  color: var(--green-mid, #2d9b68);
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 0.8125rem;
+  color: var(--green-deep, #1a6b4a);
+  font-weight: 700;
+  letter-spacing: 0.015em;
   white-space: nowrap;
 }
 
 @media (max-width: 640px) {
   .app-header-subtitle {
-    display: none;
+    font-size: 0.6875rem;
+    font-weight: 700;
   }
 }
 
@@ -299,11 +300,11 @@
   }
 
   .app-header-title {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
   .app-header-sabi-logo {
-    height: 32px;
+    height: 36px;
   }
 }
 

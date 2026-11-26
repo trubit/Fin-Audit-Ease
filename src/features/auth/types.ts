@@ -51,7 +51,7 @@ export interface LoginResponse {
   readonly tokenExpiresAt?: string
 }
 
-export type ProfessionalAccountingBody = 'ICAN' | 'ANAN' | 'ACCA' | 'ICAEW'
+export type ProfessionalAccountingBody = 'ICAN' | 'ANAN' | 'ACCA' | 'ICAEW' | 'OTHER'
 
 export interface AuditorSignUpPayload {
   readonly fullName: string
@@ -60,7 +60,8 @@ export interface AuditorSignUpPayload {
   readonly confirmPassword?: string
   readonly role?: 'AUDITOR'
   readonly firmName: string
-  readonly professionalBody: ProfessionalAccountingBody
+  readonly professionalBody: ProfessionalAccountingBody | string
+  readonly otherProfessionalBody?: string
   readonly membershipNumber: string
   readonly preferredLanguage: string
   readonly termsAccepted: boolean

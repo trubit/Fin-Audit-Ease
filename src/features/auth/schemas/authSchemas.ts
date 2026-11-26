@@ -40,9 +40,14 @@ export const auditorSignupSchema = z
       .string()
       .min(2, 'Firm name must be at least 2 characters')
       .max(120, 'Firm name cannot exceed 120 characters'),
-    professionalBody: z.enum(['ICAN', 'ANAN', 'ACCA', 'ICAEW'], {
-      errorMap: () => ({ message: 'Please select a valid professional accounting body (ICAN, ANAN, ACCA, or ICAEW)' }),
+    professionalBody: z.enum(['ICAN', 'ANAN', 'ACCA', 'ICAEW', 'OTHER'], {
+      errorMap: () => ({ message: 'Please select a valid professional accounting body' }),
     }),
+    otherProfessionalBody: z
+      .string()
+      .max(100, 'Professional body name cannot exceed 100 characters')
+      .optional()
+      .or(z.literal('')),
     membershipNumber: z
       .string()
       .min(2, 'Audit firm approved registration number is required')
@@ -58,6 +63,18 @@ export const auditorSignupSchema = z
     message: 'Passwords do not match',
     path: ['confirmPassword'],
   })
+  .refine(
+    (data) => {
+      if (data.professionalBody === 'OTHER') {
+        return typeof data.otherProfessionalBody === 'string' && data.otherProfessionalBody.trim().length >= 2
+      }
+      return true
+    },
+    {
+      message: 'Please specify your professional accounting body (at least 2 characters)',
+      path: ['otherProfessionalBody'],
+    }
+  )
 
 export type AuditorSignUpFormData = z.infer<typeof auditorSignupSchema>
 

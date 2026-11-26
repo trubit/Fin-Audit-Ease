@@ -98,7 +98,7 @@ export const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* 7-Step Continuous Connected Workflow Line */}
-        <div className="how-connected-track-wrapper reveal-on-scroll reveal-delay-1" role="region" aria-label="Connected Audit Workflow Stages">
+        <div className="how-connected-track-wrapper reveal-on-scroll reveal-delay-1" role="region" aria-label={t('landing.howItWorks.trackAriaLabel', 'Connected Audit Workflow Stages')}>
           <div className="how-track-line" aria-hidden="true" />
 
           <div className="how-steps-scroll" role="list">
@@ -120,7 +120,7 @@ export const HowItWorksSection: React.FC = () => {
                   }}
                   tabIndex={0}
                   aria-current={isSelected ? 'step' : undefined}
-                  aria-label={`Step ${step.num}: ${step.title}`}
+                  aria-label={`${t('landing.howItWorks.stagePrefix', 'Stage')} ${step.num}: ${step.title}`}
                 >
                   <div className="how-node-circle">
                     <Icon size={18} />
@@ -139,7 +139,9 @@ export const HowItWorksSection: React.FC = () => {
         <div className="how-dark-detail-card reveal-on-scroll reveal-delay-2" aria-live="polite">
           <div className="dark-card-left">
             <div className="dark-card-tag-row">
-              <span className="dark-card-step-badge">Stage {steps[activeStep].num}</span>
+              <span className="dark-card-step-badge">
+                {t('landing.howItWorks.stageBadge', { defaultValue: `${t('landing.howItWorks.stagePrefix', 'Stage')} ${steps[activeStep].num}`, num: steps[activeStep].num })}
+              </span>
               <span className="dark-card-actor-badge">{steps[activeStep].actor}</span>
             </div>
             <h3 className="dark-card-heading">{steps[activeStep].title}</h3>

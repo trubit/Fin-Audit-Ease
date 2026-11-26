@@ -175,8 +175,8 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ isAppView = false }) => {
               src="/images/sabi-africa-logo.jpg"
               alt="Sabi Africa Innovations Limited Logo"
               className="app-header-sabi-logo"
-              width="36"
-              height="36"
+              width="44"
+              height="44"
             />
             <div className="app-header-brand-text">
               <span className="app-header-title">FinAuditEase</span>
@@ -330,8 +330,8 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ isAppView = false }) => {
                 src="/images/sabi-africa-logo.jpg"
                 alt="Sabi Africa Innovations Limited Logo"
                 className="app-header-sabi-logo"
-                width="36"
-                height="36"
+                width="44"
+                height="44"
               />
               <div className="app-header-brand-text">
                 <span className="app-header-title">FinAuditEase</span>

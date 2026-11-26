@@ -7,13 +7,13 @@ export const SixMonthPreAuditSection: React.FC = () => {
   const { t } = useLanguage()
 
   const runwayStages = [
-    { id: 't-6-months', label: t('landing.sixMonth.step1'), icon: Clock, tag: 'T-6 Months' },
-    { id: 'runway-step-1', label: t('landing.sixMonth.step2'), icon: ListTodo, tag: 'Step 1' },
-    { id: 'runway-step-2', label: t('landing.sixMonth.step3'), icon: Users, tag: 'Step 2' },
-    { id: 'runway-step-3', label: t('landing.sixMonth.step4'), icon: Search, tag: 'Step 3' },
-    { id: 'runway-step-4', label: t('landing.sixMonth.step5'), icon: CheckCircle2, tag: 'Step 4' },
-    { id: 'runway-step-5', label: t('landing.sixMonth.step6'), icon: Forward, tag: 'Step 5' },
-    { id: 'runway-ready', label: t('landing.sixMonth.step7'), icon: CheckCircle2, tag: 'Ready' },
+    { id: 't-6-months', label: t('landing.sixMonth.step1'), icon: Clock, tag: t('landing.sixMonth.tag1', 'T-6 Months') },
+    { id: 'runway-step-1', label: t('landing.sixMonth.step2'), icon: ListTodo, tag: t('landing.sixMonth.tag2', 'Step 1') },
+    { id: 'runway-step-2', label: t('landing.sixMonth.step3'), icon: Users, tag: t('landing.sixMonth.tag3', 'Step 2') },
+    { id: 'runway-step-3', label: t('landing.sixMonth.step4'), icon: Search, tag: t('landing.sixMonth.tag4', 'Step 3') },
+    { id: 'runway-step-4', label: t('landing.sixMonth.step5'), icon: CheckCircle2, tag: t('landing.sixMonth.tag5', 'Step 4') },
+    { id: 'runway-step-5', label: t('landing.sixMonth.step6'), icon: Forward, tag: t('landing.sixMonth.tag6', 'Step 5') },
+    { id: 'runway-ready', label: t('landing.sixMonth.step7'), icon: CheckCircle2, tag: t('landing.sixMonth.tag7', 'Ready') },
   ]
 
   return (

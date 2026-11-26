@@ -34,7 +34,7 @@
 }
 
 .app-footer-sabi-logo {
-  height: 42px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   border-radius: var(--radius-sm);
@@ -49,16 +49,16 @@
 
 .app-footer-brand-title {
   font-family: var(--font-display);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.2;
 }
 
 .app-footer-brand-powered {
-  font-size: 0.72rem;
+  font-size: 0.9375rem;
   color: #a7f3d0;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
@@ -124,8 +124,8 @@
 }
 
 .app-footer-copyright {
-  font-size: var(--font-size-xs);
-  color: var(--color-slate-500);
+  font-size: var(--font-size-sm);
+  color: var(--color-slate-400);
 }
 
 .app-footer-bottom-right {

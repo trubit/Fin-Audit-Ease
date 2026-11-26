@@ -255,27 +255,27 @@ section[id] {
 .btn-xs {
   min-height: 1.875rem;
   padding: 0.2rem 0.625rem;
-  font-size: var(--font-size-xs, 0.75rem);
+  font-size: var(--font-size-xs, 0.8125rem);
   border-radius: var(--radius-sm, 6px);
 }
 
 .btn-sm {
   min-height: 2.25rem;
   padding: 0.35rem 0.875rem;
-  font-size: var(--font-size-xs, 0.75rem);
+  font-size: var(--font-size-sm, 0.9375rem);
   border-radius: var(--radius-md, 8px);
 }
 
 .btn-md {
   min-height: 2.625rem;
   padding: 0.5rem 1.125rem;
-  font-size: var(--font-size-sm, 0.875rem);
+  font-size: var(--font-size-base, 1.0625rem);
 }
 
 .btn-lg {
   min-height: 3rem;
   padding: 0.75rem 1.625rem;
-  font-size: var(--font-size-base, 1rem);
+  font-size: var(--font-size-lg, 1.2rem);
   font-weight: 700;
   border-radius: var(--radius-lg, 10px);
 }

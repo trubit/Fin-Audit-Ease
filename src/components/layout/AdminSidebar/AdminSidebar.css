@@ -73,7 +73,7 @@
 }
 
 .admin-sidebar-role-label {
-  font-size: var(--font-size-xs, 12px);
+  font-size: 13px;
   font-weight: 700;
   color: var(--brand-green-800, #1a6b4a);
   text-transform: uppercase;
@@ -84,7 +84,8 @@
 }
 
 .admin-sidebar-role-org {
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--slate, #4a4a4a);
   white-space: nowrap;
   overflow: hidden;
@@ -97,7 +98,7 @@
 }
 
 .admin-nav-group-title {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;

@@ -115,15 +115,15 @@
   --font-family-serif: "Times New Roman", Times, serif;
   --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-  /* Font Scale */
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-xl: 1.25rem;    /* 20px */
-  --font-size-2xl: 1.5rem;    /* 24px */
-  --font-size-3xl: 1.875rem;  /* 30px */
-  --font-size-4xl: 2.25rem;   /* 36px */
+  /* Font Scale — Enhanced Legibility for Clients & Users */
+  --font-size-xs: 0.8125rem;    /* 13px (was 12px) */
+  --font-size-sm: 0.9375rem;   /* 15px (was 14px) */
+  --font-size-base: 1.0625rem; /* 17px (was 16px) */
+  --font-size-lg: 1.2rem;      /* 19.2px (was 18px) */
+  --font-size-xl: 1.35rem;     /* 21.6px (was 20px) */
+  --font-size-2xl: 1.65rem;    /* 26.4px (was 24px) */
+  --font-size-3xl: 2.1rem;     /* 33.6px (was 30px) */
+  --font-size-4xl: 2.6rem;     /* 41.6px (was 36px) */
 
   /* Line Heights */
   --line-height-tight: 1.15;

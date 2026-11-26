@@ -72,6 +72,7 @@ export const SignupPage: React.FC = () => {
       confirmPassword: '',
       firmName: '',
       professionalBody: 'ICAN',
+      otherProfessionalBody: '',
       membershipNumber: '',
       preferredLanguage: 'en',
       termsAccepted: false,
@@ -109,6 +110,7 @@ export const SignupPage: React.FC = () => {
   })
 
   const auditorPassword = useWatch({ control: auditorForm.control, name: 'password' })
+  const auditorProfessionalBody = useWatch({ control: auditorForm.control, name: 'professionalBody' })
   const accountingPassword = useWatch({ control: accountingForm.control, name: 'password' })
   const invitationPassword = useWatch({ control: invitationForm.control, name: 'password' })
 
@@ -205,7 +207,11 @@ export const SignupPage: React.FC = () => {
         confirmPassword: data.confirmPassword,
         role: 'AUDITOR',
         firmName: data.firmName.trim(),
-        professionalBody: data.professionalBody,
+        professionalBody:
+          data.professionalBody === 'OTHER' && data.otherProfessionalBody?.trim()
+            ? data.otherProfessionalBody.trim()
+            : data.professionalBody,
+        otherProfessionalBody: data.professionalBody === 'OTHER' ? data.otherProfessionalBody?.trim() : undefined,
         membershipNumber: data.membershipNumber.trim(),
         preferredLanguage: data.preferredLanguage,
         termsAccepted: data.termsAccepted,
@@ -518,15 +524,41 @@ export const SignupPage: React.FC = () => {
                     id="auditor-body"
                     className={`input ${auditorForm.formState.errors.professionalBody ? 'input-error' : ''}`}
                     disabled={isSubmitting}
-                    {...auditorForm.register('professionalBody')}
+                    {...auditorForm.register('professionalBody', {
+                      onChange: (e) => {
+                        if (e.target.value !== 'OTHER') {
+                          auditorForm.setValue('otherProfessionalBody', '')
+                        }
+                      },
+                    })}
                   >
                     <option value="ICAN">ICAN (Institute of Accountants of Nigeria)</option>
                     <option value="ANAN">ANAN (Association of National Accountants of Nigeria)</option>
                     <option value="ACCA">ACCA (Association of Certified Accountants)</option>
                     <option value="ICAEW">ICAEW</option>
+                    <option value="OTHER">{t('authentication.otherProfessionalBodyOption', 'Others')}</option>
                   </select>
                 </FormField>
               </div>
+
+              {/* Other Professional Accounting Body (shown when "Others" is selected) */}
+              {auditorProfessionalBody === 'OTHER' && (
+                <FormField
+                  label={t('authentication.otherProfessionalBodyLabel', 'Specify Professional Accounting Body')}
+                  htmlFor="auditor-other-body"
+                  required
+                  error={auditorForm.formState.errors.otherProfessionalBody?.message}
+                >
+                  <input
+                    id="auditor-other-body"
+                    type="text"
+                    className={`input ${auditorForm.formState.errors.otherProfessionalBody ? 'input-error' : ''}`}
+                    placeholder={t('authentication.otherProfessionalBodyPlaceholder', 'Enter your professional accounting body (e.g. CPA, CITN, CIMA)')}
+                    disabled={isSubmitting}
+                    {...auditorForm.register('otherProfessionalBody')}
+                  />
+                </FormField>
+              )}
 
               <div className="signup-form-grid">
                 {/* Audit Firm Approved Registration Number */}

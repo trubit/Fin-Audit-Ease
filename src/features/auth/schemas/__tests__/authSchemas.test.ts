@@ -240,6 +240,58 @@ describe('Auditor Signup Schema Validation (Option 1)', () => {
     expect(result.success).toBe(false)
   })
 
+  it('accepts valid auditor registration payload with OTHER professional body and specified name', () => {
+    const result = auditorSignupSchema.safeParse({
+      fullName: 'Amina Danjuma',
+      email: 'amina@danjuma-audit.ng',
+      password: 'SecureAuditor2026!#',
+      confirmPassword: 'SecureAuditor2026!#',
+      firmName: 'Danjuma & Associates',
+      professionalBody: 'OTHER',
+      otherProfessionalBody: 'CITN',
+      membershipNumber: 'CITN/2026/7890',
+      preferredLanguage: 'en',
+      termsAccepted: true,
+    })
+    expect(result.success).toBe(true)
+  })
+
+  it('rejects auditor registration when OTHER is selected without specifying professional body', () => {
+    const result = auditorSignupSchema.safeParse({
+      fullName: 'Amina Danjuma',
+      email: 'amina@danjuma-audit.ng',
+      password: 'SecureAuditor2026!#',
+      confirmPassword: 'SecureAuditor2026!#',
+      firmName: 'Danjuma & Associates',
+      professionalBody: 'OTHER',
+      otherProfessionalBody: '',
+      membershipNumber: 'CITN/2026/7890',
+      preferredLanguage: 'en',
+      termsAccepted: true,
+    })
+    expect(result.success).toBe(false)
+    if (!result.success) {
+      const issue = result.error.issues.find((i) => i.path.includes('otherProfessionalBody'))
+      expect(issue).toBeDefined()
+    }
+  })
+
+  it('rejects auditor registration when OTHER is selected with single character specification', () => {
+    const result = auditorSignupSchema.safeParse({
+      fullName: 'Amina Danjuma',
+      email: 'amina@danjuma-audit.ng',
+      password: 'SecureAuditor2026!#',
+      confirmPassword: 'SecureAuditor2026!#',
+      firmName: 'Danjuma & Associates',
+      professionalBody: 'OTHER',
+      otherProfessionalBody: 'C',
+      membershipNumber: 'CITN/2026/7890',
+      preferredLanguage: 'en',
+      termsAccepted: true,
+    })
+    expect(result.success).toBe(false)
+  })
+
   it('rejects missing firm name or membership number', () => {
     const result = auditorSignupSchema.safeParse({
       fullName: 'Dr. Tunde Fashola',

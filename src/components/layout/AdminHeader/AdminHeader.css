@@ -55,9 +55,9 @@
 }
 
 .admin-header-sabi-logo {
-  height: 36px;
+  height: 42px;
   width: auto;
-  max-width: 36px;
+  max-width: 42px;
   flex-shrink: 0;
   object-fit: contain;
   border-radius: 6px;
@@ -100,8 +100,9 @@
 }
 
 .admin-header-subtitle {
-  font-size: 11px;
-  color: #64748b;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

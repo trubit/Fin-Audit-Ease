@@ -40,7 +40,7 @@ export const EngagementSection: React.FC = () => {
               return (
                 <div key={step.num} className="engagement-step-box" role="listitem">
                   <div className="step-box-header">
-                    <span className="step-box-number">Step {step.num}</span>
+                    <span className="step-box-number">{t('landing.engagement.stepPrefix', 'Step')} {step.num}</span>
                     <div className="step-box-icon" aria-hidden="true">
                       <StepIcon size={18} />
                     </div>

@@ -54,8 +54,8 @@ export const AdminHeader: React.FC = () => {
                 src="/images/sabi-africa-logo.jpg"
                 alt="Sabi Africa Innovations Limited Logo"
                 className="admin-header-sabi-logo"
-                width="36"
-                height="36"
+                width="42"
+                height="42"
               />
               <div className="admin-header-brand-text">
                 <div className="admin-header-title">

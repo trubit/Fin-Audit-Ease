@@ -12,6 +12,8 @@ describe('SignupPage Rendering Investigation', () => {
         </MemoryRouter>
       )
       expect(html).toContain('FinAuditEase')
+      expect(html).toContain('value="OTHER"')
+      expect(html).toContain('Others')
     }).not.toThrow()
   })
 

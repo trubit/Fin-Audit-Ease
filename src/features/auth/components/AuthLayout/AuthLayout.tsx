@@ -42,8 +42,8 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
               src="/images/sabi-africa-logo.jpg"
               alt="Sabi Africa Innovations Limited Logo"
               className="auth-header-sabi-logo"
-              width="38"
-              height="38"
+              width="44"
+              height="44"
             />
             <div className="auth-header-brand-text">
               <span className="auth-header-title">FinAuditEase</span>
@@ -74,8 +74,8 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
                 src="/images/sabi-africa-logo.jpg"
                 alt="Sabi Africa Innovations Limited Logo"
                 className="auth-brand-prominent-logo"
-                width="64"
-                height="64"
+                width="76"
+                height="76"
               />
             </div>
             <div className="auth-brand-prominent-meta">

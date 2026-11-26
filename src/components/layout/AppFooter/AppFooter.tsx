@@ -39,7 +39,7 @@ export const AppFooter: React.FC = () => {
                 alt="Sabi Africa Innovations Limited Logo"
                 className="app-footer-sabi-logo"
                 width="140"
-                height="44"
+                height="52"
               />
               <div className="app-footer-brand-text">
                 <span className="app-footer-brand-title">FinAuditEase</span>

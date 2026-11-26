@@ -23,7 +23,8 @@ html {
 body {
   min-height: 100vh;
   min-height: 100dvh;
-  line-height: 1.6;
+  font-size: var(--font-size-base, 1.0625rem);
+  line-height: 1.65;
   font-family: var(--font-family-sans, "Times New Roman", Times, serif);
   font-weight: 450;
   background-color: var(--bg-app);
